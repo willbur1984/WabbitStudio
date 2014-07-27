@@ -1,0 +1,18 @@
+//
+//  WCAppDelegate.m
+//  WabbitCode
+//
+//  Created by William Towe on 7/27/14.
+//
+//
+
+#import "WCAppDelegate.h"
+
+@implementation WCAppDelegate
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
+    // Insert code here to initialize your application
+}
+
+@end

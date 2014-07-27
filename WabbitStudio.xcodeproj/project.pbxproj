@@ -6,20 +6,204 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		79BDB91E1985A1A80018E379 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB91D1985A1A80018E379 /* Cocoa.framework */; };
+		79BDB9281985A1A80018E379 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79BDB9261985A1A80018E379 /* InfoPlist.strings */; };
+		79BDB92A1985A1A80018E379 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BDB9291985A1A80018E379 /* main.m */; };
+		79BDB92E1985A1A90018E379 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 79BDB92C1985A1A80018E379 /* Credits.rtf */; };
+		79BDB9311985A1A90018E379 /* WCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BDB9301985A1A90018E379 /* WCAppDelegate.m */; };
+		79BDB9341985A1A90018E379 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79BDB9321985A1A90018E379 /* MainMenu.xib */; };
+		79BDB9361985A1A90018E379 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79BDB9351985A1A90018E379 /* Images.xcassets */; };
+		79BDB93D1985A1A90018E379 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB93C1985A1A90018E379 /* XCTest.framework */; };
+		79BDB93E1985A1A90018E379 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB91D1985A1A80018E379 /* Cocoa.framework */; };
+		79BDB9461985A1A90018E379 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79BDB9441985A1A90018E379 /* InfoPlist.strings */; };
+		79BDB9481985A1A90018E379 /* WabbitCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BDB9471985A1A90018E379 /* WabbitCodeTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79BDB93F1985A1A90018E379 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79BDB9101985A17E0018E379 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79BDB9191985A1A80018E379;
+			remoteInfo = WabbitCode;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		79BDB91A1985A1A80018E379 /* WabbitCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WabbitCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79BDB91D1985A1A80018E379 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		79BDB9201985A1A80018E379 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		79BDB9211985A1A80018E379 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		79BDB9221985A1A80018E379 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		79BDB9251985A1A80018E379 /* WabbitCode-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WabbitCode-Info.plist"; sourceTree = "<group>"; };
+		79BDB9271985A1A80018E379 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		79BDB9291985A1A80018E379 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		79BDB92B1985A1A80018E379 /* WabbitCode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WabbitCode-Prefix.pch"; sourceTree = "<group>"; };
+		79BDB92D1985A1A80018E379 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		79BDB92F1985A1A90018E379 /* WCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCAppDelegate.h; sourceTree = "<group>"; };
+		79BDB9301985A1A90018E379 /* WCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCAppDelegate.m; sourceTree = "<group>"; };
+		79BDB9331985A1A90018E379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		79BDB9351985A1A90018E379 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		79BDB93B1985A1A90018E379 /* WabbitCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WabbitCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79BDB93C1985A1A90018E379 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		79BDB9431985A1A90018E379 /* WabbitCodeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WabbitCodeTests-Info.plist"; sourceTree = "<group>"; };
+		79BDB9451985A1A90018E379 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		79BDB9471985A1A90018E379 /* WabbitCodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WabbitCodeTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79BDB9171985A1A80018E379 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79BDB91E1985A1A80018E379 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79BDB9381985A1A90018E379 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79BDB93E1985A1A90018E379 /* Cocoa.framework in Frameworks */,
+				79BDB93D1985A1A90018E379 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		79BDB90F1985A17E0018E379 = {
 			isa = PBXGroup;
 			children = (
+				79BDB9231985A1A80018E379 /* WabbitCode */,
+				79BDB9411985A1A90018E379 /* WabbitCodeTests */,
+				79BDB91C1985A1A80018E379 /* Frameworks */,
+				79BDB91B1985A1A80018E379 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
+		79BDB91B1985A1A80018E379 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79BDB91A1985A1A80018E379 /* WabbitCode.app */,
+				79BDB93B1985A1A90018E379 /* WabbitCodeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79BDB91C1985A1A80018E379 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79BDB91D1985A1A80018E379 /* Cocoa.framework */,
+				79BDB93C1985A1A90018E379 /* XCTest.framework */,
+				79BDB91F1985A1A80018E379 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79BDB91F1985A1A80018E379 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79BDB9201985A1A80018E379 /* AppKit.framework */,
+				79BDB9211985A1A80018E379 /* CoreData.framework */,
+				79BDB9221985A1A80018E379 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		79BDB9231985A1A80018E379 /* WabbitCode */ = {
+			isa = PBXGroup;
+			children = (
+				79BDB92F1985A1A90018E379 /* WCAppDelegate.h */,
+				79BDB9301985A1A90018E379 /* WCAppDelegate.m */,
+				79BDB9321985A1A90018E379 /* MainMenu.xib */,
+				79BDB9351985A1A90018E379 /* Images.xcassets */,
+				79BDB9241985A1A80018E379 /* Supporting Files */,
+			);
+			path = WabbitCode;
+			sourceTree = "<group>";
+		};
+		79BDB9241985A1A80018E379 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79BDB9251985A1A80018E379 /* WabbitCode-Info.plist */,
+				79BDB9261985A1A80018E379 /* InfoPlist.strings */,
+				79BDB9291985A1A80018E379 /* main.m */,
+				79BDB92B1985A1A80018E379 /* WabbitCode-Prefix.pch */,
+				79BDB92C1985A1A80018E379 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79BDB9411985A1A90018E379 /* WabbitCodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				79BDB9471985A1A90018E379 /* WabbitCodeTests.m */,
+				79BDB9421985A1A90018E379 /* Supporting Files */,
+			);
+			path = WabbitCodeTests;
+			sourceTree = "<group>";
+		};
+		79BDB9421985A1A90018E379 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79BDB9431985A1A90018E379 /* WabbitCodeTests-Info.plist */,
+				79BDB9441985A1A90018E379 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79BDB9191985A1A80018E379 /* WabbitCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79BDB9491985A1A90018E379 /* Build configuration list for PBXNativeTarget "WabbitCode" */;
+			buildPhases = (
+				79BDB9161985A1A80018E379 /* Sources */,
+				79BDB9171985A1A80018E379 /* Frameworks */,
+				79BDB9181985A1A80018E379 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WabbitCode;
+			productName = WabbitCode;
+			productReference = 79BDB91A1985A1A80018E379 /* WabbitCode.app */;
+			productType = "com.apple.product-type.application";
+		};
+		79BDB93A1985A1A90018E379 /* WabbitCodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79BDB94C1985A1A90018E379 /* Build configuration list for PBXNativeTarget "WabbitCodeTests" */;
+			buildPhases = (
+				79BDB9371985A1A90018E379 /* Sources */,
+				79BDB9381985A1A90018E379 /* Frameworks */,
+				79BDB9391985A1A90018E379 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79BDB9401985A1A90018E379 /* PBXTargetDependency */,
+			);
+			name = WabbitCodeTests;
+			productName = WabbitCodeTests;
+			productReference = 79BDB93B1985A1A90018E379 /* WabbitCodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		79BDB9101985A17E0018E379 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					79BDB93A1985A1A90018E379 = {
+						TestTargetID = 79BDB9191985A1A80018E379;
+					};
+				};
 			};
 			buildConfigurationList = 79BDB9131985A17E0018E379 /* Build configuration list for PBXProject "WabbitStudio" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -27,14 +211,103 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 79BDB90F1985A17E0018E379;
+			productRefGroup = 79BDB91B1985A1A80018E379 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				79BDB9191985A1A80018E379 /* WabbitCode */,
+				79BDB93A1985A1A90018E379 /* WabbitCodeTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79BDB9181985A1A80018E379 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79BDB9281985A1A80018E379 /* InfoPlist.strings in Resources */,
+				79BDB9361985A1A90018E379 /* Images.xcassets in Resources */,
+				79BDB92E1985A1A90018E379 /* Credits.rtf in Resources */,
+				79BDB9341985A1A90018E379 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79BDB9391985A1A90018E379 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79BDB9461985A1A90018E379 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79BDB9161985A1A80018E379 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79BDB9311985A1A90018E379 /* WCAppDelegate.m in Sources */,
+				79BDB92A1985A1A80018E379 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79BDB9371985A1A90018E379 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79BDB9481985A1A90018E379 /* WabbitCodeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79BDB9401985A1A90018E379 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79BDB9191985A1A80018E379 /* WabbitCode */;
+			targetProxy = 79BDB93F1985A1A90018E379 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		79BDB9261985A1A80018E379 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79BDB9271985A1A80018E379 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		79BDB92C1985A1A80018E379 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79BDB92D1985A1A80018E379 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		79BDB9321985A1A90018E379 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79BDB9331985A1A90018E379 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		79BDB9441985A1A90018E379 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79BDB9451985A1A90018E379 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		79BDB9141985A17E0018E379 /* Debug */ = {
@@ -49,6 +322,184 @@
 			};
 			name = Release;
 		};
+		79BDB94A1985A1A90018E379 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WabbitCode/WabbitCode-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "WabbitCode/WabbitCode-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		79BDB94B1985A1A90018E379 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WabbitCode/WabbitCode-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "WabbitCode/WabbitCode-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		79BDB94D1985A1A90018E379 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WabbitCode.app/Contents/MacOS/WabbitCode";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WabbitCode/WabbitCode-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "WabbitCodeTests/WabbitCodeTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		79BDB94E1985A1A90018E379 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WabbitCode.app/Contents/MacOS/WabbitCode";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WabbitCode/WabbitCode-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "WabbitCodeTests/WabbitCodeTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -60,6 +511,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		79BDB9491985A1A90018E379 /* Build configuration list for PBXNativeTarget "WabbitCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79BDB94A1985A1A90018E379 /* Debug */,
+				79BDB94B1985A1A90018E379 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		79BDB94C1985A1A90018E379 /* Build configuration list for PBXNativeTarget "WabbitCodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79BDB94D1985A1A90018E379 /* Debug */,
+				79BDB94E1985A1A90018E379 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
