@@ -1,5 +1,5 @@
 //
-//  WCDocumentWindowController.m
+//  WCDocumentViewController.h
 //  WabbitStudio
 //
 //  Created by William Towe on 7/28/14.
@@ -11,20 +11,8 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "WCDocumentWindowController.h"
-#import "WCDocumentViewController.h"
+#import <WCFoundation/WCBaseViewController.h>
 
-@interface WCDocumentWindowController ()
-@property (strong,nonatomic) WCDocumentViewController *documentViewController;
-@end
-
-@implementation WCDocumentWindowController
-
-- (void)windowDidLoad {
-    [super windowDidLoad];
-    
-    [self setDocumentViewController:[[WCDocumentViewController alloc] init]];
-    [self.window setContentView:self.documentViewController.view];
-}
+@interface WCDocumentViewController : WCBaseViewController
 
 @end

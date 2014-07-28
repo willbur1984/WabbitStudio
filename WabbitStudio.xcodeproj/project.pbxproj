@@ -10,6 +10,8 @@
 		638F5D68FD6043EEB068B75F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF3472DB44C43E19ECE0072 /* libPods.a */; };
 		796AF853198708D000D24EED /* WCBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 796AF851198708D000D24EED /* WCBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		796AF854198708D000D24EED /* WCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF852198708D000D24EED /* WCBaseViewController.m */; };
+		796AF85919870C8000D24EED /* WCDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF85819870C8000D24EED /* WCDocumentViewController.m */; };
+		796AF85D19870DD100D24EED /* WCDocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796AF85B19870DD100D24EED /* WCDocumentViewController.xib */; };
 		79BDB91E1985A1A80018E379 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB91D1985A1A80018E379 /* Cocoa.framework */; };
 		79BDB9281985A1A80018E379 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79BDB9261985A1A80018E379 /* InfoPlist.strings */; };
 		79BDB92A1985A1A80018E379 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BDB9291985A1A80018E379 /* main.m */; };
@@ -53,6 +55,9 @@
 		3CF3472DB44C43E19ECE0072 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		796AF851198708D000D24EED /* WCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseViewController.h; sourceTree = "<group>"; };
 		796AF852198708D000D24EED /* WCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBaseViewController.m; sourceTree = "<group>"; };
+		796AF85719870C8000D24EED /* WCDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDocumentViewController.h; sourceTree = "<group>"; };
+		796AF85819870C8000D24EED /* WCDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDocumentViewController.m; sourceTree = "<group>"; };
+		796AF85C19870DD100D24EED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCDocumentViewController.xib; sourceTree = "<group>"; };
 		79BDB91A1985A1A80018E379 /* WabbitCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WabbitCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79BDB91D1985A1A80018E379 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		79BDB9201985A1A80018E379 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -117,6 +122,9 @@
 		796AF84F1987060100D24EED /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				796AF85A19870DBB00D24EED /* Xibs */,
+				796AF85719870C8000D24EED /* WCDocumentViewController.h */,
+				796AF85819870C8000D24EED /* WCDocumentViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -140,6 +148,15 @@
 				79FBB950198631FD00AF11FA /* Window Controllers */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		796AF85A19870DBB00D24EED /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				796AF85B19870DD100D24EED /* WCDocumentViewController.xib */,
+			);
+			name = Xibs;
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 		79BDB90F1985A17E0018E379 = {
@@ -419,6 +436,7 @@
 				79FBB97019864CD600AF11FA /* WCDocumentWindowController.xib in Resources */,
 				79BDB9281985A1A80018E379 /* InfoPlist.strings in Resources */,
 				79BDB9361985A1A90018E379 /* Images.xcassets in Resources */,
+				796AF85D19870DD100D24EED /* WCDocumentViewController.xib in Resources */,
 				79BDB9341985A1A90018E379 /* WCMainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,6 +509,7 @@
 				79BDB9311985A1A90018E379 /* WCAppDelegate.m in Sources */,
 				79FBB8E21986245D00AF11FA /* WCDocument.m in Sources */,
 				79BDB92A1985A1A80018E379 /* main.m in Sources */,
+				796AF85919870C8000D24EED /* WCDocumentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +535,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		796AF85B19870DD100D24EED /* WCDocumentViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				796AF85C19870DD100D24EED /* Base */,
+			);
+			name = WCDocumentViewController.xib;
+			sourceTree = "<group>";
+		};
 		79BDB9261985A1A80018E379 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
