@@ -16,7 +16,6 @@
 		79BDB9361985A1A90018E379 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79BDB9351985A1A90018E379 /* Images.xcassets */; };
 		79FBB8E21986245D00AF11FA /* WCDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBB8E11986245D00AF11FA /* WCDocument.m */; };
 		79FBB8E61986263A00AF11FA /* WCDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBB8E51986263A00AF11FA /* WCDocumentWindowController.m */; };
-		79FBB8EC19862B5400AF11FA /* WCDocumentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79FBB8EA19862B5400AF11FA /* WCDocumentWindowController.xib */; };
 		79FBB924198630B300AF11FA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB91D1985A1A80018E379 /* Cocoa.framework */; };
 		79FBB92A198630B300AF11FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79FBB928198630B300AF11FA /* InfoPlist.strings */; };
 		79FBB9491986310800AF11FA /* WCBaseWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 79FBB9471986310800AF11FA /* WCBaseWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +32,8 @@
 		79FBB9661986434800AF11FA /* Acknowledgements.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 79FBB9651986434800AF11FA /* Acknowledgements.markdown */; };
 		79FBB9681986449300AF11FA /* WCConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 79FBB9671986449300AF11FA /* WCConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79FBB96C198646EF00AF11FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79FBB96A198646EF00AF11FA /* Localizable.strings */; };
+		79FBB97019864CD600AF11FA /* WCDocumentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79FBB96E19864CD600AF11FA /* WCDocumentWindowController.xib */; };
+		79FBB97219864E9500AF11FA /* WCFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79FBB97119864E9500AF11FA /* WCFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +67,6 @@
 		79FBB8E11986245D00AF11FA /* WCDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDocument.m; sourceTree = "<group>"; };
 		79FBB8E41986263A00AF11FA /* WCDocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDocumentWindowController.h; sourceTree = "<group>"; };
 		79FBB8E51986263A00AF11FA /* WCDocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDocumentWindowController.m; sourceTree = "<group>"; };
-		79FBB8EB19862B5400AF11FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCDocumentWindowController.xib; sourceTree = "<group>"; };
 		79FBB923198630B300AF11FA /* WCFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WCFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79FBB927198630B300AF11FA /* WCFoundation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WCFoundation-Info.plist"; sourceTree = "<group>"; };
 		79FBB929198630B300AF11FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -84,6 +84,8 @@
 		79FBB9651986434800AF11FA /* Acknowledgements.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Acknowledgements.markdown; sourceTree = "<group>"; };
 		79FBB9671986449300AF11FA /* WCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCConstants.h; sourceTree = "<group>"; };
 		79FBB96B198646EF00AF11FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		79FBB96F19864CD600AF11FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCDocumentWindowController.xib; sourceTree = "<group>"; };
+		79FBB97119864E9500AF11FA /* WCFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFunctions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				79BDB9321985A1A90018E379 /* WCMainMenu.xib */,
-				79FBB8EA19862B5400AF11FA /* WCDocumentWindowController.xib */,
 			);
 			name = Xibs;
 			path = Base.lproj;
@@ -198,6 +199,7 @@
 		79FBB8F219862C3E00AF11FA /* Window Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				79FBB96D19864C6E00AF11FA /* Xibs */,
 				79FBB8E41986263A00AF11FA /* WCDocumentWindowController.h */,
 				79FBB8E51986263A00AF11FA /* WCDocumentWindowController.m */,
 			);
@@ -269,8 +271,18 @@
 			children = (
 				79FBB9671986449300AF11FA /* WCConstants.h */,
 				79FBB95F19863C1A00AF11FA /* WCDebugging.h */,
+				79FBB97119864E9500AF11FA /* WCFunctions.h */,
 			);
 			name = Headers;
+			sourceTree = "<group>";
+		};
+		79FBB96D19864C6E00AF11FA /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				79FBB96E19864CD600AF11FA /* WCDocumentWindowController.xib */,
+			);
+			name = Xibs;
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FBB9681986449300AF11FA /* WCConstants.h in Headers */,
+				79FBB97219864E9500AF11FA /* WCFunctions.h in Headers */,
 				79FBB9491986310800AF11FA /* WCBaseWindowController.h in Headers */,
 				79FBB95C1986363200AF11FA /* WCAboutBackgroundView.h in Headers */,
 				79FBB9541986322C00AF11FA /* WCAboutWindowController.h in Headers */,
@@ -372,10 +385,10 @@
 			files = (
 				79FBB96419863FFC00AF11FA /* Credits.txt in Resources */,
 				79FBB9661986434800AF11FA /* Acknowledgements.markdown in Resources */,
+				79FBB97019864CD600AF11FA /* WCDocumentWindowController.xib in Resources */,
 				79BDB9281985A1A80018E379 /* InfoPlist.strings in Resources */,
 				79BDB9361985A1A90018E379 /* Images.xcassets in Resources */,
 				79BDB9341985A1A90018E379 /* WCMainMenu.xib in Resources */,
-				79FBB8EC19862B5400AF11FA /* WCDocumentWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,14 +501,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		79FBB8EA19862B5400AF11FA /* WCDocumentWindowController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79FBB8EB19862B5400AF11FA /* Base */,
-			);
-			name = WCDocumentWindowController.xib;
-			sourceTree = "<group>";
-		};
 		79FBB928198630B300AF11FA /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -518,6 +523,14 @@
 				79FBB96B198646EF00AF11FA /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		79FBB96E19864CD600AF11FA /* WCDocumentWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79FBB96F19864CD600AF11FA /* Base */,
+			);
+			name = WCDocumentWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -739,6 +752,7 @@
 				79FBB943198630B300AF11FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

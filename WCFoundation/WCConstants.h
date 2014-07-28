@@ -19,4 +19,6 @@
 static CGFloat const WCSubviewPadding = 20.0;
 static CGFloat const WCSubviewMargin = 8.0;
 
+static NSString *const WCFoundationBundleIdentifier = @"com.williamtowellc.wcfoundation";
+
 #endif

@@ -12,6 +12,7 @@
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "WCAboutWindowController.h"
+#import "WCFunctions.h"
 
 NSString *const WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString = @"WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString";
 
@@ -38,16 +39,16 @@ NSString *const WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString =
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    [self.window setTitle:NSLocalizedStringFromTableInBundle(@"About", nil, [NSBundle bundleForClass:self.class], @"about window title")];
+    [self.window setTitle:NSLocalizedStringFromTableInBundle(@"About", nil, WCFoundationBundle(), @"about window title")];
     
     [self.creditsTextView setTextContainerInset:NSZeroSize];
     
     [self.applicationNameLabel setStringValue:[NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"]];
-    [self.applicationVersionLabel setStringValue:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"Version %@ (Build %@)", nil, [NSBundle bundleForClass:self.class], @"about window application version label format string"),[NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"],[NSBundle mainBundle].infoDictionary[@"CFBundleVersion"]]];
+    [self.applicationVersionLabel setStringValue:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"Version %@ (Build %@)", nil, WCFoundationBundle(), @"about window application version label format string"),[NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"],[NSBundle mainBundle].infoDictionary[@"CFBundleVersion"]]];
     [self.copyrightNoticeLabel setStringValue:[NSBundle mainBundle].infoDictionary[@"NSHumanReadableCopyright"]];
     
-    [self.acknowledgementsButton setTitle:NSLocalizedStringFromTableInBundle(@"Acknowledgements", nil, [NSBundle bundleForClass:self.class], @"acknowledgements button title")];
-    [self.visitApplicationWebsiteButton setTitle:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"Visit %@ Website", nil, [NSBundle bundleForClass:self.class], @"about window visit application website format string"),[NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"]]];
+    [self.acknowledgementsButton setTitle:NSLocalizedStringFromTableInBundle(@"Acknowledgements", nil, WCFoundationBundle(), @"acknowledgements button title")];
+    [self.visitApplicationWebsiteButton setTitle:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"Visit %@ Website", nil, WCFoundationBundle(), @"about window visit application website format string"),[NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"]]];
     
     [self.creditsTextView setString:({
         NSString *retval = @"";
