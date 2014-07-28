@@ -10,6 +10,4 @@
 
 @interface WCAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
-
 @end
