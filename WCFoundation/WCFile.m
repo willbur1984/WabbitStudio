@@ -40,7 +40,10 @@ static void *kWCFileObservingContext = &kWCFileObservingContext;
             NSURL *old = change[NSKeyValueChangeOldKey];
             NSURL *new = change[NSKeyValueChangeNewKey];
             
-            WCLog(@"%@ %@",old,new);
+            if (old && new && [old isEqual:new])
+                return;
+            
+            [self _startMonitoringFileSource];
         }
     }
     else {
@@ -92,6 +95,9 @@ static void *kWCFileObservingContext = &kWCFileObservingContext;
 }
 - (void)_stopMonitoringFileSource; {
     if (!self.fileURL)
+        return;
+    
+    if (!self.fileSource)
         return;
     
     dispatch_source_cancel(self.fileSource);

@@ -13,12 +13,33 @@
 
 #import "WCDocument.h"
 #import "WCDocumentWindowController.h"
+#import <WCFoundation/WCFile.h>
+#import <WCFoundation/WCDebugging.h>
 
 @interface WCDocument ()
 @property (weak,nonatomic) WCDocumentWindowController *documentWindowController;
+
+@property (strong,nonatomic) WCFile *file;
 @end
 
 @implementation WCDocument
+
+- (id)initWithType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
+    if (!(self = [super initWithType:typeName error:outError]))
+        return nil;
+    
+    [self setFile:[[WCFile alloc] initWithFileURL:nil]];
+    
+    return self;
+}
+- (id)initWithContentsOfURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
+    if (!(self = [super initWithContentsOfURL:url ofType:typeName error:outError]))
+        return nil;
+    
+    [self setFile:[[WCFile alloc] initWithFileURL:url]];
+    
+    return self;
+}
 
 - (void)makeWindowControllers {
     WCDocumentWindowController *documentWindowController = [[WCDocumentWindowController alloc] init];
