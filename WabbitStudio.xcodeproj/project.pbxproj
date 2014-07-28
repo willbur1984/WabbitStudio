@@ -110,6 +110,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		796AF84F1987060100D24EED /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		796AF8501987061A00D24EED /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				79BDB92F1985A1A90018E379 /* WCAppDelegate.h */,
+				79BDB9301985A1A90018E379 /* WCAppDelegate.m */,
+				79FBB8F119862C3700AF11FA /* Documents */,
+				79FBB8F219862C3E00AF11FA /* Window Controllers */,
+				796AF84F1987060100D24EED /* View Controllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		79BDB90F1985A17E0018E379 = {
 			isa = PBXGroup;
 			children = (
@@ -154,10 +173,7 @@
 		79BDB9231985A1A80018E379 /* WabbitCode */ = {
 			isa = PBXGroup;
 			children = (
-				79BDB92F1985A1A90018E379 /* WCAppDelegate.h */,
-				79BDB9301985A1A90018E379 /* WCAppDelegate.m */,
-				79FBB8F119862C3700AF11FA /* Documents */,
-				79FBB8F219862C3E00AF11FA /* Window Controllers */,
+				796AF8501987061A00D24EED /* Classes */,
 				79FBB8E3198625F100AF11FA /* Xibs */,
 				79BDB9241985A1A80018E379 /* Supporting Files */,
 				79BDB9351985A1A90018E379 /* Images.xcassets */,
