@@ -32,6 +32,7 @@
 		79FBB96419863FFC00AF11FA /* Credits.txt in Resources */ = {isa = PBXBuildFile; fileRef = 79FBB96319863FFC00AF11FA /* Credits.txt */; };
 		79FBB9661986434800AF11FA /* Acknowledgements.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 79FBB9651986434800AF11FA /* Acknowledgements.markdown */; };
 		79FBB9681986449300AF11FA /* WCConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 79FBB9671986449300AF11FA /* WCConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79FBB96C198646EF00AF11FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79FBB96A198646EF00AF11FA /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		79FBB96319863FFC00AF11FA /* Credits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Credits.txt; sourceTree = "<group>"; };
 		79FBB9651986434800AF11FA /* Acknowledgements.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Acknowledgements.markdown; sourceTree = "<group>"; };
 		79FBB9671986449300AF11FA /* WCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCConstants.h; sourceTree = "<group>"; };
+		79FBB96B198646EF00AF11FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 			children = (
 				79FBB927198630B300AF11FA /* WCFoundation-Info.plist */,
 				79FBB928198630B300AF11FA /* InfoPlist.strings */,
+				79FBB96A198646EF00AF11FA /* Localizable.strings */,
 				79FBB92B198630B300AF11FA /* WCFoundation-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -313,6 +316,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79FBB941198630B300AF11FA /* Build configuration list for PBXNativeTarget "WCFoundation" */;
 			buildPhases = (
+				79FBB9691986469500AF11FA /* genstrings */,
 				79FBB91E198630B300AF11FA /* Sources */,
 				79FBB91F198630B300AF11FA /* Frameworks */,
 				79FBB920198630B300AF11FA /* Headers */,
@@ -380,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FBB92A198630B300AF11FA /* InfoPlist.strings in Resources */,
+				79FBB96C198646EF00AF11FA /* Localizable.strings in Resources */,
 				79FBB9591986327900AF11FA /* WCAboutWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +421,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		79FBB9691986469500AF11FA /* genstrings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = genstrings;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "genstrings -s NSLocalizedString -q -o $SRCROOT/$TARGET_NAME/en.lproj $SRCROOT/$TARGET_NAME/*.m";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -491,6 +510,14 @@
 				79FBB9581986327900AF11FA /* en */,
 			);
 			name = WCAboutWindowController.xib;
+			sourceTree = "<group>";
+		};
+		79FBB96A198646EF00AF11FA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79FBB96B198646EF00AF11FA /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

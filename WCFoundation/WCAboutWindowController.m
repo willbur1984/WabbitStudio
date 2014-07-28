@@ -33,16 +33,16 @@ NSString *const WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString =
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    [self.window setTitle:NSLocalizedString(@"About", @"about window title")];
+    [self.window setTitle:NSLocalizedStringFromTableInBundle(@"About", nil, [NSBundle bundleForClass:self.class], @"about window title")];
     
     [self.creditsTextView setTextContainerInset:NSZeroSize];
     
     [self.applicationNameLabel setStringValue:[NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"]];
-    [self.applicationVersionLabel setStringValue:[NSString stringWithFormat:NSLocalizedString(@"Version %@ (Build %@)", @"about window application version label format string"),[NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"],[NSBundle mainBundle].infoDictionary[@"CFBundleVersion"]]];
+    [self.applicationVersionLabel setStringValue:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"Version %@ (Build %@)", nil, [NSBundle bundleForClass:self.class], @"about window application version label format string"),[NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"],[NSBundle mainBundle].infoDictionary[@"CFBundleVersion"]]];
     [self.copyrightNoticeLabel setStringValue:[NSBundle mainBundle].infoDictionary[@"NSHumanReadableCopyright"]];
     
-    [self.acknowledgementsButton setTitle:NSLocalizedString(@"Acknowledgements", @"about window acknowledgements button title")];
-    [self.visitApplicationWebsiteButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"Visit %@ Website", @"about window visit application website format string"),[NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"]]];
+    [self.acknowledgementsButton setTitle:NSLocalizedStringFromTableInBundle(@"Acknowledgements", nil, [NSBundle bundleForClass:self.class], @"acknowledgements button title")];
+    [self.visitApplicationWebsiteButton setTitle:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"Visit %@ Website", nil, [NSBundle bundleForClass:self.class], @"about window visit application website format string"),[NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"]]];
     
     [self.creditsTextView setString:({
         NSString *retval = @"";
