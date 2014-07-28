@@ -1,0 +1,28 @@
+PODS:
+  - BlocksKit (2.2.3):
+    - BlocksKit/All
+  - BlocksKit/All (2.2.3):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.3)
+  - BlocksKit/DynamicDelegate (2.2.3)
+  - CocoaLumberjack (1.9.1):
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.9.1)
+  - CocoaLumberjack/Extensions (1.9.1):
+    - CocoaLumberjack/Core
+  - MASPreferences (1.1)
+
+DEPENDENCIES:
+  - BlocksKit (~> 2.2.0)
+  - CocoaLumberjack (~> 1.9.0)
+  - MASPreferences (~> 1.1.0)
+
+SPEC CHECKSUMS:
+  BlocksKit: 07c8a80f04275efac6a5f8b973782489c083a182
+  CocoaLumberjack: 94accd5749f5c5d15134c8d50f34a973aed8ef69
+  MASPreferences: 971d03da4b3818f8ea0d0ef10b86b02b2c052d17
+
+COCOAPODS: 0.33.1
