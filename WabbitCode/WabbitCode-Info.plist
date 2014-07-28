@@ -43,6 +43,8 @@
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright (c) 2014 William Towe, LLC. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>WCMainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -79,5 +81,7 @@
 			</dict>
 		</dict>
 	</array>
+	<key>WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString</key>
+	<string>https://github.com/willbur1984/WabbitStudio</string>
 </dict>
 </plist>
