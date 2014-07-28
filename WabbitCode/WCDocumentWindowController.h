@@ -6,8 +6,8 @@
 //
 //
 
-#import <Cocoa/Cocoa.h>
+#import "WCBaseWindowController.h"
 
-@interface WCDocumentWindowController : NSWindowController
+@interface WCDocumentWindowController : WCBaseWindowController
 
 @end

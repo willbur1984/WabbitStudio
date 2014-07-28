@@ -10,6 +10,10 @@
 
 @implementation WCAppDelegate
 
+- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
+    return NO;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)note {
     
 }

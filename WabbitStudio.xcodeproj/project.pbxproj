@@ -21,6 +21,8 @@
 		79BDB9481985A1A90018E379 /* WabbitCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BDB9471985A1A90018E379 /* WabbitCodeTests.m */; };
 		79FBB8E21986245D00AF11FA /* WCDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBB8E11986245D00AF11FA /* WCDocument.m */; };
 		79FBB8E61986263A00AF11FA /* WCDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBB8E51986263A00AF11FA /* WCDocumentWindowController.m */; };
+		79FBB8EC19862B5400AF11FA /* WCDocumentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79FBB8EA19862B5400AF11FA /* WCDocumentWindowController.xib */; };
+		79FBB8F019862BF800AF11FA /* WCBaseWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBB8EF19862BF800AF11FA /* WCBaseWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,9 @@
 		79FBB8E11986245D00AF11FA /* WCDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDocument.m; sourceTree = "<group>"; };
 		79FBB8E41986263A00AF11FA /* WCDocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDocumentWindowController.h; sourceTree = "<group>"; };
 		79FBB8E51986263A00AF11FA /* WCDocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDocumentWindowController.m; sourceTree = "<group>"; };
+		79FBB8EB19862B5400AF11FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCDocumentWindowController.xib; sourceTree = "<group>"; };
+		79FBB8EE19862BF800AF11FA /* WCBaseWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseWindowController.h; sourceTree = "<group>"; };
+		79FBB8EF19862BF800AF11FA /* WCBaseWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBaseWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,10 +134,9 @@
 			children = (
 				79BDB92F1985A1A90018E379 /* WCAppDelegate.h */,
 				79BDB9301985A1A90018E379 /* WCAppDelegate.m */,
-				79FBB8E01986245D00AF11FA /* WCDocument.h */,
-				79FBB8E11986245D00AF11FA /* WCDocument.m */,
-				79FBB8E41986263A00AF11FA /* WCDocumentWindowController.h */,
-				79FBB8E51986263A00AF11FA /* WCDocumentWindowController.m */,
+				79FBB8ED19862BEB00AF11FA /* Base */,
+				79FBB8F119862C3700AF11FA /* Documents */,
+				79FBB8F219862C3E00AF11FA /* Window Controllers */,
 				79FBB8E3198625F100AF11FA /* Xibs */,
 				79BDB9241985A1A80018E379 /* Supporting Files */,
 				79BDB9351985A1A90018E379 /* Images.xcassets */,
@@ -174,9 +178,37 @@
 			isa = PBXGroup;
 			children = (
 				79BDB9321985A1A90018E379 /* WCMainMenu.xib */,
+				79FBB8EA19862B5400AF11FA /* WCDocumentWindowController.xib */,
 			);
 			name = Xibs;
 			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		79FBB8ED19862BEB00AF11FA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				79FBB8EE19862BF800AF11FA /* WCBaseWindowController.h */,
+				79FBB8EF19862BF800AF11FA /* WCBaseWindowController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		79FBB8F119862C3700AF11FA /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				79FBB8E01986245D00AF11FA /* WCDocument.h */,
+				79FBB8E11986245D00AF11FA /* WCDocument.m */,
+			);
+			name = Documents;
+			sourceTree = "<group>";
+		};
+		79FBB8F219862C3E00AF11FA /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79FBB8E41986263A00AF11FA /* WCDocumentWindowController.h */,
+				79FBB8E51986263A00AF11FA /* WCDocumentWindowController.m */,
+			);
+			name = "Window Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +295,7 @@
 				79BDB9361985A1A90018E379 /* Images.xcassets in Resources */,
 				79BDB92E1985A1A90018E379 /* Credits.rtf in Resources */,
 				79BDB9341985A1A90018E379 /* WCMainMenu.xib in Resources */,
+				79FBB8EC19862B5400AF11FA /* WCDocumentWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FBB8E61986263A00AF11FA /* WCDocumentWindowController.m in Sources */,
+				79FBB8F019862BF800AF11FA /* WCBaseWindowController.m in Sources */,
 				79BDB9311985A1A90018E379 /* WCAppDelegate.m in Sources */,
 				79FBB8E21986245D00AF11FA /* WCDocument.m in Sources */,
 				79BDB92A1985A1A80018E379 /* main.m in Sources */,
@@ -371,6 +405,14 @@
 				79BDB9451985A1A90018E379 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		79FBB8EA19862B5400AF11FA /* WCDocumentWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79FBB8EB19862B5400AF11FA /* Base */,
+			);
+			name = WCDocumentWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
