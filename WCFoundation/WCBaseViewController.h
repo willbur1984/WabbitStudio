@@ -1,6 +1,6 @@
 //
-//  WCFoundation.h
-//  WCFoundation
+//  WCBaseViewController.h
+//  WabbitStudio
 //
 //  Created by William Towe on 7/28/14.
 //  Copyright (c) 2014 William Towe, LLC. All rights reserved.
@@ -11,11 +11,8 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <WCFoundation/WCConstants.h>
-#import <WCFoundation/WCDebugging.h>
-#import <WCFoundation/WCFunctions.h>
+#import <Cocoa/Cocoa.h>
 
-#import <WCFoundation/WCBaseWindowController.h>
-#import <WCFoundation/WCAboutWindowController.h>
+@interface WCBaseViewController : NSViewController
 
-#import <WCFoundation/WCBaseViewController.h>
+@end
