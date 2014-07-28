@@ -1,7 +1,6 @@
 platform :osx, "10.9"
 
 pod "Archimedes", "~> 1.1.0"
-pod "CocoaLumberjack", "~> 1.9.0"
 pod "libextobjc", "~> 0.4.0"
 pod "pop", "~> 1.0.0"
 pod "ReactiveCocoa", "2.3.0"
