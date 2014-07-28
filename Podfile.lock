@@ -1,28 +1,75 @@
 PODS:
-  - BlocksKit (2.2.3):
-    - BlocksKit/All
-  - BlocksKit/All (2.2.3):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-    - BlocksKit/MessageUI
-    - BlocksKit/UIKit
-  - BlocksKit/Core (2.2.3)
-  - BlocksKit/DynamicDelegate (2.2.3)
+  - Archimedes (1.1)
   - CocoaLumberjack (1.9.1):
     - CocoaLumberjack/Extensions
   - CocoaLumberjack/Core (1.9.1)
   - CocoaLumberjack/Extensions (1.9.1):
     - CocoaLumberjack/Core
-  - MASPreferences (1.1)
+  - libextobjc (0.4):
+    - libextobjc/EXTADT
+    - libextobjc/EXTConcreteProtocol
+    - libextobjc/EXTKeyPathCoding
+    - libextobjc/EXTNil
+    - libextobjc/EXTSafeCategory
+    - libextobjc/EXTScope
+    - libextobjc/EXTSelectorChecking
+    - libextobjc/EXTSynthesize
+    - libextobjc/NSInvocation+EXT
+    - libextobjc/NSMethodSignature+EXT
+    - libextobjc/RuntimeExtensions
+    - libextobjc/UmbrellaHeader
+  - libextobjc/EXTADT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4)
+  - libextobjc/UmbrellaHeader (0.4)
+  - pop (1.0.6)
+  - ReactiveCocoa (2.3):
+    - ReactiveCocoa/UI
+  - ReactiveCocoa/Core (2.3):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3)
+  - ReactiveCocoa/UI (2.3):
+    - ReactiveCocoa/Core
+  - ReactiveViewModel (0.2):
+    - ReactiveCocoa (~> 2.1)
+  - Rebel (0.4):
+    - Rebel/NSColorExtensions
+  - Rebel/NSColorExtensions (0.4)
 
 DEPENDENCIES:
-  - BlocksKit (~> 2.2.0)
+  - Archimedes (~> 1.1.0)
   - CocoaLumberjack (~> 1.9.0)
-  - MASPreferences (~> 1.1.0)
+  - libextobjc (~> 0.4.0)
+  - pop (~> 1.0.0)
+  - ReactiveCocoa (= 2.3.0)
+  - ReactiveViewModel (~> 0.2.0)
+  - Rebel (~> 0.4.0)
 
 SPEC CHECKSUMS:
-  BlocksKit: 07c8a80f04275efac6a5f8b973782489c083a182
+  Archimedes: f2de3a19892908a92c9ad4d23f6776b377f7ed28
   CocoaLumberjack: 94accd5749f5c5d15134c8d50f34a973aed8ef69
-  MASPreferences: 971d03da4b3818f8ea0d0ef10b86b02b2c052d17
+  libextobjc: ba42e4111f433273a886cd54f0ddaddb7f62f82f
+  pop: e518794da38942c05255eb64b36d894e70cb4f00
+  ReactiveCocoa: 2066583826c17dde8e90c41e489f682048cc57c9
+  ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
+  Rebel: 72166b4d2cd9e9be6ba353dcf076d2d8e74ed3b3
 
 COCOAPODS: 0.33.1
