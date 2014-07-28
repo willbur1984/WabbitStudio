@@ -69,9 +69,9 @@ NSString *const WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString =
 }
 
 - (void)showWindow:(id)sender {
-    [super showWindow:sender];
-    
     [self.window center];
+    
+    [super showWindow:sender];
 }
 
 - (IBAction)_acknowledgementsButtonAction:(id)sender; {

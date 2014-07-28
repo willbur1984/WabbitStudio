@@ -83,7 +83,7 @@
 		79FBB96319863FFC00AF11FA /* Credits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Credits.txt; sourceTree = "<group>"; };
 		79FBB9651986434800AF11FA /* Acknowledgements.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Acknowledgements.markdown; sourceTree = "<group>"; };
 		79FBB9671986449300AF11FA /* WCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCConstants.h; sourceTree = "<group>"; };
-		79FBB96B198646EF00AF11FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		79FBB96B198646EF00AF11FA /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		79FBB96F19864CD600AF11FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCDocumentWindowController.xib; sourceTree = "<group>"; };
 		79FBB97119864E9500AF11FA /* WCFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFunctions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
