@@ -76,7 +76,7 @@ static void *kWCFileObservingContext = &kWCFileObservingContext;
     
     int fileDescriptor = open(self.fileURL.path.fileSystemRepresentation, O_EVTONLY);
     
-    [self setFileSource:dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE, fileDescriptor, DISPATCH_VNODE_DELETE|DISPATCH_VNODE_RENAME|DISPATCH_VNODE_WRITE|DISPATCH_VNODE_EXTEND|DISPATCH_VNODE_ATTRIB, dispatch_get_main_queue())];
+    [self setFileSource:dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE, fileDescriptor, DISPATCH_VNODE_DELETE|DISPATCH_VNODE_RENAME|DISPATCH_VNODE_WRITE|DISPATCH_VNODE_EXTEND, dispatch_get_main_queue())];
     
     __weak typeof(self) wself = self;
     
