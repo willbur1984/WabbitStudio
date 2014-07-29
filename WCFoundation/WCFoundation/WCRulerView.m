@@ -15,23 +15,18 @@
 #import "NSParagraphStyle+WCExtensions.h"
 #import "WCRulerViewDefaultDataSource.h"
 #import "WCDebugging.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/EXTScope.h>
 
 @interface WCRulerView ()
 @property (readwrite,weak,nonatomic) id<WCRulerViewDataSource> dataSource;
-
 @property (strong,nonatomic) WCRulerViewDefaultDataSource *defaultDataSource;
-
-@property (weak,nonatomic) id textStorageDidProcessEditingNotificationToken;
-@property (weak,nonatomic) id textViewDidChangeSelectionNotificationToken;
 @end
 
 @implementation WCRulerView
 #pragma mark *** Subclass Overrides ***
 - (void)dealloc {
     WCLogObject(self.class);
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self.textStorageDidProcessEditingNotificationToken];
-    [[NSNotificationCenter defaultCenter] removeObserver:self.textViewDidChangeSelectionNotificationToken];
 }
 
 - (instancetype)initWithScrollView:(NSScrollView *)scrollView dataSource:(id<WCRulerViewDataSource>)dataSource; {
@@ -47,24 +42,30 @@
         [self setDataSource:self.defaultDataSource];
     }
     
-    __weak typeof(self) wself = self;
+    @weakify(self);
     
-    [self setTextStorageDidProcessEditingNotificationToken:[[NSNotificationCenter defaultCenter] addObserverForName:NSTextStorageDidProcessEditingNotification object:self.textView.textStorage queue:nil usingBlock:^(NSNotification *note) {
-        __strong typeof(wself) sself = wself;
-        
-        NSTextStorage *textStorage = note.object;
-        
-        if ((textStorage.editedMask & NSTextStorageEditedCharacters) == 0)
-            return;
-        
-        [sself setNeedsDisplayInRect:sself.visibleRect];
-    }]];
+    [[[[NSNotificationCenter defaultCenter]
+       rac_addObserverForName:NSTextStorageDidProcessEditingNotification object:self.textView.textStorage]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(NSNotification *value) {
+         @strongify(self);
+         
+         NSTextStorage *textStorage = value.object;
+         
+         if ((textStorage.editedMask & NSTextStorageEditedCharacters) == 0)
+             return;
+         
+         [self setNeedsDisplayInRect:self.visibleRect];
+    }];
     
-    [self setTextViewDidChangeSelectionNotificationToken:[[NSNotificationCenter defaultCenter] addObserverForName:NSTextViewDidChangeSelectionNotification object:self.textView queue:nil usingBlock:^(NSNotification *note) {
-        __strong typeof(wself) sself = wself;
-        
-        [sself setNeedsDisplayInRect:sself.visibleRect];
-    }]];
+    [[[[NSNotificationCenter defaultCenter]
+       rac_addObserverForName:NSTextViewDidChangeSelectionNotification object:self.textView]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(id _) {
+         @strongify(self);
+         
+         [self setNeedsDisplayInRect:self.visibleRect];
+    }];
     
     return self;
 }

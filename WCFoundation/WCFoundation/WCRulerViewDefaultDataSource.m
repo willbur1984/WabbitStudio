@@ -14,12 +14,13 @@
 #import "WCRulerViewDefaultDataSource.h"
 #import "NSPointerArray+WCExtensions.h"
 #import "WCDebugging.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/EXTScope.h>
 
 @interface WCRulerViewDefaultDataSource ()
 @property (copy,nonatomic) NSPointerArray *lineStartIndexes;
 
 @property (weak,nonatomic) WCRulerView *rulerView;
-@property (weak,nonatomic) id textStorageDidProcessEditingNotificationToken;
 
 - (void)_recalculateLineStartIndexes;
 - (void)_recalculateLineStartIndexesFromLineNumber:(NSUInteger)lineNumber;
@@ -29,8 +30,6 @@
 #pragma mark *** Subclass Overrides ***
 - (void)dealloc {
     WCLogObject(self.class);
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self.textStorageDidProcessEditingNotificationToken];
 }
 #pragma mark WCRulerViewDataSource
 - (NSUInteger)numberOfLinesInRulerView:(WCRulerView *)rulerView {
@@ -56,18 +55,21 @@
     
     [self _recalculateLineStartIndexes];
     
-    __weak typeof(self) wself = self;
+    @weakify(self);
     
-    [self setTextStorageDidProcessEditingNotificationToken:[[NSNotificationCenter defaultCenter] addObserverForName:NSTextStorageDidProcessEditingNotification object:rulerView.textView queue:nil usingBlock:^(NSNotification *note) {
-        __strong typeof(wself) sself = wself;
-        
-        NSTextStorage *textStorage = note.object;
-        
-        if ((textStorage.editedMask & NSTextStorageEditedCharacters) == 0)
-            return;
-        
-        [sself _recalculateLineStartIndexesFromLineNumber:[sself rulerView:sself.rulerView lineNumberForRange:textStorage.editedRange]];
-    }]];
+    [[[[NSNotificationCenter defaultCenter]
+       rac_addObserverForName:NSTextStorageDidProcessEditingNotification object:self.rulerView.textView.textStorage]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(NSNotification *value) {
+         @strongify(self);
+         
+         NSTextStorage *textStorage = value.object;
+         
+         if ((textStorage.editedMask & NSTextStorageEditedCharacters) == 0)
+             return;
+         
+         [self _recalculateLineStartIndexesFromLineNumber:[self rulerView:self.rulerView lineNumberForRange:textStorage.editedRange]];
+    }];
     
     return self;
 }

@@ -13,10 +13,8 @@
 
 #import "WCFile.h"
 #import "WCDebugging.h"
-
-static NSString *const kWCFileKeyPathFileURL = @"fileURL";
-
-static void *kWCFileObservingContext = &kWCFileObservingContext;
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/EXTScope.h>
 
 @interface WCFile ()
 @property (readwrite,copy,nonatomic) NSURL *fileURL;
@@ -32,25 +30,6 @@ static void *kWCFileObservingContext = &kWCFileObservingContext;
 #pragma mark *** Subclass Overrides ***
 - (void)dealloc {
     [self _stopMonitoringFileSource];
-    
-    [self removeObserver:self forKeyPath:kWCFileKeyPathFileURL context:kWCFileObservingContext];
-}
-#pragma mark KVO
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (context == kWCFileObservingContext) {
-        if ([keyPath isEqualToString:kWCFileKeyPathFileURL]) {
-            NSURL *old = change[NSKeyValueChangeOldKey];
-            NSURL *new = change[NSKeyValueChangeNewKey];
-            
-            if (old && new && [old isEqual:new])
-                return;
-            
-            [self _startMonitoringFileSource];
-        }
-    }
-    else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
 }
 #pragma mark *** Public Methods ***
 - (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI; {
@@ -62,7 +41,16 @@ static void *kWCFileObservingContext = &kWCFileObservingContext;
     [self setFileURL:fileURL];
     [self setUTI:UTI];
     
-    [self addObserver:self forKeyPath:kWCFileKeyPathFileURL options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:kWCFileObservingContext];
+    @weakify(self);
+    
+    [[[RACObserve(self, fileURL)
+       distinctUntilChanged]
+      deliverOn:[RACScheduler mainThreadScheduler]]
+     subscribeNext:^(id _) {
+         @strongify(self);
+
+         [self _startMonitoringFileSource];
+    }];
     
     return self;
 }
@@ -76,19 +64,19 @@ static void *kWCFileObservingContext = &kWCFileObservingContext;
     
     int fileDescriptor = open(self.fileURL.path.fileSystemRepresentation, O_EVTONLY);
     
-    [self setFileSource:dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE, fileDescriptor, DISPATCH_VNODE_DELETE|DISPATCH_VNODE_RENAME|DISPATCH_VNODE_WRITE|DISPATCH_VNODE_EXTEND, dispatch_get_main_queue())];
+    [self setFileSource:dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE, fileDescriptor, DISPATCH_VNODE_DELETE|DISPATCH_VNODE_RENAME|DISPATCH_VNODE_WRITE|DISPATCH_VNODE_EXTEND|DISPATCH_VNODE_ATTRIB, dispatch_get_main_queue())];
     
-    __weak typeof(self) wself = self;
+    @weakify(self);
     
     dispatch_source_set_event_handler(self.fileSource, ^{
-        __strong typeof(wself) sself = wself;
+        @strongify(self);
         
-        unsigned long flags = dispatch_source_get_data(sself.fileSource);
+        unsigned long flags = dispatch_source_get_data(self.fileSource);
         
         WCLogObject(@(flags));
         
         if (flags & DISPATCH_VNODE_DELETE) {
-            [sself _startMonitoringFileSource];
+            [self _startMonitoringFileSource];
         }
     });
     
