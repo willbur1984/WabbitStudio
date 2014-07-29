@@ -22,3 +22,5 @@
 #import <WCFoundation/WCAboutWindowController.h>
 
 #import <WCFoundation/WCBaseViewController.h>
+
+#import <WCFoundation/WCRulerView.h>

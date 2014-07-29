@@ -1,5 +1,5 @@
 //
-//  WCPlainTextViewController.m
+//  WCRulerView.h
 //  WabbitStudio
 //
 //  Created by William Towe on 7/28/14.
@@ -11,38 +11,33 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "WCPlainTextViewController.h"
-#import <WCFoundation/WCPlainTextFile.h>
-#import <WCFoundation/WCRulerView.h>
+#import <Cocoa/Cocoa.h>
 
-@interface WCPlainTextViewController ()
-@property (unsafe_unretained,nonatomic) IBOutlet NSTextView *textView;
+@class WCRulerView;
 
-@property (weak,nonatomic) WCPlainTextFile *plainTextFile;
+@protocol WCRulerViewDataSource <NSObject>
+@required
+- (NSUInteger)numberOfLinesInRulerView:(WCRulerView *)rulerView;
+- (NSUInteger)rulerView:(WCRulerView *)rulerView lineNumberForRange:(NSRange)range;
+- (NSUInteger)rulerView:(WCRulerView *)rulerView lineStartIndexForLineNumber:(NSUInteger)lineNumber;
 @end
 
-@implementation WCPlainTextViewController
+@interface WCRulerView : NSRulerView
 
-- (void)loadView {
-    [super loadView];
-    
-    [self.textView.layoutManager replaceTextStorage:self.plainTextFile.textStorage];
-    
-    [self.textView.enclosingScrollView setVerticalRulerView:[[WCRulerView alloc] initWithScrollView:self.textView.enclosingScrollView dataSource:nil]];
-    [self.textView.enclosingScrollView setHasHorizontalRuler:NO];
-    [self.textView.enclosingScrollView setHasVerticalRuler:YES];
-    [self.textView.enclosingScrollView setRulersVisible:YES];
-}
+@property (readonly,weak,nonatomic) id<WCRulerViewDataSource> dataSource;
 
-- (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {
-    if (!(self = [super init]))
-        return nil;
-    
-    NSParameterAssert(plainTextFile);
-    
-    [self setPlainTextFile:plainTextFile];
-    
-    return self;
-}
+@property (readonly,nonatomic) NSTextView *textView;
+
+@property (readonly,nonatomic) NSDictionary *stringAttributes;
+@property (readonly,nonatomic) NSDictionary *selectedStringAttributes;
+
+@property (readonly,nonatomic) NSIndexSet *selectedLineNumbers;
+
+- (instancetype)initWithScrollView:(NSScrollView *)scrollView dataSource:(id<WCRulerViewDataSource>)dataSource;
+
+- (NSUInteger)lineNumberForPoint:(NSPoint)point;
+
+- (void)drawBackgroundInRect:(NSRect)rect;
+- (void)drawLineNumbersInRect:(NSRect)rect;
 
 @end

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		638F5D68FD6043EEB068B75F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF3472DB44C43E19ECE0072 /* libPods.a */; };
+		7903B84D19873208001E347A /* NSParagraphStyle+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7903B84B19873208001E347A /* NSParagraphStyle+WCExtensions.h */; };
+		7903B84E19873208001E347A /* NSParagraphStyle+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7903B84C19873208001E347A /* NSParagraphStyle+WCExtensions.m */; };
 		796AF853198708D000D24EED /* WCBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 796AF851198708D000D24EED /* WCBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		796AF854198708D000D24EED /* WCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF852198708D000D24EED /* WCBaseViewController.m */; };
 		796AF85919870C8000D24EED /* WCDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF85819870C8000D24EED /* WCDocumentViewController.m */; };
@@ -19,6 +21,12 @@
 		796AF86919871A0D00D24EED /* WCPlainTextDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF86819871A0D00D24EED /* WCPlainTextDocument.m */; };
 		796AF86C19871D9C00D24EED /* WCPlainTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF86B19871D9C00D24EED /* WCPlainTextViewController.m */; };
 		796AF86F19871DB100D24EED /* WCPlainTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796AF86D19871DB100D24EED /* WCPlainTextViewController.xib */; };
+		796AF8731987256200D24EED /* WCRulerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 796AF8711987256200D24EED /* WCRulerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		796AF8741987256200D24EED /* WCRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF8721987256200D24EED /* WCRulerView.m */; };
+		796AF8771987286B00D24EED /* WCRulerViewDefaultDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 796AF8751987286B00D24EED /* WCRulerViewDefaultDataSource.h */; };
+		796AF8781987286B00D24EED /* WCRulerViewDefaultDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF8761987286B00D24EED /* WCRulerViewDefaultDataSource.m */; };
+		796AF87C19872D7700D24EED /* NSPointerArray+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 796AF87A19872D7700D24EED /* NSPointerArray+WCExtensions.h */; };
+		796AF87D19872D7700D24EED /* NSPointerArray+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF87B19872D7700D24EED /* NSPointerArray+WCExtensions.m */; };
 		79BDB91E1985A1A80018E379 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB91D1985A1A80018E379 /* Cocoa.framework */; };
 		79BDB9281985A1A80018E379 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79BDB9261985A1A80018E379 /* InfoPlist.strings */; };
 		79BDB92A1985A1A80018E379 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BDB9291985A1A80018E379 /* main.m */; };
@@ -60,6 +68,8 @@
 /* Begin PBXFileReference section */
 		2356783E578D41C5AC415C50 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		3CF3472DB44C43E19ECE0072 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7903B84B19873208001E347A /* NSParagraphStyle+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSParagraphStyle+WCExtensions.h"; sourceTree = "<group>"; };
+		7903B84C19873208001E347A /* NSParagraphStyle+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSParagraphStyle+WCExtensions.m"; sourceTree = "<group>"; };
 		796AF851198708D000D24EED /* WCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseViewController.h; sourceTree = "<group>"; };
 		796AF852198708D000D24EED /* WCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBaseViewController.m; sourceTree = "<group>"; };
 		796AF85719870C8000D24EED /* WCDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDocumentViewController.h; sourceTree = "<group>"; };
@@ -74,6 +84,12 @@
 		796AF86A19871D9C00D24EED /* WCPlainTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextViewController.h; sourceTree = "<group>"; };
 		796AF86B19871D9C00D24EED /* WCPlainTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextViewController.m; sourceTree = "<group>"; };
 		796AF86E19871DB100D24EED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCPlainTextViewController.xib; sourceTree = "<group>"; };
+		796AF8711987256200D24EED /* WCRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRulerView.h; sourceTree = "<group>"; };
+		796AF8721987256200D24EED /* WCRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRulerView.m; sourceTree = "<group>"; };
+		796AF8751987286B00D24EED /* WCRulerViewDefaultDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRulerViewDefaultDataSource.h; sourceTree = "<group>"; };
+		796AF8761987286B00D24EED /* WCRulerViewDefaultDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRulerViewDefaultDataSource.m; sourceTree = "<group>"; };
+		796AF87A19872D7700D24EED /* NSPointerArray+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPointerArray+WCExtensions.h"; sourceTree = "<group>"; };
+		796AF87B19872D7700D24EED /* NSPointerArray+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPointerArray+WCExtensions.m"; sourceTree = "<group>"; };
 		79BDB91A1985A1A80018E379 /* WabbitCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WabbitCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79BDB91D1985A1A80018E379 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		79BDB9201985A1A80018E379 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -164,6 +180,7 @@
 			children = (
 				79FBB94F198631F700AF11FA /* Base */,
 				796AF85E19870EA200D24EED /* Model */,
+				796AF8701987253F00D24EED /* Views */,
 				79FBB950198631FD00AF11FA /* Window Controllers */,
 			);
 			name = Classes;
@@ -188,6 +205,28 @@
 				796AF8641987180700D24EED /* WCPlainTextFile.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		796AF8701987253F00D24EED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				796AF8711987256200D24EED /* WCRulerView.h */,
+				796AF8721987256200D24EED /* WCRulerView.m */,
+				796AF8751987286B00D24EED /* WCRulerViewDefaultDataSource.h */,
+				796AF8761987286B00D24EED /* WCRulerViewDefaultDataSource.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		796AF87919872D6200D24EED /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				796AF87A19872D7700D24EED /* NSPointerArray+WCExtensions.h */,
+				796AF87B19872D7700D24EED /* NSPointerArray+WCExtensions.m */,
+				7903B84B19873208001E347A /* NSParagraphStyle+WCExtensions.h */,
+				7903B84C19873208001E347A /* NSParagraphStyle+WCExtensions.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		79BDB90F1985A17E0018E379 = {
@@ -290,6 +329,7 @@
 			children = (
 				79FBB92C198630B300AF11FA /* WCFoundation.h */,
 				79FBB95E19863C0B00AF11FA /* Headers */,
+				796AF87919872D6200D24EED /* Categories */,
 				796AF85619870A7600D24EED /* Classes */,
 				79FBB926198630B300AF11FA /* Supporting Files */,
 			);
@@ -374,14 +414,18 @@
 			files = (
 				796AF853198708D000D24EED /* WCBaseViewController.h in Headers */,
 				79FBB9681986449300AF11FA /* WCConstants.h in Headers */,
+				796AF8731987256200D24EED /* WCRulerView.h in Headers */,
 				79FBB97219864E9500AF11FA /* WCFunctions.h in Headers */,
 				79FBB9491986310800AF11FA /* WCBaseWindowController.h in Headers */,
+				796AF87C19872D7700D24EED /* NSPointerArray+WCExtensions.h in Headers */,
 				79FBB95C1986363200AF11FA /* WCAboutBackgroundView.h in Headers */,
 				796AF86119870EBE00D24EED /* WCFile.h in Headers */,
+				7903B84D19873208001E347A /* NSParagraphStyle+WCExtensions.h in Headers */,
 				796AF8651987180700D24EED /* WCPlainTextFile.h in Headers */,
 				79FBB9541986322C00AF11FA /* WCAboutWindowController.h in Headers */,
 				79FBB96019863C1A00AF11FA /* WCDebugging.h in Headers */,
 				79FBB94B1986315200AF11FA /* WCFoundation.h in Headers */,
+				796AF8771987286B00D24EED /* WCRulerViewDefaultDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,12 +599,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796AF8781987286B00D24EED /* WCRulerViewDefaultDataSource.m in Sources */,
 				79FBB95D1986363200AF11FA /* WCAboutBackgroundView.m in Sources */,
 				796AF8661987180700D24EED /* WCPlainTextFile.m in Sources */,
 				796AF854198708D000D24EED /* WCBaseViewController.m in Sources */,
+				796AF87D19872D7700D24EED /* NSPointerArray+WCExtensions.m in Sources */,
+				7903B84E19873208001E347A /* NSParagraphStyle+WCExtensions.m in Sources */,
 				796AF86219870EBE00D24EED /* WCFile.m in Sources */,
 				79FBB94A1986310800AF11FA /* WCBaseWindowController.m in Sources */,
 				79FBB9551986322C00AF11FA /* WCAboutWindowController.m in Sources */,
+				796AF8741987256200D24EED /* WCRulerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

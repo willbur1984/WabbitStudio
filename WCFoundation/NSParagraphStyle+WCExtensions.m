@@ -1,5 +1,5 @@
 //
-//  WCPlainTextViewController.m
+//  NSParagraphStyle+WCExtensions.m
 //  WabbitStudio
 //
 //  Created by William Towe on 7/28/14.
@@ -11,38 +11,16 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "WCPlainTextViewController.h"
-#import <WCFoundation/WCPlainTextFile.h>
-#import <WCFoundation/WCRulerView.h>
+#import "NSParagraphStyle+WCExtensions.h"
 
-@interface WCPlainTextViewController ()
-@property (unsafe_unretained,nonatomic) IBOutlet NSTextView *textView;
+@implementation NSParagraphStyle (WCExtensions)
 
-@property (weak,nonatomic) WCPlainTextFile *plainTextFile;
-@end
-
-@implementation WCPlainTextViewController
-
-- (void)loadView {
-    [super loadView];
++ (instancetype)WC_rightAlignedParagraphStyle; {
+    NSMutableParagraphStyle *retval = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     
-    [self.textView.layoutManager replaceTextStorage:self.plainTextFile.textStorage];
+    [retval setAlignment:NSRightTextAlignment];
     
-    [self.textView.enclosingScrollView setVerticalRulerView:[[WCRulerView alloc] initWithScrollView:self.textView.enclosingScrollView dataSource:nil]];
-    [self.textView.enclosingScrollView setHasHorizontalRuler:NO];
-    [self.textView.enclosingScrollView setHasVerticalRuler:YES];
-    [self.textView.enclosingScrollView setRulersVisible:YES];
-}
-
-- (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {
-    if (!(self = [super init]))
-        return nil;
-    
-    NSParameterAssert(plainTextFile);
-    
-    [self setPlainTextFile:plainTextFile];
-    
-    return self;
+    return retval;
 }
 
 @end

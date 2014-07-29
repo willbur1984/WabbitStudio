@@ -31,6 +31,7 @@
     if ([self.file isKindOfClass:[WCPlainTextFile class]]) {
         [self setContentViewController:[[WCPlainTextViewController alloc] initWithPlainTextFile:(WCPlainTextFile *)self.file]];
         [self.view addSubview:self.contentViewController.view];
+        [self.contentViewController.view setFrame:self.view.bounds];
     }
     
     @weakify(self);
