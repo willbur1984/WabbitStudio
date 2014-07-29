@@ -216,18 +216,42 @@
 			children = (
 				797B13971987911A00C735DD /* WCAppDelegate.h */,
 				797B13981987911A00C735DD /* WCAppDelegate.m */,
+				79A4B83019879AEA00C7B2C1 /* Documents */,
+				79A4B83219879B0000C7B2C1 /* Window Controllers */,
+				79A4B83119879AFA00C7B2C1 /* View Controllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		79A4B83019879AEA00C7B2C1 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
 				797B13B91987917B00C735DD /* WCDocument.h */,
 				797B13BA1987917B00C735DD /* WCDocument.m */,
-				797B13BB1987917B00C735DD /* WCDocumentViewController.h */,
-				797B13BC1987917B00C735DD /* WCDocumentViewController.m */,
-				797B13BD1987917B00C735DD /* WCDocumentWindowController.h */,
-				797B13BE1987917B00C735DD /* WCDocumentWindowController.m */,
 				797B13BF1987917B00C735DD /* WCPlainTextDocument.h */,
 				797B13C01987917B00C735DD /* WCPlainTextDocument.m */,
+			);
+			name = Documents;
+			sourceTree = "<group>";
+		};
+		79A4B83119879AFA00C7B2C1 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				797B13BB1987917B00C735DD /* WCDocumentViewController.h */,
+				797B13BC1987917B00C735DD /* WCDocumentViewController.m */,
 				797B13C11987917B00C735DD /* WCPlainTextViewController.h */,
 				797B13C21987917B00C735DD /* WCPlainTextViewController.m */,
 			);
-			name = Classes;
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		79A4B83219879B0000C7B2C1 /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				797B13BD1987917B00C735DD /* WCDocumentWindowController.h */,
+				797B13BE1987917B00C735DD /* WCDocumentWindowController.m */,
+			);
+			name = "Window Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

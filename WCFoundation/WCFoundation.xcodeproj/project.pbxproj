@@ -230,8 +230,8 @@
 			children = (
 				797B13751987907800C735DD /* Base */,
 				797B13761987907E00C735DD /* Model */,
-				797B13771987908500C735DD /* Views */,
 				797B13741987906E00C735DD /* Window Controllers */,
+				797B13771987908500C735DD /* Views */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
