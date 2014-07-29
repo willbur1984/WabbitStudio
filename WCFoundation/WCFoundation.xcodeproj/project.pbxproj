@@ -1,0 +1,670 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		797B131119878F8900C735DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B131019878F8900C735DD /* Cocoa.framework */; };
+		797B131B19878F8900C735DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B131919878F8900C735DD /* InfoPlist.strings */; };
+		797B132619878F8900C735DD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B132519878F8900C735DD /* XCTest.framework */; };
+		797B132719878F8900C735DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B131019878F8900C735DD /* Cocoa.framework */; };
+		797B132A19878F8900C735DD /* WCFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B130D19878F8900C735DD /* WCFoundation.framework */; };
+		797B133019878F8900C735DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B132E19878F8900C735DD /* InfoPlist.strings */; };
+		797B133219878F8900C735DD /* WCFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B133119878F8900C735DD /* WCFoundationTests.m */; };
+		797B135219878FD500C735DD /* NSParagraphStyle+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B133B19878FD500C735DD /* NSParagraphStyle+WCExtensions.h */; };
+		797B135319878FD500C735DD /* NSParagraphStyle+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B133C19878FD500C735DD /* NSParagraphStyle+WCExtensions.m */; };
+		797B135419878FD500C735DD /* NSPointerArray+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B133D19878FD500C735DD /* NSPointerArray+WCExtensions.h */; };
+		797B135519878FD500C735DD /* NSPointerArray+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B133E19878FD500C735DD /* NSPointerArray+WCExtensions.m */; };
+		797B135619878FD500C735DD /* WCAboutBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B133F19878FD500C735DD /* WCAboutBackgroundView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		797B135719878FD500C735DD /* WCAboutBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B134019878FD500C735DD /* WCAboutBackgroundView.m */; };
+		797B135819878FD500C735DD /* WCAboutWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134119878FD500C735DD /* WCAboutWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		797B135919878FD500C735DD /* WCAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B134219878FD500C735DD /* WCAboutWindowController.m */; };
+		797B135A19878FD500C735DD /* WCBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134319878FD500C735DD /* WCBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		797B135B19878FD500C735DD /* WCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B134419878FD500C735DD /* WCBaseViewController.m */; };
+		797B135C19878FD500C735DD /* WCBaseWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134519878FD500C735DD /* WCBaseWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		797B135D19878FD500C735DD /* WCBaseWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B134619878FD500C735DD /* WCBaseWindowController.m */; };
+		797B135E19878FD500C735DD /* WCConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134719878FD500C735DD /* WCConstants.h */; };
+		797B135F19878FD500C735DD /* WCDebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134819878FD500C735DD /* WCDebugging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		797B136019878FD500C735DD /* WCFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134919878FD500C735DD /* WCFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		797B136119878FD500C735DD /* WCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B134A19878FD500C735DD /* WCFile.m */; };
+		797B136219878FD500C735DD /* WCFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134B19878FD500C735DD /* WCFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		797B136319878FD500C735DD /* WCPlainTextFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134C19878FD500C735DD /* WCPlainTextFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		797B136419878FD500C735DD /* WCPlainTextFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B134D19878FD500C735DD /* WCPlainTextFile.m */; };
+		797B136519878FD500C735DD /* WCRulerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134E19878FD500C735DD /* WCRulerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		797B136619878FD500C735DD /* WCRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B134F19878FD500C735DD /* WCRulerView.m */; };
+		797B136719878FD500C735DD /* WCRulerViewDefaultDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B135019878FD500C735DD /* WCRulerViewDefaultDataSource.h */; };
+		797B136819878FD500C735DD /* WCRulerViewDefaultDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B135119878FD500C735DD /* WCRulerViewDefaultDataSource.m */; };
+		797B136B19878FEC00C735DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B136919878FEC00C735DD /* Localizable.strings */; };
+		797B136F1987900800C735DD /* WCAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797B136D1987900800C735DD /* WCAboutWindowController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		797B132819878F8900C735DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 797B130419878F8900C735DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 797B130C19878F8900C735DD;
+			remoteInfo = WCFoundation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		797B130D19878F8900C735DD /* WCFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WCFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		797B131019878F8900C735DD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		797B131319878F8900C735DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		797B131419878F8900C735DD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		797B131519878F8900C735DD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		797B131819878F8900C735DD /* WCFoundation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WCFoundation-Info.plist"; sourceTree = "<group>"; };
+		797B131A19878F8900C735DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		797B131C19878F8900C735DD /* WCFoundation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WCFoundation-Prefix.pch"; sourceTree = "<group>"; };
+		797B131D19878F8900C735DD /* WCFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCFoundation.h; sourceTree = "<group>"; };
+		797B132419878F8900C735DD /* WCFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		797B132519878F8900C735DD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		797B132D19878F8900C735DD /* WCFoundationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WCFoundationTests-Info.plist"; sourceTree = "<group>"; };
+		797B132F19878F8900C735DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		797B133119878F8900C735DD /* WCFoundationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCFoundationTests.m; sourceTree = "<group>"; };
+		797B133B19878FD500C735DD /* NSParagraphStyle+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSParagraphStyle+WCExtensions.h"; sourceTree = "<group>"; };
+		797B133C19878FD500C735DD /* NSParagraphStyle+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSParagraphStyle+WCExtensions.m"; sourceTree = "<group>"; };
+		797B133D19878FD500C735DD /* NSPointerArray+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPointerArray+WCExtensions.h"; sourceTree = "<group>"; };
+		797B133E19878FD500C735DD /* NSPointerArray+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPointerArray+WCExtensions.m"; sourceTree = "<group>"; };
+		797B133F19878FD500C735DD /* WCAboutBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCAboutBackgroundView.h; sourceTree = "<group>"; };
+		797B134019878FD500C735DD /* WCAboutBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCAboutBackgroundView.m; sourceTree = "<group>"; };
+		797B134119878FD500C735DD /* WCAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCAboutWindowController.h; sourceTree = "<group>"; };
+		797B134219878FD500C735DD /* WCAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCAboutWindowController.m; sourceTree = "<group>"; };
+		797B134319878FD500C735DD /* WCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseViewController.h; sourceTree = "<group>"; };
+		797B134419878FD500C735DD /* WCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBaseViewController.m; sourceTree = "<group>"; };
+		797B134519878FD500C735DD /* WCBaseWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseWindowController.h; sourceTree = "<group>"; };
+		797B134619878FD500C735DD /* WCBaseWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBaseWindowController.m; sourceTree = "<group>"; };
+		797B134719878FD500C735DD /* WCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCConstants.h; sourceTree = "<group>"; };
+		797B134819878FD500C735DD /* WCDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDebugging.h; sourceTree = "<group>"; };
+		797B134919878FD500C735DD /* WCFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFile.h; sourceTree = "<group>"; };
+		797B134A19878FD500C735DD /* WCFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCFile.m; sourceTree = "<group>"; };
+		797B134B19878FD500C735DD /* WCFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFunctions.h; sourceTree = "<group>"; };
+		797B134C19878FD500C735DD /* WCPlainTextFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextFile.h; sourceTree = "<group>"; };
+		797B134D19878FD500C735DD /* WCPlainTextFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextFile.m; sourceTree = "<group>"; };
+		797B134E19878FD500C735DD /* WCRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRulerView.h; sourceTree = "<group>"; };
+		797B134F19878FD500C735DD /* WCRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRulerView.m; sourceTree = "<group>"; };
+		797B135019878FD500C735DD /* WCRulerViewDefaultDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRulerViewDefaultDataSource.h; sourceTree = "<group>"; };
+		797B135119878FD500C735DD /* WCRulerViewDefaultDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRulerViewDefaultDataSource.m; sourceTree = "<group>"; };
+		797B136A19878FEC00C735DD /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		797B136E1987900800C735DD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WCAboutWindowController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		797B130919878F8900C735DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				797B131119878F8900C735DD /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		797B132119878F8900C735DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				797B132719878F8900C735DD /* Cocoa.framework in Frameworks */,
+				797B132A19878F8900C735DD /* WCFoundation.framework in Frameworks */,
+				797B132619878F8900C735DD /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		797B130319878F8900C735DD = {
+			isa = PBXGroup;
+			children = (
+				797B131619878F8900C735DD /* WCFoundation */,
+				797B132B19878F8900C735DD /* WCFoundationTests */,
+				797B130F19878F8900C735DD /* Frameworks */,
+				797B130E19878F8900C735DD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		797B130E19878F8900C735DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				797B130D19878F8900C735DD /* WCFoundation.framework */,
+				797B132419878F8900C735DD /* WCFoundationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		797B130F19878F8900C735DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				797B131019878F8900C735DD /* Cocoa.framework */,
+				797B132519878F8900C735DD /* XCTest.framework */,
+				797B131219878F8900C735DD /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		797B131219878F8900C735DD /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				797B131319878F8900C735DD /* Foundation.framework */,
+				797B131419878F8900C735DD /* CoreData.framework */,
+				797B131519878F8900C735DD /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		797B131619878F8900C735DD /* WCFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				797B131D19878F8900C735DD /* WCFoundation.h */,
+				797B13711987902A00C735DD /* Headers */,
+				797B13701987901D00C735DD /* Categories */,
+				797B13721987903B00C735DD /* Classes */,
+				797B131719878F8900C735DD /* Supporting Files */,
+			);
+			path = WCFoundation;
+			sourceTree = "<group>";
+		};
+		797B131719878F8900C735DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				797B131819878F8900C735DD /* WCFoundation-Info.plist */,
+				797B131919878F8900C735DD /* InfoPlist.strings */,
+				797B136919878FEC00C735DD /* Localizable.strings */,
+				797B131C19878F8900C735DD /* WCFoundation-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		797B132B19878F8900C735DD /* WCFoundationTests */ = {
+			isa = PBXGroup;
+			children = (
+				797B133119878F8900C735DD /* WCFoundationTests.m */,
+				797B132C19878F8900C735DD /* Supporting Files */,
+			);
+			path = WCFoundationTests;
+			sourceTree = "<group>";
+		};
+		797B132C19878F8900C735DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				797B132D19878F8900C735DD /* WCFoundationTests-Info.plist */,
+				797B132E19878F8900C735DD /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		797B136C19878FFC00C735DD /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				797B136D1987900800C735DD /* WCAboutWindowController.xib */,
+			);
+			name = Xibs;
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		797B13701987901D00C735DD /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				797B133B19878FD500C735DD /* NSParagraphStyle+WCExtensions.h */,
+				797B133C19878FD500C735DD /* NSParagraphStyle+WCExtensions.m */,
+				797B133D19878FD500C735DD /* NSPointerArray+WCExtensions.h */,
+				797B133E19878FD500C735DD /* NSPointerArray+WCExtensions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		797B13711987902A00C735DD /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				797B134719878FD500C735DD /* WCConstants.h */,
+				797B134819878FD500C735DD /* WCDebugging.h */,
+				797B134B19878FD500C735DD /* WCFunctions.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		797B13721987903B00C735DD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				797B13751987907800C735DD /* Base */,
+				797B13761987907E00C735DD /* Model */,
+				797B13771987908500C735DD /* Views */,
+				797B13741987906E00C735DD /* Window Controllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		797B13731987905F00C735DD /* About */ = {
+			isa = PBXGroup;
+			children = (
+				797B136C19878FFC00C735DD /* Xibs */,
+				797B133F19878FD500C735DD /* WCAboutBackgroundView.h */,
+				797B134019878FD500C735DD /* WCAboutBackgroundView.m */,
+				797B134119878FD500C735DD /* WCAboutWindowController.h */,
+				797B134219878FD500C735DD /* WCAboutWindowController.m */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		797B13741987906E00C735DD /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				797B13731987905F00C735DD /* About */,
+			);
+			name = "Window Controllers";
+			sourceTree = "<group>";
+		};
+		797B13751987907800C735DD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				797B134319878FD500C735DD /* WCBaseViewController.h */,
+				797B134419878FD500C735DD /* WCBaseViewController.m */,
+				797B134519878FD500C735DD /* WCBaseWindowController.h */,
+				797B134619878FD500C735DD /* WCBaseWindowController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		797B13761987907E00C735DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				797B134919878FD500C735DD /* WCFile.h */,
+				797B134A19878FD500C735DD /* WCFile.m */,
+				797B134C19878FD500C735DD /* WCPlainTextFile.h */,
+				797B134D19878FD500C735DD /* WCPlainTextFile.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		797B13771987908500C735DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				797B134E19878FD500C735DD /* WCRulerView.h */,
+				797B134F19878FD500C735DD /* WCRulerView.m */,
+				797B135019878FD500C735DD /* WCRulerViewDefaultDataSource.h */,
+				797B135119878FD500C735DD /* WCRulerViewDefaultDataSource.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		797B130A19878F8900C735DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				797B135A19878FD500C735DD /* WCBaseViewController.h in Headers */,
+				797B135F19878FD500C735DD /* WCDebugging.h in Headers */,
+				797B136519878FD500C735DD /* WCRulerView.h in Headers */,
+				797B135C19878FD500C735DD /* WCBaseWindowController.h in Headers */,
+				797B136319878FD500C735DD /* WCPlainTextFile.h in Headers */,
+				797B135819878FD500C735DD /* WCAboutWindowController.h in Headers */,
+				797B136019878FD500C735DD /* WCFile.h in Headers */,
+				797B136219878FD500C735DD /* WCFunctions.h in Headers */,
+				797B135619878FD500C735DD /* WCAboutBackgroundView.h in Headers */,
+				797B135E19878FD500C735DD /* WCConstants.h in Headers */,
+				797B135219878FD500C735DD /* NSParagraphStyle+WCExtensions.h in Headers */,
+				797B136719878FD500C735DD /* WCRulerViewDefaultDataSource.h in Headers */,
+				797B135419878FD500C735DD /* NSPointerArray+WCExtensions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		797B130C19878F8900C735DD /* WCFoundation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 797B133519878F8900C735DD /* Build configuration list for PBXNativeTarget "WCFoundation" */;
+			buildPhases = (
+				797B1378198790C100C735DD /* genstrings */,
+				797B130819878F8900C735DD /* Sources */,
+				797B130919878F8900C735DD /* Frameworks */,
+				797B130A19878F8900C735DD /* Headers */,
+				797B130B19878F8900C735DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WCFoundation;
+			productName = WCFoundation;
+			productReference = 797B130D19878F8900C735DD /* WCFoundation.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		797B132319878F8900C735DD /* WCFoundationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 797B133819878F8900C735DD /* Build configuration list for PBXNativeTarget "WCFoundationTests" */;
+			buildPhases = (
+				797B132019878F8900C735DD /* Sources */,
+				797B132119878F8900C735DD /* Frameworks */,
+				797B132219878F8900C735DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				797B132919878F8900C735DD /* PBXTargetDependency */,
+			);
+			name = WCFoundationTests;
+			productName = WCFoundationTests;
+			productReference = 797B132419878F8900C735DD /* WCFoundationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		797B130419878F8900C735DD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "William Towe, LLC.";
+				TargetAttributes = {
+					797B132319878F8900C735DD = {
+						TestTargetID = 797B130C19878F8900C735DD;
+					};
+				};
+			};
+			buildConfigurationList = 797B130719878F8900C735DD /* Build configuration list for PBXProject "WCFoundation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 797B130319878F8900C735DD;
+			productRefGroup = 797B130E19878F8900C735DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				797B130C19878F8900C735DD /* WCFoundation */,
+				797B132319878F8900C735DD /* WCFoundationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		797B130B19878F8900C735DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				797B131B19878F8900C735DD /* InfoPlist.strings in Resources */,
+				797B136B19878FEC00C735DD /* Localizable.strings in Resources */,
+				797B136F1987900800C735DD /* WCAboutWindowController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		797B132219878F8900C735DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				797B133019878F8900C735DD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		797B1378198790C100C735DD /* genstrings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = genstrings;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "genstrings -s NSLocalizedString -q -o $SRCROOT/$TARGET_NAME/en.lproj $SRCROOT/$TARGET_NAME/*.m";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		797B130819878F8900C735DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				797B135B19878FD500C735DD /* WCBaseViewController.m in Sources */,
+				797B135719878FD500C735DD /* WCAboutBackgroundView.m in Sources */,
+				797B136619878FD500C735DD /* WCRulerView.m in Sources */,
+				797B135D19878FD500C735DD /* WCBaseWindowController.m in Sources */,
+				797B136819878FD500C735DD /* WCRulerViewDefaultDataSource.m in Sources */,
+				797B135919878FD500C735DD /* WCAboutWindowController.m in Sources */,
+				797B136119878FD500C735DD /* WCFile.m in Sources */,
+				797B135519878FD500C735DD /* NSPointerArray+WCExtensions.m in Sources */,
+				797B135319878FD500C735DD /* NSParagraphStyle+WCExtensions.m in Sources */,
+				797B136419878FD500C735DD /* WCPlainTextFile.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		797B132019878F8900C735DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				797B133219878F8900C735DD /* WCFoundationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		797B132919878F8900C735DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 797B130C19878F8900C735DD /* WCFoundation */;
+			targetProxy = 797B132819878F8900C735DD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		797B131919878F8900C735DD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				797B131A19878F8900C735DD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		797B132E19878F8900C735DD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				797B132F19878F8900C735DD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		797B136919878FEC00C735DD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				797B136A19878FEC00C735DD /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		797B136D1987900800C735DD /* WCAboutWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				797B136E1987900800C735DD /* en */,
+			);
+			name = WCAboutWindowController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		797B133319878F8900C735DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		797B133419878F8900C735DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		797B133619878F8900C735DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WCFoundation/WCFoundation-Prefix.pch";
+				INFOPLIST_FILE = "WCFoundation/WCFoundation-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		797B133719878F8900C735DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WCFoundation/WCFoundation-Prefix.pch";
+				INFOPLIST_FILE = "WCFoundation/WCFoundation-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		797B133919878F8900C735DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WCFoundation.framework/Versions/A/WCFoundation";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WCFoundation/WCFoundation-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WCFoundationTests/WCFoundationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		797B133A19878F8900C735DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WCFoundation.framework/Versions/A/WCFoundation";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WCFoundation/WCFoundation-Prefix.pch";
+				INFOPLIST_FILE = "WCFoundationTests/WCFoundationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		797B130719878F8900C735DD /* Build configuration list for PBXProject "WCFoundation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				797B133319878F8900C735DD /* Debug */,
+				797B133419878F8900C735DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		797B133519878F8900C735DD /* Build configuration list for PBXNativeTarget "WCFoundation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				797B133619878F8900C735DD /* Debug */,
+				797B133719878F8900C735DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		797B133819878F8900C735DD /* Build configuration list for PBXNativeTarget "WCFoundationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				797B133919878F8900C735DD /* Debug */,
+				797B133A19878F8900C735DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 797B130419878F8900C735DD /* Project object */;
+}

@@ -1,0 +1,12 @@
+[submodule "ReactiveCocoa"]
+	path = ReactiveCocoa
+	url = git@github.com:ReactiveCocoa/ReactiveCocoa.git
+[submodule "ReactiveViewModel"]
+	path = ReactiveViewModel
+	url = git@github.com:ReactiveCocoa/ReactiveViewModel.git
+[submodule "Rebel"]
+	path = Rebel
+	url = git@github.com:github/Rebel.git
+[submodule "Archimedes"]
+	path = Archimedes
+	url = git@github.com:github/Archimedes.git

@@ -1,1 +1,0 @@
-PODS_REBEL_OTHER_LDFLAGS = -framework Cocoa -framework QuartzCore -framework WebKit

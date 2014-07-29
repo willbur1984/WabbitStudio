@@ -1,1 +1,22 @@
-<?xml version='1.0' encoding='UTF-8'?><Workspace version='1.0'><FileRef location='group:WabbitStudio.xcodeproj'/><FileRef location='group:Pods/Pods.xcodeproj'/></Workspace>
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Archimedes/Archimedes.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ReactiveViewModel/ReactiveViewModel.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Rebel/Rebel.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WCFoundation/WCFoundation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WabbitCode/WabbitCode.xcodeproj">
+   </FileRef>
+</Workspace>
