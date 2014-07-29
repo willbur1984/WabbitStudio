@@ -14,6 +14,11 @@
 		796AF85D19870DD100D24EED /* WCDocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796AF85B19870DD100D24EED /* WCDocumentViewController.xib */; };
 		796AF86119870EBE00D24EED /* WCFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 796AF85F19870EBE00D24EED /* WCFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		796AF86219870EBE00D24EED /* WCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF86019870EBE00D24EED /* WCFile.m */; };
+		796AF8651987180700D24EED /* WCPlainTextFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 796AF8631987180700D24EED /* WCPlainTextFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		796AF8661987180700D24EED /* WCPlainTextFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF8641987180700D24EED /* WCPlainTextFile.m */; };
+		796AF86919871A0D00D24EED /* WCPlainTextDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF86819871A0D00D24EED /* WCPlainTextDocument.m */; };
+		796AF86C19871D9C00D24EED /* WCPlainTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796AF86B19871D9C00D24EED /* WCPlainTextViewController.m */; };
+		796AF86F19871DB100D24EED /* WCPlainTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796AF86D19871DB100D24EED /* WCPlainTextViewController.xib */; };
 		79BDB91E1985A1A80018E379 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB91D1985A1A80018E379 /* Cocoa.framework */; };
 		79BDB9281985A1A80018E379 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79BDB9261985A1A80018E379 /* InfoPlist.strings */; };
 		79BDB92A1985A1A80018E379 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BDB9291985A1A80018E379 /* main.m */; };
@@ -62,6 +67,13 @@
 		796AF85C19870DD100D24EED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCDocumentViewController.xib; sourceTree = "<group>"; };
 		796AF85F19870EBE00D24EED /* WCFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFile.h; sourceTree = "<group>"; };
 		796AF86019870EBE00D24EED /* WCFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCFile.m; sourceTree = "<group>"; };
+		796AF8631987180700D24EED /* WCPlainTextFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextFile.h; sourceTree = "<group>"; };
+		796AF8641987180700D24EED /* WCPlainTextFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextFile.m; sourceTree = "<group>"; };
+		796AF86719871A0D00D24EED /* WCPlainTextDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextDocument.h; sourceTree = "<group>"; };
+		796AF86819871A0D00D24EED /* WCPlainTextDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextDocument.m; sourceTree = "<group>"; };
+		796AF86A19871D9C00D24EED /* WCPlainTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextViewController.h; sourceTree = "<group>"; };
+		796AF86B19871D9C00D24EED /* WCPlainTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextViewController.m; sourceTree = "<group>"; };
+		796AF86E19871DB100D24EED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCPlainTextViewController.xib; sourceTree = "<group>"; };
 		79BDB91A1985A1A80018E379 /* WabbitCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WabbitCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79BDB91D1985A1A80018E379 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		79BDB9201985A1A80018E379 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -129,6 +141,8 @@
 				796AF85A19870DBB00D24EED /* Xibs */,
 				796AF85719870C8000D24EED /* WCDocumentViewController.h */,
 				796AF85819870C8000D24EED /* WCDocumentViewController.m */,
+				796AF86A19871D9C00D24EED /* WCPlainTextViewController.h */,
+				796AF86B19871D9C00D24EED /* WCPlainTextViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -159,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				796AF85B19870DD100D24EED /* WCDocumentViewController.xib */,
+				796AF86D19871DB100D24EED /* WCPlainTextViewController.xib */,
 			);
 			name = Xibs;
 			path = Base.lproj;
@@ -169,6 +184,8 @@
 			children = (
 				796AF85F19870EBE00D24EED /* WCFile.h */,
 				796AF86019870EBE00D24EED /* WCFile.m */,
+				796AF8631987180700D24EED /* WCPlainTextFile.h */,
+				796AF8641987180700D24EED /* WCPlainTextFile.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -252,6 +269,8 @@
 			children = (
 				79FBB8E01986245D00AF11FA /* WCDocument.h */,
 				79FBB8E11986245D00AF11FA /* WCDocument.m */,
+				796AF86719871A0D00D24EED /* WCPlainTextDocument.h */,
+				796AF86819871A0D00D24EED /* WCPlainTextDocument.m */,
 			);
 			name = Documents;
 			sourceTree = "<group>";
@@ -359,6 +378,7 @@
 				79FBB9491986310800AF11FA /* WCBaseWindowController.h in Headers */,
 				79FBB95C1986363200AF11FA /* WCAboutBackgroundView.h in Headers */,
 				796AF86119870EBE00D24EED /* WCFile.h in Headers */,
+				796AF8651987180700D24EED /* WCPlainTextFile.h in Headers */,
 				79FBB9541986322C00AF11FA /* WCAboutWindowController.h in Headers */,
 				79FBB96019863C1A00AF11FA /* WCDebugging.h in Headers */,
 				79FBB94B1986315200AF11FA /* WCFoundation.h in Headers */,
@@ -446,6 +466,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796AF86F19871DB100D24EED /* WCPlainTextViewController.xib in Resources */,
 				79FBB96419863FFC00AF11FA /* Credits.txt in Resources */,
 				79FBB9661986434800AF11FA /* Acknowledgements.markdown in Resources */,
 				79FBB97019864CD600AF11FA /* WCDocumentWindowController.xib in Resources */,
@@ -524,6 +545,8 @@
 				79BDB9311985A1A90018E379 /* WCAppDelegate.m in Sources */,
 				79FBB8E21986245D00AF11FA /* WCDocument.m in Sources */,
 				79BDB92A1985A1A80018E379 /* main.m in Sources */,
+				796AF86C19871D9C00D24EED /* WCPlainTextViewController.m in Sources */,
+				796AF86919871A0D00D24EED /* WCPlainTextDocument.m in Sources */,
 				796AF85919870C8000D24EED /* WCDocumentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FBB95D1986363200AF11FA /* WCAboutBackgroundView.m in Sources */,
+				796AF8661987180700D24EED /* WCPlainTextFile.m in Sources */,
 				796AF854198708D000D24EED /* WCBaseViewController.m in Sources */,
 				796AF86219870EBE00D24EED /* WCFile.m in Sources */,
 				79FBB94A1986310800AF11FA /* WCBaseWindowController.m in Sources */,
@@ -557,6 +581,14 @@
 				796AF85C19870DD100D24EED /* Base */,
 			);
 			name = WCDocumentViewController.xib;
+			sourceTree = "<group>";
+		};
+		796AF86D19871DB100D24EED /* WCPlainTextViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				796AF86E19871DB100D24EED /* Base */,
+			);
+			name = WCPlainTextViewController.xib;
 			sourceTree = "<group>";
 		};
 		79BDB9261985A1A80018E379 /* InfoPlist.strings */ = {

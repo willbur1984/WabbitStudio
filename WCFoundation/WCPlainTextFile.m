@@ -1,5 +1,5 @@
 //
-//  WCFile.h
+//  WCPlainTextFile.m
 //  WabbitStudio
 //
 //  Created by William Towe on 7/28/14.
@@ -11,13 +11,31 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "WCPlainTextFile.h"
 
-@interface WCFile : NSObject
+@interface WCPlainTextFile ()
+@property (readwrite,strong,nonatomic) NSTextStorage *textStorage;
+@end
 
-@property (readonly,copy,nonatomic) NSURL *fileURL;
-@property (readonly,copy,nonatomic) NSString *UTI;
+@implementation WCPlainTextFile
 
-- (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI;
+- (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI {
+    if (!(self = [super initWithFileURL:fileURL UTI:UTI]))
+        return nil;
+    
+    NSFont *font = [NSFont userFixedPitchFontOfSize:12.0];
+    
+    if (self.fileURL) {
+        NSData *data = [NSData dataWithContentsOfURL:self.fileURL options:NSDataReadingMappedIfSafe error:NULL];
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        [self setTextStorage:[[NSTextStorage alloc] initWithString:string attributes:@{NSFontAttributeName: font}]];
+    }
+    else {
+        [self setTextStorage:[[NSTextStorage alloc] initWithString:@"" attributes:@{NSFontAttributeName: font}]];
+    }
+    
+    return self;
+}
 
 @end

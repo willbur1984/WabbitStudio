@@ -13,6 +13,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class WCFile;
+
 @interface WCDocument : NSDocument
+
+@property (readonly,strong,nonatomic) WCFile *file;
+
+- (Class)fileClass;
 
 @end

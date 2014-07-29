@@ -16,6 +16,7 @@
 #import <WCFoundation/WCFunctions.h>
 
 #import <WCFoundation/WCFile.h>
+#import <WCFoundation/WCPlainTextFile.h>
 
 #import <WCFoundation/WCBaseWindowController.h>
 #import <WCFoundation/WCAboutWindowController.h>

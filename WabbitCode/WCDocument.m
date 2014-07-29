@@ -19,7 +19,7 @@
 @interface WCDocument ()
 @property (weak,nonatomic) WCDocumentWindowController *documentWindowController;
 
-@property (strong,nonatomic) WCFile *file;
+@property (readwrite,strong,nonatomic) WCFile *file;
 @end
 
 @implementation WCDocument
@@ -28,7 +28,7 @@
     if (!(self = [super initWithType:typeName error:outError]))
         return nil;
     
-    [self setFile:[[WCFile alloc] initWithFileURL:nil]];
+    [self setFile:[[[self fileClass] alloc] initWithFileURL:nil UTI:typeName]];
     
     return self;
 }
@@ -36,13 +36,13 @@
     if (!(self = [super initWithContentsOfURL:url ofType:typeName error:outError]))
         return nil;
     
-    [self setFile:[[WCFile alloc] initWithFileURL:url]];
+    [self setFile:[[[self fileClass] alloc] initWithFileURL:url UTI:typeName]];
     
     return self;
 }
 
 - (void)makeWindowControllers {
-    WCDocumentWindowController *documentWindowController = [[WCDocumentWindowController alloc] init];
+    WCDocumentWindowController *documentWindowController = [[WCDocumentWindowController alloc] initWithFile:self.file];
     
     [self addWindowController:documentWindowController];
     
@@ -61,6 +61,10 @@
 }
 + (BOOL)autosavesDrafts {
     return NO;
+}
+
+- (Class)fileClass; {
+    return [WCFile class];
 }
 
 @end

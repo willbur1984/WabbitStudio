@@ -13,6 +13,10 @@
 
 #import <WCFoundation/WCBaseWindowController.h>
 
+@class WCFile;
+
 @interface WCDocumentWindowController : WCBaseWindowController
+
+- (instancetype)initWithFile:(WCFile *)file;
 
 @end

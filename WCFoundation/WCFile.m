@@ -19,7 +19,9 @@ static NSString *const kWCFileKeyPathFileURL = @"fileURL";
 static void *kWCFileObservingContext = &kWCFileObservingContext;
 
 @interface WCFile ()
-@property (copy,nonatomic) NSURL *fileURL;
+@property (readwrite,copy,nonatomic) NSURL *fileURL;
+@property (readwrite,copy,nonatomic) NSString *UTI;
+
 @property (strong,nonatomic) dispatch_source_t fileSource;
 
 - (void)_startMonitoringFileSource;
@@ -51,11 +53,14 @@ static void *kWCFileObservingContext = &kWCFileObservingContext;
     }
 }
 #pragma mark *** Public Methods ***
-- (instancetype)initWithFileURL:(NSURL *)fileURL; {
+- (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI; {
     if (!(self = [super init]))
         return nil;
     
+    NSParameterAssert(UTI);
+    
     [self setFileURL:fileURL];
+    [self setUTI:UTI];
     
     [self addObserver:self forKeyPath:kWCFileKeyPathFileURL options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:kWCFileObservingContext];
     

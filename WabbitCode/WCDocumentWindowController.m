@@ -13,9 +13,12 @@
 
 #import "WCDocumentWindowController.h"
 #import "WCDocumentViewController.h"
+#import <WCFoundation/WCFile.h>
 
 @interface WCDocumentWindowController ()
 @property (strong,nonatomic) WCDocumentViewController *documentViewController;
+
+@property (weak,nonatomic) WCFile *file;
 @end
 
 @implementation WCDocumentWindowController
@@ -23,8 +26,19 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    [self setDocumentViewController:[[WCDocumentViewController alloc] init]];
+    [self setDocumentViewController:[[WCDocumentViewController alloc] initWithFile:self.file]];
     [self.window setContentView:self.documentViewController.view];
+}
+
+- (instancetype)initWithFile:(WCFile *)file; {
+    if (!(self = [super init]))
+        return nil;
+    
+    NSParameterAssert(file);
+    
+    [self setFile:file];
+    
+    return self;
 }
 
 @end

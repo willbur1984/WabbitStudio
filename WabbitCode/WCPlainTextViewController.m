@@ -1,5 +1,5 @@
 //
-//  WCFile.h
+//  WCPlainTextViewController.m
 //  WabbitStudio
 //
 //  Created by William Towe on 7/28/14.
@@ -11,13 +11,32 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "WCPlainTextViewController.h"
+#import <WCFoundation/WCPlainTextFile.h>
 
-@interface WCFile : NSObject
+@interface WCPlainTextViewController ()
+@property (unsafe_unretained,nonatomic) IBOutlet NSTextView *textView;
 
-@property (readonly,copy,nonatomic) NSURL *fileURL;
-@property (readonly,copy,nonatomic) NSString *UTI;
+@property (weak,nonatomic) WCPlainTextFile *plainTextFile;
+@end
 
-- (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI;
+@implementation WCPlainTextViewController
+
+- (void)loadView {
+    [super loadView];
+    
+    [self.textView.layoutManager replaceTextStorage:self.plainTextFile.textStorage];
+}
+
+- (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {
+    if (!(self = [super init]))
+        return nil;
+    
+    NSParameterAssert(plainTextFile);
+    
+    [self setPlainTextFile:plainTextFile];
+    
+    return self;
+}
 
 @end

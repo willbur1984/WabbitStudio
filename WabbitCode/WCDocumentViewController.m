@@ -12,9 +12,15 @@
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "WCDocumentViewController.h"
+#import <WCFoundation/WCPlainTextFile.h>
+#import "WCPlainTextViewController.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <libextobjc/EXTScope.h>
 
 @interface WCDocumentViewController ()
+@property (weak,nonatomic) WCFile *file;
 
+@property (strong,nonatomic) WCBaseViewController *contentViewController;
 @end
 
 @implementation WCDocumentViewController
@@ -22,7 +28,32 @@
 - (void)loadView {
     [super loadView];
     
+    if ([self.file isKindOfClass:[WCPlainTextFile class]]) {
+        [self setContentViewController:[[WCPlainTextViewController alloc] initWithPlainTextFile:(WCPlainTextFile *)self.file]];
+        [self.view addSubview:self.contentViewController.view];
+    }
     
+    @weakify(self);
+    
+    [[[[NSNotificationCenter defaultCenter]
+       rac_addObserverForName:NSViewFrameDidChangeNotification object:self.view]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(id _) {
+         @strongify(self);
+         
+         [self.contentViewController.view setFrame:self.view.bounds];
+    }];
+}
+
+- (instancetype)initWithFile:(WCFile *)file; {
+    if (!(self = [super init]))
+        return nil;
+    
+    NSParameterAssert(file);
+    
+    [self setFile:file];
+    
+    return self;
 }
 
 @end
