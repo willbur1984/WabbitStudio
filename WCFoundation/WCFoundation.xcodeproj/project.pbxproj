@@ -39,6 +39,8 @@
 		797B136819878FD500C735DD /* WCRulerViewDefaultDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B135119878FD500C735DD /* WCRulerViewDefaultDataSource.m */; };
 		797B136B19878FEC00C735DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B136919878FEC00C735DD /* Localizable.strings */; };
 		797B136F1987900800C735DD /* WCAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797B136D1987900800C735DD /* WCAboutWindowController.xib */; };
+		79A4B83419879C8000C7B2C1 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B83319879C8000C7B2C1 /* ReactiveCocoa.framework */; };
+		79A4B83719879CE700C7B2C1 /* ReactiveViewModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B83519879CE700C7B2C1 /* ReactiveViewModel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,9 @@
 		797B135119878FD500C735DD /* WCRulerViewDefaultDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRulerViewDefaultDataSource.m; sourceTree = "<group>"; };
 		797B136A19878FEC00C735DD /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		797B136E1987900800C735DD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WCAboutWindowController.xib; sourceTree = "<group>"; };
+		79A4B83319879C8000C7B2C1 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/ReactiveCocoa.framework"; sourceTree = "<group>"; };
+		79A4B83519879CE700C7B2C1 /* ReactiveViewModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveViewModel.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/ReactiveViewModel.framework"; sourceTree = "<group>"; };
+		79A4B83619879CE700C7B2C1 /* Rebel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rebel.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/Rebel.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A4B83719879CE700C7B2C1 /* ReactiveViewModel.framework in Frameworks */,
+				79A4B83419879C8000C7B2C1 /* ReactiveCocoa.framework in Frameworks */,
 				797B131119878F8900C735DD /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +144,9 @@
 		797B130F19878F8900C735DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79A4B83519879CE700C7B2C1 /* ReactiveViewModel.framework */,
+				79A4B83619879CE700C7B2C1 /* Rebel.framework */,
+				79A4B83319879C8000C7B2C1 /* ReactiveCocoa.framework */,
 				797B131019878F8900C735DD /* Cocoa.framework */,
 				797B132519878F8900C735DD /* XCTest.framework */,
 				797B131219878F8900C735DD /* Other Frameworks */,
@@ -240,10 +250,10 @@
 			isa = PBXGroup;
 			children = (
 				797B136C19878FFC00C735DD /* Xibs */,
-				797B133F19878FD500C735DD /* WCAboutBackgroundView.h */,
-				797B134019878FD500C735DD /* WCAboutBackgroundView.m */,
 				797B134119878FD500C735DD /* WCAboutWindowController.h */,
 				797B134219878FD500C735DD /* WCAboutWindowController.m */,
+				797B133F19878FD500C735DD /* WCAboutBackgroundView.h */,
+				797B134019878FD500C735DD /* WCAboutBackgroundView.m */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -259,10 +269,10 @@
 		797B13751987907800C735DD /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				797B134319878FD500C735DD /* WCBaseViewController.h */,
-				797B134419878FD500C735DD /* WCBaseViewController.m */,
 				797B134519878FD500C735DD /* WCBaseWindowController.h */,
 				797B134619878FD500C735DD /* WCBaseWindowController.m */,
+				797B134319878FD500C735DD /* WCBaseViewController.h */,
+				797B134419878FD500C735DD /* WCBaseViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -570,6 +580,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WCFoundation/WCFoundation-Prefix.pch";
@@ -585,6 +599,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WCFoundation/WCFoundation-Prefix.pch";

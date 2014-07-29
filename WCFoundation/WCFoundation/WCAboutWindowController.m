@@ -13,8 +13,12 @@
 
 #import "WCAboutWindowController.h"
 #import "WCFunctions.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/EXTScope.h>
 
 NSString *const WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString = @"WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString";
+
+static WCAboutWindowController *kCurrentAboutWindowController;
 
 @interface WCAboutWindowController ()
 @property (weak,nonatomic) IBOutlet NSTextField *applicationNameLabel;
@@ -24,16 +28,19 @@ NSString *const WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString =
 @property (weak,nonatomic) IBOutlet NSButton *acknowledgementsButton;
 @property (weak,nonatomic) IBOutlet NSButton *visitApplicationWebsiteButton;
 
-@property (weak,nonatomic) id windowWillCloseNotificationToken;
-
 - (IBAction)_acknowledgementsButtonAction:(id)sender;
 - (IBAction)_visitApplicationWebsiteButtonAction:(id)sender;
 @end
 
 @implementation WCAboutWindowController
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self.windowWillCloseNotificationToken];
+- (id)init {
+    if (!(self = [super init]))
+        return nil;
+    
+    kCurrentAboutWindowController = self;
+    
+    return self;
 }
 
 - (void)windowDidLoad {
@@ -61,11 +68,12 @@ NSString *const WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString =
         retval;
     })];
     
-    __block WCAboutWindowController *bself = self;
-    
-    [self setWindowWillCloseNotificationToken:[[NSNotificationCenter defaultCenter] addObserverForName:NSWindowWillCloseNotification object:self.window queue:nil usingBlock:^(NSNotification *note) {
-        bself = nil;
-    }]];
+    [[[[NSNotificationCenter defaultCenter]
+       rac_addObserverForName:NSWindowWillCloseNotification object:self.window]
+      take:1]
+     subscribeNext:^(id _) {
+         kCurrentAboutWindowController = nil;
+    }];
 }
 
 - (void)showWindow:(id)sender {
