@@ -39,6 +39,9 @@ static WCAboutWindowController *kCurrentAboutWindowController;
     if (!(self = [super init]))
         return nil;
     
+    if (kCurrentAboutWindowController)
+        return kCurrentAboutWindowController;
+    
     kCurrentAboutWindowController = self;
     
     return self;
