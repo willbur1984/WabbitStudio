@@ -15,11 +15,14 @@
 #import <WCFoundation/WCDebugging.h>
 #import <WCFoundation/WCFunctions.h>
 
+#import <WCFoundation/NSBundle+WCExtensions.h>
+
 #import <WCFoundation/WCFile.h>
 #import <WCFoundation/WCPlainTextFile.h>
 
 #import <WCFoundation/WCBaseWindowController.h>
 #import <WCFoundation/WCAboutWindowController.h>
+#import <WCFoundation/WCPreferencesWindowController.h>
 
 #import <WCFoundation/WCBaseViewController.h>
 
