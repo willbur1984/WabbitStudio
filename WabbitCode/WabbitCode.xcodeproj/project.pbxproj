@@ -33,6 +33,8 @@
 		797B13E4198794EB00C735DD /* Rebel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B13DE198794EB00C735DD /* Rebel.framework */; };
 		797B13E5198794EB00C735DD /* WCFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B13DF198794EB00C735DD /* WCFoundation.framework */; };
 		79A4B8521988AF2300C7B2C1 /* BlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B8511988AF2300C7B2C1 /* BlocksKit.framework */; };
+		79A4B8591988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B8581988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.m */; };
+		79A4B85F1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B85E1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,10 @@
 		797B13DE198794EB00C735DD /* Rebel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rebel.framework; path = ../Rebel/build/Debug/Rebel.framework; sourceTree = "<group>"; };
 		797B13DF198794EB00C735DD /* WCFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WCFoundation.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/WCFoundation.framework"; sourceTree = "<group>"; };
 		79A4B8511988AF2300C7B2C1 /* BlocksKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlocksKit.framework; path = ../BlocksKit/build/Debug/BlocksKit.framework; sourceTree = "<group>"; };
+		79A4B8571988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPreferencesGeneralViewController.h; sourceTree = "<group>"; };
+		79A4B8581988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesGeneralViewController.m; sourceTree = "<group>"; };
+		79A4B85D1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPreferencesAdvancedViewController.h; sourceTree = "<group>"; };
+		79A4B85E1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesAdvancedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +226,7 @@
 				79A4B83019879AEA00C7B2C1 /* Documents */,
 				79A4B83219879B0000C7B2C1 /* Window Controllers */,
 				79A4B83119879AFA00C7B2C1 /* View Controllers */,
+				79A4B8561988B79500C7B2C1 /* Preferences */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -272,6 +279,33 @@
 				797B13D3198791A000C735DD /* WCPlainTextViewController.xib */,
 			);
 			name = Xibs;
+			sourceTree = "<group>";
+		};
+		79A4B8561988B79500C7B2C1 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				79A4B8601988B8E300C7B2C1 /* General */,
+				79A4B8611988B8EA00C7B2C1 /* Advanced */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		79A4B8601988B8E300C7B2C1 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				79A4B8571988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.h */,
+				79A4B8581988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.m */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
+		79A4B8611988B8EA00C7B2C1 /* Advanced */ = {
+			isa = PBXGroup;
+			children = (
+				79A4B85D1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.h */,
+				79A4B85E1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m */,
+			);
+			name = Advanced;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A4B8591988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.m in Sources */,
+				79A4B85F1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m in Sources */,
 				797B13991987911A00C735DD /* WCAppDelegate.m in Sources */,
 				797B13C51987917B00C735DD /* WCDocumentWindowController.m in Sources */,
 				797B13C41987917B00C735DD /* WCDocumentViewController.m in Sources */,
