@@ -45,6 +45,8 @@
 		79A4B83E19888D5A00C7B2C1 /* NSBundle+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B83C19888D5A00C7B2C1 /* NSBundle+WCExtensions.m */; };
 		79A4B845198896EA00C7B2C1 /* WCTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B843198896EA00C7B2C1 /* WCTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79A4B846198896EA00C7B2C1 /* WCTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B844198896EA00C7B2C1 /* WCTextView.m */; };
+		79A4B84D1988A67600C7B2C1 /* WCPreferencesWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */; };
+		79A4B84E1988A67600C7B2C1 /* WCPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		79A4B83C19888D5A00C7B2C1 /* NSBundle+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+WCExtensions.m"; sourceTree = "<group>"; };
 		79A4B843198896EA00C7B2C1 /* WCTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTextView.h; sourceTree = "<group>"; };
 		79A4B844198896EA00C7B2C1 /* WCTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCTextView.m; sourceTree = "<group>"; };
+		79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPreferencesWindowController.h; sourceTree = "<group>"; };
+		79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				797B13731987905F00C735DD /* About */,
+				79A4B8491988A63300C7B2C1 /* Preferences */,
 			);
 			name = "Window Controllers";
 			sourceTree = "<group>";
@@ -327,6 +332,23 @@
 			name = "Text View";
 			sourceTree = "<group>";
 		};
+		79A4B8491988A63300C7B2C1 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				79A4B84A1988A64400C7B2C1 /* Xibs */,
+				79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */,
+				79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		79A4B84A1988A64400C7B2C1 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -347,6 +369,7 @@
 				797B135619878FD500C735DD /* WCAboutBackgroundView.h in Headers */,
 				797B135E19878FD500C735DD /* WCConstants.h in Headers */,
 				797B135219878FD500C735DD /* NSParagraphStyle+WCExtensions.h in Headers */,
+				79A4B84D1988A67600C7B2C1 /* WCPreferencesWindowController.h in Headers */,
 				797B136719878FD500C735DD /* WCRulerViewDefaultDataSource.h in Headers */,
 				797B135419878FD500C735DD /* NSPointerArray+WCExtensions.h in Headers */,
 			);
@@ -475,6 +498,7 @@
 				79A4B846198896EA00C7B2C1 /* WCTextView.m in Sources */,
 				797B135919878FD500C735DD /* WCAboutWindowController.m in Sources */,
 				797B136119878FD500C735DD /* WCFile.m in Sources */,
+				79A4B84E1988A67600C7B2C1 /* WCPreferencesWindowController.m in Sources */,
 				797B135519878FD500C735DD /* NSPointerArray+WCExtensions.m in Sources */,
 				797B135319878FD500C735DD /* NSParagraphStyle+WCExtensions.m in Sources */,
 				797B136419878FD500C735DD /* WCPlainTextFile.m in Sources */,
