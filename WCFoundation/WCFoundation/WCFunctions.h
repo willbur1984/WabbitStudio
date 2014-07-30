@@ -13,13 +13,13 @@
 #import <Foundation/NSBundle.h>
 #import <WCFoundation/WCConstants.h>
 
-static NSBundle *WCFoundationBundle(void) {
-    static NSBundle *kRetval;
+static inline NSBundle *WCFoundationBundle(void) {
+    static NSBundle *kWCFoundationBundle;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        kRetval = [NSBundle bundleWithIdentifier:WCFoundationBundleIdentifier];
+        kWCFoundationBundle = [NSBundle bundleWithIdentifier:WCFoundationBundleIdentifier];
     });
-    return kRetval;
+    return kWCFoundationBundle;
 }
 
 #endif
