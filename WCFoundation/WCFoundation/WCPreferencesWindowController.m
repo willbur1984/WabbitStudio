@@ -138,6 +138,8 @@ static WCPreferencesWindowController *kCurrentPreferencesWindowController;
     }
     
     [self.window.toolbar setSelectedItemIdentifier:[selectedViewController.class preferencesIdentifier]];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[selectedViewController.class preferencesIdentifier] forKey:kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier];
 }
 #pragma mark *** Private Methods ***
 - (NSArray *)_toolbarItemIdentifiers; {
