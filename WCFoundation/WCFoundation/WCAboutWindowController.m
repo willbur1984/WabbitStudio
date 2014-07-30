@@ -15,6 +15,7 @@
 #import "WCFunctions.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
+#import "NSBundle+WCExtensions.h"
 
 NSString *const WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString = @"WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString";
 
@@ -50,12 +51,12 @@ static WCAboutWindowController *kCurrentAboutWindowController;
     
     [self.creditsTextView setTextContainerInset:NSZeroSize];
     
-    [self.applicationNameLabel setStringValue:[NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"]];
-    [self.applicationVersionLabel setStringValue:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"Version %@ (Build %@)", nil, WCFoundationBundle(), @"about window application version label format string"),[NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"],[NSBundle mainBundle].infoDictionary[@"CFBundleVersion"]]];
-    [self.copyrightNoticeLabel setStringValue:[NSBundle mainBundle].infoDictionary[@"NSHumanReadableCopyright"]];
+    [self.applicationNameLabel setStringValue:[NSBundle mainBundle].WC_bundleExecutable];
+    [self.applicationVersionLabel setStringValue:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"Version %@ (Build %@)", nil, WCFoundationBundle(), @"about window application version label format string"),[NSBundle mainBundle].WC_bundleShortVersionString,[NSBundle mainBundle].WC_bundleVersion]];
+    [self.copyrightNoticeLabel setStringValue:[NSBundle mainBundle].WC_humanReadableCopyright];
     
     [self.acknowledgementsButton setTitle:NSLocalizedStringFromTableInBundle(@"Acknowledgements", nil, WCFoundationBundle(), @"acknowledgements button title")];
-    [self.visitApplicationWebsiteButton setTitle:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"Visit %@ Website", nil, WCFoundationBundle(), @"about window visit application website format string"),[NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"]]];
+    [self.visitApplicationWebsiteButton setTitle:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"Visit %@ Website", nil, WCFoundationBundle(), @"about window visit application website format string"),[NSBundle mainBundle].WC_bundleExecutable]];
     
     [self.creditsTextView setString:({
         NSString *retval = @"";
