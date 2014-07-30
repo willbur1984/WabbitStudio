@@ -16,6 +16,7 @@
 #import <WCFoundation/WCPreferencesWindowController.h>
 #import "WCPreferencesGeneralViewController.h"
 #import "WCPreferencesAdvancedViewController.h"
+#import "WCPreferencesTextEditingViewController.h"
 
 @interface WCAppDelegate ()
 - (IBAction)_aboutAction:(id)sender;
@@ -36,7 +37,9 @@
     [[[WCAboutWindowController alloc] init] showWindow:nil];
 }
 - (IBAction)_preferencesAction:(id)sender; {
-    [[[WCPreferencesWindowController alloc] initWithViewControllerClasses:@[[WCPreferencesGeneralViewController class],[WCPreferencesAdvancedViewController class]]] showWindow:nil];
+    [[[WCPreferencesWindowController alloc] initWithViewControllerClasses:@[[WCPreferencesGeneralViewController class],
+                                                                            [WCPreferencesTextEditingViewController class],
+                                                                            [WCPreferencesAdvancedViewController class]]] showWindow:nil];
 }
 
 @end

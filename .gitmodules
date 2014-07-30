@@ -13,3 +13,6 @@
 [submodule "BlocksKit"]
 	path = BlocksKit
 	url = git@github.com:zwaldowski/BlocksKit.git
+[submodule "MAKVONotificationCenter"]
+	path = MAKVONotificationCenter
+	url = https://github.com/mikeash/MAKVONotificationCenter

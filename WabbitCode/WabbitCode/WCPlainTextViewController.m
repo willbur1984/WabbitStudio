@@ -15,6 +15,13 @@
 #import <WCFoundation/WCPlainTextFile.h>
 #import <WCFoundation/WCRulerView.h>
 #import <WCFoundation/WCTextView.h>
+#import "WCPreferencesTextEditingViewController.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/EXTScope.h>
+#import <WCFoundation/NSArray+WCExtensions.h>
+#import "MAKVONotificationCenter.h"
+
+static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewControllerObservingContext;
 
 @interface WCPlainTextViewController ()
 @property (unsafe_unretained,nonatomic) IBOutlet WCTextView *textView;
@@ -33,6 +40,16 @@
     [self.textView.enclosingScrollView setHasHorizontalRuler:NO];
     [self.textView.enclosingScrollView setHasVerticalRuler:YES];
     [self.textView.enclosingScrollView setRulersVisible:YES];
+    
+    [self.textView setHighlightCurrentLineColor:[NSColor yellowColor]];
+    
+    @weakify(self);
+
+    [[NSUserDefaultsController sharedUserDefaultsController] addObservationKeyPath:[@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine] WC_keypath] options:NSKeyValueObservingOptionInitial block:^(MAKVONotification *notification) {
+        @strongify(self);
+        
+        [self.textView setHighlightCurrentLine:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine]];
+    }];
 }
 
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {

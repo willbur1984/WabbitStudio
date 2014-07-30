@@ -37,6 +37,9 @@
 		79A4B85F1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B85E1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m */; };
 		79A4B8651988BE0A00C7B2C1 /* WCPreferencesGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A4B8631988BE0A00C7B2C1 /* WCPreferencesGeneralViewController.xib */; };
 		79A4B8691988BE6200C7B2C1 /* WCPreferencesAdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A4B8671988BE6200C7B2C1 /* WCPreferencesAdvancedViewController.xib */; };
+		79A4B86D198936C400C7B2C1 /* WCPreferencesTextEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B86C198936C400C7B2C1 /* WCPreferencesTextEditingViewController.m */; };
+		79A4B8711989370000C7B2C1 /* WCPreferencesTextEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A4B86F1989370000C7B2C1 /* WCPreferencesTextEditingViewController.xib */; };
+		79A4B87B1989425A00C7B2C1 /* MAKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B87A1989425A00C7B2C1 /* MAKVONotificationCenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,12 @@
 		79A4B85E1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesAdvancedViewController.m; sourceTree = "<group>"; };
 		79A4B8641988BE0A00C7B2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCPreferencesGeneralViewController.xib; sourceTree = "<group>"; };
 		79A4B8681988BE6200C7B2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCPreferencesAdvancedViewController.xib; sourceTree = "<group>"; };
+		79A4B86B198936C400C7B2C1 /* WCPreferencesTextEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPreferencesTextEditingViewController.h; sourceTree = "<group>"; };
+		79A4B86C198936C400C7B2C1 /* WCPreferencesTextEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesTextEditingViewController.m; sourceTree = "<group>"; };
+		79A4B8701989370000C7B2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCPreferencesTextEditingViewController.xib; sourceTree = "<group>"; };
+		79A4B8761989413C00C7B2C1 /* MAKVONotificationCenter-MacOS.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "MAKVONotificationCenter-MacOS.dylib"; path = "../MAKVONotificationCenter/build/Debug/MAKVONotificationCenter-MacOS.dylib"; sourceTree = "<group>"; };
+		79A4B8791989425A00C7B2C1 /* MAKVONotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAKVONotificationCenter.h; path = ../MAKVONotificationCenter/MAKVONotificationCenter.h; sourceTree = "<group>"; };
+		79A4B87A1989425A00C7B2C1 /* MAKVONotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAKVONotificationCenter.m; path = ../MAKVONotificationCenter/MAKVONotificationCenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +137,7 @@
 		797B13791987911A00C735DD = {
 			isa = PBXGroup;
 			children = (
+				79A4B8781989424000C7B2C1 /* MAKVONotificationCenter */,
 				797B138B1987911A00C735DD /* WabbitCode */,
 				797B13A91987911A00C735DD /* WabbitCodeTests */,
 				797B13841987911A00C735DD /* Frameworks */,
@@ -147,6 +157,7 @@
 		797B13841987911A00C735DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79A4B8761989413C00C7B2C1 /* MAKVONotificationCenter-MacOS.dylib */,
 				79A4B8511988AF2300C7B2C1 /* BlocksKit.framework */,
 				797B13DA198794EB00C735DD /* Archimedes.framework */,
 				797B13DB198794EB00C735DD /* libextobjc_OSX.a */,
@@ -289,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				79A4B8601988B8E300C7B2C1 /* General */,
+				79A4B86A198936A000C7B2C1 /* Text Editing */,
 				79A4B8611988B8EA00C7B2C1 /* Advanced */,
 			);
 			name = Preferences;
@@ -330,6 +342,34 @@
 			);
 			name = Xibs;
 			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		79A4B86A198936A000C7B2C1 /* Text Editing */ = {
+			isa = PBXGroup;
+			children = (
+				79A4B86E198936C800C7B2C1 /* Xibs */,
+				79A4B86B198936C400C7B2C1 /* WCPreferencesTextEditingViewController.h */,
+				79A4B86C198936C400C7B2C1 /* WCPreferencesTextEditingViewController.m */,
+			);
+			name = "Text Editing";
+			sourceTree = "<group>";
+		};
+		79A4B86E198936C800C7B2C1 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				79A4B86F1989370000C7B2C1 /* WCPreferencesTextEditingViewController.xib */,
+			);
+			name = Xibs;
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		79A4B8781989424000C7B2C1 /* MAKVONotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				79A4B8791989425A00C7B2C1 /* MAKVONotificationCenter.h */,
+				79A4B87A1989425A00C7B2C1 /* MAKVONotificationCenter.m */,
+			);
+			name = MAKVONotificationCenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +451,7 @@
 			files = (
 				797B13D8198791A000C735DD /* WCPlainTextViewController.xib in Resources */,
 				797B13D5198791A000C735DD /* WCDocumentViewController.xib in Resources */,
+				79A4B8711989370000C7B2C1 /* WCPreferencesTextEditingViewController.xib in Resources */,
 				797B13901987911A00C735DD /* InfoPlist.strings in Resources */,
 				797B13D6198791A000C735DD /* WCDocumentWindowController.xib in Resources */,
 				797B13CA1987918A00C735DD /* Acknowledgements.markdown in Resources */,
@@ -438,11 +479,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				79A4B8591988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.m in Sources */,
+				79A4B86D198936C400C7B2C1 /* WCPreferencesTextEditingViewController.m in Sources */,
 				79A4B85F1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m in Sources */,
 				797B13991987911A00C735DD /* WCAppDelegate.m in Sources */,
 				797B13C51987917B00C735DD /* WCDocumentWindowController.m in Sources */,
 				797B13C41987917B00C735DD /* WCDocumentViewController.m in Sources */,
 				797B13C31987917B00C735DD /* WCDocument.m in Sources */,
+				79A4B87B1989425A00C7B2C1 /* MAKVONotificationCenter.m in Sources */,
 				797B13C71987917B00C735DD /* WCPlainTextViewController.m in Sources */,
 				797B13C61987917B00C735DD /* WCPlainTextDocument.m in Sources */,
 				797B13921987911A00C735DD /* main.m in Sources */,
@@ -535,6 +578,14 @@
 			name = WCPreferencesAdvancedViewController.xib;
 			sourceTree = "<group>";
 		};
+		79A4B86F1989370000C7B2C1 /* WCPreferencesTextEditingViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79A4B8701989370000C7B2C1 /* Base */,
+			);
+			name = WCPreferencesTextEditingViewController.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -613,10 +664,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/williamtowe/Documents/Projects/WabbitStudio/BlocksKit/build/Debug,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WabbitCode/WabbitCode-Prefix.pch";
 				INFOPLIST_FILE = "WabbitCode/WabbitCode-Info.plist";
@@ -631,10 +679,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/williamtowe/Documents/Projects/WabbitStudio/BlocksKit/build/Debug,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WabbitCode/WabbitCode-Prefix.pch";
 				INFOPLIST_FILE = "WabbitCode/WabbitCode-Info.plist";
