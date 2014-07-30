@@ -137,6 +137,7 @@ static WCPreferencesWindowController *kCurrentPreferencesWindowController;
         [self.window setFrame:[self _windowFrameForViewController:selectedViewController] display:NO];
     }
     
+    [self.window setTitle:[selectedViewController.class preferencesName]];
     [self.window.toolbar setSelectedItemIdentifier:[selectedViewController.class preferencesIdentifier]];
     
     [[NSUserDefaults standardUserDefaults] setObject:[selectedViewController.class preferencesIdentifier] forKey:kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier];
