@@ -5,6 +5,9 @@
       location = "group:Archimedes/Archimedes.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:BlocksKit/BlocksKit.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa.xcodeproj">
    </FileRef>
    <FileRef

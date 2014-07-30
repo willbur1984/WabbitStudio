@@ -32,6 +32,7 @@
 		797B13E3198794EB00C735DD /* ReactiveViewModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B13DD198794EB00C735DD /* ReactiveViewModel.framework */; };
 		797B13E4198794EB00C735DD /* Rebel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B13DE198794EB00C735DD /* Rebel.framework */; };
 		797B13E5198794EB00C735DD /* WCFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B13DF198794EB00C735DD /* WCFoundation.framework */; };
+		79A4B8521988AF2300C7B2C1 /* BlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B8511988AF2300C7B2C1 /* BlocksKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		797B13DD198794EB00C735DD /* ReactiveViewModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveViewModel.framework; path = ../ReactiveViewModel/build/Debug/ReactiveViewModel.framework; sourceTree = "<group>"; };
 		797B13DE198794EB00C735DD /* Rebel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rebel.framework; path = ../Rebel/build/Debug/Rebel.framework; sourceTree = "<group>"; };
 		797B13DF198794EB00C735DD /* WCFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WCFoundation.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/WCFoundation.framework"; sourceTree = "<group>"; };
+		79A4B8511988AF2300C7B2C1 /* BlocksKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlocksKit.framework; path = ../BlocksKit/build/Debug/BlocksKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A4B8521988AF2300C7B2C1 /* BlocksKit.framework in Frameworks */,
 				797B13E0198794EB00C735DD /* Archimedes.framework in Frameworks */,
 				797B13E2198794EB00C735DD /* ReactiveCocoa.framework in Frameworks */,
 				797B13E3198794EB00C735DD /* ReactiveViewModel.framework in Frameworks */,
@@ -134,6 +137,7 @@
 		797B13841987911A00C735DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79A4B8511988AF2300C7B2C1 /* BlocksKit.framework */,
 				797B13DA198794EB00C735DD /* Archimedes.framework */,
 				797B13DB198794EB00C735DD /* libextobjc_OSX.a */,
 				797B13DC198794EB00C735DD /* ReactiveCocoa.framework */,
@@ -531,7 +535,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/williamtowe/Documents/Projects/WabbitStudio/BlocksKit/build/Debug,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WabbitCode/WabbitCode-Prefix.pch";
 				INFOPLIST_FILE = "WabbitCode/WabbitCode-Info.plist";
@@ -546,7 +553,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/williamtowe/Documents/Projects/WabbitStudio/BlocksKit/build/Debug,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WabbitCode/WabbitCode-Prefix.pch";
 				INFOPLIST_FILE = "WabbitCode/WabbitCode-Info.plist";

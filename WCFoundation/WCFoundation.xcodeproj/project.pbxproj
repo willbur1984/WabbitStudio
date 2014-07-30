@@ -47,6 +47,7 @@
 		79A4B846198896EA00C7B2C1 /* WCTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B844198896EA00C7B2C1 /* WCTextView.m */; };
 		79A4B84D1988A67600C7B2C1 /* WCPreferencesWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */; };
 		79A4B84E1988A67600C7B2C1 /* WCPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */; };
+		79A4B8501988AEFF00C7B2C1 /* BlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B84F1988AEFF00C7B2C1 /* BlocksKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		79A4B844198896EA00C7B2C1 /* WCTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCTextView.m; sourceTree = "<group>"; };
 		79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPreferencesWindowController.h; sourceTree = "<group>"; };
 		79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesWindowController.m; sourceTree = "<group>"; };
+		79A4B84F1988AEFF00C7B2C1 /* BlocksKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlocksKit.framework; path = ../BlocksKit/build/Debug/BlocksKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A4B8501988AEFF00C7B2C1 /* BlocksKit.framework in Frameworks */,
 				79A4B83719879CE700C7B2C1 /* ReactiveViewModel.framework in Frameworks */,
 				79A4B83419879C8000C7B2C1 /* ReactiveCocoa.framework in Frameworks */,
 				797B131119878F8900C735DD /* Cocoa.framework in Frameworks */,
@@ -156,6 +159,7 @@
 		797B130F19878F8900C735DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79A4B84F1988AEFF00C7B2C1 /* BlocksKit.framework */,
 				79A4B83519879CE700C7B2C1 /* ReactiveViewModel.framework */,
 				79A4B83619879CE700C7B2C1 /* Rebel.framework */,
 				79A4B83319879C8000C7B2C1 /* ReactiveCocoa.framework */,
@@ -639,6 +643,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug",
+					/Users/williamtowe/Documents/Projects/WabbitStudio/BlocksKit/build/Debug,
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -658,6 +663,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug",
+					/Users/williamtowe/Documents/Projects/WabbitStudio/BlocksKit/build/Debug,
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
