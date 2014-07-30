@@ -37,9 +37,7 @@
     [[[WCAboutWindowController alloc] init] showWindow:nil];
 }
 - (IBAction)_preferencesAction:(id)sender; {
-    [[[WCPreferencesWindowController alloc] initWithViewControllerClasses:@[[WCPreferencesGeneralViewController class],
-                                                                            [WCPreferencesTextEditingViewController class],
-                                                                            [WCPreferencesAdvancedViewController class]]] showWindow:nil];
+    [[[WCPreferencesWindowController alloc] initWithViewControllerClasses:@[[WCPreferencesTextEditingViewController class]]] showWindow:nil];
 }
 
 @end
