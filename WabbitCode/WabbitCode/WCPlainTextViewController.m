@@ -14,9 +14,10 @@
 #import "WCPlainTextViewController.h"
 #import <WCFoundation/WCPlainTextFile.h>
 #import <WCFoundation/WCRulerView.h>
+#import <WCFoundation/WCTextView.h>
 
 @interface WCPlainTextViewController ()
-@property (unsafe_unretained,nonatomic) IBOutlet NSTextView *textView;
+@property (unsafe_unretained,nonatomic) IBOutlet WCTextView *textView;
 
 @property (weak,nonatomic) WCPlainTextFile *plainTextFile;
 @end
