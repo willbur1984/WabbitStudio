@@ -41,6 +41,8 @@
 		797B136F1987900800C735DD /* WCAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797B136D1987900800C735DD /* WCAboutWindowController.xib */; };
 		79A4B83419879C8000C7B2C1 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B83319879C8000C7B2C1 /* ReactiveCocoa.framework */; };
 		79A4B83719879CE700C7B2C1 /* ReactiveViewModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B83519879CE700C7B2C1 /* ReactiveViewModel.framework */; };
+		79A4B83D19888D5A00C7B2C1 /* NSBundle+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B83B19888D5A00C7B2C1 /* NSBundle+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79A4B83E19888D5A00C7B2C1 /* NSBundle+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B83C19888D5A00C7B2C1 /* NSBundle+WCExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		79A4B83319879C8000C7B2C1 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/ReactiveCocoa.framework"; sourceTree = "<group>"; };
 		79A4B83519879CE700C7B2C1 /* ReactiveViewModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveViewModel.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/ReactiveViewModel.framework"; sourceTree = "<group>"; };
 		79A4B83619879CE700C7B2C1 /* Rebel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rebel.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/Rebel.framework"; sourceTree = "<group>"; };
+		79A4B83B19888D5A00C7B2C1 /* NSBundle+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+WCExtensions.h"; sourceTree = "<group>"; };
+		79A4B83C19888D5A00C7B2C1 /* NSBundle+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+WCExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,8 @@
 				797B133C19878FD500C735DD /* NSParagraphStyle+WCExtensions.m */,
 				797B133D19878FD500C735DD /* NSPointerArray+WCExtensions.h */,
 				797B133E19878FD500C735DD /* NSPointerArray+WCExtensions.m */,
+				79A4B83B19888D5A00C7B2C1 /* NSBundle+WCExtensions.h */,
+				79A4B83C19888D5A00C7B2C1 /* NSBundle+WCExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				797B135A19878FD500C735DD /* WCBaseViewController.h in Headers */,
+				79A4B83D19888D5A00C7B2C1 /* NSBundle+WCExtensions.h in Headers */,
 				797B135F19878FD500C735DD /* WCDebugging.h in Headers */,
 				797B136519878FD500C735DD /* WCRulerView.h in Headers */,
 				797B135C19878FD500C735DD /* WCBaseWindowController.h in Headers */,
@@ -447,6 +454,7 @@
 				797B135519878FD500C735DD /* NSPointerArray+WCExtensions.m in Sources */,
 				797B135319878FD500C735DD /* NSParagraphStyle+WCExtensions.m in Sources */,
 				797B136419878FD500C735DD /* WCPlainTextFile.m in Sources */,
+				79A4B83E19888D5A00C7B2C1 /* NSBundle+WCExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
