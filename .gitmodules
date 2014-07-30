@@ -10,3 +10,6 @@
 [submodule "Archimedes"]
 	path = Archimedes
 	url = git@github.com:github/Archimedes.git
+[submodule "BlocksKit"]
+	path = BlocksKit
+	url = git@github.com:zwaldowski/BlocksKit.git
