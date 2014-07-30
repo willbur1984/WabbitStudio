@@ -26,7 +26,7 @@
     return NSLocalizedString(@"Advanced", @"preferences advanced name");
 }
 + (NSImage *)preferencesImage {
-    return [NSImage imageNamed:@"preferences-advanced"];
+    return [NSImage imageNamed:NSImageNameAdvanced];
 }
 
 + (NSString *)preferencesToolTip {
