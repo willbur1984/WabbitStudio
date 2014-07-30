@@ -3,3 +3,11 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Icons are from IconDrawer.com and are covered under the following license:
+
+This is a legal agreement between you, the purchaser, and the IconDrawer.com. By purchasing or downloading any royalty-free icons from our website you agree to the following: 
+All of the icons remain the property of IconDrawer.com. The icons can be used royalty-free by the licensee for any personal, commercial project including web design, software, application, advertising, film, video, and computer game.
+The license does not permit the following uses: The icon may not be sublicensed, resold, rented, transferred, or otherwise made available for use or detached from a product, software application, or web page. The Icons may not be placed on any electronic bulletin board or downloadable format. You may not include the icons in any web template, including those which are web based, but not limited to website designs and presentation templates.
+You may not use,or allow anyone else to use The Icons to create pornographic,libelous,obscene, or defamatory material.
+All icon files are provided "As is." you agree not to hold IconDrawer.com liable for any damages that may occur during to use, or inability to use, icons or image data from IconDrawer.com.
