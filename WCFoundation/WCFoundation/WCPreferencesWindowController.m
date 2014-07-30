@@ -16,6 +16,7 @@
 #import <ReactiveCocoa/EXTScope.h>
 #import <BlocksKit/BlocksKit.h>
 #import "NSBundle+WCExtensions.h"
+#import "WCDebugging.h"
 
 static NSString *const kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier = @"kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier";
 
@@ -25,6 +26,10 @@ static WCPreferencesWindowController *kCurrentPreferencesWindowController;
 @property (readwrite,copy,nonatomic) NSArray *viewControllerClasses;
 @property (readwrite,strong,nonatomic) NSViewController<WCPreferencesViewController> *selectedViewController;
 
+- (NSArray *)_toolbarItemIdentifiers;
+- (Class)_viewControllerClassForPreferencesIdentifier:(NSString *)preferencesIdentifier;
+- (Class)_initialViewControllerClass;
+- (NSRect)_windowFrameForViewController:(NSViewController *)viewController;
 @end
 
 @implementation WCPreferencesWindowController
@@ -48,6 +53,8 @@ static WCPreferencesWindowController *kCurrentPreferencesWindowController;
      subscribeNext:^(id _) {
          kCurrentPreferencesWindowController = nil;
     }];
+    
+    [self setSelectedViewController:[[[self _initialViewControllerClass] alloc] init]];
 }
 
 - (void)showWindow:(id)sender {
@@ -57,25 +64,17 @@ static WCPreferencesWindowController *kCurrentPreferencesWindowController;
 }
 #pragma mark NSToolbarDelegate
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
-    return [self.viewControllerClasses bk_map:^id(id<WCPreferencesViewController> value) {
-        return [value preferencesIdentifier];
-    }];
+    return [self _toolbarItemIdentifiers];
 }
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
-    return [self.viewControllerClasses bk_map:^id(id<WCPreferencesViewController> value) {
-        return [value preferencesIdentifier];
-    }];
+    return [self _toolbarItemIdentifiers];
 }
 - (NSArray *)toolbarSelectableItemIdentifiers:(NSToolbar *)toolbar {
-    return [self.viewControllerClasses bk_map:^id(id<WCPreferencesViewController> value) {
-        return [value preferencesIdentifier];
-    }];
+    return [self _toolbarItemIdentifiers];
 }
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag {
     NSToolbarItem *retval = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
-    id<WCPreferencesViewController> viewControllerClass = [self.viewControllerClasses bk_match:^BOOL(id<WCPreferencesViewController> value) {
-        return [[value preferencesIdentifier] isEqualToString:itemIdentifier];
-    }];
+    id<WCPreferencesViewController> viewControllerClass = (id<WCPreferencesViewController>)[self _viewControllerClassForPreferencesIdentifier:itemIdentifier];
     
     [retval setLabel:[viewControllerClass preferencesName]];
     [retval setImage:[viewControllerClass preferencesImage]];
@@ -104,10 +103,75 @@ static WCPreferencesWindowController *kCurrentPreferencesWindowController;
     
     return self;
 }
+#pragma mark Properties
+- (void)setSelectedViewController:(NSViewController<WCPreferencesViewController> *)selectedViewController {
+    if ([_selectedViewController isEqual:selectedViewController])
+        return;
+    
+    if (self.selectedViewController) {
+        NSViewController<WCPreferencesViewController> *oldViewController = self.selectedViewController;
+        
+        _selectedViewController = selectedViewController;
+        
+        [self.window.contentView addSubview:selectedViewController.view positioned:NSWindowBelow relativeTo:oldViewController.view];
+        
+        [selectedViewController.view setAlphaValue:0.0];
+        
+        @weakify(self);
+        
+        [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+            @strongify(self);
+            
+            [self.window.animator setFrame:[self _windowFrameForViewController:selectedViewController] display:NO];
+            
+            [oldViewController.view.animator setAlphaValue:0.0];
+            [selectedViewController.view.animator setAlphaValue:1.0];
+        } completionHandler:^{
+            [oldViewController.view removeFromSuperviewWithoutNeedingDisplay];
+        }];
+    }
+    else {
+        _selectedViewController = selectedViewController;
+        
+        [self.window.contentView addSubview:selectedViewController.view];
+        [self.window setFrame:[self _windowFrameForViewController:selectedViewController] display:NO];
+    }
+    
+    [self.window.toolbar setSelectedItemIdentifier:[selectedViewController.class preferencesIdentifier]];
+}
 #pragma mark *** Private Methods ***
+- (NSArray *)_toolbarItemIdentifiers; {
+    return [self.viewControllerClasses bk_map:^id(id<WCPreferencesViewController> value) {
+        return [value preferencesIdentifier];
+    }];
+}
+- (Class)_viewControllerClassForPreferencesIdentifier:(NSString *)preferencesIdentifier; {
+    return [self.viewControllerClasses bk_match:^BOOL(id<WCPreferencesViewController> value) {
+        return [[value preferencesIdentifier] isEqualToString:preferencesIdentifier];
+    }];
+}
+- (Class)_initialViewControllerClass; {
+    NSString *identifier = [[NSUserDefaults standardUserDefaults] objectForKey:kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier];
+    Class retval = [self _viewControllerClassForPreferencesIdentifier:identifier];
+    
+    return (retval) ?: self.viewControllerClasses.firstObject;
+}
+- (NSRect)_windowFrameForViewController:(NSViewController *)viewController; {
+    NSRect retval = self.window.frame;
+    NSRect contentRect = [self.window contentRectForFrameRect:retval];
+    CGFloat windowTitleAndToolbarHeight = NSHeight(retval) - NSHeight(contentRect);
+    
+    retval.size.height = NSHeight(viewController.view.frame) + windowTitleAndToolbarHeight;
+    retval.size.width = NSWidth(viewController.view.frame);
+    retval.origin.y = NSMaxY(self.window.frame) - NSHeight(retval);
+    
+    return retval;
+}
 #pragma mark Actions
 - (IBAction)_toolbarItemAction:(NSToolbarItem *)sender {
+    Class viewControllerClass = [self _viewControllerClassForPreferencesIdentifier:sender.itemIdentifier];
     
+    [self setSelectedViewController:[[viewControllerClass alloc] init]];
 }
 
 @end
