@@ -35,6 +35,8 @@
 		79A4B8521988AF2300C7B2C1 /* BlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B8511988AF2300C7B2C1 /* BlocksKit.framework */; };
 		79A4B8591988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B8581988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.m */; };
 		79A4B85F1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B85E1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m */; };
+		79A4B8651988BE0A00C7B2C1 /* WCPreferencesGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A4B8631988BE0A00C7B2C1 /* WCPreferencesGeneralViewController.xib */; };
+		79A4B8691988BE6200C7B2C1 /* WCPreferencesAdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A4B8671988BE6200C7B2C1 /* WCPreferencesAdvancedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		79A4B8581988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesGeneralViewController.m; sourceTree = "<group>"; };
 		79A4B85D1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPreferencesAdvancedViewController.h; sourceTree = "<group>"; };
 		79A4B85E1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesAdvancedViewController.m; sourceTree = "<group>"; };
+		79A4B8641988BE0A00C7B2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCPreferencesGeneralViewController.xib; sourceTree = "<group>"; };
+		79A4B8681988BE6200C7B2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCPreferencesAdvancedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +297,7 @@
 		79A4B8601988B8E300C7B2C1 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				79A4B8621988BDCA00C7B2C1 /* Xibs */,
 				79A4B8571988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.h */,
 				79A4B8581988B7CF00C7B2C1 /* WCPreferencesGeneralViewController.m */,
 			);
@@ -302,10 +307,29 @@
 		79A4B8611988B8EA00C7B2C1 /* Advanced */ = {
 			isa = PBXGroup;
 			children = (
+				79A4B8661988BE5300C7B2C1 /* Xibs */,
 				79A4B85D1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.h */,
 				79A4B85E1988B8D300C7B2C1 /* WCPreferencesAdvancedViewController.m */,
 			);
 			name = Advanced;
+			sourceTree = "<group>";
+		};
+		79A4B8621988BDCA00C7B2C1 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				79A4B8631988BE0A00C7B2C1 /* WCPreferencesGeneralViewController.xib */,
+			);
+			name = Xibs;
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		79A4B8661988BE5300C7B2C1 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				79A4B8671988BE6200C7B2C1 /* WCPreferencesAdvancedViewController.xib */,
+			);
+			name = Xibs;
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +414,8 @@
 				797B13901987911A00C735DD /* InfoPlist.strings in Resources */,
 				797B13D6198791A000C735DD /* WCDocumentWindowController.xib in Resources */,
 				797B13CA1987918A00C735DD /* Acknowledgements.markdown in Resources */,
+				79A4B8691988BE6200C7B2C1 /* WCPreferencesAdvancedViewController.xib in Resources */,
+				79A4B8651988BE0A00C7B2C1 /* WCPreferencesGeneralViewController.xib in Resources */,
 				797B139E1987911A00C735DD /* Images.xcassets in Resources */,
 				797B13D7198791A000C735DD /* WCMainMenu.xib in Resources */,
 				797B13CB1987918A00C735DD /* Credits.txt in Resources */,
@@ -491,6 +517,22 @@
 			);
 			name = WCPlainTextViewController.xib;
 			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		79A4B8631988BE0A00C7B2C1 /* WCPreferencesGeneralViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79A4B8641988BE0A00C7B2C1 /* Base */,
+			);
+			name = WCPreferencesGeneralViewController.xib;
+			sourceTree = "<group>";
+		};
+		79A4B8671988BE6200C7B2C1 /* WCPreferencesAdvancedViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79A4B8681988BE6200C7B2C1 /* Base */,
+			);
+			name = WCPreferencesAdvancedViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
