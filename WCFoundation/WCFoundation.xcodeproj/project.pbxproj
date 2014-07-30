@@ -26,7 +26,7 @@
 		797B135B19878FD500C735DD /* WCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B134419878FD500C735DD /* WCBaseViewController.m */; };
 		797B135C19878FD500C735DD /* WCBaseWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134519878FD500C735DD /* WCBaseWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		797B135D19878FD500C735DD /* WCBaseWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B134619878FD500C735DD /* WCBaseWindowController.m */; };
-		797B135E19878FD500C735DD /* WCConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134719878FD500C735DD /* WCConstants.h */; };
+		797B135E19878FD500C735DD /* WCConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134719878FD500C735DD /* WCConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		797B135F19878FD500C735DD /* WCDebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134819878FD500C735DD /* WCDebugging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		797B136019878FD500C735DD /* WCFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B134919878FD500C735DD /* WCFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		797B136119878FD500C735DD /* WCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B134A19878FD500C735DD /* WCFile.m */; };
@@ -49,6 +49,8 @@
 		79A4B84E1988A67600C7B2C1 /* WCPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */; };
 		79A4B8501988AEFF00C7B2C1 /* BlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B84F1988AEFF00C7B2C1 /* BlocksKit.framework */; };
 		79A4B8551988B43D00C7B2C1 /* WCPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A4B8531988B43D00C7B2C1 /* WCPreferencesWindowController.xib */; };
+		79A4B85B1988B82000C7B2C1 /* WCPreferencesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B85A1988B82000C7B2C1 /* WCPreferencesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79A4B85C1988B89900C7B2C1 /* WCFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B131D19878F8900C735DD /* WCFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,7 @@
 		79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesWindowController.m; sourceTree = "<group>"; };
 		79A4B84F1988AEFF00C7B2C1 /* BlocksKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlocksKit.framework; path = ../BlocksKit/build/Debug/BlocksKit.framework; sourceTree = "<group>"; };
 		79A4B8541988B43D00C7B2C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WCPreferencesWindowController.xib; sourceTree = "<group>"; };
+		79A4B85A1988B82000C7B2C1 /* WCPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPreferencesViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				79A4B84A1988A64400C7B2C1 /* Xibs */,
+				79A4B85A1988B82000C7B2C1 /* WCPreferencesViewController.h */,
 				79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */,
 				79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */,
 			);
@@ -367,6 +371,7 @@
 				797B135A19878FD500C735DD /* WCBaseViewController.h in Headers */,
 				79A4B83D19888D5A00C7B2C1 /* NSBundle+WCExtensions.h in Headers */,
 				797B135F19878FD500C735DD /* WCDebugging.h in Headers */,
+				79A4B85B1988B82000C7B2C1 /* WCPreferencesViewController.h in Headers */,
 				797B136519878FD500C735DD /* WCRulerView.h in Headers */,
 				79A4B845198896EA00C7B2C1 /* WCTextView.h in Headers */,
 				797B135C19878FD500C735DD /* WCBaseWindowController.h in Headers */,
@@ -378,6 +383,7 @@
 				797B135E19878FD500C735DD /* WCConstants.h in Headers */,
 				797B135219878FD500C735DD /* NSParagraphStyle+WCExtensions.h in Headers */,
 				79A4B84D1988A67600C7B2C1 /* WCPreferencesWindowController.h in Headers */,
+				79A4B85C1988B89900C7B2C1 /* WCFoundation.h in Headers */,
 				797B136719878FD500C735DD /* WCRulerViewDefaultDataSource.h in Headers */,
 				797B135419878FD500C735DD /* NSPointerArray+WCExtensions.h in Headers */,
 			);

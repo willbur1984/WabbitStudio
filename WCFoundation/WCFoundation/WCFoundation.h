@@ -21,7 +21,10 @@
 #import <WCFoundation/WCPlainTextFile.h>
 
 #import <WCFoundation/WCBaseWindowController.h>
+
 #import <WCFoundation/WCAboutWindowController.h>
+
+#import <WCFoundation/WCPreferencesViewController.h>
 #import <WCFoundation/WCPreferencesWindowController.h>
 
 #import <WCFoundation/WCBaseViewController.h>

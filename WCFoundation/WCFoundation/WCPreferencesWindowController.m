@@ -15,6 +15,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
 #import <BlocksKit/BlocksKit.h>
+#import "NSBundle+WCExtensions.h"
 
 static NSString *const kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier = @"kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier";
 
@@ -31,7 +32,7 @@ static WCPreferencesWindowController *kCurrentPreferencesWindowController;
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:nil];
+    NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:[NSString stringWithFormat:@"%@.preferences.toolbar",[NSBundle mainBundle].WC_bundleIdentifier]];
     
     [toolbar setAllowsUserCustomization:NO];
     [toolbar setAutosavesConfiguration:NO];
@@ -65,6 +66,11 @@ static WCPreferencesWindowController *kCurrentPreferencesWindowController;
         return [value preferencesIdentifier];
     }];
 }
+- (NSArray *)toolbarSelectableItemIdentifiers:(NSToolbar *)toolbar {
+    return [self.viewControllerClasses bk_map:^id(id<WCPreferencesViewController> value) {
+        return [value preferencesIdentifier];
+    }];
+}
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag {
     NSToolbarItem *retval = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
     id<WCPreferencesViewController> viewControllerClass = [self.viewControllerClasses bk_match:^BOOL(id<WCPreferencesViewController> value) {
@@ -88,7 +94,7 @@ static WCPreferencesWindowController *kCurrentPreferencesWindowController;
         return nil;
     
     if (kCurrentPreferencesWindowController)
-        return nil;
+        return kCurrentPreferencesWindowController;
     
     NSParameterAssert(viewControllerClasses);
     
