@@ -41,8 +41,7 @@ static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewContr
     [self.textView.enclosingScrollView setHasVerticalRuler:YES];
     [self.textView.enclosingScrollView setRulersVisible:YES];
     
-    [self.textView setHighlightCurrentLineColor:[NSColor yellowColor]];
-    [self.textView setAutomaticallyIndent:YES];
+    [self.textView setHighlightCurrentLineColor:[NSColor colorWithRed:1.0 green:1.0 blue:.901960784 alpha:1.0]];
     
     @weakify(self);
 
