@@ -23,10 +23,10 @@
     return @"com.williamtowellc.wabbitcode.preferences.advanced";
 }
 + (NSString *)preferencesName {
-    return NSLocalizedString(@"General", @"preferences advanced name");
+    return NSLocalizedString(@"Advanced", @"preferences advanced name");
 }
 + (NSImage *)preferencesImage {
-    return [NSImage imageNamed:NSImageNameAdvanced];
+    return [NSImage imageNamed:@"preferences-advanced"];
 }
 
 + (NSString *)preferencesToolTip {
