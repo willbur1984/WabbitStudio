@@ -45,9 +45,10 @@
 		79A4B83E19888D5A00C7B2C1 /* NSBundle+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B83C19888D5A00C7B2C1 /* NSBundle+WCExtensions.m */; };
 		79A4B845198896EA00C7B2C1 /* WCTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B843198896EA00C7B2C1 /* WCTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79A4B846198896EA00C7B2C1 /* WCTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B844198896EA00C7B2C1 /* WCTextView.m */; };
-		79A4B84D1988A67600C7B2C1 /* WCPreferencesWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */; };
+		79A4B84D1988A67600C7B2C1 /* WCPreferencesWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79A4B84E1988A67600C7B2C1 /* WCPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */; };
 		79A4B8501988AEFF00C7B2C1 /* BlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B84F1988AEFF00C7B2C1 /* BlocksKit.framework */; };
+		79A4B8551988B43D00C7B2C1 /* WCPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A4B8531988B43D00C7B2C1 /* WCPreferencesWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPreferencesWindowController.h; sourceTree = "<group>"; };
 		79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesWindowController.m; sourceTree = "<group>"; };
 		79A4B84F1988AEFF00C7B2C1 /* BlocksKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlocksKit.framework; path = ../BlocksKit/build/Debug/BlocksKit.framework; sourceTree = "<group>"; };
+		79A4B8541988B43D00C7B2C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WCPreferencesWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,8 +351,10 @@
 		79A4B84A1988A64400C7B2C1 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				79A4B8531988B43D00C7B2C1 /* WCPreferencesWindowController.xib */,
 			);
 			name = Xibs;
+			path = en.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,6 +462,7 @@
 			files = (
 				797B131B19878F8900C735DD /* InfoPlist.strings in Resources */,
 				797B136B19878FEC00C735DD /* Localizable.strings in Resources */,
+				79A4B8551988B43D00C7B2C1 /* WCPreferencesWindowController.xib in Resources */,
 				797B136F1987900800C735DD /* WCAboutWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,6 +564,14 @@
 				797B136E1987900800C735DD /* en */,
 			);
 			name = WCAboutWindowController.xib;
+			sourceTree = "<group>";
+		};
+		79A4B8531988B43D00C7B2C1 /* WCPreferencesWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79A4B8541988B43D00C7B2C1 /* en */,
+			);
+			name = WCPreferencesWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

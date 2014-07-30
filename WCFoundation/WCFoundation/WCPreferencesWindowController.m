@@ -13,8 +13,12 @@
 
 #import "WCPreferencesWindowController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/EXTScope.h>
+#import <BlocksKit/BlocksKit.h>
 
 static NSString *const kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier = @"kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier";
+
+static WCPreferencesWindowController *kCurrentPreferencesWindowController;
 
 @interface WCPreferencesWindowController () <NSToolbarDelegate>
 @property (readwrite,copy,nonatomic) NSArray *viewControllerClasses;
@@ -27,22 +31,53 @@ static NSString *const kWCPreferencesWindowControllerUserDefaultsKeySelectedView
 - (void)windowDidLoad {
     [super windowDidLoad];
     
+    NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:nil];
     
+    [toolbar setAllowsUserCustomization:NO];
+    [toolbar setAutosavesConfiguration:NO];
+    [toolbar setDisplayMode:NSToolbarDisplayModeIconAndLabel];
+    [toolbar setSizeMode:NSToolbarSizeModeRegular];
+    [toolbar setDelegate:self];
+    
+    [self.window setToolbar:toolbar];
+    
+    [[[[NSNotificationCenter defaultCenter]
+       rac_addObserverForName:NSWindowWillCloseNotification object:self.window]
+      take:1]
+     subscribeNext:^(id _) {
+         kCurrentPreferencesWindowController = nil;
+    }];
+}
+
+- (void)showWindow:(id)sender {
+    [self.window center];
+    
+    [super showWindow:sender];
 }
 #pragma mark NSToolbarDelegate
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
-    return [self.viewControllerClasses.rac_sequence map:^id(id<WCPreferencesViewController> value) {
+    return [self.viewControllerClasses bk_map:^id(id<WCPreferencesViewController> value) {
         return [value preferencesIdentifier];
-    }].array;
+    }];
 }
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
-    return [self.viewControllerClasses.rac_sequence map:^id(id<WCPreferencesViewController> value) {
+    return [self.viewControllerClasses bk_map:^id(id<WCPreferencesViewController> value) {
         return [value preferencesIdentifier];
-    }].array;
+    }];
 }
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag {
     NSToolbarItem *retval = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+    id<WCPreferencesViewController> viewControllerClass = [self.viewControllerClasses bk_match:^BOOL(id<WCPreferencesViewController> value) {
+        return [[value preferencesIdentifier] isEqualToString:itemIdentifier];
+    }];
     
+    [retval setLabel:[viewControllerClass preferencesName]];
+    [retval setImage:[viewControllerClass preferencesImage]];
+    [retval setTarget:self];
+    [retval setAction:@selector(_toolbarItemAction:)];
+    
+    if ([viewControllerClass respondsToSelector:@selector(preferencesToolTip)])
+        [retval setToolTip:[viewControllerClass preferencesToolTip]];
     
     return retval;
 }
@@ -52,11 +87,21 @@ static NSString *const kWCPreferencesWindowControllerUserDefaultsKeySelectedView
     if (!(self = [super init]))
         return nil;
     
+    if (kCurrentPreferencesWindowController)
+        return nil;
+    
     NSParameterAssert(viewControllerClasses);
     
     [self setViewControllerClasses:viewControllerClasses];
     
+    kCurrentPreferencesWindowController = self;
+    
     return self;
+}
+#pragma mark *** Private Methods ***
+#pragma mark Actions
+- (IBAction)_toolbarItemAction:(NSToolbarItem *)sender {
+    
 }
 
 @end

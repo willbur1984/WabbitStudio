@@ -16,9 +16,11 @@
 @protocol WCPreferencesViewController <NSObject>
 @required
 + (NSString *)preferencesIdentifier;
-+ (NSString *)preferencesTitle;
++ (NSString *)preferencesName;
 + (NSImage *)preferencesImage;
 @optional
++ (NSString *)preferencesToolTip;
+
 - (NSResponder *)initialFirstResponder;
 @end
 
