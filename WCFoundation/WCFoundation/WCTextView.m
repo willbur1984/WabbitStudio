@@ -23,7 +23,7 @@
 @end
 
 @implementation WCTextView
-
+#pragma mark *** Subclass Overrides ***
 - (id)initWithFrame:(NSRect)frameRect textContainer:(NSTextContainer *)container {
     if (!(self = [super initWithFrame:frameRect textContainer:container]))
         return nil;
@@ -41,6 +41,21 @@
     return self;
 }
 
+#pragma mark NSResponder
+- (void)insertNewline:(id)sender {
+    [super insertNewline:sender];
+    
+    if (self.automaticallyIndent) {
+        NSScanner *scanner = [[NSScanner alloc] initWithString:[self.string substringWithRange:[self.string lineRangeForRange:NSMakeRange(self.selectedRange.location - 1, 0)]]];
+        
+        [scanner setCharactersToBeSkipped:nil];
+        
+        NSString *whitespace;
+        if ([scanner scanCharactersFromSet:[NSCharacterSet whitespaceCharacterSet] intoString:&whitespace])
+            [self insertText:whitespace];
+    }
+}
+#pragma mark NSTextView
 - (void)drawViewBackgroundInRect:(NSRect)rect {
     [super drawViewBackgroundInRect:rect];
     
@@ -60,7 +75,7 @@
         }
     }
 }
-
+#pragma mark *** Private Methods ***
 - (void)_WCTextView_init; {
     @unsafeify(self);
     

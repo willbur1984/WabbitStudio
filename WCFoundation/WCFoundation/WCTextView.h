@@ -18,4 +18,6 @@
 @property (assign,nonatomic) BOOL highlightCurrentLine;
 @property (strong,nonatomic) NSColor *highlightCurrentLineColor;
 
+@property (assign,nonatomic) BOOL automaticallyIndent;
+
 @end
