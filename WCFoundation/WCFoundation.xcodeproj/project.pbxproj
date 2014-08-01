@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7913F6EB198B8BFF00831863 /* NSUndoManager+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F6E9198B8BFF00831863 /* NSUndoManager+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F6EC198B8BFF00831863 /* NSUndoManager+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F6EA198B8BFF00831863 /* NSUndoManager+WCExtensions.m */; };
 		797B131119878F8900C735DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B131019878F8900C735DD /* Cocoa.framework */; };
 		797B131B19878F8900C735DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B131919878F8900C735DD /* InfoPlist.strings */; };
 		797B132619878F8900C735DD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B132519878F8900C735DD /* XCTest.framework */; };
@@ -66,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7913F6E9198B8BFF00831863 /* NSUndoManager+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUndoManager+WCExtensions.h"; sourceTree = "<group>"; };
+		7913F6EA198B8BFF00831863 /* NSUndoManager+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUndoManager+WCExtensions.m"; sourceTree = "<group>"; };
 		797B130D19878F8900C735DD /* WCFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WCFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		797B131019878F8900C735DD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		797B131319878F8900C735DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -250,6 +254,8 @@
 				79A4B83C19888D5A00C7B2C1 /* NSBundle+WCExtensions.m */,
 				79A4B87219893A1B00C7B2C1 /* NSArray+WCExtensions.h */,
 				79A4B87319893A1B00C7B2C1 /* NSArray+WCExtensions.m */,
+				7913F6E9198B8BFF00831863 /* NSUndoManager+WCExtensions.h */,
+				7913F6EA198B8BFF00831863 /* NSUndoManager+WCExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 				797B136219878FD500C735DD /* WCFunctions.h in Headers */,
 				797B135619878FD500C735DD /* WCAboutBackgroundView.h in Headers */,
 				797B135E19878FD500C735DD /* WCConstants.h in Headers */,
+				7913F6EB198B8BFF00831863 /* NSUndoManager+WCExtensions.h in Headers */,
 				797B135219878FD500C735DD /* NSParagraphStyle+WCExtensions.h in Headers */,
 				79A4B84D1988A67600C7B2C1 /* WCPreferencesWindowController.h in Headers */,
 				79A4B85C1988B89900C7B2C1 /* WCFoundation.h in Headers */,
@@ -525,6 +532,7 @@
 				79A4B87519893A1B00C7B2C1 /* NSArray+WCExtensions.m in Sources */,
 				797B135319878FD500C735DD /* NSParagraphStyle+WCExtensions.m in Sources */,
 				797B136419878FD500C735DD /* WCPlainTextFile.m in Sources */,
+				7913F6EC198B8BFF00831863 /* NSUndoManager+WCExtensions.m in Sources */,
 				79A4B83E19888D5A00C7B2C1 /* NSBundle+WCExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
