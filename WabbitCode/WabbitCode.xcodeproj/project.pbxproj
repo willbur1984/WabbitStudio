@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7913F6EE198B959000831863 /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7913F6ED198B959000831863 /* DefaultPreferences.plist */; };
 		797B13861987911A00C735DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B13851987911A00C735DD /* Cocoa.framework */; };
 		797B13901987911A00C735DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B138E1987911A00C735DD /* InfoPlist.strings */; };
 		797B13921987911A00C735DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13911987911A00C735DD /* main.m */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7913F6ED198B959000831863 /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		797B13821987911A00C735DD /* WabbitCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WabbitCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		797B13851987911A00C735DD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		797B13881987911A00C735DD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -202,6 +204,7 @@
 				797B138E1987911A00C735DD /* InfoPlist.strings */,
 				797B13911987911A00C735DD /* main.m */,
 				797B13931987911A00C735DD /* WabbitCode-Prefix.pch */,
+				7913F6ED198B959000831863 /* DefaultPreferences.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				79A4B8711989370000C7B2C1 /* WCPreferencesTextEditingViewController.xib in Resources */,
 				797B13901987911A00C735DD /* InfoPlist.strings in Resources */,
 				797B13D6198791A000C735DD /* WCDocumentWindowController.xib in Resources */,
+				7913F6EE198B959000831863 /* DefaultPreferences.plist in Resources */,
 				797B13CA1987918A00C735DD /* Acknowledgements.markdown in Resources */,
 				79A4B8691988BE6200C7B2C1 /* WCPreferencesAdvancedViewController.xib in Resources */,
 				79A4B8651988BE0A00C7B2C1 /* WCPreferencesGeneralViewController.xib in Resources */,

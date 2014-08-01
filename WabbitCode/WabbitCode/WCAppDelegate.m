@@ -21,6 +21,8 @@
 @interface WCAppDelegate ()
 - (IBAction)_aboutAction:(id)sender;
 - (IBAction)_preferencesAction:(id)sender;
+
+- (void)_registerDefaultPreferences;
 @end
 
 @implementation WCAppDelegate
@@ -30,7 +32,7 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)note {
-    
+    [self _registerDefaultPreferences];
 }
 
 - (IBAction)_aboutAction:(id)sender; {
@@ -38,6 +40,13 @@
 }
 - (IBAction)_preferencesAction:(id)sender; {
     [[[WCPreferencesWindowController alloc] initWithViewControllerClasses:@[[WCPreferencesTextEditingViewController class]]] showWindow:nil];
+}
+
+- (void)_registerDefaultPreferences; {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"DefaultPreferences" withExtension:@"plist"];
+    NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfURL:url];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:prefs];
 }
 
 @end
