@@ -16,14 +16,20 @@
 #import <ReactiveCocoa/EXTScope.h>
 #import "WCConstants.h"
 #import "WCDebugging.h"
+#import "NSUndoManager+WCExtensions.h"
 
 @interface WCTextView ()
+@property (assign,nonatomic) unichar lastAutoPairRightCharacter;
 
 - (void)_WCTextView_init;
 @end
 
 @implementation WCTextView
 #pragma mark *** Subclass Overrides ***
+- (void)dealloc {
+    WCLogObject(self.class);
+}
+
 - (id)initWithFrame:(NSRect)frameRect textContainer:(NSTextContainer *)container {
     if (!(self = [super initWithFrame:frameRect textContainer:container]))
         return nil;
@@ -56,23 +62,97 @@
     }
 }
 #pragma mark NSTextView
+- (void)insertText:(id)insertString {
+    // if we should auto pair characters, and the auto pair character set is non-nil, and the insertString is a single character, proceed
+    if (self.autoPairCharacters &&
+        self.autoPairCharacterSet &&
+        [insertString length] == 1) {
+        
+        unichar leftCharacter = [(NSString *)insertString characterAtIndex:0];
+        
+        // if the character belongs to our auto pair character set
+        if ([self.autoPairCharacterSet characterIsMember:leftCharacter]) {
+            unichar rightCharacter = leftCharacter;
+            
+            // is there a specific right character for the left character? (e.g. [ and ])
+            if (self.autoPairLeftCharactersToRightCharacters[@(leftCharacter)])
+                rightCharacter = [self.autoPairLeftCharactersToRightCharacters[@(leftCharacter)] unsignedShortValue];
+            
+            // if there is text selected, wrap it in the paired characters and select the original selection plus the pair characters
+            if (self.selectedRange.length > 0) {
+                [self.undoManager WC_undoGroupWithBlock:^{
+                    NSString *replacementString = [NSString stringWithFormat:@"%C%@%C",leftCharacter,[self.string substringWithRange:self.selectedRange],rightCharacter];
+                    NSRange replacementSelectedRange = NSMakeRange(self.selectedRange.location, replacementString.length);
+                    
+                    if ([self shouldChangeTextInRange:self.selectedRange replacementString:replacementString]) {
+                        [self replaceCharactersInRange:self.selectedRange withString:replacementString];
+                        [self setSelectedRange:replacementSelectedRange];
+                        
+                        [self setLastAutoPairRightCharacter:rightCharacter];
+                    }
+                }];
+            }
+            else {
+                // if the last right auto pair character is the same as the character immediately to the right of the insertion point, move the insertion point to the right of the right auto pair character
+                if (leftCharacter == self.lastAutoPairRightCharacter &&
+                    self.selectedRange.location < self.string.length &&
+                    [self.string characterAtIndex:self.selectedRange.location] == self.lastAutoPairRightCharacter) {
+                    [self moveRight:nil];
+                    
+                    [self setLastAutoPairRightCharacter:0];
+                }
+                // otherwise, insert the pair characters and move the insertion point between them
+                else {
+                    [self.undoManager WC_undoGroupWithBlock:^{
+                        NSString *replacementString = [NSString stringWithFormat:@"%C%C",leftCharacter,rightCharacter];
+                        NSRange replacementSelectedRange = NSMakeRange(self.selectedRange.location + 1, 0);
+                        
+                        if ([self shouldChangeTextInRange:self.selectedRange replacementString:replacementString]) {
+                            [self replaceCharactersInRange:self.selectedRange withString:replacementString];
+                            [self setSelectedRange:replacementSelectedRange];
+                            
+                            [self setLastAutoPairRightCharacter:rightCharacter];
+                        }
+                    }];
+                }
+            }
+        }
+        else {
+            // if the last right auto pair character is the same as the character immediately to the right of the insertion point, move the insertion point to the right of the right auto pair character
+            if (self.selectedRange.location < self.string.length &&
+                [self.string characterAtIndex:self.selectedRange.location] == self.lastAutoPairRightCharacter) {
+                [self moveRight:nil];
+            }
+            else {
+                [super insertText:insertString];
+            }
+            
+            [self setLastAutoPairRightCharacter:0];
+        }
+    }
+    else {
+        [super insertText:insertString];
+        
+        [self setLastAutoPairRightCharacter:0];
+    }
+}
+
 - (void)drawViewBackgroundInRect:(NSRect)rect {
     [super drawViewBackgroundInRect:rect];
     
     if (self.highlightCurrentLine &&
-        self.highlightCurrentLineColor) {
+        self.highlightCurrentLineColor &&
+        self.selectedRange.length == 0) {
         
-        if (self.selectedRange.length == 0) {
-            NSRange lineRange = [self.textStorage.string lineRangeForRange:self.selectedRange];
-            NSRange glyphRange = [self.layoutManager glyphRangeForCharacterRange:lineRange actualCharacterRange:NULL];
-            NSRect lineRect = [self.layoutManager boundingRectForGlyphRange:glyphRange inTextContainer:self.textContainer];
-            
-            lineRect.origin.x = NSMinX(self.bounds);
-            lineRect.size.width = NSWidth(self.bounds);
-            
-            [self.highlightCurrentLineColor setFill];
-            NSRectFill(lineRect);
-        }
+        NSRange lineRange = [self.textStorage.string lineRangeForRange:self.selectedRange];
+        NSRange glyphRange = [self.layoutManager glyphRangeForCharacterRange:lineRange actualCharacterRange:NULL];
+        NSRect lineRect = [self.layoutManager boundingRectForGlyphRange:glyphRange inTextContainer:self.textContainer];
+        
+        lineRect.origin.x = NSMinX(self.bounds);
+        lineRect.size.width = NSWidth(self.bounds);
+        
+        [self.highlightCurrentLineColor setFill];
+        NSRectFill(lineRect);
     }
 }
 #pragma mark *** Private Methods ***
