@@ -140,6 +140,7 @@
 - (void)drawViewBackgroundInRect:(NSRect)rect {
     [super drawViewBackgroundInRect:rect];
     
+    // if we should highlight the current line, and we have a highlight current line color, and nothing is selected, proceed
     if (self.highlightCurrentLine &&
         self.highlightCurrentLineColor &&
         self.selectedRange.length == 0) {
