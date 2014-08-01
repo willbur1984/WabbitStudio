@@ -52,13 +52,19 @@
     [super insertNewline:sender];
     
     if (self.automaticallyIndent) {
+        // init the scanner with the string from the previous line
         NSScanner *scanner = [[NSScanner alloc] initWithString:[self.string substringWithRange:[self.string lineRangeForRange:NSMakeRange(self.selectedRange.location - 1, 0)]]];
         
+        // normally NSScanner skips whitespace, we don't want that
         [scanner setCharactersToBeSkipped:nil];
         
+        // scan all whitespace from the previous line and insert it
         NSString *whitespace;
-        if ([scanner scanCharactersFromSet:[NSCharacterSet whitespaceCharacterSet] intoString:&whitespace])
+        if ([scanner scanCharactersFromSet:[NSCharacterSet whitespaceCharacterSet] intoString:&whitespace] &&
+            whitespace.length > 0) {
+            
             [self insertText:whitespace];
+        }
     }
 }
 #pragma mark NSTextView
