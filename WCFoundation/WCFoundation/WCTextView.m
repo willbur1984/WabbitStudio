@@ -144,11 +144,16 @@
         self.highlightCurrentLineColor &&
         self.selectedRange.length == 0) {
         
+        // get the entire line range for the selected range
         NSRange lineRange = [self.textStorage.string lineRangeForRange:self.selectedRange];
+        // convert the line range to a glyph range
         NSRange glyphRange = [self.layoutManager glyphRangeForCharacterRange:lineRange actualCharacterRange:NULL];
+        // get the bounding rect for the glyph range, more direct than using rectArrayForCharacterRange:withinSelectedCharacterRange:inTextContainer:rectCount:
         NSRect lineRect = [self.layoutManager boundingRectForGlyphRange:glyphRange inTextContainer:self.textContainer];
         
+        // the original x position will respect the textContainerInsert
         lineRect.origin.x = NSMinX(self.bounds);
+        // change the width to be our full width
         lineRect.size.width = NSWidth(self.bounds);
         
         [self.highlightCurrentLineColor setFill];
