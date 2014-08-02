@@ -4,5 +4,7 @@
 <dict>
 	<key>WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine</key>
 	<true/>
+	<key>WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters</key>
+	<true/>
 </dict>
 </plist>

@@ -22,7 +22,7 @@
 		797B13C41987917B00C735DD /* WCDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13BC1987917B00C735DD /* WCDocumentViewController.m */; };
 		797B13C51987917B00C735DD /* WCDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13BE1987917B00C735DD /* WCDocumentWindowController.m */; };
 		797B13C61987917B00C735DD /* WCPlainTextDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13C01987917B00C735DD /* WCPlainTextDocument.m */; };
-		797B13CA1987918A00C735DD /* Acknowledgements.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 797B13C81987918A00C735DD /* Acknowledgements.markdown */; };
+		797B13CA1987918A00C735DD /* Acknowledgements.txt in Resources */ = {isa = PBXBuildFile; fileRef = 797B13C81987918A00C735DD /* Acknowledgements.txt */; };
 		797B13CB1987918A00C735DD /* Credits.txt in Resources */ = {isa = PBXBuildFile; fileRef = 797B13C91987918A00C735DD /* Credits.txt */; };
 		797B13D5198791A000C735DD /* WCDocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797B13CD198791A000C735DD /* WCDocumentViewController.xib */; };
 		797B13D6198791A000C735DD /* WCDocumentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797B13CF198791A000C735DD /* WCDocumentWindowController.xib */; };
@@ -80,7 +80,7 @@
 		797B13BE1987917B00C735DD /* WCDocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDocumentWindowController.m; sourceTree = "<group>"; };
 		797B13BF1987917B00C735DD /* WCPlainTextDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextDocument.h; sourceTree = "<group>"; };
 		797B13C01987917B00C735DD /* WCPlainTextDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextDocument.m; sourceTree = "<group>"; };
-		797B13C81987918A00C735DD /* Acknowledgements.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Acknowledgements.markdown; sourceTree = "<group>"; };
+		797B13C81987918A00C735DD /* Acknowledgements.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Acknowledgements.txt; sourceTree = "<group>"; };
 		797B13C91987918A00C735DD /* Credits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Credits.txt; sourceTree = "<group>"; };
 		797B13CE198791A000C735DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCDocumentViewController.xib; sourceTree = "<group>"; };
 		797B13D0198791A000C735DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCDocumentWindowController.xib; sourceTree = "<group>"; };
@@ -197,13 +197,13 @@
 		797B138C1987911A00C735DD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				797B13C81987918A00C735DD /* Acknowledgements.markdown */,
+				7913F6ED198B959000831863 /* DefaultPreferences.plist */,
+				797B13C81987918A00C735DD /* Acknowledgements.txt */,
 				797B13C91987918A00C735DD /* Credits.txt */,
 				797B138D1987911A00C735DD /* WabbitCode-Info.plist */,
 				797B138E1987911A00C735DD /* InfoPlist.strings */,
 				797B13911987911A00C735DD /* main.m */,
 				797B13931987911A00C735DD /* WabbitCode-Prefix.pch */,
-				7913F6ED198B959000831863 /* DefaultPreferences.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,10 +240,10 @@
 			children = (
 				797B13971987911A00C735DD /* WCAppDelegate.h */,
 				797B13981987911A00C735DD /* WCAppDelegate.m */,
+				79A4B8561988B79500C7B2C1 /* Preferences */,
 				79A4B83019879AEA00C7B2C1 /* Documents */,
 				79A4B83219879B0000C7B2C1 /* Window Controllers */,
 				79A4B83119879AFA00C7B2C1 /* View Controllers */,
-				79A4B8561988B79500C7B2C1 /* Preferences */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -453,7 +453,7 @@
 				797B13901987911A00C735DD /* InfoPlist.strings in Resources */,
 				797B13D6198791A000C735DD /* WCDocumentWindowController.xib in Resources */,
 				7913F6EE198B959000831863 /* DefaultPreferences.plist in Resources */,
-				797B13CA1987918A00C735DD /* Acknowledgements.markdown in Resources */,
+				797B13CA1987918A00C735DD /* Acknowledgements.txt in Resources */,
 				79A4B8691988BE6200C7B2C1 /* WCPreferencesAdvancedViewController.xib in Resources */,
 				79A4B8651988BE0A00C7B2C1 /* WCPreferencesGeneralViewController.xib in Resources */,
 				797B139E1987911A00C735DD /* Images.xcassets in Resources */,

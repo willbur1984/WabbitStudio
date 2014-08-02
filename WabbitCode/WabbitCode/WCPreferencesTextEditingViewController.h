@@ -15,6 +15,8 @@
 #import <WCFoundation/WCPreferencesViewController.h>
 
 extern NSString *const WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine;
+extern NSString *const WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters;
+extern NSString *const WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters;
 
 @interface WCPreferencesTextEditingViewController : WCBaseViewController <WCPreferencesViewController>
 

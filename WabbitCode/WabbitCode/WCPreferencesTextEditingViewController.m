@@ -12,23 +12,18 @@
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "WCPreferencesTextEditingViewController.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
-#import <ReactiveCocoa/EXTKeyPathCoding.h>
-#import <WCFoundation/NSArray+WCExtensions.h>
 
 NSString *const WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine = @"WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine";
+NSString *const WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters = @"WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters";
+NSString *const WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters = @"WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters";
 
 @interface WCPreferencesTextEditingViewController ()
 @property (weak,nonatomic) IBOutlet NSButton *highlightCurrentLineCheckboxButton;
+@property (weak,nonatomic) IBOutlet NSButton *autoPairCharactersCheckboxButton;
+@property (weak,nonatomic) IBOutlet NSButton *wrapSelectedTextWithPairCharactersCheckboxButton;
 @end
 
 @implementation WCPreferencesTextEditingViewController
-
-- (void)loadView {
-    [super loadView];
-    
-    [self.highlightCurrentLineCheckboxButton bind:NSValueBinding toObject:[NSUserDefaultsController sharedUserDefaultsController] withKeyPath:[@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine] WC_keypath] options:nil];
-}
 
 + (NSString *)preferencesIdentifier {
     return @"com.williamtowellc.wabbitcode.preferences.text-editing";

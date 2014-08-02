@@ -87,7 +87,7 @@ static WCAboutWindowController *kCurrentAboutWindowController;
 }
 
 - (IBAction)_acknowledgementsButtonAction:(id)sender; {
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Acknowledgements" withExtension:@"markdown"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Acknowledgements" withExtension:@"txt"];
     
     [[NSWorkspace sharedWorkspace] openURL:url];
 }

@@ -6,31 +6,66 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WCPreferencesTextEditingViewController">
             <connections>
+                <outlet property="autoPairCharactersCheckboxButton" destination="i5K-QQ-UTo" id="kKv-Qj-YQ2"/>
                 <outlet property="highlightCurrentLineCheckboxButton" destination="Ao5-7M-Ivz" id="B4V-KU-egj"/>
                 <outlet property="view" destination="c22-O7-iKe" id="gWa-zf-acl"/>
+                <outlet property="wrapSelectedTextWithPairCharactersCheckboxButton" destination="R0u-X6-POh" id="ME5-9p-z6W"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="54"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="94"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="Ao5-7M-Ivz">
-                    <rect key="frame" x="18" y="18" width="157" height="18"/>
+                    <rect key="frame" x="18" y="58" width="157" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Highlight current line" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="PTC-nm-9BK">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <binding destination="NWp-ry-RJ4" name="value" keyPath="values.WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine" id="DWT-jY-Vut"/>
+                    </connections>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="i5K-QQ-UTo">
+                    <rect key="frame" x="18" y="38" width="150" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Auto pair characters" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="HvS-eQ-5YG">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="NWp-ry-RJ4" name="value" keyPath="values.WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters" id="X89-sG-fds"/>
+                    </connections>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="R0u-X6-POh">
+                    <rect key="frame" x="38" y="18" width="266" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Wrap selected text with pair characters" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="p7N-kt-NUx">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="NWp-ry-RJ4" name="enabled" keyPath="values.WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters" id="Nrw-dn-EPe"/>
+                        <binding destination="NWp-ry-RJ4" name="value" keyPath="values.WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters" id="YP3-oM-UzX">
+                            <dictionary key="options">
+                                <bool key="NSConditionallySetsEnabled" value="NO"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Ao5-7M-Ivz" secondAttribute="bottom" constant="20" id="pL6-ua-caU"/>
+                <constraint firstItem="i5K-QQ-UTo" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="lGP-Vs-EPZ"/>
+                <constraint firstItem="R0u-X6-POh" firstAttribute="top" secondItem="i5K-QQ-UTo" secondAttribute="bottom" constant="6" id="tua-Cc-os5"/>
                 <constraint firstItem="Ao5-7M-Ivz" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="vUj-oL-kRz"/>
                 <constraint firstItem="Ao5-7M-Ivz" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" id="vni-of-64l"/>
+                <constraint firstItem="i5K-QQ-UTo" firstAttribute="top" secondItem="Ao5-7M-Ivz" secondAttribute="bottom" constant="6" id="yuF-fg-H40"/>
+                <constraint firstItem="R0u-X6-POh" firstAttribute="leading" secondItem="i5K-QQ-UTo" secondAttribute="leading" constant="20" id="z1P-rG-71z"/>
             </constraints>
         </customView>
-        <userDefaultsController representsSharedInstance="YES" id="UVW-HO-iEZ"/>
+        <userDefaultsController representsSharedInstance="YES" id="NWp-ry-RJ4"/>
     </objects>
 </document>
