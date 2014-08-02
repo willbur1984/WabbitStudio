@@ -195,17 +195,9 @@
 		7913F736198C7D9F00831863 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7913F741198C7E7300831863 /* Xibs */,
-				7913F737198C7DDB00831863 /* WCPlainTextFile.h */,
-				7913F738198C7DDB00831863 /* WCPlainTextFile.m */,
-				7913F73D198C7E4C00831863 /* WCPlainTextViewController.h */,
-				7913F73E198C7E4C00831863 /* WCPlainTextViewController.m */,
-				7913F745198C7EC600831863 /* WCPlainTextView.h */,
-				7913F746198C7EC600831863 /* WCPlainTextView.m */,
-				7913F747198C7EC600831863 /* WCRulerView.h */,
-				7913F748198C7EC600831863 /* WCRulerView.m */,
-				7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */,
-				7913F74A198C7EC600831863 /* WCRulerViewDefaultDataSource.m */,
+				7913F75B198C82B000831863 /* Model */,
+				7913F75A198C82A400831863 /* View Controllers */,
+				7913F75C198C82BA00831863 /* Views */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -226,6 +218,38 @@
 				7913F753198C7F6800831863 /* NSPointerArray+WCExtensions.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		7913F75A198C82A400831863 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7913F741198C7E7300831863 /* Xibs */,
+				7913F73D198C7E4C00831863 /* WCPlainTextViewController.h */,
+				7913F73E198C7E4C00831863 /* WCPlainTextViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7913F75B198C82B000831863 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7913F737198C7DDB00831863 /* WCPlainTextFile.h */,
+				7913F738198C7DDB00831863 /* WCPlainTextFile.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7913F75C198C82BA00831863 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7913F745198C7EC600831863 /* WCPlainTextView.h */,
+				7913F746198C7EC600831863 /* WCPlainTextView.m */,
+				7913F747198C7EC600831863 /* WCRulerView.h */,
+				7913F748198C7EC600831863 /* WCRulerView.m */,
+				7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */,
+				7913F74A198C7EC600831863 /* WCRulerViewDefaultDataSource.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
