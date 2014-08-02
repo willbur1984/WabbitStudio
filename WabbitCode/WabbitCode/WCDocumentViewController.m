@@ -74,12 +74,17 @@
                                                                               @('['): @(']'),
                                                                               @('{'): @('}')}];
         
-        [[NSUserDefaultsController sharedUserDefaultsController] addObservationKeyPath:[@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine] WC_keypath] options:NSKeyValueObservingOptionInitial block:^(MAKVONotification *notification) {
-            [viewController.textView setHighlightCurrentLine:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine]];
-        }];
+        NSArray *userDefaultsKeyPaths = @[[@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine] WC_keypath],
+                                          [@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters] WC_keypath],
+                                          [@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters] WC_keypath]];
         
-        [[NSUserDefaultsController sharedUserDefaultsController] addObservationKeyPath:[@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters] WC_keypath] options:NSKeyValueObservingOptionInitial block:^(MAKVONotification *notification) {
-            [viewController.textView setAutoPairCharacters:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters]];
+        [[NSUserDefaultsController sharedUserDefaultsController] addObservationKeyPath:userDefaultsKeyPaths options:NSKeyValueObservingOptionInitial block:^(MAKVONotification *notification) {
+            if ([notification.keyPath hasSuffix:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine])
+                [viewController.textView setHighlightCurrentLine:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine]];
+            else if ([notification.keyPath hasSuffix:WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters])
+                [viewController.textView setAutoPairCharacters:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters]];
+            else if ([notification.keyPath hasSuffix:WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters])
+                [viewController.textView setWrapSelectedTextWithPairCharacters:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters]];
         }];
     }
 }
