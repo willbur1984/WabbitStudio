@@ -11,20 +11,20 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "WCTextView.h"
+#import "WCBaseTextView.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
 #import "WCConstants.h"
 #import "WCDebugging.h"
 #import "NSUndoManager+WCExtensions.h"
 
-@interface WCTextView ()
+@interface WCBaseTextView ()
 @property (assign,nonatomic) unichar lastAutoPairRightCharacter;
 
 - (void)_WCTextView_init;
 @end
 
-@implementation WCTextView
+@implementation WCBaseTextView
 #pragma mark *** Subclass Overrides ***
 - (void)dealloc {
     WCLogObject(self.class);

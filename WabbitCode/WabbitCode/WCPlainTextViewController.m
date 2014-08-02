@@ -24,7 +24,7 @@
 static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewControllerObservingContext;
 
 @interface WCPlainTextViewController ()
-@property (unsafe_unretained,nonatomic) IBOutlet WCTextView *textView;
+@property (unsafe_unretained,nonatomic) IBOutlet WCBaseTextView *textView;
 
 @property (weak,nonatomic) WCPlainTextFile *plainTextFile;
 @end

@@ -13,7 +13,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface WCTextView : NSTextView
+@interface WCBaseTextView : NSTextView
 
 @property (assign,nonatomic) BOOL highlightCurrentLine;
 @property (strong,nonatomic) NSColor *highlightCurrentLineColor;

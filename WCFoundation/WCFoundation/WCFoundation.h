@@ -31,3 +31,4 @@
 #import <WCFoundation/WCBaseViewController.h>
 
 #import <WCFoundation/WCRulerView.h>
+#import <WCFoundation/WCBaseTextView.h>
