@@ -1,6 +1,6 @@
 //
 //  WCPlainTextViewController.h
-//  WCFoundation
+//  WCEdit
 //
 //  Created by William Towe on 8/1/14.
 //  Copyright (c) 2014 William Towe, LLC. All rights reserved.

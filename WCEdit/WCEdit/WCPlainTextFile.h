@@ -1,6 +1,6 @@
 //
 //  WCPlainTextFile.h
-//  WabbitStudio
+//  WCEdit
 //
 //  Created by William Towe on 7/28/14.
 //  Copyright (c) 2014 William Towe, LLC. All rights reserved.
