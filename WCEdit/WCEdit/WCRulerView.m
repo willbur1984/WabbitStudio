@@ -36,6 +36,8 @@
     
     [self setClientView:scrollView.documentView];
     
+    [self setDataSource:dataSource];
+    
     if (!dataSource) {
         [self setDefaultDataSource:[[WCRulerViewDefaultDataSource alloc] initWithRulerView:self]];
         [self setDataSource:self.defaultDataSource];
@@ -92,7 +94,7 @@ static CGFloat const kDefaultThickness = 30.0;
 static NSString *const kDefaultDigit = @"8";
 
 - (CGFloat)requiredThickness {
-    NSMutableString *sampleString = [NSMutableString string];
+    NSMutableString *sampleString = [[NSMutableString alloc] init];
     NSUInteger digits = (NSUInteger)log10([self.dataSource numberOfLinesInRulerView:self]) + 1;
 	
     for (NSUInteger i = 0; i < digits; i++)

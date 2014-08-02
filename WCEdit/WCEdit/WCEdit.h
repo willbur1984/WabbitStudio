@@ -20,8 +20,10 @@
 #import <WCEdit/NSTextView+WCExtensions.h>
 
 #import <WCEdit/WCPlainTextFile.h>
+#import <WCEdit/WCTextStorage.h>
 
 #import <WCEdit/WCPlainTextView.h>
+#import <WCEdit/WCRulerViewDataSource.h>
 #import <WCEdit/WCRulerView.h>
 
 #import <WCEdit/WCPlainTextViewController.h>

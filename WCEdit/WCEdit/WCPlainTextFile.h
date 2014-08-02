@@ -13,8 +13,10 @@
 
 #import <WCFoundation/WCFile.h>
 
+@class WCTextStorage;
+
 @interface WCPlainTextFile : WCFile
 
-@property (readonly,strong,nonatomic) NSTextStorage *textStorage;
+@property (readonly,strong,nonatomic) WCTextStorage *textStorage;
 
 @end

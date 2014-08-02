@@ -16,6 +16,7 @@
 #import <WCFoundation/WCFoundationDebugging.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
+#import "WCRulerView.h"
 
 @interface WCRulerViewDefaultDataSource ()
 @property (copy,nonatomic) NSPointerArray *lineStartIndexes;

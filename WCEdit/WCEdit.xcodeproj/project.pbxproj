@@ -35,6 +35,9 @@
 		7913F75E198C956700831863 /* BlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F75D198C956700831863 /* BlocksKit.framework */; };
 		7913F761198C9B3A00831863 /* NSTextView+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F75F198C9B3A00831863 /* NSTextView+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7913F762198C9B3A00831863 /* NSTextView+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F760198C9B3A00831863 /* NSTextView+WCExtensions.m */; };
+		7913F765198CBDF400831863 /* WCTextStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F763198CBDF400831863 /* WCTextStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F766198CBDF400831863 /* WCTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F764198CBDF400831863 /* WCTextStorage.m */; };
+		7913F768198CBE9500831863 /* WCRulerViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F767198CBE9500831863 /* WCRulerViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,9 @@
 		7913F75D198C956700831863 /* BlocksKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlocksKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/BlocksKit.framework"; sourceTree = "<group>"; };
 		7913F75F198C9B3A00831863 /* NSTextView+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+WCExtensions.h"; sourceTree = "<group>"; };
 		7913F760198C9B3A00831863 /* NSTextView+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+WCExtensions.m"; sourceTree = "<group>"; };
+		7913F763198CBDF400831863 /* WCTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTextStorage.h; sourceTree = "<group>"; };
+		7913F764198CBDF400831863 /* WCTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCTextStorage.m; sourceTree = "<group>"; };
+		7913F767198CBE9500831863 /* WCRulerViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRulerViewDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +251,8 @@
 			children = (
 				7913F737198C7DDB00831863 /* WCPlainTextFile.h */,
 				7913F738198C7DDB00831863 /* WCPlainTextFile.m */,
+				7913F763198CBDF400831863 /* WCTextStorage.h */,
+				7913F764198CBDF400831863 /* WCTextStorage.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -254,6 +262,7 @@
 			children = (
 				7913F745198C7EC600831863 /* WCPlainTextView.h */,
 				7913F746198C7EC600831863 /* WCPlainTextView.m */,
+				7913F767198CBE9500831863 /* WCRulerViewDataSource.h */,
 				7913F747198C7EC600831863 /* WCRulerView.h */,
 				7913F748198C7EC600831863 /* WCRulerView.m */,
 				7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */,
@@ -273,8 +282,10 @@
 				7913F761198C9B3A00831863 /* NSTextView+WCExtensions.h in Headers */,
 				7913F754198C7F6800831863 /* NSPointerArray+WCExtensions.h in Headers */,
 				7913F74B198C7EC600831863 /* WCPlainTextView.h in Headers */,
+				7913F765198CBDF400831863 /* WCTextStorage.h in Headers */,
 				7913F730198C7C4E00831863 /* WCEdit.h in Headers */,
 				7913F74F198C7EC600831863 /* WCRulerViewDefaultDataSource.h in Headers */,
+				7913F768198CBE9500831863 /* WCRulerViewDataSource.h in Headers */,
 				7913F739198C7DDB00831863 /* WCPlainTextFile.h in Headers */,
 				7913F735198C7CE700831863 /* WCEditFunctions.h in Headers */,
 				7913F74D198C7EC600831863 /* WCRulerView.h in Headers */,
@@ -384,6 +395,7 @@
 				7913F74E198C7EC600831863 /* WCRulerView.m in Sources */,
 				7913F755198C7F6800831863 /* NSPointerArray+WCExtensions.m in Sources */,
 				7913F762198C9B3A00831863 /* NSTextView+WCExtensions.m in Sources */,
+				7913F766198CBDF400831863 /* WCTextStorage.m in Sources */,
 				7913F750198C7EC600831863 /* WCRulerViewDefaultDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
