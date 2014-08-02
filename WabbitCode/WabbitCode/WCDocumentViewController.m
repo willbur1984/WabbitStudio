@@ -67,7 +67,7 @@
     if ([self.contentViewController isKindOfClass:[WCPlainTextViewController class]]) {
         WCPlainTextViewController *viewController = (WCPlainTextViewController *)self.contentViewController;
         
-        [viewController.textView setHighlightCurrentLineColor:[NSColor colorWithRed:1.0 green:1.0 blue:.901960784 alpha:1.0]];
+        [viewController.textView setHighlightCurrentLineColor:[NSColor colorWithRed:1.0 green:1.0 blue:0.901960784 alpha:1.0]];
         
         [viewController.textView setAutoPairCharacterSet:[NSCharacterSet characterSetWithCharactersInString:@"'\"`([{"]];
         [viewController.textView setAutoPairLeftCharactersToRightCharacters:@{@('('): @(')'),
