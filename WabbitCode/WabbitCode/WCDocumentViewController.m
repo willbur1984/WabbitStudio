@@ -78,7 +78,11 @@
                                           [@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters] WC_keypath],
                                           [@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters] WC_keypath]];
         
+        @weakify(viewController);
+        
         [[NSUserDefaultsController sharedUserDefaultsController] addObservationKeyPath:userDefaultsKeyPaths options:NSKeyValueObservingOptionInitial block:^(MAKVONotification *notification) {
+            @strongify(viewController);
+            
             if ([notification.keyPath hasSuffix:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine])
                 [viewController.textView setHighlightCurrentLine:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine]];
             else if ([notification.keyPath hasSuffix:WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters])
