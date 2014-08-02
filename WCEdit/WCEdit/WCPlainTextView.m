@@ -191,7 +191,11 @@
      subscribeNext:^(id _) {
          @strongify(self);
          
-         [self setNeedsDisplayInRect:self.visibleRect avoidAdditionalLayout:YES];
+         if (self.highlightCurrentLine &&
+             self.highlightCurrentLineColor) {
+             
+             [self setNeedsDisplayInRect:self.visibleRect avoidAdditionalLayout:YES];
+         }
     }];
 }
 
