@@ -1,8 +1,8 @@
 //
-//  WCConstants.h
-//  WabbitStudio
+//  WCEdit.h
+//  WCEdit
 //
-//  Created by William Towe on 7/28/14.
+//  Created by William Towe on 8/1/14.
 //  Copyright (c) 2014 William Towe, LLC. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -11,16 +11,17 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#ifndef __WC_FOUNDATION_CONSTANTS__
-#define __WC_FOUNDATION_CONSTANTS__
+#ifndef __WC_EDIT__
+#define __WC_EDIT__
 
-#import <CoreGraphics/CGBase.h>
+#import <WCEdit/WCEditConstants.h>
+#import <WCEdit/WCEditFunctions.h>
 
-static CGFloat const WCSubviewPadding = 20.0;
-static CGFloat const WCSubviewMargin = 8.0;
+#import <WCEdit/WCPlainTextFile.h>
 
-static NSRange const WCNotFoundRange = {.location=NSNotFound, .length=0};
+#import <WCEdit/WCPlainTextView.h>
+#import <WCEdit/WCRulerView.h>
 
-static NSString *const WCFoundationBundleIdentifier = @"com.williamtowellc.wcfoundation";
+#import <WCEdit/WCPlainTextViewController.h>
 
 #endif

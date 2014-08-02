@@ -11,15 +11,19 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <WCFoundation/WCConstants.h>
-#import <WCFoundation/WCDebugging.h>
-#import <WCFoundation/WCFunctions.h>
+#ifndef __WC_FOUNDATION__
+#define __WC_FOUNDATION__
+
+#import <WCFoundation/WCFoundationConstants.h>
+#import <WCFoundation/WCFoundationDebugging.h>
+#import <WCFoundation/WCFoundationFunctions.h>
 
 #import <WCFoundation/NSBundle+WCExtensions.h>
 #import <WCFoundation/NSArray+WCExtensions.h>
+#import <WCFoundation/NSUndoManager+WCExtensions.h>
+#import <WCFoundation/NSParagraphStyle+WCExtensions.h>
 
 #import <WCFoundation/WCFile.h>
-#import <WCFoundation/WCPlainTextFile.h>
 
 #import <WCFoundation/WCBaseWindowController.h>
 
@@ -29,7 +33,5 @@
 #import <WCFoundation/WCPreferencesWindowController.h>
 
 #import <WCFoundation/WCBaseViewController.h>
-#import <WCFoundation/WCPlainTextViewController.h>
 
-#import <WCFoundation/WCRulerView.h>
-#import <WCFoundation/WCPlainTextView.h>
+#endif

@@ -16,7 +16,7 @@
 #import <ReactiveCocoa/EXTScope.h>
 #import <BlocksKit/BlocksKit.h>
 #import "NSBundle+WCExtensions.h"
-#import "WCDebugging.h"
+#import "WCFoundationDebugging.h"
 
 static NSString *const kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier = @"kWCPreferencesWindowControllerUserDefaultsKeySelectedViewControllerIdentifier";
 

@@ -13,8 +13,7 @@
 
 #import "WCDocument.h"
 #import "WCDocumentWindowController.h"
-#import <WCFoundation/WCFile.h>
-#import <WCFoundation/WCDebugging.h>
+#import <WCFoundation/WCFoundation.h>
 
 @interface WCDocument ()
 @property (weak,nonatomic) WCDocumentWindowController *documentWindowController;

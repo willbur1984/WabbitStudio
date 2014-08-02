@@ -13,7 +13,7 @@
 
 #import "WCRulerViewDefaultDataSource.h"
 #import "NSPointerArray+WCExtensions.h"
-#import "WCDebugging.h"
+#import <WCFoundation/WCFoundationDebugging.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
 

@@ -20,6 +20,9 @@
       location = "group:WCFoundation/WCFoundation.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:WCEdit/WCEdit.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:WabbitCode/WabbitCode.xcodeproj">
    </FileRef>
 </Workspace>

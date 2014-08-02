@@ -14,9 +14,7 @@
 #import "WCPlainTextView.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
-#import "WCConstants.h"
-#import "WCDebugging.h"
-#import "NSUndoManager+WCExtensions.h"
+#import <WCFoundation/WCFoundation.h>
 
 @interface WCPlainTextView ()
 @property (assign,nonatomic) unichar lastAutoPairRightCharacter;

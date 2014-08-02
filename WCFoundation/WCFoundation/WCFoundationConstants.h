@@ -1,5 +1,5 @@
 //
-//  WCBaseWindowController.m
+//  WCConstants.h
 //  WabbitStudio
 //
 //  Created by William Towe on 7/28/14.
@@ -11,21 +11,13 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "WCBaseWindowController.h"
-#import "WCFoundationDebugging.h"
+#ifndef __WC_FOUNDATION_CONSTANTS__
+#define __WC_FOUNDATION_CONSTANTS__
 
-@interface WCBaseWindowController ()
+#import <CoreGraphics/CGBase.h>
 
-@end
+static NSRange const WCNotFoundRange = {.location=NSNotFound, .length=0};
 
-@implementation WCBaseWindowController
+static NSString *const WCFoundationBundleIdentifier = @"com.williamtowellc.wcfoundation";
 
-- (void)dealloc {
-    WCLogObject(self.class);
-}
-
-- (NSString *)windowNibName {
-    return NSStringFromClass(self.class);
-}
-
-@end
+#endif

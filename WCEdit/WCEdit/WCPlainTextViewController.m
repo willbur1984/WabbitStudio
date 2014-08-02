@@ -13,6 +13,7 @@
 
 #import "WCPlainTextViewController.h"
 #import <WCFoundation/WCFoundation.h>
+#import <WCEdit/WCEdit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
 
@@ -27,7 +28,7 @@ static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewContr
 @implementation WCPlainTextViewController
 
 - (NSBundle *)nibBundle {
-    return WCFoundationBundle();
+    return WCEditBundle();
 }
 
 - (void)loadView {

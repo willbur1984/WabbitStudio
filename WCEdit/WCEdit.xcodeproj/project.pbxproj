@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7913F706198C7BC800831863 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F705198C7BC800831863 /* Cocoa.framework */; };
+		7913F710198C7BC800831863 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7913F70E198C7BC800831863 /* InfoPlist.strings */; };
+		7913F71B198C7BC800831863 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F71A198C7BC800831863 /* XCTest.framework */; };
+		7913F71C198C7BC800831863 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F705198C7BC800831863 /* Cocoa.framework */; };
+		7913F71F198C7BC800831863 /* WCEdit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F702198C7BC800831863 /* WCEdit.framework */; };
+		7913F725198C7BC800831863 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7913F723198C7BC800831863 /* InfoPlist.strings */; };
+		7913F727198C7BC800831863 /* WCEditTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F726198C7BC800831863 /* WCEditTests.m */; };
+		7913F730198C7C4E00831863 /* WCEdit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F712198C7BC800831863 /* WCEdit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F733198C7CA800831863 /* WCEditConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F732198C7CA800831863 /* WCEditConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F735198C7CE700831863 /* WCEditFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F734198C7CE700831863 /* WCEditFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F739198C7DDB00831863 /* WCPlainTextFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F737198C7DDB00831863 /* WCPlainTextFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F73A198C7DDB00831863 /* WCPlainTextFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F738198C7DDB00831863 /* WCPlainTextFile.m */; };
+		7913F73C198C7E0C00831863 /* WCFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F73B198C7E0C00831863 /* WCFoundation.framework */; };
+		7913F73F198C7E4C00831863 /* WCPlainTextViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F73D198C7E4C00831863 /* WCPlainTextViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F740198C7E4C00831863 /* WCPlainTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F73E198C7E4C00831863 /* WCPlainTextViewController.m */; };
+		7913F744198C7E8800831863 /* WCPlainTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7913F742198C7E8800831863 /* WCPlainTextViewController.xib */; };
+		7913F74B198C7EC600831863 /* WCPlainTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F745198C7EC600831863 /* WCPlainTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F74C198C7EC600831863 /* WCPlainTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F746198C7EC600831863 /* WCPlainTextView.m */; };
+		7913F74D198C7EC600831863 /* WCRulerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F747198C7EC600831863 /* WCRulerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F74E198C7EC600831863 /* WCRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F748198C7EC600831863 /* WCRulerView.m */; };
+		7913F74F198C7EC600831863 /* WCRulerViewDefaultDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */; };
+		7913F750198C7EC600831863 /* WCRulerViewDefaultDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F74A198C7EC600831863 /* WCRulerViewDefaultDataSource.m */; };
+		7913F754198C7F6800831863 /* NSPointerArray+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F752198C7F6800831863 /* NSPointerArray+WCExtensions.h */; };
+		7913F755198C7F6800831863 /* NSPointerArray+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F753198C7F6800831863 /* NSPointerArray+WCExtensions.m */; };
+		7913F759198C81E500831863 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F758198C81E500831863 /* ReactiveCocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7913F71D198C7BC800831863 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7913F6F9198C7BC800831863 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7913F701198C7BC800831863;
+			remoteInfo = WCEdit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7913F702198C7BC800831863 /* WCEdit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WCEdit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7913F705198C7BC800831863 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		7913F708198C7BC800831863 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7913F709198C7BC800831863 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7913F70A198C7BC800831863 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		7913F70D198C7BC800831863 /* WCEdit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WCEdit-Info.plist"; sourceTree = "<group>"; };
+		7913F70F198C7BC800831863 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7913F711198C7BC800831863 /* WCEdit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WCEdit-Prefix.pch"; sourceTree = "<group>"; };
+		7913F712198C7BC800831863 /* WCEdit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCEdit.h; sourceTree = "<group>"; };
+		7913F719198C7BC800831863 /* WCEditTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCEditTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7913F71A198C7BC800831863 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7913F722198C7BC800831863 /* WCEditTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WCEditTests-Info.plist"; sourceTree = "<group>"; };
+		7913F724198C7BC800831863 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7913F726198C7BC800831863 /* WCEditTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCEditTests.m; sourceTree = "<group>"; };
+		7913F732198C7CA800831863 /* WCEditConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCEditConstants.h; sourceTree = "<group>"; };
+		7913F734198C7CE700831863 /* WCEditFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCEditFunctions.h; sourceTree = "<group>"; };
+		7913F737198C7DDB00831863 /* WCPlainTextFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextFile.h; sourceTree = "<group>"; };
+		7913F738198C7DDB00831863 /* WCPlainTextFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextFile.m; sourceTree = "<group>"; };
+		7913F73B198C7E0C00831863 /* WCFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WCFoundation.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/WCFoundation.framework"; sourceTree = "<group>"; };
+		7913F73D198C7E4C00831863 /* WCPlainTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextViewController.h; sourceTree = "<group>"; };
+		7913F73E198C7E4C00831863 /* WCPlainTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextViewController.m; sourceTree = "<group>"; };
+		7913F743198C7E8800831863 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WCPlainTextViewController.xib; sourceTree = "<group>"; };
+		7913F745198C7EC600831863 /* WCPlainTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextView.h; sourceTree = "<group>"; };
+		7913F746198C7EC600831863 /* WCPlainTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextView.m; sourceTree = "<group>"; };
+		7913F747198C7EC600831863 /* WCRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRulerView.h; sourceTree = "<group>"; };
+		7913F748198C7EC600831863 /* WCRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRulerView.m; sourceTree = "<group>"; };
+		7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRulerViewDefaultDataSource.h; sourceTree = "<group>"; };
+		7913F74A198C7EC600831863 /* WCRulerViewDefaultDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRulerViewDefaultDataSource.m; sourceTree = "<group>"; };
+		7913F752198C7F6800831863 /* NSPointerArray+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPointerArray+WCExtensions.h"; sourceTree = "<group>"; };
+		7913F753198C7F6800831863 /* NSPointerArray+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPointerArray+WCExtensions.m"; sourceTree = "<group>"; };
+		7913F758198C81E500831863 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/ReactiveCocoa.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7913F6FE198C7BC800831863 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7913F759198C81E500831863 /* ReactiveCocoa.framework in Frameworks */,
+				7913F73C198C7E0C00831863 /* WCFoundation.framework in Frameworks */,
+				7913F706198C7BC800831863 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7913F716198C7BC800831863 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7913F71F198C7BC800831863 /* WCEdit.framework in Frameworks */,
+				7913F71C198C7BC800831863 /* Cocoa.framework in Frameworks */,
+				7913F71B198C7BC800831863 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7913F6F8198C7BC800831863 = {
+			isa = PBXGroup;
+			children = (
+				7913F70B198C7BC800831863 /* WCEdit */,
+				7913F720198C7BC800831863 /* WCEditTests */,
+				7913F704198C7BC800831863 /* Frameworks */,
+				7913F703198C7BC800831863 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7913F703198C7BC800831863 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7913F702198C7BC800831863 /* WCEdit.framework */,
+				7913F719198C7BC800831863 /* WCEditTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7913F704198C7BC800831863 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7913F758198C81E500831863 /* ReactiveCocoa.framework */,
+				7913F73B198C7E0C00831863 /* WCFoundation.framework */,
+				7913F705198C7BC800831863 /* Cocoa.framework */,
+				7913F71A198C7BC800831863 /* XCTest.framework */,
+				7913F707198C7BC800831863 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7913F707198C7BC800831863 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7913F708198C7BC800831863 /* Foundation.framework */,
+				7913F709198C7BC800831863 /* CoreData.framework */,
+				7913F70A198C7BC800831863 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		7913F70B198C7BC800831863 /* WCEdit */ = {
+			isa = PBXGroup;
+			children = (
+				7913F712198C7BC800831863 /* WCEdit.h */,
+				7913F731198C7C8400831863 /* Headers */,
+				7913F751198C7F4F00831863 /* Categories */,
+				7913F736198C7D9F00831863 /* Classes */,
+				7913F70C198C7BC800831863 /* Supporting Files */,
+			);
+			path = WCEdit;
+			sourceTree = "<group>";
+		};
+		7913F70C198C7BC800831863 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7913F70D198C7BC800831863 /* WCEdit-Info.plist */,
+				7913F70E198C7BC800831863 /* InfoPlist.strings */,
+				7913F711198C7BC800831863 /* WCEdit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7913F720198C7BC800831863 /* WCEditTests */ = {
+			isa = PBXGroup;
+			children = (
+				7913F726198C7BC800831863 /* WCEditTests.m */,
+				7913F721198C7BC800831863 /* Supporting Files */,
+			);
+			path = WCEditTests;
+			sourceTree = "<group>";
+		};
+		7913F721198C7BC800831863 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7913F722198C7BC800831863 /* WCEditTests-Info.plist */,
+				7913F723198C7BC800831863 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7913F731198C7C8400831863 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7913F732198C7CA800831863 /* WCEditConstants.h */,
+				7913F734198C7CE700831863 /* WCEditFunctions.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7913F736198C7D9F00831863 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7913F741198C7E7300831863 /* Xibs */,
+				7913F737198C7DDB00831863 /* WCPlainTextFile.h */,
+				7913F738198C7DDB00831863 /* WCPlainTextFile.m */,
+				7913F73D198C7E4C00831863 /* WCPlainTextViewController.h */,
+				7913F73E198C7E4C00831863 /* WCPlainTextViewController.m */,
+				7913F745198C7EC600831863 /* WCPlainTextView.h */,
+				7913F746198C7EC600831863 /* WCPlainTextView.m */,
+				7913F747198C7EC600831863 /* WCRulerView.h */,
+				7913F748198C7EC600831863 /* WCRulerView.m */,
+				7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */,
+				7913F74A198C7EC600831863 /* WCRulerViewDefaultDataSource.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		7913F741198C7E7300831863 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				7913F742198C7E8800831863 /* WCPlainTextViewController.xib */,
+			);
+			name = Xibs;
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		7913F751198C7F4F00831863 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7913F752198C7F6800831863 /* NSPointerArray+WCExtensions.h */,
+				7913F753198C7F6800831863 /* NSPointerArray+WCExtensions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7913F6FF198C7BC800831863 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7913F733198C7CA800831863 /* WCEditConstants.h in Headers */,
+				7913F754198C7F6800831863 /* NSPointerArray+WCExtensions.h in Headers */,
+				7913F74B198C7EC600831863 /* WCPlainTextView.h in Headers */,
+				7913F730198C7C4E00831863 /* WCEdit.h in Headers */,
+				7913F74F198C7EC600831863 /* WCRulerViewDefaultDataSource.h in Headers */,
+				7913F739198C7DDB00831863 /* WCPlainTextFile.h in Headers */,
+				7913F735198C7CE700831863 /* WCEditFunctions.h in Headers */,
+				7913F74D198C7EC600831863 /* WCRulerView.h in Headers */,
+				7913F73F198C7E4C00831863 /* WCPlainTextViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7913F701198C7BC800831863 /* WCEdit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7913F72A198C7BC800831863 /* Build configuration list for PBXNativeTarget "WCEdit" */;
+			buildPhases = (
+				7913F6FD198C7BC800831863 /* Sources */,
+				7913F6FE198C7BC800831863 /* Frameworks */,
+				7913F6FF198C7BC800831863 /* Headers */,
+				7913F700198C7BC800831863 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WCEdit;
+			productName = WCEdit;
+			productReference = 7913F702198C7BC800831863 /* WCEdit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7913F718198C7BC800831863 /* WCEditTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7913F72D198C7BC800831863 /* Build configuration list for PBXNativeTarget "WCEditTests" */;
+			buildPhases = (
+				7913F715198C7BC800831863 /* Sources */,
+				7913F716198C7BC800831863 /* Frameworks */,
+				7913F717198C7BC800831863 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7913F71E198C7BC800831863 /* PBXTargetDependency */,
+			);
+			name = WCEditTests;
+			productName = WCEditTests;
+			productReference = 7913F719198C7BC800831863 /* WCEditTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7913F6F9198C7BC800831863 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "William Towe, LLC.";
+				TargetAttributes = {
+					7913F718198C7BC800831863 = {
+						TestTargetID = 7913F701198C7BC800831863;
+					};
+				};
+			};
+			buildConfigurationList = 7913F6FC198C7BC800831863 /* Build configuration list for PBXProject "WCEdit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7913F6F8198C7BC800831863;
+			productRefGroup = 7913F703198C7BC800831863 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7913F701198C7BC800831863 /* WCEdit */,
+				7913F718198C7BC800831863 /* WCEditTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7913F700198C7BC800831863 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7913F744198C7E8800831863 /* WCPlainTextViewController.xib in Resources */,
+				7913F710198C7BC800831863 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7913F717198C7BC800831863 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7913F725198C7BC800831863 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7913F6FD198C7BC800831863 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7913F740198C7E4C00831863 /* WCPlainTextViewController.m in Sources */,
+				7913F74C198C7EC600831863 /* WCPlainTextView.m in Sources */,
+				7913F73A198C7DDB00831863 /* WCPlainTextFile.m in Sources */,
+				7913F74E198C7EC600831863 /* WCRulerView.m in Sources */,
+				7913F755198C7F6800831863 /* NSPointerArray+WCExtensions.m in Sources */,
+				7913F750198C7EC600831863 /* WCRulerViewDefaultDataSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7913F715198C7BC800831863 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7913F727198C7BC800831863 /* WCEditTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7913F71E198C7BC800831863 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7913F701198C7BC800831863 /* WCEdit */;
+			targetProxy = 7913F71D198C7BC800831863 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7913F70E198C7BC800831863 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7913F70F198C7BC800831863 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7913F723198C7BC800831863 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7913F724198C7BC800831863 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7913F742198C7E8800831863 /* WCPlainTextViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7913F743198C7E8800831863 /* en */,
+			);
+			name = WCPlainTextViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7913F728198C7BC800831863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7913F729198C7BC800831863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7913F72B198C7BC800831863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WCEdit/WCEdit-Prefix.pch";
+				INFOPLIST_FILE = "WCEdit/WCEdit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		7913F72C198C7BC800831863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WCEdit/WCEdit-Prefix.pch";
+				INFOPLIST_FILE = "WCEdit/WCEdit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		7913F72E198C7BC800831863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WCEdit.framework/Versions/A/WCEdit";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WCEdit/WCEdit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WCEditTests/WCEditTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7913F72F198C7BC800831863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WCEdit.framework/Versions/A/WCEdit";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WCEdit/WCEdit-Prefix.pch";
+				INFOPLIST_FILE = "WCEditTests/WCEditTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7913F6FC198C7BC800831863 /* Build configuration list for PBXProject "WCEdit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7913F728198C7BC800831863 /* Debug */,
+				7913F729198C7BC800831863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7913F72A198C7BC800831863 /* Build configuration list for PBXNativeTarget "WCEdit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7913F72B198C7BC800831863 /* Debug */,
+				7913F72C198C7BC800831863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7913F72D198C7BC800831863 /* Build configuration list for PBXNativeTarget "WCEditTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7913F72E198C7BC800831863 /* Debug */,
+				7913F72F198C7BC800831863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7913F6F9198C7BC800831863 /* Project object */;
+}

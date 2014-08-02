@@ -11,7 +11,7 @@
 
 #import <dispatch/dispatch.h>
 #import <Foundation/NSBundle.h>
-#import <WCFoundation/WCConstants.h>
+#import <WCFoundation/WCFoundationConstants.h>
 
 static inline NSBundle *WCFoundationBundle(void) {
     static NSBundle *kWCFoundationBundle;
