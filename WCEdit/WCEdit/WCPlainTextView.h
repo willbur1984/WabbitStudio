@@ -24,5 +24,6 @@
 @property (strong,nonatomic) NSCharacterSet *autoPairCharacterSet;
 @property (copy,nonatomic) NSDictionary *autoPairLeftCharactersToRightCharacters;
 @property (assign,nonatomic) BOOL wrapSelectedTextWithPairCharacters;
+@property (assign,nonatomic) BOOL showFindIndicatorForMatchingPairCharacters;
 
 @end

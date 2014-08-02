@@ -15,11 +15,14 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
 #import <WCFoundation/WCFoundation.h>
+#import "NSTextView+WCExtensions.h"
 
 @interface WCPlainTextView ()
 @property (assign,nonatomic) unichar lastAutoPairRightCharacter;
 
 - (void)_WCTextView_init;
+
+- (void)_showFindIndicatorForMatchingPairCharactersImpl;
 @end
 
 @implementation WCPlainTextView
@@ -174,6 +177,8 @@
 }
 #pragma mark *** Private Methods ***
 - (void)_WCTextView_init; {
+    [self setShowFindIndicatorForMatchingPairCharacters:YES];
+    
     @unsafeify(self);
     
     [[[RACSignal merge:@[[RACObserve(self, highlightCurrentLine) distinctUntilChanged],
@@ -188,7 +193,7 @@
     [[[[NSNotificationCenter defaultCenter]
        rac_addObserverForName:NSTextViewDidChangeSelectionNotification object:self]
       takeUntil:[self rac_willDeallocSignal]]
-     subscribeNext:^(id _) {
+     subscribeNext:^(NSNotification *value) {
          @strongify(self);
          
          if (self.highlightCurrentLine &&
@@ -196,7 +201,79 @@
              
              [self setNeedsDisplayInRect:self.visibleRect avoidAdditionalLayout:YES];
          }
+         
+         if (self.autoPairLeftCharactersToRightCharacters &&
+             self.showFindIndicatorForMatchingPairCharacters) {
+             
+             NSRange oldSelectedRange = [value.userInfo[@"NSOldSelectedCharacterRange"] rangeValue];
+             
+             if (oldSelectedRange.length == 0 &&
+                 oldSelectedRange.location < self.selectedRange.location &&
+                 self.selectedRange.location - oldSelectedRange.location == 1) {
+                 
+                 [self _showFindIndicatorForMatchingPairCharactersImpl];
+             }
+         }
     }];
+}
+
+- (void)_showFindIndicatorForMatchingPairCharactersImpl; {
+    // return early if we dont have at least two characters or if we have text selected
+    if (self.string.length <= 1 ||
+        self.selectedRange.length > 0)
+        return;
+    
+    unichar rightCharacter = [self.string characterAtIndex:self.selectedRange.location - 1];
+    
+    // return early if the character is not a valid right pair character
+    if (![self.autoPairLeftCharactersToRightCharacters.allValues containsObject:@(rightCharacter)])
+        return;
+    
+    NSRange visibleRange = [self WC_visibleRange];
+    NSUInteger count = self.selectedRange.location - visibleRange.location;
+    unichar parseCharacters[count];
+    
+    // grab characters from the first visible character to the insertion point
+    [self.string getCharacters:parseCharacters range:NSMakeRange(visibleRange.location, count)];
+    
+    // grab the correct left char by comparing obj to the right character
+    unichar leftCharacter = [[[self.autoPairLeftCharactersToRightCharacters keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop) {
+        BOOL retval = ([obj unsignedShortValue] == rightCharacter);
+        
+        if (retval)
+            *stop = YES;
+        
+        return retval;
+    }] anyObject] unsignedShortValue];
+    NSUInteger leftCount = 0;
+    NSUInteger rightCount = 0;
+    
+    // loop backwards from the last char to the first
+    for (NSInteger i=count-1; i>0; i--) {
+        unichar character = parseCharacters[i];
+        
+        // increment left count
+        if (character == leftCharacter) {
+            leftCount++;
+            
+            // if left and right count are equal, we are balanced, show the find indicator and return
+            if (leftCount == rightCount) {
+                [self showFindIndicatorForRange:NSMakeRange(visibleRange.location + i, 1)];
+                return;
+            }
+            // otherwise if left > right, we are not balanced, beep and return
+            else if (leftCount > rightCount) {
+                NSBeep();
+                return;
+            }
+        }
+        else if (character == rightCharacter) {
+            rightCount++;
+        }
+    }
+    
+    // beep if we parsed to the last character and didnt find a match
+    NSBeep();
 }
 
 @end
