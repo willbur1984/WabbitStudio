@@ -1,8 +1,8 @@
 //
 //  WCPlainTextViewController.h
-//  WabbitStudio
+//  WCFoundation
 //
-//  Created by William Towe on 7/28/14.
+//  Created by William Towe on 8/1/14.
 //  Copyright (c) 2014 William Towe, LLC. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -13,9 +13,11 @@
 
 #import <WCFoundation/WCBaseViewController.h>
 
-@class WCPlainTextFile;
+@class WCPlainTextFile,WCPlainTextView;
 
 @interface WCPlainTextViewController : WCBaseViewController
+
+@property (readonly,unsafe_unretained,nonatomic) IBOutlet WCPlainTextView *textView;
 
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile;
 

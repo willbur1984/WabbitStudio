@@ -29,6 +29,7 @@
 #import <WCFoundation/WCPreferencesWindowController.h>
 
 #import <WCFoundation/WCBaseViewController.h>
+#import <WCFoundation/WCPlainTextViewController.h>
 
 #import <WCFoundation/WCRulerView.h>
 #import <WCFoundation/WCPlainTextView.h>

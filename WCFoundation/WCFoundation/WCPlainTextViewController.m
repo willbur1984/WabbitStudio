@@ -12,19 +12,14 @@
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "WCPlainTextViewController.h"
-#import <WCFoundation/WCPlainTextFile.h>
-#import <WCFoundation/WCRulerView.h>
-#import <WCFoundation/WCTextView.h>
-#import "WCPreferencesTextEditingViewController.h"
+#import <WCFoundation/WCFoundation.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
-#import <WCFoundation/NSArray+WCExtensions.h>
-#import "MAKVONotificationCenter.h"
 
 static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewControllerObservingContext;
 
 @interface WCPlainTextViewController ()
-@property (unsafe_unretained,nonatomic) IBOutlet WCBaseTextView *textView;
+@property (readwrite,unsafe_unretained,nonatomic) IBOutlet WCPlainTextView *textView;
 
 @property (weak,nonatomic) WCPlainTextFile *plainTextFile;
 @end
@@ -50,14 +45,6 @@ static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewContr
     [self.textView setAutoPairLeftCharactersToRightCharacters:@{@('('): @(')'),
                                                                 @('['): @(']'),
                                                                 @('{'): @('}')}];
-    
-    @weakify(self);
-
-    [[NSUserDefaultsController sharedUserDefaultsController] addObservationKeyPath:[@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine] WC_keypath] options:NSKeyValueObservingOptionInitial block:^(MAKVONotification *notification) {
-        @strongify(self);
-        
-        [self.textView setHighlightCurrentLine:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine]];
-    }];
 }
 
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {

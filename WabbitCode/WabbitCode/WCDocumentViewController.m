@@ -13,14 +13,20 @@
 
 #import "WCDocumentViewController.h"
 #import <WCFoundation/WCPlainTextFile.h>
-#import "WCPlainTextViewController.h"
+#import <WCFoundation/WCPlainTextView.h>
+#import <WCFoundation/WCPlainTextViewController.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
+#import "WCPreferencesTextEditingViewController.h"
+#import <WCFoundation/NSArray+WCExtensions.h>
+#import "MAKVONotificationCenter.h"
 
 @interface WCDocumentViewController ()
 @property (weak,nonatomic) WCFile *file;
 
 @property (strong,nonatomic) WCBaseViewController *contentViewController;
+
+- (void)_configureContentViewController;
 @end
 
 @implementation WCDocumentViewController
@@ -33,6 +39,8 @@
         [self.view addSubview:self.contentViewController.view];
         [self.contentViewController.view setFrame:self.view.bounds];
     }
+    
+    [self _configureContentViewController];
     
     @weakify(self);
     
@@ -55,6 +63,16 @@
     [self setFile:file];
     
     return self;
+}
+
+- (void)_configureContentViewController; {
+    if ([self.contentViewController isKindOfClass:[WCPlainTextViewController class]]) {
+        WCPlainTextViewController *viewController = (WCPlainTextViewController *)self.contentViewController;
+        
+        [[NSUserDefaultsController sharedUserDefaultsController] addObservationKeyPath:[@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine] WC_keypath] options:NSKeyValueObservingOptionInitial block:^(MAKVONotification *notification) {
+            [viewController.textView setHighlightCurrentLine:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine]];
+        }];
+    }
 }
 
 @end

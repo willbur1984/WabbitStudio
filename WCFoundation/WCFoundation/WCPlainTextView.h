@@ -1,5 +1,5 @@
 //
-//  WCTextView.h
+//  WCPlainTextView.h
 //  WCFoundation
 //
 //  Created by William Towe on 7/29/14.

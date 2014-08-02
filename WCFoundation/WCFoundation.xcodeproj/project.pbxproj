@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7913F6EB198B8BFF00831863 /* NSUndoManager+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F6E9198B8BFF00831863 /* NSUndoManager+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7913F6EC198B8BFF00831863 /* NSUndoManager+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F6EA198B8BFF00831863 /* NSUndoManager+WCExtensions.m */; };
+		7913F6F2198C761800831863 /* WCPlainTextViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F6F0198C761800831863 /* WCPlainTextViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F6F3198C761800831863 /* WCPlainTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F6F1198C761800831863 /* WCPlainTextViewController.m */; };
+		7913F6F7198C7A2000831863 /* WCPlainTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7913F6F5198C7A1F00831863 /* WCPlainTextViewController.xib */; };
 		797B131119878F8900C735DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B131019878F8900C735DD /* Cocoa.framework */; };
 		797B131B19878F8900C735DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B131919878F8900C735DD /* InfoPlist.strings */; };
 		797B132619878F8900C735DD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B132519878F8900C735DD /* XCTest.framework */; };
@@ -70,6 +73,9 @@
 /* Begin PBXFileReference section */
 		7913F6E9198B8BFF00831863 /* NSUndoManager+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUndoManager+WCExtensions.h"; sourceTree = "<group>"; };
 		7913F6EA198B8BFF00831863 /* NSUndoManager+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUndoManager+WCExtensions.m"; sourceTree = "<group>"; };
+		7913F6F0198C761800831863 /* WCPlainTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextViewController.h; sourceTree = "<group>"; };
+		7913F6F1198C761800831863 /* WCPlainTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextViewController.m; sourceTree = "<group>"; };
+		7913F6F6198C7A1F00831863 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WCPlainTextViewController.xib; sourceTree = "<group>"; };
 		797B130D19878F8900C735DD /* WCFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WCFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		797B131019878F8900C735DD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		797B131319878F8900C735DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -153,8 +159,20 @@
 		7913F6EF198C755700831863 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7913F6F4198C79FC00831863 /* Xibs */,
+				7913F6F0198C761800831863 /* WCPlainTextViewController.h */,
+				7913F6F1198C761800831863 /* WCPlainTextViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7913F6F4198C79FC00831863 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				7913F6F5198C7A1F00831863 /* WCPlainTextViewController.xib */,
+			);
+			name = Xibs;
+			path = en.lproj;
 			sourceTree = "<group>";
 		};
 		797B130319878F8900C735DD = {
@@ -396,6 +414,7 @@
 				79A4B845198896EA00C7B2C1 /* WCPlainTextView.h in Headers */,
 				797B135C19878FD500C735DD /* WCBaseWindowController.h in Headers */,
 				797B136319878FD500C735DD /* WCPlainTextFile.h in Headers */,
+				7913F6F2198C761800831863 /* WCPlainTextViewController.h in Headers */,
 				797B135819878FD500C735DD /* WCAboutWindowController.h in Headers */,
 				797B136019878FD500C735DD /* WCFile.h in Headers */,
 				797B136219878FD500C735DD /* WCFunctions.h in Headers */,
@@ -488,6 +507,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7913F6F7198C7A2000831863 /* WCPlainTextViewController.xib in Resources */,
 				797B131B19878F8900C735DD /* InfoPlist.strings in Resources */,
 				797B136B19878FEC00C735DD /* Localizable.strings in Resources */,
 				79A4B8551988B43D00C7B2C1 /* WCPreferencesWindowController.xib in Resources */,
@@ -535,6 +555,7 @@
 				79A4B846198896EA00C7B2C1 /* WCPlainTextView.m in Sources */,
 				797B135919878FD500C735DD /* WCAboutWindowController.m in Sources */,
 				797B136119878FD500C735DD /* WCFile.m in Sources */,
+				7913F6F3198C761800831863 /* WCPlainTextViewController.m in Sources */,
 				79A4B84E1988A67600C7B2C1 /* WCPreferencesWindowController.m in Sources */,
 				797B135519878FD500C735DD /* NSPointerArray+WCExtensions.m in Sources */,
 				79A4B87519893A1B00C7B2C1 /* NSArray+WCExtensions.m in Sources */,
@@ -564,6 +585,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7913F6F5198C7A1F00831863 /* WCPlainTextViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7913F6F6198C7A1F00831863 /* en */,
+			);
+			name = WCPlainTextViewController.xib;
+			sourceTree = "<group>";
+		};
 		797B131919878F8900C735DD /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -686,7 +715,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug",
-					/Users/williamtowe/Documents/Projects/WabbitStudio/BlocksKit/build/Debug,
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -706,7 +734,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug",
-					/Users/williamtowe/Documents/Projects/WabbitStudio/BlocksKit/build/Debug,
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
