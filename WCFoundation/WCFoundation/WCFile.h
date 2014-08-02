@@ -20,4 +20,6 @@
 
 - (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI;
 
+- (BOOL)writeToURL:(NSURL *)url error:(NSError **)error;
+
 @end

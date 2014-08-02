@@ -16,6 +16,7 @@
 
 @interface WCPlainTextFile ()
 @property (readwrite,strong,nonatomic) WCTextStorage *textStorage;
+@property (assign,nonatomic) NSStringEncoding encoding;
 @end
 
 @implementation WCPlainTextFile
@@ -25,15 +26,22 @@
         return nil;
     
     [self setTextStorage:[[WCTextStorage alloc] init]];
+    [self setEncoding:NSUTF8StringEncoding];
     
     if (self.fileURL) {
         NSData *data = [NSData dataWithContentsOfURL:self.fileURL options:NSDataReadingMappedIfSafe error:NULL];
-        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSString *string = [[NSString alloc] initWithData:data encoding:self.encoding];
         
         [self.textStorage replaceCharactersInRange:NSMakeRange(0, self.textStorage.length) withString:string];
     }
     
     return self;
+}
+
+- (BOOL)writeToURL:(NSURL *)url error:(NSError *__autoreleasing *)error {
+    NSData *data = [self.textStorage.string dataUsingEncoding:self.encoding];
+    
+    return [data writeToURL:url options:NSDataWritingAtomic error:error];
 }
 
 @end

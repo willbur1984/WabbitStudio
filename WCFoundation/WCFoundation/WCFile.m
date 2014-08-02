@@ -55,6 +55,10 @@
     return self;
 }
 
+- (BOOL)writeToURL:(NSURL *)url error:(NSError **)error; {
+    return NO;
+}
+
 #pragma mark *** Private Methods ***
 - (void)_startMonitoringFileSource; {
     [self _stopMonitoringFileSource];
