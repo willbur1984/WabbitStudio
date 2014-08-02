@@ -45,8 +45,8 @@
 		79A4B83719879CE700C7B2C1 /* ReactiveViewModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B83519879CE700C7B2C1 /* ReactiveViewModel.framework */; };
 		79A4B83D19888D5A00C7B2C1 /* NSBundle+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B83B19888D5A00C7B2C1 /* NSBundle+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79A4B83E19888D5A00C7B2C1 /* NSBundle+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B83C19888D5A00C7B2C1 /* NSBundle+WCExtensions.m */; };
-		79A4B845198896EA00C7B2C1 /* WCBaseTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B843198896EA00C7B2C1 /* WCBaseTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		79A4B846198896EA00C7B2C1 /* WCBaseTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B844198896EA00C7B2C1 /* WCBaseTextView.m */; };
+		79A4B845198896EA00C7B2C1 /* WCPlainTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B843198896EA00C7B2C1 /* WCPlainTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79A4B846198896EA00C7B2C1 /* WCPlainTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B844198896EA00C7B2C1 /* WCPlainTextView.m */; };
 		79A4B84D1988A67600C7B2C1 /* WCPreferencesWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79A4B84E1988A67600C7B2C1 /* WCPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */; };
 		79A4B8501988AEFF00C7B2C1 /* BlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A4B84F1988AEFF00C7B2C1 /* BlocksKit.framework */; };
@@ -114,8 +114,8 @@
 		79A4B83619879CE700C7B2C1 /* Rebel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rebel.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/Rebel.framework"; sourceTree = "<group>"; };
 		79A4B83B19888D5A00C7B2C1 /* NSBundle+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+WCExtensions.h"; sourceTree = "<group>"; };
 		79A4B83C19888D5A00C7B2C1 /* NSBundle+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+WCExtensions.m"; sourceTree = "<group>"; };
-		79A4B843198896EA00C7B2C1 /* WCBaseTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseTextView.h; sourceTree = "<group>"; };
-		79A4B844198896EA00C7B2C1 /* WCBaseTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBaseTextView.m; sourceTree = "<group>"; };
+		79A4B843198896EA00C7B2C1 /* WCPlainTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextView.h; sourceTree = "<group>"; };
+		79A4B844198896EA00C7B2C1 /* WCPlainTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextView.m; sourceTree = "<group>"; };
 		79A4B84B1988A67600C7B2C1 /* WCPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPreferencesWindowController.h; sourceTree = "<group>"; };
 		79A4B84C1988A67600C7B2C1 /* WCPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPreferencesWindowController.m; sourceTree = "<group>"; };
 		79A4B84F1988AEFF00C7B2C1 /* BlocksKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlocksKit.framework; path = ../BlocksKit/build/Debug/BlocksKit.framework; sourceTree = "<group>"; };
@@ -150,6 +150,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7913F6EF198C755700831863 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		797B130319878F8900C735DD = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +283,7 @@
 				797B13751987907800C735DD /* Base */,
 				797B13761987907E00C735DD /* Model */,
 				797B13741987906E00C735DD /* Window Controllers */,
+				7913F6EF198C755700831863 /* View Controllers */,
 				797B13771987908500C735DD /* Views */,
 			);
 			name = Classes;
@@ -347,8 +355,8 @@
 		79A4B842198896A600C7B2C1 /* Text View */ = {
 			isa = PBXGroup;
 			children = (
-				79A4B843198896EA00C7B2C1 /* WCBaseTextView.h */,
-				79A4B844198896EA00C7B2C1 /* WCBaseTextView.m */,
+				79A4B843198896EA00C7B2C1 /* WCPlainTextView.h */,
+				79A4B844198896EA00C7B2C1 /* WCPlainTextView.m */,
 			);
 			name = "Text View";
 			sourceTree = "<group>";
@@ -385,7 +393,7 @@
 				797B135F19878FD500C735DD /* WCDebugging.h in Headers */,
 				79A4B85B1988B82000C7B2C1 /* WCPreferencesViewController.h in Headers */,
 				797B136519878FD500C735DD /* WCRulerView.h in Headers */,
-				79A4B845198896EA00C7B2C1 /* WCBaseTextView.h in Headers */,
+				79A4B845198896EA00C7B2C1 /* WCPlainTextView.h in Headers */,
 				797B135C19878FD500C735DD /* WCBaseWindowController.h in Headers */,
 				797B136319878FD500C735DD /* WCPlainTextFile.h in Headers */,
 				797B135819878FD500C735DD /* WCAboutWindowController.h in Headers */,
@@ -524,7 +532,7 @@
 				797B136619878FD500C735DD /* WCRulerView.m in Sources */,
 				797B135D19878FD500C735DD /* WCBaseWindowController.m in Sources */,
 				797B136819878FD500C735DD /* WCRulerViewDefaultDataSource.m in Sources */,
-				79A4B846198896EA00C7B2C1 /* WCBaseTextView.m in Sources */,
+				79A4B846198896EA00C7B2C1 /* WCPlainTextView.m in Sources */,
 				797B135919878FD500C735DD /* WCAboutWindowController.m in Sources */,
 				797B136119878FD500C735DD /* WCFile.m in Sources */,
 				79A4B84E1988A67600C7B2C1 /* WCPreferencesWindowController.m in Sources */,
