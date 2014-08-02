@@ -72,8 +72,8 @@
         [viewController.textView setAutoPairCharacters:YES];
         [viewController.textView setAutoPairCharacterSet:[NSCharacterSet characterSetWithCharactersInString:@"'\"`([{"]];
         [viewController.textView setAutoPairLeftCharactersToRightCharacters:@{@('('): @(')'),
-                                                                    @('['): @(']'),
-                                                                    @('{'): @('}')}];
+                                                                              @('['): @(']'),
+                                                                              @('{'): @('}')}];
         
         [[NSUserDefaultsController sharedUserDefaultsController] addObservationKeyPath:[@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine] WC_keypath] options:NSKeyValueObservingOptionInitial block:^(MAKVONotification *notification) {
             [viewController.textView setHighlightCurrentLine:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine]];
