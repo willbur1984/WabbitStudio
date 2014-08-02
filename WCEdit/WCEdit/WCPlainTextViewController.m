@@ -40,16 +40,6 @@ static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewContr
     [self.textView.enclosingScrollView setHasHorizontalRuler:NO];
     [self.textView.enclosingScrollView setHasVerticalRuler:YES];
     [self.textView.enclosingScrollView setRulersVisible:YES];
-    
-    [self.textView setTypingAttributes:@{NSFontAttributeName: [NSFont userFixedPitchFontOfSize:12.0]}];
-    
-    [self.textView setHighlightCurrentLineColor:[NSColor colorWithRed:1.0 green:1.0 blue:.901960784 alpha:1.0]];
-    
-    [self.textView setAutoPairCharacters:YES];
-    [self.textView setAutoPairCharacterSet:[NSCharacterSet characterSetWithCharactersInString:@"'\"`([{"]];
-    [self.textView setAutoPairLeftCharactersToRightCharacters:@{@('('): @(')'),
-                                                                @('['): @(']'),
-                                                                @('{'): @('}')}];
 }
 
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {
