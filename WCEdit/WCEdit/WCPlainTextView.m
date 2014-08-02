@@ -84,17 +84,24 @@
             
             // if there is text selected, wrap it in the paired characters and select the original selection plus the pair characters
             if (self.selectedRange.length > 0) {
-                [self.undoManager WC_undoGroupWithBlock:^{
-                    NSString *replacementString = [NSString stringWithFormat:@"%C%@%C",leftCharacter,[self.string substringWithRange:self.selectedRange],rightCharacter];
-                    NSRange replacementSelectedRange = NSMakeRange(self.selectedRange.location, replacementString.length);
-                    
-                    if ([self shouldChangeTextInRange:self.selectedRange replacementString:replacementString]) {
-                        [self replaceCharactersInRange:self.selectedRange withString:replacementString];
-                        [self setSelectedRange:replacementSelectedRange];
+                if (self.wrapSelectedTextWithPairCharacters) {
+                    [self.undoManager WC_undoGroupWithBlock:^{
+                        NSString *replacementString = [NSString stringWithFormat:@"%C%@%C",leftCharacter,[self.string substringWithRange:self.selectedRange],rightCharacter];
+                        NSRange replacementSelectedRange = NSMakeRange(self.selectedRange.location, replacementString.length);
                         
-                        [self setLastAutoPairRightCharacter:rightCharacter];
-                    }
-                }];
+                        if ([self shouldChangeTextInRange:self.selectedRange replacementString:replacementString]) {
+                            [self replaceCharactersInRange:self.selectedRange withString:replacementString];
+                            [self setSelectedRange:replacementSelectedRange];
+                            
+                            [self setLastAutoPairRightCharacter:rightCharacter];
+                        }
+                    }];
+                }
+                else {
+                    [super insertText:insertString];
+                    
+                    [self setLastAutoPairRightCharacter:0];
+                }
             }
             else {
                 // if the last right auto pair character is the same as the character immediately to the right of the insertion point, move the insertion point to the right of the right auto pair character
