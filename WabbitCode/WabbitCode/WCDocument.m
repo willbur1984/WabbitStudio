@@ -27,15 +27,7 @@
     if (!(self = [super initWithType:typeName error:outError]))
         return nil;
     
-    [self setFile:[[[self fileClass] alloc] initWithFileURL:nil UTI:typeName]];
-    
-    return self;
-}
-- (id)initWithContentsOfURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    if (!(self = [super initWithContentsOfURL:url ofType:typeName error:outError]))
-        return nil;
-    
-    [self setFile:[[[self fileClass] alloc] initWithFileURL:url UTI:typeName]];
+    [self setFile:[[[self fileClass] alloc] initWithFileURL:nil UTI:typeName error:NULL]];
     
     return self;
 }
@@ -49,7 +41,9 @@
 }
 
 - (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    return YES;
+    [self setFile:[[[self fileClass] alloc] initWithFileURL:url UTI:typeName error:outError]];
+    
+    return (self.file) ? YES : NO;
 }
 - (BOOL)writeToURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
     return [self.file writeToURL:url error:outError];

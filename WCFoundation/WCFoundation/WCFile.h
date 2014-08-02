@@ -18,7 +18,7 @@
 @property (readonly,copy,nonatomic) NSURL *fileURL;
 @property (readonly,copy,nonatomic) NSString *UTI;
 
-- (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI;
+- (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI error:(NSError **)error;
 
 - (BOOL)writeToURL:(NSURL *)url error:(NSError **)error;
 

@@ -21,8 +21,8 @@
 
 @implementation WCPlainTextFile
 
-- (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI {
-    if (!(self = [super initWithFileURL:fileURL UTI:UTI]))
+- (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI error:(NSError *__autoreleasing *)error {
+    if (!(self = [super initWithFileURL:fileURL UTI:UTI error:error]))
         return nil;
     
     [self setTextStorage:[[WCTextStorage alloc] init]];

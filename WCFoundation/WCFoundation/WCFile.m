@@ -30,9 +30,11 @@
 #pragma mark *** Subclass Overrides ***
 - (void)dealloc {
     [self _stopMonitoringFileSource];
+    
+    WCLogObject(self.class);
 }
 #pragma mark *** Public Methods ***
-- (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI; {
+- (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI error:(NSError **)error; {
     if (!(self = [super init]))
         return nil;
     
