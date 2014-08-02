@@ -26,6 +26,10 @@ static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewContr
 
 @implementation WCPlainTextViewController
 
+- (NSBundle *)nibBundle {
+    return WCFoundationBundle();
+}
+
 - (void)loadView {
     [super loadView];
     
