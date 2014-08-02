@@ -32,6 +32,9 @@
 		7913F754198C7F6800831863 /* NSPointerArray+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F752198C7F6800831863 /* NSPointerArray+WCExtensions.h */; };
 		7913F755198C7F6800831863 /* NSPointerArray+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F753198C7F6800831863 /* NSPointerArray+WCExtensions.m */; };
 		7913F759198C81E500831863 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F758198C81E500831863 /* ReactiveCocoa.framework */; };
+		7913F75E198C956700831863 /* BlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F75D198C956700831863 /* BlocksKit.framework */; };
+		7913F761198C9B3A00831863 /* NSTextView+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F75F198C9B3A00831863 /* NSTextView+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F762198C9B3A00831863 /* NSTextView+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F760198C9B3A00831863 /* NSTextView+WCExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		7913F752198C7F6800831863 /* NSPointerArray+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPointerArray+WCExtensions.h"; sourceTree = "<group>"; };
 		7913F753198C7F6800831863 /* NSPointerArray+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPointerArray+WCExtensions.m"; sourceTree = "<group>"; };
 		7913F758198C81E500831863 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/ReactiveCocoa.framework"; sourceTree = "<group>"; };
+		7913F75D198C956700831863 /* BlocksKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlocksKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/BlocksKit.framework"; sourceTree = "<group>"; };
+		7913F75F198C9B3A00831863 /* NSTextView+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+WCExtensions.h"; sourceTree = "<group>"; };
+		7913F760198C9B3A00831863 /* NSTextView+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+WCExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7913F75E198C956700831863 /* BlocksKit.framework in Frameworks */,
 				7913F759198C81E500831863 /* ReactiveCocoa.framework in Frameworks */,
 				7913F73C198C7E0C00831863 /* WCFoundation.framework in Frameworks */,
 				7913F706198C7BC800831863 /* Cocoa.framework in Frameworks */,
@@ -124,6 +131,7 @@
 		7913F704198C7BC800831863 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7913F75D198C956700831863 /* BlocksKit.framework */,
 				7913F758198C81E500831863 /* ReactiveCocoa.framework */,
 				7913F73B198C7E0C00831863 /* WCFoundation.framework */,
 				7913F705198C7BC800831863 /* Cocoa.framework */,
@@ -216,6 +224,8 @@
 			children = (
 				7913F752198C7F6800831863 /* NSPointerArray+WCExtensions.h */,
 				7913F753198C7F6800831863 /* NSPointerArray+WCExtensions.m */,
+				7913F75F198C9B3A00831863 /* NSTextView+WCExtensions.h */,
+				7913F760198C9B3A00831863 /* NSTextView+WCExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -260,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7913F733198C7CA800831863 /* WCEditConstants.h in Headers */,
+				7913F761198C9B3A00831863 /* NSTextView+WCExtensions.h in Headers */,
 				7913F754198C7F6800831863 /* NSPointerArray+WCExtensions.h in Headers */,
 				7913F74B198C7EC600831863 /* WCPlainTextView.h in Headers */,
 				7913F730198C7C4E00831863 /* WCEdit.h in Headers */,
@@ -372,6 +383,7 @@
 				7913F73A198C7DDB00831863 /* WCPlainTextFile.m in Sources */,
 				7913F74E198C7EC600831863 /* WCRulerView.m in Sources */,
 				7913F755198C7F6800831863 /* NSPointerArray+WCExtensions.m in Sources */,
+				7913F762198C9B3A00831863 /* NSTextView+WCExtensions.m in Sources */,
 				7913F750198C7EC600831863 /* WCRulerViewDefaultDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
