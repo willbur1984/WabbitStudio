@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7913F6EB198B8BFF00831863 /* NSUndoManager+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F6E9198B8BFF00831863 /* NSUndoManager+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7913F6EC198B8BFF00831863 /* NSUndoManager+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F6EA198B8BFF00831863 /* NSUndoManager+WCExtensions.m */; };
+		7913F76B198D7E1400831863 /* WCExtendedAttributesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F769198D7E1400831863 /* WCExtendedAttributesManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F76C198D7E1400831863 /* WCExtendedAttributesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F76A198D7E1400831863 /* WCExtendedAttributesManager.m */; };
 		797B131119878F8900C735DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B131019878F8900C735DD /* Cocoa.framework */; };
 		797B131B19878F8900C735DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B131919878F8900C735DD /* InfoPlist.strings */; };
 		797B132619878F8900C735DD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B132519878F8900C735DD /* XCTest.framework */; };
@@ -60,6 +62,8 @@
 /* Begin PBXFileReference section */
 		7913F6E9198B8BFF00831863 /* NSUndoManager+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUndoManager+WCExtensions.h"; sourceTree = "<group>"; };
 		7913F6EA198B8BFF00831863 /* NSUndoManager+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUndoManager+WCExtensions.m"; sourceTree = "<group>"; };
+		7913F769198D7E1400831863 /* WCExtendedAttributesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCExtendedAttributesManager.h; sourceTree = "<group>"; };
+		7913F76A198D7E1400831863 /* WCExtendedAttributesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCExtendedAttributesManager.m; sourceTree = "<group>"; };
 		797B130D19878F8900C735DD /* WCFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WCFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		797B131019878F8900C735DD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		797B131319878F8900C735DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -286,6 +290,8 @@
 				797B134619878FD500C735DD /* WCBaseWindowController.m */,
 				797B134319878FD500C735DD /* WCBaseViewController.h */,
 				797B134419878FD500C735DD /* WCBaseViewController.m */,
+				7913F769198D7E1400831863 /* WCExtendedAttributesManager.h */,
+				7913F76A198D7E1400831863 /* WCExtendedAttributesManager.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -326,6 +332,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7913F76B198D7E1400831863 /* WCExtendedAttributesManager.h in Headers */,
 				797B135A19878FD500C735DD /* WCBaseViewController.h in Headers */,
 				79A4B83D19888D5A00C7B2C1 /* NSBundle+WCExtensions.h in Headers */,
 				797B135F19878FD500C735DD /* WCFoundationDebugging.h in Headers */,
@@ -469,6 +476,7 @@
 				79A4B87519893A1B00C7B2C1 /* NSArray+WCExtensions.m in Sources */,
 				797B135319878FD500C735DD /* NSParagraphStyle+WCExtensions.m in Sources */,
 				7913F6EC198B8BFF00831863 /* NSUndoManager+WCExtensions.m in Sources */,
+				7913F76C198D7E1400831863 /* WCExtendedAttributesManager.m in Sources */,
 				79A4B83E19888D5A00C7B2C1 /* NSBundle+WCExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
