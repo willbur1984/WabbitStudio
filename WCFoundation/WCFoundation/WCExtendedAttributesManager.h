@@ -13,7 +13,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const WCExtendedAttributesManagerAttributeAppleTextEncoding;
+extern NSString *const WCExtendedAttributesManagerExtendedAttributeAppleTextEncoding;
 
 @interface WCExtendedAttributesManager : NSObject
 
