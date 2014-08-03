@@ -300,6 +300,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7913F72A198C7BC800831863 /* Build configuration list for PBXNativeTarget "WCEdit" */;
 			buildPhases = (
+				7913F76D198DDFDD00831863 /* genstrings */,
 				7913F6FD198C7BC800831863 /* Sources */,
 				7913F6FE198C7BC800831863 /* Frameworks */,
 				7913F6FF198C7BC800831863 /* Headers */,
@@ -383,6 +384,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7913F76D198DDFDD00831863 /* genstrings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = genstrings;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "genstrings -s NSLocalizedString -q -o $SRCROOT/$TARGET_NAME/en.lproj $SRCROOT/$TARGET_NAME/*.m";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7913F6FD198C7BC800831863 /* Sources */ = {
