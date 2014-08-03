@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7913F6EE198B959000831863 /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7913F6ED198B959000831863 /* DefaultPreferences.plist */; };
 		7913F757198C7FD200831863 /* WCEdit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F756198C7FD200831863 /* WCEdit.framework */; };
+		7913F771198DE08400831863 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7913F76F198DE08400831863 /* Localizable.strings */; };
 		797B13861987911A00C735DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B13851987911A00C735DD /* Cocoa.framework */; };
 		797B13901987911A00C735DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B138E1987911A00C735DD /* InfoPlist.strings */; };
 		797B13921987911A00C735DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13911987911A00C735DD /* main.m */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		7913F6ED198B959000831863 /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		7913F756198C7FD200831863 /* WCEdit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WCEdit.framework; path = ../WCEdit/build/Debug/WCEdit.framework; sourceTree = "<group>"; };
+		7913F770198DE08400831863 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		797B13821987911A00C735DD /* WabbitCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WabbitCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		797B13851987911A00C735DD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		797B13881987911A00C735DD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -202,6 +204,7 @@
 				797B13C91987918A00C735DD /* Credits.txt */,
 				797B138D1987911A00C735DD /* WabbitCode-Info.plist */,
 				797B138E1987911A00C735DD /* InfoPlist.strings */,
+				7913F76F198DE08400831863 /* Localizable.strings */,
 				797B13911987911A00C735DD /* main.m */,
 				797B13931987911A00C735DD /* WabbitCode-Prefix.pch */,
 			);
@@ -378,6 +381,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 797B13B31987911A00C735DD /* Build configuration list for PBXNativeTarget "WabbitCode" */;
 			buildPhases = (
+				7913F76E198DE05F00831863 /* genstrings */,
 				797B137E1987911A00C735DD /* Sources */,
 				797B137F1987911A00C735DD /* Frameworks */,
 				797B13801987911A00C735DD /* Resources */,
@@ -449,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				797B13D5198791A000C735DD /* WCDocumentViewController.xib in Resources */,
+				7913F771198DE08400831863 /* Localizable.strings in Resources */,
 				79A4B8711989370000C7B2C1 /* WCPreferencesTextEditingViewController.xib in Resources */,
 				797B13901987911A00C735DD /* InfoPlist.strings in Resources */,
 				797B13D6198791A000C735DD /* WCDocumentWindowController.xib in Resources */,
@@ -471,6 +476,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7913F76E198DE05F00831863 /* genstrings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = genstrings;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "genstrings -s NSLocalizedString -q -o $SRCROOT/$TARGET_NAME/en.lproj $SRCROOT/$TARGET_NAME/*.m";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		797B137E1987911A00C735DD /* Sources */ = {
@@ -509,6 +531,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7913F76F198DE08400831863 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7913F770198DE08400831863 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		797B138E1987911A00C735DD /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
