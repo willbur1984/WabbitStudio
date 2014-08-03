@@ -199,7 +199,7 @@
          if (self.highlightCurrentLine &&
              self.highlightCurrentLineColor) {
              
-             [self setNeedsDisplayInRect:self.visibleRect avoidAdditionalLayout:YES];
+             [self setNeedsDisplayInRect:self.visibleRect];
          }
          
          if (self.autoPairLeftCharactersToRightCharacters &&
