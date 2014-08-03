@@ -16,6 +16,8 @@
 #import <sys/xattr.h>
 #import <sys/errno.h>
 
+NSString *const WCExtendedAttributesManagerAttributeAppleTextEncoding = @"com.apple.TextEncoding";
+
 @interface WCExtendedAttributesManager ()
 + (NSError *)_localizedErrorForErrnoCode:(int)errnoCode;
 @end

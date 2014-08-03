@@ -13,6 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const WCExtendedAttributesManagerAttributeAppleTextEncoding;
+
 @interface WCExtendedAttributesManager : NSObject
 
 + (NSArray *)attributesAtURL:(NSURL *)url error:(NSError **)error;
