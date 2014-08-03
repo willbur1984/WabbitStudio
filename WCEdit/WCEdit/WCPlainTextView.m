@@ -68,6 +68,14 @@
         }
     }
 }
+#pragma mark NSView
+- (void)viewDidMoveToSuperview {
+    [super viewDidMoveToSuperview];
+    
+    if (self.enclosingScrollView) {
+        [self.enclosingScrollView setDrawsBackground:NO];
+    }
+}
 #pragma mark NSTextView
 - (void)insertText:(id)insertString {
     // if we should auto pair characters, and the auto pair character set is non-nil, and the insertString is a single character, proceed
@@ -160,7 +168,7 @@
         self.selectedRange.length == 0) {
         
         // get the entire line range for the selected range
-        NSRange lineRange = [self.textStorage.string lineRangeForRange:self.selectedRange];
+        NSRange lineRange = [self.string lineRangeForRange:self.selectedRange];
         // convert the line range to a glyph range
         NSRange glyphRange = [self.layoutManager glyphRangeForCharacterRange:lineRange actualCharacterRange:NULL];
         // get the bounding rect for the glyph range, more direct than using rectArrayForCharacterRange:withinSelectedCharacterRange:inTextContainer:rectCount:
@@ -196,16 +204,16 @@
      subscribeNext:^(NSNotification *value) {
          @strongify(self);
          
+         NSRange oldSelectedRange = [value.userInfo[@"NSOldSelectedCharacterRange"] rangeValue];
+         
          if (self.highlightCurrentLine &&
              self.highlightCurrentLineColor) {
              
-             [self setNeedsDisplayInRect:self.visibleRect];
+             [self setNeedsDisplayInRect:self.visibleRect avoidAdditionalLayout:YES];
          }
          
          if (self.autoPairLeftCharactersToRightCharacters &&
              self.showFindIndicatorForMatchingPairCharacters) {
-             
-             NSRange oldSelectedRange = [value.userInfo[@"NSOldSelectedCharacterRange"] rangeValue];
              
              if (oldSelectedRange.length == 0 &&
                  oldSelectedRange.location < self.selectedRange.location &&
