@@ -13,6 +13,13 @@
 
 #import "WCPlainTextFile.h"
 #import "WCTextStorage.h"
+#import <WCFoundation/WCFoundation.h>
+#import "NSTextStorage+WCExtensions.h"
+#import <BlocksKit/BlocksKit.h>
+#import "WCBookmark.h"
+
+NSString *const WCPlainTextFileExtendedAttributeSelectedRange = @"com.williamtowellc.wcedit.extended-attribute.selected-range";
+NSString *const WCPlainTextFileExtendedAttributeBookmarks = @"com.williamtowellc.wcedit.extended-attribute.bookmarks";
 
 @interface WCPlainTextFile ()
 @property (readwrite,strong,nonatomic) WCTextStorage *textStorage;
@@ -29,10 +36,19 @@
     [self setEncoding:NSUTF8StringEncoding];
     
     if (self.fileURL) {
+        NSNumber *encoding = [WCExtendedAttributesManager objectForAttribute:WCExtendedAttributesManagerExtendedAttributeAppleTextEncoding atURL:self.fileURL error:NULL];
+        
+        if (encoding)
+            [self setEncoding:encoding.unsignedIntegerValue];
+        
         NSData *data = [NSData dataWithContentsOfURL:self.fileURL options:NSDataReadingMappedIfSafe error:NULL];
         NSString *string = [[NSString alloc] initWithData:data encoding:self.encoding];
         
         [self.textStorage replaceCharactersInRange:NSMakeRange(0, self.textStorage.length) withString:string];
+        
+        [self.textStorage addBookmarksWithRanges:[[WCExtendedAttributesManager objectForAttribute:WCPlainTextFileExtendedAttributeBookmarks atURL:self.fileURL error:NULL] bk_map:^id(NSString *obj) {
+            return [NSValue valueWithRange:NSRangeFromString(obj)];
+        }]];
     }
     
     return self;
@@ -40,8 +56,21 @@
 
 - (BOOL)writeToURL:(NSURL *)url error:(NSError *__autoreleasing *)error {
     NSData *data = [self.textStorage.string dataUsingEncoding:self.encoding];
+    BOOL retval = [data writeToURL:url options:NSDataWritingAtomic error:error];
     
-    return [data writeToURL:url options:NSDataWritingAtomic error:error];
+    if (retval) {
+        [WCExtendedAttributesManager setObject:@(self.encoding) forAttribute:WCExtendedAttributesManagerExtendedAttributeAppleTextEncoding atURL:url error:NULL];
+        
+        NSTextView *textView = [self.textStorage WC_firstResponderTextView];
+        
+        [WCExtendedAttributesManager setString:NSStringFromRange(textView.selectedRange) forAttribute:WCPlainTextFileExtendedAttributeSelectedRange atURL:url error:NULL];
+        
+        [WCExtendedAttributesManager setObject:[self.textStorage.bookmarks bk_map:^id(id<WCBookmark> bookmark) {
+            return NSStringFromRange([bookmark rangeValue]);
+        }] forAttribute:WCPlainTextFileExtendedAttributeBookmarks atURL:url error:NULL];
+    }
+    
+    return retval;
 }
 
 @end

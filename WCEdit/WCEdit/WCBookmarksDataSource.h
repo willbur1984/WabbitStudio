@@ -16,9 +16,13 @@
 
 @protocol WCBookmarksDataSource <NSObject>
 @required
-- (NSArray *)bookmarksInRange:(NSRange)range;
+- (NSArray *)bookmarks;
+- (NSArray *)sortedBookmarks;
+- (NSArray *)sortedBookmarksInInclusiveRange:(NSRange)range;
+- (NSArray *)sortedBookmarksInExclusiveRange:(NSRange)range;
 
 - (id<WCBookmark>)addBookmarkWithRange:(NSRange)range;
+- (NSArray *)addBookmarksWithRanges:(NSArray *)ranges;
 
 - (void)removeBookmark:(id<WCBookmark>)bookmark;
 - (void)removeAllBookmarks;

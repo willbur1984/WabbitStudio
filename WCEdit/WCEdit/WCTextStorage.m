@@ -17,6 +17,7 @@
 #import "WCRulerView.h"
 #import "Bookmark.h"
 #import "WCEditFunctions.h"
+#import <BlocksKit/BlocksKit.h>
 
 @interface WCTextStorage ()
 @property (strong,nonatomic) NSMutableAttributedString *mutableAttributedString;
@@ -96,8 +97,21 @@
     return (NSUInteger)[self.lineStartIndexes pointerAtIndex:lineNumber];
 }
 #pragma mark WCBookmarksDataSource
-- (NSArray *)bookmarksInRange:(NSRange)range; {
+- (NSArray *)bookmarks; {
+    return [self.bookmarksManagedObjectContext WC_fetchEntityNamed:[Bookmark entityName] predicate:nil sortDescriptors:nil];
+}
+- (NSArray *)sortedBookmarks; {
+    return [self.bookmarksManagedObjectContext WC_fetchEntityNamed:[Bookmark entityName] predicate:nil sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:BookmarkAttributes.lineStartIndex ascending:YES]]];
+}
+- (NSArray *)sortedBookmarksInInclusiveRange:(NSRange)range; {
+    range = [self.string lineRangeForRange:range];
+
     return [self.bookmarksManagedObjectContext WC_fetchEntityNamed:[Bookmark entityName] predicate:[NSPredicate predicateWithFormat:@"%K >= %@ AND %K <= %@",BookmarkAttributes.lineStartIndex,@(range.location),BookmarkAttributes.lineStartIndex,@(NSMaxRange(range))] sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:BookmarkAttributes.lineStartIndex ascending:YES]]];
+}
+- (NSArray *)sortedBookmarksInExclusiveRange:(NSRange)range; {
+    range = [self.string lineRangeForRange:range];
+    
+    return [self.bookmarksManagedObjectContext WC_fetchEntityNamed:[Bookmark entityName] predicate:[NSPredicate predicateWithFormat:@"%K > %@ AND %K < %@",BookmarkAttributes.lineStartIndex,@(range.location),BookmarkAttributes.lineStartIndex,@(NSMaxRange(range))] sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:BookmarkAttributes.lineStartIndex ascending:YES]]];
 }
 
 - (id<WCBookmark>)addBookmarkWithRange:(NSRange)range {
@@ -111,11 +125,18 @@
     
     return retval;
 }
+- (NSArray *)addBookmarksWithRanges:(NSArray *)ranges; {
+    return [ranges bk_map:^id(NSValue *range) {
+        return [self addBookmarkWithRange:range.rangeValue];
+    }];
+}
 
 - (void)removeBookmark:(id<WCBookmark>)bookmark {
     NSParameterAssert(bookmark);
     
-    [self.bookmarksManagedObjectContext deleteObject:bookmark];
+    Bookmark *object = [self.bookmarksManagedObjectContext WC_fetchEntityNamed:[Bookmark entityName] limit:1 predicate:[NSPredicate predicateWithFormat:@"%K == %@",BookmarkAttributes.lineStartIndex,@([bookmark lineStartIndexValue])] sortDescriptors:nil error:NULL].firstObject;
+    
+    [self.bookmarksManagedObjectContext deleteObject:object];
     [self.bookmarksManagedObjectContext save:NULL];
 }
 - (void)removeAllBookmarks {

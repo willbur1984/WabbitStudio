@@ -18,6 +18,7 @@
 #import <WCEdit/WCEditFunctions.h>
 
 #import <WCEdit/NSTextView+WCExtensions.h>
+#import <WCEdit/NSTextStorage+WCExtensions.h>
 
 #import <WCEdit/WCPlainTextFile.h>
 #import <WCEdit/WCTextStorage.h>

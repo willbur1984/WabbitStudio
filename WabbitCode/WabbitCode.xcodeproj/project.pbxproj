@@ -10,6 +10,8 @@
 		7913F6EE198B959000831863 /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7913F6ED198B959000831863 /* DefaultPreferences.plist */; };
 		7913F757198C7FD200831863 /* WCEdit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F756198C7FD200831863 /* WCEdit.framework */; };
 		7913F771198DE08400831863 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7913F76F198DE08400831863 /* Localizable.strings */; };
+		7913F79C198EC50900831863 /* WCNavigateMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F79B198EC50900831863 /* WCNavigateMenuController.m */; };
+		7913F79F198EC75C00831863 /* WCDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F79E198EC75C00831863 /* WCDocumentController.m */; };
 		797B13861987911A00C735DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B13851987911A00C735DD /* Cocoa.framework */; };
 		797B13901987911A00C735DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B138E1987911A00C735DD /* InfoPlist.strings */; };
 		797B13921987911A00C735DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13911987911A00C735DD /* main.m */; };
@@ -57,6 +59,10 @@
 		7913F6ED198B959000831863 /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		7913F756198C7FD200831863 /* WCEdit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WCEdit.framework; path = ../WCEdit/build/Debug/WCEdit.framework; sourceTree = "<group>"; };
 		7913F770198DE08400831863 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7913F79A198EC50900831863 /* WCNavigateMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCNavigateMenuController.h; sourceTree = "<group>"; };
+		7913F79B198EC50900831863 /* WCNavigateMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCNavigateMenuController.m; sourceTree = "<group>"; };
+		7913F79D198EC75C00831863 /* WCDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDocumentController.h; sourceTree = "<group>"; };
+		7913F79E198EC75C00831863 /* WCDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDocumentController.m; sourceTree = "<group>"; };
 		797B13821987911A00C735DD /* WabbitCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WabbitCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		797B13851987911A00C735DD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		797B13881987911A00C735DD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -136,6 +142,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7913F799198EC4ED00831863 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7913F79A198EC50900831863 /* WCNavigateMenuController.h */,
+				7913F79B198EC50900831863 /* WCNavigateMenuController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		797B13791987911A00C735DD = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +258,9 @@
 			children = (
 				797B13971987911A00C735DD /* WCAppDelegate.h */,
 				797B13981987911A00C735DD /* WCAppDelegate.m */,
+				7913F79D198EC75C00831863 /* WCDocumentController.h */,
+				7913F79E198EC75C00831863 /* WCDocumentController.m */,
+				7913F799198EC4ED00831863 /* Controllers */,
 				79A4B8561988B79500C7B2C1 /* Preferences */,
 				79A4B83019879AEA00C7B2C1 /* Documents */,
 				79A4B83219879B0000C7B2C1 /* Window Controllers */,
@@ -507,7 +525,9 @@
 				797B13C41987917B00C735DD /* WCDocumentViewController.m in Sources */,
 				797B13C31987917B00C735DD /* WCDocument.m in Sources */,
 				79A4B87B1989425A00C7B2C1 /* MAKVONotificationCenter.m in Sources */,
+				7913F79C198EC50900831863 /* WCNavigateMenuController.m in Sources */,
 				797B13C61987917B00C735DD /* WCPlainTextDocument.m in Sources */,
+				7913F79F198EC75C00831863 /* WCDocumentController.m in Sources */,
 				797B13921987911A00C735DD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
