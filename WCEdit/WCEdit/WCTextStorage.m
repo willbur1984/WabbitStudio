@@ -15,12 +15,15 @@
 #import <WCFoundation/WCFoundation.h>
 #import "NSPointerArray+WCExtensions.h"
 #import "WCRulerView.h"
+#import "Bookmark.h"
+#import "WCEditFunctions.h"
 
 @interface WCTextStorage ()
 @property (strong,nonatomic) NSMutableAttributedString *mutableAttributedString;
 @property (copy,nonatomic) NSPointerArray *lineStartIndexes;
+@property (strong,nonatomic) NSPersistentStoreCoordinator *bookmarksPersistentStoreCoordinator;
+@property (strong,nonatomic) NSManagedObjectContext *bookmarksManagedObjectContext;
 
-- (void)_recalculateLineStartIndexes;
 - (void)_recalculateLineStartIndexesFromLineNumber:(NSUInteger)lineNumber;
 @end
 
@@ -38,6 +41,13 @@
     
     [self setLineStartIndexes:[NSPointerArray pointerArrayWithOptions:NSPointerFunctionsIntegerPersonality|NSPointerFunctionsOpaqueMemory]];
     [self.lineStartIndexes addPointer:(void *)0];
+    
+    [self setBookmarksPersistentStoreCoordinator:[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[[NSManagedObjectModel alloc] initWithContentsOfURL:[WCEditBundle() URLForResource:@"Bookmarks" withExtension:@"momd"]]]];
+    [self.bookmarksPersistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:NULL];
+    
+    [self setBookmarksManagedObjectContext:[[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType]];
+    [self.bookmarksManagedObjectContext setPersistentStoreCoordinator:self.bookmarksPersistentStoreCoordinator];
+    [self.bookmarksManagedObjectContext setUndoManager:nil];
     
     return self;
 }
@@ -85,10 +95,33 @@
 - (NSUInteger)rulerView:(WCRulerView *)rulerView lineStartIndexForLineNumber:(NSUInteger)lineNumber {
     return (NSUInteger)[self.lineStartIndexes pointerAtIndex:lineNumber];
 }
-#pragma mark *** Private Methods ***
-- (void)_recalculateLineStartIndexes; {
-    [self _recalculateLineStartIndexesFromLineNumber:0];
+#pragma mark WCBookmarksDataSource
+- (NSArray *)bookmarksInRange:(NSRange)range; {
+    return [self.bookmarksManagedObjectContext WC_fetchEntityNamed:[Bookmark entityName] predicate:[NSPredicate predicateWithFormat:@"%K >= %@ AND %K <= %@",BookmarkAttributes.lineStartIndex,@(range.location),BookmarkAttributes.lineStartIndex,@(NSMaxRange(range))] sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:BookmarkAttributes.lineStartIndex ascending:YES]]];
 }
+
+- (id<WCBookmark>)addBookmarkWithRange:(NSRange)range {
+    Bookmark *retval = [NSEntityDescription insertNewObjectForEntityForName:[Bookmark entityName] inManagedObjectContext:self.bookmarksManagedObjectContext];
+    NSRange lineRange = [self.string lineRangeForRange:range];
+    
+    [retval setLineStartIndex:@(lineRange.location)];
+    [retval setRange:[NSValue valueWithRange:range]];
+    
+    [self.bookmarksManagedObjectContext save:NULL];
+    
+    return retval;
+}
+
+- (void)removeBookmark:(id<WCBookmark>)bookmark {
+    NSParameterAssert(bookmark);
+    
+    [self.bookmarksManagedObjectContext deleteObject:bookmark];
+    [self.bookmarksManagedObjectContext save:NULL];
+}
+- (void)removeAllBookmarks {
+    [self.bookmarksManagedObjectContext reset];
+}
+#pragma mark *** Private Methods ***
 - (void)_recalculateLineStartIndexesFromLineNumber:(NSUInteger)lineNumber; {
     NSUInteger characterIndex = (NSUInteger)[self.lineStartIndexes pointerAtIndex:lineNumber];
     
