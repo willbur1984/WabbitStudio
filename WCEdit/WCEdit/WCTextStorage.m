@@ -140,7 +140,10 @@
     [self.bookmarksManagedObjectContext save:NULL];
 }
 - (void)removeAllBookmarks {
-    [self.bookmarksManagedObjectContext reset];
+    for (Bookmark *object in [self bookmarks])
+        [self.bookmarksManagedObjectContext deleteObject:object];
+    
+    [self.bookmarksManagedObjectContext save:NULL];
 }
 #pragma mark *** Private Methods ***
 - (void)_recalculateLineStartIndexesFromLineNumber:(NSUInteger)lineNumber; {
