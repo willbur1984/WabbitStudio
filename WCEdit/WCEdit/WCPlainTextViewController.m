@@ -36,7 +36,7 @@ static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewContr
     
     [self.textView.layoutManager replaceTextStorage:self.plainTextFile.textStorage];
     
-    [self.textView.enclosingScrollView setVerticalRulerView:[[WCRulerView alloc] initWithScrollView:self.textView.enclosingScrollView dataSource:self.plainTextFile.textStorage]];
+    [self.textView.enclosingScrollView setVerticalRulerView:[[WCLineNumbersRulerView alloc] initWithScrollView:self.textView.enclosingScrollView lineNumbersDataSource:self.plainTextFile.textStorage]];
     [self.textView.enclosingScrollView setHasHorizontalRuler:NO];
     [self.textView.enclosingScrollView setHasVerticalRuler:YES];
     [self.textView.enclosingScrollView setRulersVisible:YES];

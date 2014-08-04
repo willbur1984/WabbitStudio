@@ -96,7 +96,7 @@
             
             if (sortedBookmarks.count > 0) {
                 [sortedBookmarks enumerateObjectsUsingBlock:^(id<WCBookmark> bookmark, NSUInteger bookmarkIndex, BOOL *stop) {
-                    NSString *title = [NSString stringWithFormat:NSLocalizedString(@"%@: %@", @"bookmark menu item title format"),@([textStorage rulerView:nil lineNumberForRange:[bookmark rangeValue]] + 1),[textStorage.string substringWithRange:[textStorage.string lineRangeForRange:[bookmark rangeValue]]]];
+                    NSString *title = [NSString stringWithFormat:NSLocalizedString(@"%@: %@", @"bookmark menu item title format"),@([textStorage lineNumberForRange:[bookmark rangeValue]] + 1),[textStorage.string substringWithRange:[textStorage.string lineRangeForRange:[bookmark rangeValue]]]];
                     NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:title action:@selector(_goToBookmarkAction:) keyEquivalent:@""];
                     
                     [menuItem setTarget:self];

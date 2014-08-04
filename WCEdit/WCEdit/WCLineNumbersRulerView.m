@@ -11,24 +11,24 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "WCRulerView.h"
+#import "WCLineNumbersRulerView.h"
 #import <WCFoundation/WCFoundation.h>
 #import "WCRulerViewDefaultDataSource.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
 
-@interface WCRulerView ()
-@property (readwrite,weak,nonatomic) id<WCRulerViewDataSource> dataSource;
+@interface WCLineNumbersRulerView ()
+@property (readwrite,weak,nonatomic) id<WCLineNumbersDataSource> lineNumbersDataSource;
 @property (strong,nonatomic) WCRulerViewDefaultDataSource *defaultDataSource;
 @end
 
-@implementation WCRulerView
+@implementation WCLineNumbersRulerView
 #pragma mark *** Subclass Overrides ***
 - (void)dealloc {
     WCLogObject(self.class);
 }
 
-- (instancetype)initWithScrollView:(NSScrollView *)scrollView dataSource:(id<WCRulerViewDataSource>)dataSource; {
+- (instancetype)initWithScrollView:(NSScrollView *)scrollView lineNumbersDataSource:(id<WCLineNumbersDataSource>)lineNumbersDataSource; {
     if (!(self = [super initWithScrollView:scrollView orientation:NSVerticalRuler]))
         return nil;
     
@@ -36,11 +36,11 @@
     
     [self setClientView:scrollView.documentView];
     
-    [self setDataSource:dataSource];
+    [self setLineNumbersDataSource:lineNumbersDataSource];
     
-    if (!dataSource) {
+    if (!lineNumbersDataSource) {
         [self setDefaultDataSource:[[WCRulerViewDefaultDataSource alloc] initWithRulerView:self]];
-        [self setDataSource:self.defaultDataSource];
+        [self setLineNumbersDataSource:self.defaultDataSource];
     }
     
     @weakify(self);
@@ -95,7 +95,7 @@ static NSString *const kDefaultDigit = @"8";
 
 - (CGFloat)requiredThickness {
     NSMutableString *sampleString = [[NSMutableString alloc] init];
-    NSUInteger digits = (NSUInteger)log10([self.dataSource numberOfLinesInRulerView:self]) + 1;
+    NSUInteger digits = (NSUInteger)log10([self.lineNumbersDataSource numberOfLines]) + 1;
 	
     for (NSUInteger i = 0; i < digits; i++)
         [sampleString appendString:kDefaultDigit];
@@ -112,8 +112,8 @@ static NSString *const kDefaultDigit = @"8";
     
     charRange.length++;
     
-    for (lineNumber = [self.dataSource rulerView:self lineNumberForRange:charRange]; lineNumber < [self.dataSource  numberOfLinesInRulerView:self]; lineNumber++) {
-        lineStartIndex = [self.dataSource rulerView:self lineStartIndexForLineNumber:lineNumber];
+    for (lineNumber = [self.lineNumbersDataSource lineNumberForRange:charRange]; lineNumber < [self.lineNumbersDataSource  numberOfLines]; lineNumber++) {
+        lineStartIndex = [self.lineNumbersDataSource lineStartIndexForLineNumber:lineNumber];
         
         if (NSLocationInRange(lineStartIndex, charRange)) {
             NSUInteger numberOfLineRects;
@@ -156,8 +156,8 @@ static NSString *const kDefaultDigit = @"8";
     NSIndexSet *selectedLineNumbers = [self selectedLineNumbers];
     CGFloat lastLineRectY = -1;
     
-    for (lineNumber = [self.dataSource rulerView:self lineNumberForRange:charRange], charRange.length++; lineNumber < [self.dataSource numberOfLinesInRulerView:self]; lineNumber++) {
-        lineStartIndex = [self.dataSource rulerView:self lineStartIndexForLineNumber:lineNumber];
+    for (lineNumber = [self.lineNumbersDataSource lineNumberForRange:charRange], charRange.length++; lineNumber < [self.lineNumbersDataSource numberOfLines]; lineNumber++) {
+        lineStartIndex = [self.lineNumbersDataSource lineStartIndexForLineNumber:lineNumber];
         
         if (NSLocationInRange(lineStartIndex, charRange)) {
             NSUInteger numberOfLineRects;
@@ -184,10 +184,10 @@ static NSString *const kDefaultDigit = @"8";
     }
 }
 #pragma mark Properties
-- (void)setDataSource:(id<WCRulerViewDataSource>)dataSource {
-    _dataSource = dataSource;
+- (void)setLineNumbersDataSource:(id<WCLineNumbersDataSource>)lineNumbersDataSource {
+    _lineNumbersDataSource = lineNumbersDataSource;
     
-    if (![self.dataSource isEqual:self.defaultDataSource])
+    if (![self.lineNumbersDataSource isEqual:self.defaultDataSource])
         [self setDefaultDataSource:nil];
 }
 
@@ -206,7 +206,7 @@ static NSString *const kDefaultDigit = @"8";
     NSMutableIndexSet *retval = [NSMutableIndexSet indexSet];
     
     NSRange selectedLineRange = [self.textView.string lineRangeForRange:self.textView.selectedRange];
-    NSUInteger startLineNumber = [self.dataSource rulerView:self lineNumberForRange:NSMakeRange(selectedLineRange.location, 0)];
+    NSUInteger startLineNumber = [self.lineNumbersDataSource lineNumberForRange:NSMakeRange(selectedLineRange.location, 0)];
     
     if (self.textView.selectedRange.length == 0)
         [retval addIndex:startLineNumber];

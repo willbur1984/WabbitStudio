@@ -26,7 +26,8 @@
 #import <WCEdit/WCBookmarkViewModel.h>
 
 #import <WCEdit/WCPlainTextView.h>
-#import <WCEdit/WCRulerView.h>
+#import <WCEdit/WCLineNumbersRulerView.h>
+#import <WCEdit/WCBookmarksRulerView.h>
 
 #import <WCEdit/WCPlainTextViewController.h>
 

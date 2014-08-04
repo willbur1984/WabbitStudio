@@ -16,12 +16,12 @@
 #import <WCFoundation/WCFoundationDebugging.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
-#import "WCRulerView.h"
+#import "WCLineNumbersRulerView.h"
 
 @interface WCRulerViewDefaultDataSource ()
 @property (copy,nonatomic) NSPointerArray *lineStartIndexes;
 
-@property (weak,nonatomic) WCRulerView *rulerView;
+@property (weak,nonatomic) WCLineNumbersRulerView *rulerView;
 
 - (void)_recalculateLineStartIndexes;
 - (void)_recalculateLineStartIndexesFromLineNumber:(NSUInteger)lineNumber;
@@ -33,17 +33,17 @@
     WCLogObject(self.class);
 }
 #pragma mark WCRulerViewDataSource
-- (NSUInteger)numberOfLinesInRulerView:(WCRulerView *)rulerView {
+- (NSUInteger)numberOfLines {
     return self.lineStartIndexes.count;
 }
-- (NSUInteger)rulerView:(WCRulerView *)rulerView lineNumberForRange:(NSRange)range {
+- (NSUInteger)lineNumberForRange:(NSRange)range {
     return [self.lineStartIndexes WC_lineNumberForRange:range];
 }
-- (NSUInteger)rulerView:(WCRulerView *)rulerView lineStartIndexForLineNumber:(NSUInteger)lineNumber {
+- (NSUInteger)lineStartIndexForLineNumber:(NSUInteger)lineNumber {
     return (NSUInteger)[self.lineStartIndexes pointerAtIndex:lineNumber];
 }
 #pragma mark *** Public Methods ***
-- (instancetype)initWithRulerView:(WCRulerView *)rulerView {
+- (instancetype)initWithRulerView:(WCLineNumbersRulerView *)rulerView {
     if (!(self = [super init]))
         return nil;
     
@@ -69,7 +69,7 @@
          if ((textStorage.editedMask & NSTextStorageEditedCharacters) == 0)
              return;
          
-         [self _recalculateLineStartIndexesFromLineNumber:[self rulerView:self.rulerView lineNumberForRange:textStorage.editedRange]];
+         [self _recalculateLineStartIndexesFromLineNumber:[self lineNumberForRange:textStorage.editedRange]];
     }];
     
     return self;

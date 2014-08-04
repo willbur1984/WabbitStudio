@@ -14,7 +14,7 @@
 #import "WCTextStorage.h"
 #import <WCFoundation/WCFoundation.h>
 #import "NSPointerArray+WCExtensions.h"
-#import "WCRulerView.h"
+#import "WCLineNumbersRulerView.h"
 #import "Bookmark.h"
 #import "WCEditFunctions.h"
 #import <BlocksKit/BlocksKit.h>
@@ -83,17 +83,17 @@
     [super processEditing];
     
     if (editedCharacters) {
-        [self _recalculateLineStartIndexesFromLineNumber:[self rulerView:nil lineNumberForRange:self.editedRange]];
+        [self _recalculateLineStartIndexesFromLineNumber:[self lineNumberForRange:self.editedRange]];
     }
 }
-#pragma mark WCRulerViewDataSource
-- (NSUInteger)numberOfLinesInRulerView:(WCRulerView *)rulerView {
+#pragma mark WCLineNumbersDataSource
+- (NSUInteger)numberOfLines {
     return self.lineStartIndexes.count;
 }
-- (NSUInteger)rulerView:(WCRulerView *)rulerView lineNumberForRange:(NSRange)range {
+- (NSUInteger)lineNumberForRange:(NSRange)range {
     return [self.lineStartIndexes WC_lineNumberForRange:range];
 }
-- (NSUInteger)rulerView:(WCRulerView *)rulerView lineStartIndexForLineNumber:(NSUInteger)lineNumber {
+- (NSUInteger)lineStartIndexForLineNumber:(NSUInteger)lineNumber {
     return (NSUInteger)[self.lineStartIndexes pointerAtIndex:lineNumber];
 }
 #pragma mark WCBookmarksDataSource

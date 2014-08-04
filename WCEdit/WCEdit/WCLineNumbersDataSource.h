@@ -1,8 +1,8 @@
 //
-//  WCRulerView.h
+//  WCLineNumbersDataSource.h
 //  WCEdit
 //
-//  Created by William Towe on 7/28/14.
+//  Created by William Towe on 8/3/14.
 //  Copyright (c) 2014 William Towe, LLC. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -11,25 +11,11 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Cocoa/Cocoa.h>
-#import <WCEdit/WCRulerViewDataSource.h>
+#import <Foundation/Foundation.h>
 
-@interface WCRulerView : NSRulerView
-
-@property (readonly,weak,nonatomic) id<WCRulerViewDataSource> dataSource;
-
-@property (readonly,nonatomic) NSTextView *textView;
-
-@property (readonly,nonatomic) NSDictionary *stringAttributes;
-@property (readonly,nonatomic) NSDictionary *selectedStringAttributes;
-
-@property (readonly,nonatomic) NSIndexSet *selectedLineNumbers;
-
-- (instancetype)initWithScrollView:(NSScrollView *)scrollView dataSource:(id<WCRulerViewDataSource>)dataSource;
-
-- (NSUInteger)lineNumberForPoint:(NSPoint)point;
-
-- (void)drawBackgroundInRect:(NSRect)rect;
-- (void)drawLineNumbersInRect:(NSRect)rect;
-
+@protocol WCLineNumbersDataSource <NSObject>
+@required
+- (NSUInteger)numberOfLines;
+- (NSUInteger)lineNumberForRange:(NSRange)range;
+- (NSUInteger)lineStartIndexForLineNumber:(NSUInteger)lineNumber;
 @end

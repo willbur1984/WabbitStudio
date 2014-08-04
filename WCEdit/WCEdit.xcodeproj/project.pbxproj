@@ -25,8 +25,8 @@
 		7913F744198C7E8800831863 /* WCPlainTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7913F742198C7E8800831863 /* WCPlainTextViewController.xib */; };
 		7913F74B198C7EC600831863 /* WCPlainTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F745198C7EC600831863 /* WCPlainTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7913F74C198C7EC600831863 /* WCPlainTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F746198C7EC600831863 /* WCPlainTextView.m */; };
-		7913F74D198C7EC600831863 /* WCRulerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F747198C7EC600831863 /* WCRulerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7913F74E198C7EC600831863 /* WCRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F748198C7EC600831863 /* WCRulerView.m */; };
+		7913F74D198C7EC600831863 /* WCLineNumbersRulerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F747198C7EC600831863 /* WCLineNumbersRulerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F74E198C7EC600831863 /* WCLineNumbersRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F748198C7EC600831863 /* WCLineNumbersRulerView.m */; };
 		7913F74F198C7EC600831863 /* WCRulerViewDefaultDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */; };
 		7913F750198C7EC600831863 /* WCRulerViewDefaultDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F74A198C7EC600831863 /* WCRulerViewDefaultDataSource.m */; };
 		7913F754198C7F6800831863 /* NSPointerArray+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F752198C7F6800831863 /* NSPointerArray+WCExtensions.h */; };
@@ -37,7 +37,6 @@
 		7913F762198C9B3A00831863 /* NSTextView+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F760198C9B3A00831863 /* NSTextView+WCExtensions.m */; };
 		7913F765198CBDF400831863 /* WCTextStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F763198CBDF400831863 /* WCTextStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7913F766198CBDF400831863 /* WCTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F764198CBDF400831863 /* WCTextStorage.m */; };
-		7913F768198CBE9500831863 /* WCRulerViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F767198CBE9500831863 /* WCRulerViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7913F77F198EAEF200831863 /* Bookmark.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F77A198EAEF200831863 /* Bookmark.h */; };
 		7913F780198EAEF200831863 /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F77B198EAEF200831863 /* Bookmark.m */; };
 		7913F781198EAEF200831863 /* _Bookmark.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F77D198EAEF200831863 /* _Bookmark.h */; };
@@ -50,6 +49,9 @@
 		7913F798198EC34200831863 /* WCBookmarkViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F796198EC34200831863 /* WCBookmarkViewModel.m */; };
 		7913F7A2198EC94A00831863 /* NSTextStorage+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F7A0198EC94A00831863 /* NSTextStorage+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7913F7A3198EC94A00831863 /* NSTextStorage+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F7A1198EC94A00831863 /* NSTextStorage+WCExtensions.m */; };
+		7913F7A9198F171800831863 /* WCBookmarksRulerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F7A7198F171800831863 /* WCBookmarksRulerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F7AA198F171800831863 /* WCBookmarksRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F7A8198F171800831863 /* WCBookmarksRulerView.m */; };
+		7913F7AE198F19B800831863 /* WCLineNumbersDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F7AD198F19B800831863 /* WCLineNumbersDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,8 +89,8 @@
 		7913F743198C7E8800831863 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WCPlainTextViewController.xib; sourceTree = "<group>"; };
 		7913F745198C7EC600831863 /* WCPlainTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextView.h; sourceTree = "<group>"; };
 		7913F746198C7EC600831863 /* WCPlainTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCPlainTextView.m; sourceTree = "<group>"; };
-		7913F747198C7EC600831863 /* WCRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRulerView.h; sourceTree = "<group>"; };
-		7913F748198C7EC600831863 /* WCRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRulerView.m; sourceTree = "<group>"; };
+		7913F747198C7EC600831863 /* WCLineNumbersRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLineNumbersRulerView.h; sourceTree = "<group>"; };
+		7913F748198C7EC600831863 /* WCLineNumbersRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLineNumbersRulerView.m; sourceTree = "<group>"; };
 		7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRulerViewDefaultDataSource.h; sourceTree = "<group>"; };
 		7913F74A198C7EC600831863 /* WCRulerViewDefaultDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRulerViewDefaultDataSource.m; sourceTree = "<group>"; };
 		7913F752198C7F6800831863 /* NSPointerArray+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPointerArray+WCExtensions.h"; sourceTree = "<group>"; };
@@ -99,7 +101,6 @@
 		7913F760198C9B3A00831863 /* NSTextView+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+WCExtensions.m"; sourceTree = "<group>"; };
 		7913F763198CBDF400831863 /* WCTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTextStorage.h; sourceTree = "<group>"; };
 		7913F764198CBDF400831863 /* WCTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCTextStorage.m; sourceTree = "<group>"; };
-		7913F767198CBE9500831863 /* WCRulerViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRulerViewDataSource.h; sourceTree = "<group>"; };
 		7913F77A198EAEF200831863 /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
 		7913F77B198EAEF200831863 /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bookmark.m; sourceTree = "<group>"; };
 		7913F77D198EAEF200831863 /* _Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Bookmark.h; sourceTree = "<group>"; };
@@ -112,6 +113,9 @@
 		7913F796198EC34200831863 /* WCBookmarkViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBookmarkViewModel.m; sourceTree = "<group>"; };
 		7913F7A0198EC94A00831863 /* NSTextStorage+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextStorage+WCExtensions.h"; sourceTree = "<group>"; };
 		7913F7A1198EC94A00831863 /* NSTextStorage+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextStorage+WCExtensions.m"; sourceTree = "<group>"; };
+		7913F7A7198F171800831863 /* WCBookmarksRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBookmarksRulerView.h; sourceTree = "<group>"; };
+		7913F7A8198F171800831863 /* WCBookmarksRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBookmarksRulerView.m; sourceTree = "<group>"; };
+		7913F7AD198F19B800831863 /* WCLineNumbersDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLineNumbersDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,13 +293,9 @@
 		7913F75C198C82BA00831863 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7913F745198C7EC600831863 /* WCPlainTextView.h */,
-				7913F746198C7EC600831863 /* WCPlainTextView.m */,
-				7913F767198CBE9500831863 /* WCRulerViewDataSource.h */,
-				7913F747198C7EC600831863 /* WCRulerView.h */,
-				7913F748198C7EC600831863 /* WCRulerView.m */,
-				7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */,
-				7913F74A198C7EC600831863 /* WCRulerViewDefaultDataSource.m */,
+				7913F7A4198F16A900831863 /* Text View */,
+				7913F7A5198F16B200831863 /* Ruler View */,
+				7913F7A6198F16BB00831863 /* Bookmarks Ruler View */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -332,6 +332,36 @@
 			path = machine;
 			sourceTree = "<group>";
 		};
+		7913F7A4198F16A900831863 /* Text View */ = {
+			isa = PBXGroup;
+			children = (
+				7913F745198C7EC600831863 /* WCPlainTextView.h */,
+				7913F746198C7EC600831863 /* WCPlainTextView.m */,
+			);
+			name = "Text View";
+			sourceTree = "<group>";
+		};
+		7913F7A5198F16B200831863 /* Ruler View */ = {
+			isa = PBXGroup;
+			children = (
+				7913F7AD198F19B800831863 /* WCLineNumbersDataSource.h */,
+				7913F747198C7EC600831863 /* WCLineNumbersRulerView.h */,
+				7913F748198C7EC600831863 /* WCLineNumbersRulerView.m */,
+				7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */,
+				7913F74A198C7EC600831863 /* WCRulerViewDefaultDataSource.m */,
+			);
+			name = "Ruler View";
+			sourceTree = "<group>";
+		};
+		7913F7A6198F16BB00831863 /* Bookmarks Ruler View */ = {
+			isa = PBXGroup;
+			children = (
+				7913F7A7198F171800831863 /* WCBookmarksRulerView.h */,
+				7913F7A8198F171800831863 /* WCBookmarksRulerView.m */,
+			);
+			name = "Bookmarks Ruler View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -343,17 +373,18 @@
 				7913F761198C9B3A00831863 /* NSTextView+WCExtensions.h in Headers */,
 				7913F78E198EB15F00831863 /* WCBookmark.h in Headers */,
 				7913F754198C7F6800831863 /* NSPointerArray+WCExtensions.h in Headers */,
+				7913F7AE198F19B800831863 /* WCLineNumbersDataSource.h in Headers */,
 				7913F74B198C7EC600831863 /* WCPlainTextView.h in Headers */,
 				7913F765198CBDF400831863 /* WCTextStorage.h in Headers */,
 				7913F797198EC34200831863 /* WCBookmarkViewModel.h in Headers */,
 				7913F730198C7C4E00831863 /* WCEdit.h in Headers */,
 				7913F74F198C7EC600831863 /* WCRulerViewDefaultDataSource.h in Headers */,
-				7913F768198CBE9500831863 /* WCRulerViewDataSource.h in Headers */,
 				7913F781198EAEF200831863 /* _Bookmark.h in Headers */,
 				7913F785198EB03000831863 /* WCBookmarksDataSource.h in Headers */,
 				7913F739198C7DDB00831863 /* WCPlainTextFile.h in Headers */,
+				7913F7A9198F171800831863 /* WCBookmarksRulerView.h in Headers */,
 				7913F735198C7CE700831863 /* WCEditFunctions.h in Headers */,
-				7913F74D198C7EC600831863 /* WCRulerView.h in Headers */,
+				7913F74D198C7EC600831863 /* WCLineNumbersRulerView.h in Headers */,
 				7913F77F198EAEF200831863 /* Bookmark.h in Headers */,
 				7913F7A2198EC94A00831863 /* NSTextStorage+WCExtensions.h in Headers */,
 				7913F73F198C7E4C00831863 /* WCPlainTextViewController.h in Headers */,
@@ -492,8 +523,9 @@
 				7913F740198C7E4C00831863 /* WCPlainTextViewController.m in Sources */,
 				7913F74C198C7EC600831863 /* WCPlainTextView.m in Sources */,
 				7913F73A198C7DDB00831863 /* WCPlainTextFile.m in Sources */,
+				7913F7AA198F171800831863 /* WCBookmarksRulerView.m in Sources */,
 				7913F780198EAEF200831863 /* Bookmark.m in Sources */,
-				7913F74E198C7EC600831863 /* WCRulerView.m in Sources */,
+				7913F74E198C7EC600831863 /* WCLineNumbersRulerView.m in Sources */,
 				7913F788198EB05C00831863 /* Bookmarks.xcdatamodeld in Sources */,
 				7913F782198EAEF200831863 /* _Bookmark.m in Sources */,
 				7913F755198C7F6800831863 /* NSPointerArray+WCExtensions.m in Sources */,
