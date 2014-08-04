@@ -27,6 +27,8 @@
 
 - (instancetype)initWithScrollView:(NSScrollView *)scrollView lineNumbersDataSource:(id<WCLineNumbersDataSource>)lineNumbersDataSource;
 
+- (NSRect)lineNumbersRectForRect:(NSRect)rect;
+
 - (NSUInteger)lineNumberForPoint:(NSPoint)point;
 
 - (void)drawBackgroundInRect:(NSRect)rect;

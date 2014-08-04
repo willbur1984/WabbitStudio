@@ -14,6 +14,12 @@
 #import <Foundation/Foundation.h>
 #import <WCEdit/WCBookmark.h>
 
+static NSString *const WCBookmarksDataSourceNotificationDidAddBookmark = @"WCBookmarksDataSourceNotificationDidAddBookmark";
+static NSString *const WCBookmarksDataSourceNotificationDidRemoveBookmark = @"WCBookmarksDataSourceNotificationDidRemoveBookmark";
+
+static NSString *const WCBookmarksDataSourceNotificationDidAddBookmarks = @"WCBookmarksDataSourceNotificationDidAddBookmarks";
+static NSString *const WCBookmarksDataSourceNotificationDidRemoveBookmarks = @"WCBookmarksDataSourceNotificationDidRemoveBookmarks";
+
 @protocol WCBookmarksDataSource <NSObject>
 @required
 - (NSArray *)bookmarks;

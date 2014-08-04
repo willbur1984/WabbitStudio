@@ -89,24 +89,29 @@
     return YES;
 }
 
-static CGFloat const kStringMarginLeftRight = 4.0;
-static CGFloat const kDefaultThickness = 30.0;
+static CGFloat const kStringMarginLeft = 2.0;
+static CGFloat const kStringMarginRight = 4.0;
 static NSString *const kDefaultDigit = @"8";
 
 - (CGFloat)requiredThickness {
     NSMutableString *sampleString = [[NSMutableString alloc] init];
     NSUInteger digits = (NSUInteger)log10([self.lineNumbersDataSource numberOfLines]) + 1;
 	
-    for (NSUInteger i = 0; i < digits; i++)
+    for (NSUInteger i=0; i<digits; i++)
         [sampleString appendString:kDefaultDigit];
     
-    NSSize stringSize = [sampleString sizeWithAttributes:@{ NSFontAttributeName : [NSFont userFixedPitchFontOfSize:[NSFont systemFontSizeForControlSize:NSMiniControlSize]] }];
+    NSSize stringSize = [sampleString sizeWithAttributes:self.stringAttributes];
 	
-	return ceil(MAX(kDefaultThickness, stringSize.width + (kStringMarginLeftRight * 2)));
+	return ceil(stringSize.width + kStringMarginLeft + kStringMarginRight);
 }
 #pragma mark *** Public Methods ***
+- (NSRect)lineNumbersRectForRect:(NSRect)rect; {
+    return NSMakeRect(NSMinX(rect) + kStringMarginLeft, NSMinY(rect), NSWidth(rect) - kStringMarginLeft - kStringMarginRight, NSHeight(rect));
+}
+
 - (NSUInteger)lineNumberForPoint:(NSPoint)point; {
-    NSRange glyphRange = [self.textView.layoutManager glyphRangeForBoundingRect:self.textView.visibleRect inTextContainer:self.textView.textContainer];
+    NSRect visibleRect = NSOffsetRect(self.textView.visibleRect, -self.textView.textContainerOrigin.x, -self.textView.textContainerOrigin.y);
+    NSRange glyphRange = [self.textView.layoutManager glyphRangeForBoundingRect:visibleRect inTextContainer:self.textView.textContainer];
     NSRange charRange = [self.textView.layoutManager characterRangeForGlyphRange:glyphRange actualGlyphRange:NULL];
     NSUInteger lineNumber, lineStartIndex;
     
@@ -150,10 +155,12 @@ static NSString *const kDefaultDigit = @"8";
     NSRectFill(NSMakeRect(NSMaxX(rect) - 1, 0, 1, NSHeight(self.frame)));
 }
 - (void)drawLineNumbersInRect:(NSRect)rect; {
-    NSRange glyphRange = [self.textView.layoutManager glyphRangeForBoundingRect:self.textView.visibleRect inTextContainer:self.textView.textContainer];
+    NSRect visibleRect = NSOffsetRect(self.textView.visibleRect, -self.textView.textContainerOrigin.x, -self.textView.textContainerOrigin.y);
+    NSRange glyphRange = [self.textView.layoutManager glyphRangeForBoundingRect:visibleRect inTextContainer:self.textView.textContainer];
     NSRange charRange = [self.textView.layoutManager characterRangeForGlyphRange:glyphRange actualGlyphRange:NULL];
     NSUInteger lineNumber, lineStartIndex;
     NSIndexSet *selectedLineNumbers = [self selectedLineNumbers];
+    NSRect lineNumbersRect = [self lineNumbersRectForRect:rect];
     CGFloat lastLineRectY = -1;
     
     for (lineNumber = [self.lineNumbersDataSource lineNumberForRange:charRange], charRange.length++; lineNumber < [self.lineNumbersDataSource numberOfLines]; lineNumber++) {
@@ -170,7 +177,7 @@ static NSString *const kDefaultDigit = @"8";
                     NSString *lineNumberString = [NSString stringWithFormat:@"%@",@(lineNumber + 1)];
                     NSDictionary *attributes = ([selectedLineNumbers containsIndex:lineNumber]) ? self.selectedStringAttributes : self.stringAttributes;
                     NSSize stringSize = [lineNumberString sizeWithAttributes:attributes];
-                    NSRect drawRect = NSMakeRect(NSMinX(rect), [self convertPoint:lineRect.origin fromView:self.clientView].y + (NSHeight(lineRect) * 0.5) - (stringSize.height * 0.5), NSWidth(rect) - kStringMarginLeftRight, stringSize.height);
+                    NSRect drawRect = NSMakeRect(NSMinX(lineNumbersRect), [self convertPoint:lineRect.origin fromView:self.clientView].y + (NSHeight(lineRect) * 0.5) - (stringSize.height * 0.5), NSWidth(lineNumbersRect), NSHeight(lineRect));
                     
                     [lineNumberString drawInRect:drawRect withAttributes:attributes];
                 }

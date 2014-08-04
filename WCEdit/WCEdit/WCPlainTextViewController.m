@@ -36,7 +36,11 @@ static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewContr
     
     [self.textView.layoutManager replaceTextStorage:self.plainTextFile.textStorage];
     
-    [self.textView.enclosingScrollView setVerticalRulerView:[[WCLineNumbersRulerView alloc] initWithScrollView:self.textView.enclosingScrollView lineNumbersDataSource:self.plainTextFile.textStorage]];
+    WCBookmarksRulerView *verticalRulerView = [[WCBookmarksRulerView alloc] initWithScrollView:self.textView.enclosingScrollView lineNumbersDataSource:self.plainTextFile.textStorage];
+    
+    [verticalRulerView setBookmarksDataSource:self.plainTextFile.textStorage];
+    
+    [self.textView.enclosingScrollView setVerticalRulerView:verticalRulerView];
     [self.textView.enclosingScrollView setHasHorizontalRuler:NO];
     [self.textView.enclosingScrollView setHasVerticalRuler:YES];
     [self.textView.enclosingScrollView setRulersVisible:YES];

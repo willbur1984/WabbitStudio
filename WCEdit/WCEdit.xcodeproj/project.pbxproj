@@ -52,6 +52,10 @@
 		7913F7A9198F171800831863 /* WCBookmarksRulerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F7A7198F171800831863 /* WCBookmarksRulerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7913F7AA198F171800831863 /* WCBookmarksRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7913F7A8198F171800831863 /* WCBookmarksRulerView.m */; };
 		7913F7AE198F19B800831863 /* WCLineNumbersDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7913F7AD198F19B800831863 /* WCLineNumbersDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7913F7B3198F220F00831863 /* Bookmark Hover Add.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7913F7B0198F220F00831863 /* Bookmark Hover Add.pdf */; };
+		7913F7B4198F220F00831863 /* Bookmark Hover Remove.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7913F7B1198F220F00831863 /* Bookmark Hover Remove.pdf */; };
+		7913F7B5198F220F00831863 /* Bookmark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7913F7B2198F220F00831863 /* Bookmark.pdf */; };
+		7913F7B7198F27B700831863 /* Archimedes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F7B6198F27B700831863 /* Archimedes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +120,10 @@
 		7913F7A7198F171800831863 /* WCBookmarksRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBookmarksRulerView.h; sourceTree = "<group>"; };
 		7913F7A8198F171800831863 /* WCBookmarksRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBookmarksRulerView.m; sourceTree = "<group>"; };
 		7913F7AD198F19B800831863 /* WCLineNumbersDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLineNumbersDataSource.h; sourceTree = "<group>"; };
+		7913F7B0198F220F00831863 /* Bookmark Hover Add.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bookmark Hover Add.pdf"; sourceTree = "<group>"; };
+		7913F7B1198F220F00831863 /* Bookmark Hover Remove.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bookmark Hover Remove.pdf"; sourceTree = "<group>"; };
+		7913F7B2198F220F00831863 /* Bookmark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Bookmark.pdf; sourceTree = "<group>"; };
+		7913F7B6198F27B700831863 /* Archimedes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Archimedes.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/Archimedes.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7913F7B7198F27B700831863 /* Archimedes.framework in Frameworks */,
 				7913F794198EC31400831863 /* ReactiveViewModel.framework in Frameworks */,
 				7913F75E198C956700831863 /* BlocksKit.framework in Frameworks */,
 				7913F759198C81E500831863 /* ReactiveCocoa.framework in Frameworks */,
@@ -166,6 +175,7 @@
 		7913F704198C7BC800831863 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7913F7B6198F27B700831863 /* Archimedes.framework */,
 				7913F793198EC31400831863 /* ReactiveViewModel.framework */,
 				7913F75D198C956700831863 /* BlocksKit.framework */,
 				7913F758198C81E500831863 /* ReactiveCocoa.framework */,
@@ -202,6 +212,7 @@
 		7913F70C198C7BC800831863 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7913F7AF198F219100831863 /* Assets */,
 				7913F70D198C7BC800831863 /* WCEdit-Info.plist */,
 				7913F70E198C7BC800831863 /* InfoPlist.strings */,
 				7913F711198C7BC800831863 /* WCEdit-Prefix.pch */,
@@ -285,6 +296,7 @@
 				7913F738198C7DDB00831863 /* WCPlainTextFile.m */,
 				7913F763198CBDF400831863 /* WCTextStorage.h */,
 				7913F764198CBDF400831863 /* WCTextStorage.m */,
+				7913F7B8198F46B300831863 /* Line Numbers */,
 				7913F773198EABA500831863 /* Bookmarks */,
 			);
 			name = Model;
@@ -294,7 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				7913F7A4198F16A900831863 /* Text View */,
-				7913F7A5198F16B200831863 /* Ruler View */,
+				7913F7A5198F16B200831863 /* Line Numbers Ruler View */,
 				7913F7A6198F16BB00831863 /* Bookmarks Ruler View */,
 			);
 			name = Views;
@@ -341,16 +353,15 @@
 			name = "Text View";
 			sourceTree = "<group>";
 		};
-		7913F7A5198F16B200831863 /* Ruler View */ = {
+		7913F7A5198F16B200831863 /* Line Numbers Ruler View */ = {
 			isa = PBXGroup;
 			children = (
-				7913F7AD198F19B800831863 /* WCLineNumbersDataSource.h */,
 				7913F747198C7EC600831863 /* WCLineNumbersRulerView.h */,
 				7913F748198C7EC600831863 /* WCLineNumbersRulerView.m */,
 				7913F749198C7EC600831863 /* WCRulerViewDefaultDataSource.h */,
 				7913F74A198C7EC600831863 /* WCRulerViewDefaultDataSource.m */,
 			);
-			name = "Ruler View";
+			name = "Line Numbers Ruler View";
 			sourceTree = "<group>";
 		};
 		7913F7A6198F16BB00831863 /* Bookmarks Ruler View */ = {
@@ -360,6 +371,24 @@
 				7913F7A8198F171800831863 /* WCBookmarksRulerView.m */,
 			);
 			name = "Bookmarks Ruler View";
+			sourceTree = "<group>";
+		};
+		7913F7AF198F219100831863 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				7913F7B0198F220F00831863 /* Bookmark Hover Add.pdf */,
+				7913F7B1198F220F00831863 /* Bookmark Hover Remove.pdf */,
+				7913F7B2198F220F00831863 /* Bookmark.pdf */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		7913F7B8198F46B300831863 /* Line Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				7913F7AD198F19B800831863 /* WCLineNumbersDataSource.h */,
+			);
+			name = "Line Numbers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,7 +499,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7913F744198C7E8800831863 /* WCPlainTextViewController.xib in Resources */,
+				7913F7B4198F220F00831863 /* Bookmark Hover Remove.pdf in Resources */,
 				7913F710198C7BC800831863 /* InfoPlist.strings in Resources */,
+				7913F7B3198F220F00831863 /* Bookmark Hover Add.pdf in Resources */,
+				7913F7B5198F220F00831863 /* Bookmark.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

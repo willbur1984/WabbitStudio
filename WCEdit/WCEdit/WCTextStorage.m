@@ -116,19 +116,26 @@
 
 - (id<WCBookmark>)addBookmarkWithRange:(NSRange)range {
     Bookmark *retval = [NSEntityDescription insertNewObjectForEntityForName:[Bookmark entityName] inManagedObjectContext:self.bookmarksManagedObjectContext];
-    NSRange lineRange = [self.string lineRangeForRange:range];
+    NSUInteger lineNumber = [self lineNumberForRange:range];
+    NSUInteger lineStartIndex = [self lineStartIndexForLineNumber:lineNumber];
     
-    [retval setLineStartIndex:@(lineRange.location)];
+    [retval setLineStartIndex:@(lineStartIndex)];
     [retval setRange:[NSValue valueWithRange:range]];
     
     [self.bookmarksManagedObjectContext save:NULL];
     
+    [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:WCBookmarksDataSourceNotificationDidAddBookmark object:self] postingStyle:NSPostWhenIdle];
+    
     return retval;
 }
 - (NSArray *)addBookmarksWithRanges:(NSArray *)ranges; {
-    return [ranges bk_map:^id(NSValue *range) {
+    NSArray *retval = [ranges bk_map:^id(NSValue *range) {
         return [self addBookmarkWithRange:range.rangeValue];
     }];
+    
+    [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:WCBookmarksDataSourceNotificationDidAddBookmarks object:self] postingStyle:NSPostWhenIdle];
+    
+    return retval;
 }
 
 - (void)removeBookmark:(id<WCBookmark>)bookmark {
@@ -138,12 +145,16 @@
     
     [self.bookmarksManagedObjectContext deleteObject:object];
     [self.bookmarksManagedObjectContext save:NULL];
+    
+    [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:WCBookmarksDataSourceNotificationDidRemoveBookmark object:self] postingStyle:NSPostWhenIdle];
 }
 - (void)removeAllBookmarks {
     for (Bookmark *object in [self bookmarks])
         [self.bookmarksManagedObjectContext deleteObject:object];
     
     [self.bookmarksManagedObjectContext save:NULL];
+    
+    [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:WCBookmarksDataSourceNotificationDidRemoveBookmarks object:self] postingStyle:NSPostWhenIdle];
 }
 #pragma mark *** Private Methods ***
 - (void)_recalculateLineStartIndexesFromLineNumber:(NSUInteger)lineNumber; {

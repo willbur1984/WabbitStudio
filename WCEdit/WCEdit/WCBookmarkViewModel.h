@@ -16,6 +16,10 @@
 
 @interface WCBookmarkViewModel : RVMViewModel
 
+@property (readonly,strong,nonatomic) id<WCBookmark> bookmark;
+
 - (instancetype)initWithBookmark:(id<WCBookmark>)bookmark;
+
+- (void)drawInRect:(NSRect)rect;
 
 @end
