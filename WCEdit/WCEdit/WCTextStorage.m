@@ -79,11 +79,22 @@
 #pragma mark NSTextStorage
 - (void)processEditing {
     BOOL editedCharacters = ((self.editedMask & NSTextStorageEditedCharacters) != 0);
+    NSRange editedRange = self.editedRange;
+    NSInteger changeInLength = self.changeInLength;
     
     [super processEditing];
     
     if (editedCharacters) {
         [self _recalculateLineStartIndexesFromLineNumber:[self lineNumberForRange:self.editedRange]];
+        
+        NSArray *bookmarks = [self sortedBookmarksInInclusiveRange:NSMakeRange(editedRange.location, self.length - editedRange.location)];
+        
+        if (bookmarks.count > 0) {
+            for (Bookmark *bookmark in bookmarks)
+                [bookmark setLineStartIndex:@(bookmark.lineStartIndexValue + changeInLength)];
+            
+            [self.bookmarksManagedObjectContext save:NULL];
+        }
     }
 }
 #pragma mark WCLineNumbersDataSource
