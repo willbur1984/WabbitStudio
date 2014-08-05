@@ -20,11 +20,73 @@
 #import <ReactiveCocoa/EXTScope.h>
 
 @interface WCBookmarksRulerView ()
+@property (weak,nonatomic) NSTrackingArea *bookmarksTrackingArea;
 @property (weak,nonatomic) RACDisposable *notificationCenterDisposable;
+
+@property (assign,nonatomic) NSPoint mouseDownPoint;
+@property (assign,nonatomic) NSPoint mouseMovedPoint;
+
+- (NSRect)_bookmarkRectForLineNumber:(NSUInteger)lineNumber;
 @end
 
 @implementation WCBookmarksRulerView
-
+#pragma mark *** Subclass Overrides ***
+#pragma mark NSResponder
+- (void)mouseEntered:(NSEvent *)theEvent {
+    if (theEvent.trackingArea == self.bookmarksTrackingArea) {
+        [self setMouseMovedPoint:[self convertPoint:theEvent.locationInWindow fromView:nil]];
+        
+        [self setNeedsDisplayInRect:[self bookmarksRectForRect:self.bounds]];
+    }
+}
+- (void)mouseExited:(NSEvent *)theEvent {
+    if (theEvent.trackingArea == self.bookmarksTrackingArea) {
+        [self setMouseMovedPoint:NSMakePoint(CGFLOAT_MAX, CGFLOAT_MAX)];
+        
+        [self setNeedsDisplayInRect:[self bookmarksRectForRect:self.bounds]];
+    }
+}
+- (void)mouseMoved:(NSEvent *)theEvent {
+    [self setMouseMovedPoint:[self convertPoint:theEvent.locationInWindow fromView:nil]];
+    
+    [self setNeedsDisplayInRect:[self bookmarksRectForRect:self.bounds]];
+}
+- (void)mouseDown:(NSEvent *)theEvent {
+    [self setMouseDownPoint:[self convertPoint:theEvent.locationInWindow fromView:nil]];
+    
+    [self setNeedsDisplayInRect:[self bookmarksRectForRect:self.bounds]];
+}
+- (void)mouseUp:(NSEvent *)theEvent {
+    NSUInteger mouseDownLineNumber = [self lineNumberForPoint:self.mouseDownPoint];
+    NSUInteger mouseUpLineNumber = [self lineNumberForPoint:[self convertPoint:theEvent.locationInWindow fromView:nil]];
+    
+    if (mouseDownLineNumber == mouseUpLineNumber) {
+        NSRange range = NSMakeRange([self.lineNumbersDataSource lineStartIndexForLineNumber:mouseDownLineNumber], 0);
+        id<WCBookmark> bookmark = [self bookmarkForPoint:self.mouseDownPoint];
+        
+        if (bookmark)
+            [self.bookmarksDataSource removeBookmark:bookmark];
+        else
+            [self.bookmarksDataSource addBookmarkWithRange:range];
+    }
+    
+    [self setMouseDownPoint:NSMakePoint(CGFLOAT_MAX, CGFLOAT_MAX)];
+    
+    [self setNeedsDisplayInRect:[self bookmarksRectForRect:self.bounds]];
+}
+#pragma mark NSView
+- (void)updateTrackingAreas {
+    [super updateTrackingAreas];
+    
+    [self removeTrackingArea:self.bookmarksTrackingArea];
+    
+    NSTrackingArea *bookmarksTrackingArea = [[NSTrackingArea alloc] initWithRect:[self bookmarksRectForRect:self.bounds] options:NSTrackingMouseEnteredAndExited|NSTrackingMouseMoved|NSTrackingActiveInKeyWindow owner:self userInfo:nil];
+    
+    [self addTrackingArea:bookmarksTrackingArea];
+    
+    [self setBookmarksTrackingArea:bookmarksTrackingArea];
+}
+#pragma mark NSRulerView
 static CGFloat const kBookmarkWidth = 15.0;
 
 - (CGFloat)requiredThickness {
@@ -36,36 +98,62 @@ static CGFloat const kBookmarkWidth = 15.0;
     
     [self drawBookmarksInRect:rect];
 }
-
+#pragma mark WCLineNumbersRulerView
+- (instancetype)initWithScrollView:(NSScrollView *)scrollView lineNumbersDataSource:(id<WCLineNumbersDataSource>)lineNumbersDataSource {
+    if (!(self = [super initWithScrollView:scrollView lineNumbersDataSource:lineNumbersDataSource]))
+        return nil;
+    
+    [self setMouseDownPoint:NSMakePoint(CGFLOAT_MAX, CGFLOAT_MAX)];
+    [self setMouseMovedPoint:NSMakePoint(CGFLOAT_MAX, CGFLOAT_MAX)];
+    
+    return self;
+}
+#pragma mark *** Public Methods ***
 - (NSRect)bookmarksRectForRect:(NSRect)rect; {
     return NSMakeRect(NSMinX(rect), NSMinY(rect), kBookmarkWidth, NSHeight(rect));
 }
 
+- (id<WCBookmark>)bookmarkForPoint:(NSPoint)point; {
+    NSUInteger lineNumber = [self lineNumberForPoint:point];
+    id<WCBookmark> retval = [self.bookmarksDataSource sortedBookmarksInInclusiveRange:NSMakeRange([self.lineNumbersDataSource lineStartIndexForLineNumber:lineNumber], 0)].firstObject;
+    
+    return retval;
+}
+
 - (void)drawBookmarksInRect:(NSRect)rect {
     if (!self.bookmarksDataSource)
+        return;
+    else if (!NSIntersectsRect([self bookmarksRectForRect:self.bounds], rect))
         return;
     
     NSArray *viewModels = [[self.bookmarksDataSource sortedBookmarksInInclusiveRange:[self.textView WC_visibleRange]] bk_map:^id(id<WCBookmark> obj) {
         return [[WCBookmarkViewModel alloc] initWithBookmark:obj];
     }];
     
-    if (viewModels.count == 0)
-        return;
-    
-    NSRect bookmarksRect = [self bookmarksRectForRect:rect];
+    NSUInteger mouseMovedLineNumber = [self lineNumberForPoint:self.mouseMovedPoint];
     
     for (WCBookmarkViewModel *viewModel in viewModels) {
-        NSRange range = [viewModel.bookmark rangeValue];
-        NSUInteger lineNumber = [self.lineNumbersDataSource lineNumberForRange:range];
-        NSUInteger lineStartIndex = [self.lineNumbersDataSource lineStartIndexForLineNumber:lineNumber];
-        NSUInteger glyphIndex = [self.textView.layoutManager glyphIndexForCharacterAtIndex:lineStartIndex];
-        NSRect lineRect = [self.textView.layoutManager lineFragmentRectForGlyphAtIndex:glyphIndex effectiveRange:NULL withoutAdditionalLayout:YES];
-        NSRect bookmarkRect = NSInsetRect(NSMakeRect(NSMinX(self.bounds), [self convertPoint:lineRect.origin fromView:self.clientView].y, NSWidth(bookmarksRect), NSHeight(lineRect)), 0.0, 3.0);
+        NSUInteger lineNumber = [self.lineNumbersDataSource lineNumberForRange:[viewModel.bookmark rangeValue]];
         
-        [viewModel drawInRect:bookmarkRect];
+        if (mouseMovedLineNumber == lineNumber)
+            [viewModel setState:WCBookmarkViewModelStateHoverRemove];
+        
+        [viewModel drawInRect:[self _bookmarkRectForLineNumber:lineNumber]];
+    }
+    
+    if (mouseMovedLineNumber != NSNotFound) {
+        NSUInteger mouseDownLineNumber = [self lineNumberForPoint:self.mouseDownPoint];
+        WCBookmarkViewModel *viewModel = [[WCBookmarkViewModel alloc] initWithBookmark:nil];
+        
+        if (mouseMovedLineNumber == mouseDownLineNumber)
+            [viewModel setState:WCBookmarkViewModelStateNone];
+        else
+            [viewModel setState:WCBookmarkViewModelStateHoverAdd];
+        
+        [viewModel drawInRect:[self _bookmarkRectForLineNumber:mouseMovedLineNumber]];
     }
 }
-
+#pragma mark Properties
 - (void)setBookmarksDataSource:(id<WCBookmarksDataSource>)bookmarksDataSource {
     _bookmarksDataSource = bookmarksDataSource;
     
@@ -83,9 +171,19 @@ static CGFloat const kBookmarkWidth = 15.0;
           subscribeNext:^(id _) {
               @strongify(self);
              
-              [self setNeedsDisplayInRect:self.visibleRect];
+              [self setNeedsDisplayInRect:[self bookmarksRectForRect:self.bounds]];
           }]];
     }
+}
+#pragma mark *** Private Methods ***
+- (NSRect)_bookmarkRectForLineNumber:(NSUInteger)lineNumber; {
+    NSRect bookmarksRect = [self bookmarksRectForRect:self.bounds];
+    NSUInteger lineStartIndex = [self.lineNumbersDataSource lineStartIndexForLineNumber:lineNumber];
+    NSUInteger glyphIndex = [self.textView.layoutManager glyphIndexForCharacterAtIndex:lineStartIndex];
+    NSRect lineRect = [self.textView.layoutManager lineFragmentRectForGlyphAtIndex:glyphIndex effectiveRange:NULL withoutAdditionalLayout:YES];
+    NSRect retval = NSInsetRect(NSMakeRect(NSMinX(self.bounds), [self convertPoint:lineRect.origin fromView:self.clientView].y, NSWidth(bookmarksRect), NSHeight(lineRect)), 0.0, 2.0);
+    
+    return retval;
 }
 
 @end

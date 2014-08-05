@@ -16,6 +16,7 @@
 #import "WCRulerViewDefaultDataSource.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
+#import "NSTextView+WCExtensions.h"
 
 @interface WCLineNumbersRulerView ()
 @property (readwrite,weak,nonatomic) id<WCLineNumbersDataSource> lineNumbersDataSource;
@@ -27,7 +28,41 @@
 - (void)dealloc {
     WCLogObject(self.class);
 }
+#pragma mark NSView
+- (BOOL)isOpaque {
+    return YES;
+}
 
+- (void)viewWillDraw {
+    [super viewWillDraw];
+    
+    CGFloat newThickness = self.requiredThickness;
+	
+	if (fabs(self.ruleThickness - newThickness) > 1)
+		[self setRuleThickness:newThickness];
+}
+#pragma mark NSRulerView
+static CGFloat const kStringMarginLeft = 2.0;
+static CGFloat const kStringMarginRight = 4.0;
+static NSString *const kDefaultDigit = @"8";
+
+- (CGFloat)requiredThickness {
+    NSMutableString *sampleString = [[NSMutableString alloc] init];
+    NSUInteger digits = (NSUInteger)log10([self.lineNumbersDataSource numberOfLines]) + 1;
+	
+    for (NSUInteger i=0; i<digits; i++)
+        [sampleString appendString:kDefaultDigit];
+    
+    NSSize stringSize = [sampleString sizeWithAttributes:self.stringAttributes];
+	
+	return ceil(stringSize.width + kStringMarginLeft + kStringMarginRight);
+}
+
+- (void)drawHashMarksAndLabelsInRect:(NSRect)rect {
+    [self drawBackgroundInRect:rect];
+    [self drawLineNumbersInRect:rect];
+}
+#pragma mark *** Public Methods ***
 - (instancetype)initWithScrollView:(NSScrollView *)scrollView lineNumbersDataSource:(id<WCLineNumbersDataSource>)lineNumbersDataSource; {
     if (!(self = [super initWithScrollView:scrollView orientation:NSVerticalRuler]))
         return nil;
@@ -57,7 +92,7 @@
              return;
          
          [self setNeedsDisplayInRect:self.visibleRect];
-    }];
+     }];
     
     [[[[NSNotificationCenter defaultCenter]
        rac_addObserverForName:NSTextViewDidChangeSelectionNotification object:self.textView]
@@ -66,53 +101,17 @@
          @strongify(self);
          
          [self setNeedsDisplayInRect:self.visibleRect];
-    }];
+     }];
     
     return self;
 }
 
-- (void)viewWillDraw {
-    [super viewWillDraw];
-    
-    CGFloat newThickness = self.requiredThickness;
-	
-	if (fabs(self.ruleThickness - newThickness) > 1)
-		[self setRuleThickness:newThickness];
-}
-
-- (void)drawHashMarksAndLabelsInRect:(NSRect)rect {
-    [self drawBackgroundInRect:rect];
-    [self drawLineNumbersInRect:rect];
-}
-
-- (BOOL)isOpaque {
-    return YES;
-}
-
-static CGFloat const kStringMarginLeft = 2.0;
-static CGFloat const kStringMarginRight = 4.0;
-static NSString *const kDefaultDigit = @"8";
-
-- (CGFloat)requiredThickness {
-    NSMutableString *sampleString = [[NSMutableString alloc] init];
-    NSUInteger digits = (NSUInteger)log10([self.lineNumbersDataSource numberOfLines]) + 1;
-	
-    for (NSUInteger i=0; i<digits; i++)
-        [sampleString appendString:kDefaultDigit];
-    
-    NSSize stringSize = [sampleString sizeWithAttributes:self.stringAttributes];
-	
-	return ceil(stringSize.width + kStringMarginLeft + kStringMarginRight);
-}
-#pragma mark *** Public Methods ***
 - (NSRect)lineNumbersRectForRect:(NSRect)rect; {
     return NSMakeRect(NSMinX(rect) + kStringMarginLeft, NSMinY(rect), NSWidth(rect) - kStringMarginLeft - kStringMarginRight, NSHeight(rect));
 }
 
 - (NSUInteger)lineNumberForPoint:(NSPoint)point; {
-    NSRect visibleRect = NSOffsetRect(self.textView.visibleRect, -self.textView.textContainerOrigin.x, -self.textView.textContainerOrigin.y);
-    NSRange glyphRange = [self.textView.layoutManager glyphRangeForBoundingRect:visibleRect inTextContainer:self.textView.textContainer];
-    NSRange charRange = [self.textView.layoutManager characterRangeForGlyphRange:glyphRange actualGlyphRange:NULL];
+    NSRange charRange = [self.textView WC_visibleRange];
     NSUInteger lineNumber, lineStartIndex;
     
     charRange.length++;
@@ -151,16 +150,21 @@ static NSString *const kDefaultDigit = @"8";
     [[NSColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0] setFill];
     NSRectFill(rect);
     
-    [[NSColor lightGrayColor] setFill];
-    NSRectFill(NSMakeRect(NSMaxX(rect) - 1, 0, 1, NSHeight(self.frame)));
+    NSRect rightLineRect = NSMakeRect(NSMaxX(self.bounds) - 1, 0, 1, NSHeight(self.frame));
+    
+    if (NSIntersectsRect(rightLineRect, rect)) {
+        [[NSColor lightGrayColor] setFill];
+        NSRectFill(rightLineRect);
+    }
 }
 - (void)drawLineNumbersInRect:(NSRect)rect; {
-    NSRect visibleRect = NSOffsetRect(self.textView.visibleRect, -self.textView.textContainerOrigin.x, -self.textView.textContainerOrigin.y);
-    NSRange glyphRange = [self.textView.layoutManager glyphRangeForBoundingRect:visibleRect inTextContainer:self.textView.textContainer];
-    NSRange charRange = [self.textView.layoutManager characterRangeForGlyphRange:glyphRange actualGlyphRange:NULL];
+    if (!NSIntersectsRect([self lineNumbersRectForRect:self.bounds], rect))
+        return;
+    
+    NSRange charRange = [self.textView WC_visibleRange];
     NSUInteger lineNumber, lineStartIndex;
     NSIndexSet *selectedLineNumbers = [self selectedLineNumbers];
-    NSRect lineNumbersRect = [self lineNumbersRectForRect:rect];
+    NSRect lineNumbersRect = [self lineNumbersRectForRect:self.bounds];
     CGFloat lastLineRectY = -1;
     
     for (lineNumber = [self.lineNumbersDataSource lineNumberForRange:charRange], charRange.length++; lineNumber < [self.lineNumbersDataSource numberOfLines]; lineNumber++) {

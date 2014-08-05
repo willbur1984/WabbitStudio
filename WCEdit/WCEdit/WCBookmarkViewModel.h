@@ -14,9 +14,16 @@
 #import <ReactiveViewModel/RVMViewModel.h>
 #import <WCEdit/WCBookmark.h>
 
+typedef NS_ENUM(NSInteger, WCBookmarkViewModelState) {
+    WCBookmarkViewModelStateNone,
+    WCBookmarkViewModelStateHoverAdd,
+    WCBookmarkViewModelStateHoverRemove
+};
+
 @interface WCBookmarkViewModel : RVMViewModel
 
 @property (readonly,strong,nonatomic) id<WCBookmark> bookmark;
+@property (assign,nonatomic) WCBookmarkViewModelState state;
 
 - (instancetype)initWithBookmark:(id<WCBookmark>)bookmark;
 

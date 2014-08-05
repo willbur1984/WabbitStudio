@@ -20,6 +20,8 @@
 
 - (NSRect)bookmarksRectForRect:(NSRect)rect;
 
+- (id<WCBookmark>)bookmarkForPoint:(NSPoint)point;
+
 - (void)drawBookmarksInRect:(NSRect)rect;
 
 @end

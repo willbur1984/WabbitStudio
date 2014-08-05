@@ -24,15 +24,29 @@
     if (!(self = [super init]))
         return nil;
     
-    NSParameterAssert(bookmark);
-    
     [self setBookmark:bookmark];
     
     return self;
 }
 
 - (void)drawInRect:(NSRect)rect; {
-    NSImage *image = [WCEditBundle() imageForResource:@"Bookmark"];
+    NSImage *image = ({
+        NSImage *retval = nil;
+        
+        switch (self.state) {
+            case WCBookmarkViewModelStateNone:
+                retval = [WCEditBundle() imageForResource:@"Bookmark"];
+                break;
+            case WCBookmarkViewModelStateHoverAdd:
+                retval = [WCEditBundle() imageForResource:@"Bookmark Hover Add"];
+                break;
+            case WCBookmarkViewModelStateHoverRemove:
+                retval = [WCEditBundle() imageForResource:@"Bookmark Hover Remove"];
+                break;
+        }
+        
+        retval;
+    });
     CGImageRef imageRef = [image CGImageForProposedRect:NULL context:[NSGraphicsContext currentContext] hints:nil];
     CGImageRef imageMask = CGImageMaskCreate(CGImageGetWidth(imageRef), CGImageGetHeight(imageRef), CGImageGetBitsPerComponent(imageRef), CGImageGetBitsPerPixel(imageRef), CGImageGetBytesPerRow(imageRef), CGImageGetDataProvider(imageRef), NULL, false);
     
