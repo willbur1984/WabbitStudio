@@ -15,7 +15,7 @@
 #import "WCDocumentViewController.h"
 #import <WCFoundation/WCFile.h>
 
-@interface WCDocumentWindowController ()
+@interface WCDocumentWindowController () <NSWindowDelegate>
 @property (strong,nonatomic) WCDocumentViewController *documentViewController;
 
 @property (weak,nonatomic) WCFile *file;
@@ -23,11 +23,27 @@
 
 @implementation WCDocumentWindowController
 
+- (id)supplementalTargetForAction:(SEL)action sender:(id)sender {
+    if ([self.documentViewController respondsToSelector:action])
+        return self.documentViewController;
+    return [super supplementalTargetForAction:action sender:sender];
+}
+
 - (void)windowDidLoad {
     [super windowDidLoad];
     
+    [self.window setDelegate:self];
+    
     [self setDocumentViewController:[[WCDocumentViewController alloc] initWithFile:self.file]];
     [self.window setContentView:self.documentViewController.view];
+}
+
+- (BOOL)windowShouldClose:(id)sender {
+    if ([self.documentViewController respondsToSelector:@selector(performClose:)]) {
+        [(id)self.documentViewController performClose:nil];
+        return NO;
+    }
+    return YES;
 }
 
 - (instancetype)initWithFile:(WCFile *)file; {

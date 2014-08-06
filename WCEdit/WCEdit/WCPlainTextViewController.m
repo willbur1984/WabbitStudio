@@ -17,7 +17,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
 
-@interface WCPlainTextViewController ()
+@interface WCPlainTextViewController () <NSTextViewDelegate>
 @property (readwrite,unsafe_unretained,nonatomic) IBOutlet WCPlainTextView *textView;
 
 @property (weak,nonatomic) WCPlainTextFile *plainTextFile;
@@ -45,7 +45,13 @@
     [self.textView.enclosingScrollView setHasVerticalRuler:YES];
     [self.textView.enclosingScrollView setRulersVisible:YES];
     
+    [self.textView setDelegate:self];
+    
     [self _loadExtendedAttributes];
+}
+
+- (NSUndoManager *)undoManagerForTextView:(NSTextView *)view {
+    return self.plainTextFile.undoManager;
 }
 
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {

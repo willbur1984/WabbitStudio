@@ -12,44 +12,41 @@
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "WCDocumentViewController.h"
-#import <WCFoundation/WCFoundation.h>
 #import <WCEdit/WCEdit.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
-#import <ReactiveCocoa/EXTScope.h>
-#import "WCPreferencesTextEditingViewController.h"
-#import "MAKVONotificationCenter.h"
+#import "WCSplitViewController.h"
 
 @interface WCDocumentViewController ()
 @property (weak,nonatomic) WCFile *file;
 
 @property (strong,nonatomic) WCBaseViewController *contentViewController;
-
-- (void)_configureContentViewController;
 @end
 
 @implementation WCDocumentViewController
+
+- (BOOL)respondsToSelector:(SEL)aSelector {
+    return ([self.contentViewController respondsToSelector:aSelector] ||
+            [super respondsToSelector:aSelector]);
+}
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    if ([self.contentViewController respondsToSelector:aSelector])
+        return self.contentViewController;
+    return nil;
+}
+
+- (id)supplementalTargetForAction:(SEL)action sender:(id)sender {
+    if ([self.contentViewController respondsToSelector:action])
+        return self.contentViewController;
+    return [super supplementalTargetForAction:action sender:sender];
+}
 
 - (void)loadView {
     [super loadView];
     
     if ([self.file isKindOfClass:[WCPlainTextFile class]]) {
-        [self setContentViewController:[[WCPlainTextViewController alloc] initWithPlainTextFile:(WCPlainTextFile *)self.file]];
+        [self setContentViewController:[[WCSplitViewController alloc] initWithPlainTextFile:(WCPlainTextFile *)self.file]];
         [self.view addSubview:self.contentViewController.view];
         [self.contentViewController.view setFrame:self.view.bounds];
     }
-    
-    [self _configureContentViewController];
-    
-    @weakify(self);
-    
-    [[[[NSNotificationCenter defaultCenter]
-       rac_addObserverForName:NSViewFrameDidChangeNotification object:self.view]
-      takeUntil:[self rac_willDeallocSignal]]
-     subscribeNext:^(id _) {
-         @strongify(self);
-         
-         [self.contentViewController.view setFrame:self.view.bounds];
-    }];
 }
 
 - (instancetype)initWithFile:(WCFile *)file; {
@@ -61,36 +58,6 @@
     [self setFile:file];
     
     return self;
-}
-
-- (void)_configureContentViewController; {
-    if ([self.contentViewController isKindOfClass:[WCPlainTextViewController class]]) {
-        WCPlainTextViewController *viewController = (WCPlainTextViewController *)self.contentViewController;
-        
-        [viewController.textView setHighlightCurrentLineColor:[NSColor colorWithRed:1.0 green:1.0 blue:0.901960784 alpha:1.0]];
-        
-        [viewController.textView setAutoPairCharacterSet:[NSCharacterSet characterSetWithCharactersInString:@"'\"`([{"]];
-        [viewController.textView setAutoPairLeftCharactersToRightCharacters:@{@('('): @(')'),
-                                                                              @('['): @(']'),
-                                                                              @('{'): @('}')}];
-        
-        NSArray *userDefaultsKeyPaths = @[[@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine] WC_keypath],
-                                          [@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters] WC_keypath],
-                                          [@[@keypath(NSUserDefaultsController.new,values),WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters] WC_keypath]];
-        
-        @weakify(viewController);
-        
-        [[NSUserDefaultsController sharedUserDefaultsController] addObservationKeyPath:userDefaultsKeyPaths options:NSKeyValueObservingOptionInitial block:^(MAKVONotification *notification) {
-            @strongify(viewController);
-            
-            if ([notification.keyPath hasSuffix:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine])
-                [viewController.textView setHighlightCurrentLine:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyHighlightCurrentLine]];
-            else if ([notification.keyPath hasSuffix:WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters])
-                [viewController.textView setAutoPairCharacters:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyAutoPairCharacters]];
-            else if ([notification.keyPath hasSuffix:WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters])
-                [viewController.textView setWrapSelectedTextWithPairCharacters:[[NSUserDefaults standardUserDefaults] boolForKey:WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelectedTextWithPairCharacters]];
-        }];
-    }
 }
 
 @end

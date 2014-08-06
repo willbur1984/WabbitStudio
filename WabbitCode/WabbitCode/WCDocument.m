@@ -23,6 +23,14 @@
 
 @implementation WCDocument
 
+- (id)init {
+    if (!(self = [super init]))
+        return nil;
+    
+    [self setHasUndoManager:NO];
+    
+    return self;
+}
 - (id)initWithType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
     if (!(self = [super initWithType:typeName error:outError]))
         return nil;

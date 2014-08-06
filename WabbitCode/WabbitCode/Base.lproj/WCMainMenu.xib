@@ -77,6 +77,18 @@
                                     <action selector="newDocument:" target="-1" id="4Si-XN-c54"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="New Vertical Split" keyEquivalent="n" id="X87-wj-9Mc">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <connections>
+                                    <action selector="newVerticalSplitAction:" target="-1" id="mS9-kF-w56"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="New Horizontal Split" alternate="YES" keyEquivalent="n" id="uv7-53-d0v">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="newHorizontalSplitAction:" target="-1" id="B8P-O5-m5j"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
                                 <connections>
                                     <action selector="openDocument:" target="-1" id="bVn-NM-KNZ"/>

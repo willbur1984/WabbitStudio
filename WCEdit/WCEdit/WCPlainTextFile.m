@@ -25,6 +25,7 @@ NSString *const WCPlainTextFileExtendedAttributeBookmarks = @"com.williamtowellc
 
 @interface WCPlainTextFile ()
 @property (readwrite,strong,nonatomic) WCTextStorage *textStorage;
+@property (readwrite,strong,nonatomic) NSUndoManager *undoManager;
 @property (assign,nonatomic) NSStringEncoding encoding;
 
 - (BOOL)_writeExtendedAttributesToURL:(NSURL *)url error:(NSError **)error;
@@ -38,6 +39,8 @@ NSString *const WCPlainTextFileExtendedAttributeBookmarks = @"com.williamtowellc
     
     [self setTextStorage:[[WCTextStorage alloc] init]];
     [self setEncoding:NSUTF8StringEncoding];
+    
+    [self setUndoManager:[[NSUndoManager alloc] init]];
     
     if (self.fileURL) {
         NSNumber *encoding = [WCExtendedAttributesManager objectForAttribute:WCExtendedAttributesManagerExtendedAttributeAppleTextEncoding atURL:self.fileURL error:NULL];
