@@ -49,6 +49,8 @@
 		79A4B85C1988B89900C7B2C1 /* WCFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 797B131D19878F8900C735DD /* WCFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79A4B87419893A1B00C7B2C1 /* NSArray+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A4B87219893A1B00C7B2C1 /* NSArray+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79A4B87519893A1B00C7B2C1 /* NSArray+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B87319893A1B00C7B2C1 /* NSArray+WCExtensions.m */; };
+		79A6BDE719927A80003A33F8 /* NSView+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A6BDE519927A80003A33F8 /* NSView+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79A6BDE819927A80003A33F8 /* NSView+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6BDE619927A80003A33F8 /* NSView+WCExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		79A4B85A1988B82000C7B2C1 /* WCPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPreferencesViewController.h; sourceTree = "<group>"; };
 		79A4B87219893A1B00C7B2C1 /* NSArray+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WCExtensions.h"; sourceTree = "<group>"; };
 		79A4B87319893A1B00C7B2C1 /* NSArray+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WCExtensions.m"; sourceTree = "<group>"; };
+		79A6BDE519927A80003A33F8 /* NSView+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+WCExtensions.h"; sourceTree = "<group>"; };
+		79A6BDE619927A80003A33F8 /* NSView+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+WCExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +248,8 @@
 				7913F6EA198B8BFF00831863 /* NSUndoManager+WCExtensions.m */,
 				7913F78F198EB3A200831863 /* NSManagedObjectContext+WCExtensions.h */,
 				7913F790198EB3A200831863 /* NSManagedObjectContext+WCExtensions.m */,
+				79A6BDE519927A80003A33F8 /* NSView+WCExtensions.h */,
+				79A6BDE619927A80003A33F8 /* NSView+WCExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 				797B136219878FD500C735DD /* WCFoundationFunctions.h in Headers */,
 				797B135619878FD500C735DD /* WCAboutBackgroundView.h in Headers */,
 				797B135E19878FD500C735DD /* WCFoundationConstants.h in Headers */,
+				79A6BDE719927A80003A33F8 /* NSView+WCExtensions.h in Headers */,
 				7913F6EB198B8BFF00831863 /* NSUndoManager+WCExtensions.h in Headers */,
 				797B135219878FD500C735DD /* NSParagraphStyle+WCExtensions.h in Headers */,
 				79A4B84D1988A67600C7B2C1 /* WCPreferencesWindowController.h in Headers */,
@@ -479,6 +486,7 @@
 				797B135D19878FD500C735DD /* WCBaseWindowController.m in Sources */,
 				797B135919878FD500C735DD /* WCAboutWindowController.m in Sources */,
 				797B136119878FD500C735DD /* WCFile.m in Sources */,
+				79A6BDE819927A80003A33F8 /* NSView+WCExtensions.m in Sources */,
 				79A4B84E1988A67600C7B2C1 /* WCPreferencesWindowController.m in Sources */,
 				79A4B87519893A1B00C7B2C1 /* NSArray+WCExtensions.m in Sources */,
 				797B135319878FD500C735DD /* NSParagraphStyle+WCExtensions.m in Sources */,
