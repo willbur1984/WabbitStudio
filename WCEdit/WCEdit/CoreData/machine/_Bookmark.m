@@ -4,7 +4,7 @@
 #import "_Bookmark.h"
 
 const struct BookmarkAttributes BookmarkAttributes = {
-	.lineStartIndex = @"lineStartIndex",
+	.location = @"location",
 	.range = @"range",
 };
 
@@ -40,8 +40,8 @@ const struct BookmarkFetchedProperties BookmarkFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"lineStartIndexValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"lineStartIndex"];
+	if ([key isEqualToString:@"locationValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"location"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -52,26 +52,26 @@ const struct BookmarkFetchedProperties BookmarkFetchedProperties = {
 
 
 
-@dynamic lineStartIndex;
+@dynamic location;
 
 
 
-- (int64_t)lineStartIndexValue {
-	NSNumber *result = [self lineStartIndex];
+- (int64_t)locationValue {
+	NSNumber *result = [self location];
 	return [result longLongValue];
 }
 
-- (void)setLineStartIndexValue:(int64_t)value_ {
-	[self setLineStartIndex:[NSNumber numberWithLongLong:value_]];
+- (void)setLocationValue:(int64_t)value_ {
+	[self setLocation:[NSNumber numberWithLongLong:value_]];
 }
 
-- (int64_t)primitiveLineStartIndexValue {
-	NSNumber *result = [self primitiveLineStartIndex];
+- (int64_t)primitiveLocationValue {
+	NSNumber *result = [self primitiveLocation];
 	return [result longLongValue];
 }
 
-- (void)setPrimitiveLineStartIndexValue:(int64_t)value_ {
-	[self setPrimitiveLineStartIndex:[NSNumber numberWithLongLong:value_]];
+- (void)setPrimitiveLocationValue:(int64_t)value_ {
+	[self setPrimitiveLocation:[NSNumber numberWithLongLong:value_]];
 }
 
 

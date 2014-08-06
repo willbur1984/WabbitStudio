@@ -15,6 +15,6 @@
 
 @protocol WCBookmark <NSObject>
 @required
-- (int64_t)lineStartIndexValue;
+- (int64_t)locationValue;
 - (NSRange)rangeValue;
 @end
