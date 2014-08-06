@@ -17,6 +17,8 @@
 #import "NSTextStorage+WCExtensions.h"
 #import <BlocksKit/BlocksKit.h>
 #import "WCBookmark.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/EXTScope.h>
 
 NSString *const WCPlainTextFileExtendedAttributeSelectedRange = @"com.williamtowellc.wcedit.extended-attribute.selected-range";
 NSString *const WCPlainTextFileExtendedAttributeBookmarks = @"com.williamtowellc.wcedit.extended-attribute.bookmarks";
@@ -24,6 +26,8 @@ NSString *const WCPlainTextFileExtendedAttributeBookmarks = @"com.williamtowellc
 @interface WCPlainTextFile ()
 @property (readwrite,strong,nonatomic) WCTextStorage *textStorage;
 @property (assign,nonatomic) NSStringEncoding encoding;
+
+- (BOOL)_writeExtendedAttributesToURL:(NSURL *)url error:(NSError **)error;
 @end
 
 @implementation WCPlainTextFile
@@ -51,26 +55,46 @@ NSString *const WCPlainTextFileExtendedAttributeBookmarks = @"com.williamtowellc
         }]];
     }
     
+    @weakify(self);
+    
+    [[[RACSignal merge:@[[[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidAddBookmark object:self.textStorage],
+                         [[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidRemoveBookmark object:self.textStorage],
+                         [[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidRemoveBookmarks object:self.textStorage]]]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(id _) {
+         @strongify(self);
+         
+         if (self.fileURL)
+             [self _writeExtendedAttributesToURL:self.fileURL error:NULL];
+    }];
+    
     return self;
 }
 
 - (BOOL)writeToURL:(NSURL *)url error:(NSError *__autoreleasing *)error {
     NSData *data = [self.textStorage.string dataUsingEncoding:self.encoding];
-    BOOL retval = [data writeToURL:url options:NSDataWritingAtomic error:error];
     
-    if (retval) {
-        [WCExtendedAttributesManager setObject:@(self.encoding) forAttribute:WCExtendedAttributesManagerExtendedAttributeAppleTextEncoding atURL:url error:NULL];
-        
-        NSTextView *textView = [self.textStorage WC_firstResponderTextView];
-        
-        [WCExtendedAttributesManager setString:NSStringFromRange(textView.selectedRange) forAttribute:WCPlainTextFileExtendedAttributeSelectedRange atURL:url error:NULL];
-        
-        [WCExtendedAttributesManager setObject:[self.textStorage.bookmarks bk_map:^id(id<WCBookmark> bookmark) {
-            return NSStringFromRange([bookmark rangeValue]);
-        }] forAttribute:WCPlainTextFileExtendedAttributeBookmarks atURL:url error:NULL];
-    }
+    if (![data writeToURL:url options:NSDataWritingAtomic error:error])
+        return NO;
     
-    return retval;
+    return [self _writeExtendedAttributesToURL:url error:error];
+}
+
+- (BOOL)_writeExtendedAttributesToURL:(NSURL *)url error:(NSError **)error; {
+    if (![WCExtendedAttributesManager setObject:@(self.encoding) forAttribute:WCExtendedAttributesManagerExtendedAttributeAppleTextEncoding atURL:url error:NULL])
+        return NO;
+    
+    NSTextView *textView = [self.textStorage WC_firstResponderTextView];
+    
+    if (![WCExtendedAttributesManager setString:NSStringFromRange(textView.selectedRange) forAttribute:WCPlainTextFileExtendedAttributeSelectedRange atURL:url error:NULL])
+        return NO;
+    
+    if (![WCExtendedAttributesManager setObject:[self.textStorage.bookmarks bk_map:^id(id<WCBookmark> bookmark) {
+        return NSStringFromRange([bookmark rangeValue]);
+    }] forAttribute:WCPlainTextFileExtendedAttributeBookmarks atURL:url error:NULL])
+        return NO;
+    
+    return YES;
 }
 
 @end
