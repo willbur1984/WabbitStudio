@@ -17,12 +17,12 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
 
-static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewControllerObservingContext;
-
 @interface WCPlainTextViewController ()
 @property (readwrite,unsafe_unretained,nonatomic) IBOutlet WCPlainTextView *textView;
 
 @property (weak,nonatomic) WCPlainTextFile *plainTextFile;
+
+- (void)_loadExtendedAttributes;
 @end
 
 @implementation WCPlainTextViewController
@@ -44,6 +44,8 @@ static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewContr
     [self.textView.enclosingScrollView setHasHorizontalRuler:NO];
     [self.textView.enclosingScrollView setHasVerticalRuler:YES];
     [self.textView.enclosingScrollView setRulersVisible:YES];
+    
+    [self _loadExtendedAttributes];
 }
 
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {
@@ -55,6 +57,19 @@ static void *kWCPlainTextViewControllerObservingContext = &kWCPlainTextViewContr
     [self setPlainTextFile:plainTextFile];
     
     return self;
+}
+
+- (void)_loadExtendedAttributes; {
+    NSString *selectedRangeString = [WCExtendedAttributesManager stringForAttribute:WCPlainTextFileExtendedAttributeSelectedRange atURL:self.plainTextFile.fileURL error:NULL];
+    
+    if (selectedRangeString) {
+        NSRange selectedRange = NSRangeFromString(selectedRangeString);
+        
+        if (NSMaxRange(selectedRange) < self.textView.string.length) {
+            [self.textView setSelectedRange:selectedRange];
+            [self.textView scrollRangeToVisible:selectedRange];
+        }
+    }
 }
 
 @end
