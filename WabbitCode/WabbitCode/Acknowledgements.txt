@@ -1,3 +1,26 @@
 Acknowledgements
 This application makes use of the following third party libraries:
 
+Archimedes
+https://github.com/github/Archimedes
+
+BlocksKit
+https://github.com/zwaldowski/BlocksKit
+
+CocoaLumberjack
+https://github.com/CocoaLumberjack/CocoaLumberjack
+
+MAKVONotificationCenter
+https://github.com/mikeash/MAKVONotificationCenter
+
+ReactiveCocoa
+https://github.com/ReactiveCocoa/ReactiveCocoa
+
+ReactiveViewModel
+https://github.com/ReactiveCocoa/ReactiveViewModel
+
+Rebel
+https://github.com/github/Rebel
+
+RBSplitView
+http://brockerhoff.net/blog/tag/rbsplitview/
