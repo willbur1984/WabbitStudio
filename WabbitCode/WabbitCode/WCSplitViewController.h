@@ -21,5 +21,6 @@
 
 - (IBAction)newVerticalSplitAction:(id)sender;
 - (IBAction)newHorizontalSplitAction:(id)sender;
+- (IBAction)closeSplitAction:(id)sender;
 
 @end

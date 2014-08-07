@@ -16,3 +16,6 @@
 [submodule "MAKVONotificationCenter"]
 	path = MAKVONotificationCenter
 	url = https://github.com/mikeash/MAKVONotificationCenter
+[submodule "JAViewController"]
+	path = JAViewController
+	url = git@github.com:joshaber/JAViewController.git

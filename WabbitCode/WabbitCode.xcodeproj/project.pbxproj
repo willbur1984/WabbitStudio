@@ -24,7 +24,6 @@
 		797B13AE1987911A00C735DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 797B13AC1987911A00C735DD /* InfoPlist.strings */; };
 		797B13B01987911A00C735DD /* WabbitCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13AF1987911A00C735DD /* WabbitCodeTests.m */; };
 		797B13C31987917B00C735DD /* WCDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13BA1987917B00C735DD /* WCDocument.m */; };
-		797B13C41987917B00C735DD /* WCDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13BC1987917B00C735DD /* WCDocumentViewController.m */; };
 		797B13C51987917B00C735DD /* WCDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13BE1987917B00C735DD /* WCDocumentWindowController.m */; };
 		797B13C61987917B00C735DD /* WCPlainTextDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B13C01987917B00C735DD /* WCPlainTextDocument.m */; };
 		797B13CA1987918A00C735DD /* Acknowledgements.txt in Resources */ = {isa = PBXBuildFile; fileRef = 797B13C81987918A00C735DD /* Acknowledgements.txt */; };
@@ -44,7 +43,6 @@
 		79A4B86D198936C400C7B2C1 /* WCPreferencesTextEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B86C198936C400C7B2C1 /* WCPreferencesTextEditingViewController.m */; };
 		79A4B8711989370000C7B2C1 /* WCPreferencesTextEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A4B86F1989370000C7B2C1 /* WCPreferencesTextEditingViewController.xib */; };
 		79A4B87B1989425A00C7B2C1 /* MAKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B87A1989425A00C7B2C1 /* MAKVONotificationCenter.m */; };
-		79A6BDE419926D9B003A33F8 /* WCDocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A6BDE219926D9B003A33F8 /* WCDocumentViewController.xib */; };
 		79A6BDF01992B061003A33F8 /* RBSplitSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6BDEC1992B061003A33F8 /* RBSplitSubview.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		79A6BDF11992B061003A33F8 /* RBSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6BDEE1992B061003A33F8 /* RBSplitView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
@@ -89,8 +87,6 @@
 		797B13AF1987911A00C735DD /* WabbitCodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WabbitCodeTests.m; sourceTree = "<group>"; };
 		797B13B91987917B00C735DD /* WCDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDocument.h; sourceTree = "<group>"; };
 		797B13BA1987917B00C735DD /* WCDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDocument.m; sourceTree = "<group>"; };
-		797B13BB1987917B00C735DD /* WCDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDocumentViewController.h; sourceTree = "<group>"; };
-		797B13BC1987917B00C735DD /* WCDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDocumentViewController.m; sourceTree = "<group>"; };
 		797B13BD1987917B00C735DD /* WCDocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDocumentWindowController.h; sourceTree = "<group>"; };
 		797B13BE1987917B00C735DD /* WCDocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDocumentWindowController.m; sourceTree = "<group>"; };
 		797B13BF1987917B00C735DD /* WCPlainTextDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPlainTextDocument.h; sourceTree = "<group>"; };
@@ -118,7 +114,6 @@
 		79A4B8761989413C00C7B2C1 /* MAKVONotificationCenter-MacOS.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "MAKVONotificationCenter-MacOS.dylib"; path = "../MAKVONotificationCenter/build/Debug/MAKVONotificationCenter-MacOS.dylib"; sourceTree = "<group>"; };
 		79A4B8791989425A00C7B2C1 /* MAKVONotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAKVONotificationCenter.h; path = ../MAKVONotificationCenter/MAKVONotificationCenter.h; sourceTree = "<group>"; };
 		79A4B87A1989425A00C7B2C1 /* MAKVONotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAKVONotificationCenter.m; path = ../MAKVONotificationCenter/MAKVONotificationCenter.m; sourceTree = "<group>"; };
-		79A6BDE319926D9B003A33F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WCDocumentViewController.xib; sourceTree = "<group>"; };
 		79A6BDEB1992B061003A33F8 /* RBSplitSubview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBSplitSubview.h; sourceTree = "<group>"; };
 		79A6BDEC1992B061003A33F8 /* RBSplitSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBSplitSubview.m; sourceTree = "<group>"; };
 		79A6BDED1992B061003A33F8 /* RBSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBSplitView.h; sourceTree = "<group>"; };
@@ -297,8 +292,6 @@
 			isa = PBXGroup;
 			children = (
 				79A4B84819889CE400C7B2C1 /* Xibs */,
-				797B13BB1987917B00C735DD /* WCDocumentViewController.h */,
-				797B13BC1987917B00C735DD /* WCDocumentViewController.m */,
 				796EA68119926C6600B9627C /* WCSplitViewController.h */,
 				796EA68219926C6600B9627C /* WCSplitViewController.m */,
 			);
@@ -326,7 +319,6 @@
 		79A4B84819889CE400C7B2C1 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				79A6BDE219926D9B003A33F8 /* WCDocumentViewController.xib */,
 				796EA68419926D4F00B9627C /* WCSplitViewController.xib */,
 			);
 			name = Xibs;
@@ -505,7 +497,6 @@
 				79A4B8711989370000C7B2C1 /* WCPreferencesTextEditingViewController.xib in Resources */,
 				797B13901987911A00C735DD /* InfoPlist.strings in Resources */,
 				797B13D6198791A000C735DD /* WCDocumentWindowController.xib in Resources */,
-				79A6BDE419926D9B003A33F8 /* WCDocumentViewController.xib in Resources */,
 				7913F6EE198B959000831863 /* DefaultPreferences.plist in Resources */,
 				797B13CA1987918A00C735DD /* Acknowledgements.txt in Resources */,
 				79A4B8691988BE6200C7B2C1 /* WCPreferencesAdvancedViewController.xib in Resources */,
@@ -555,7 +546,6 @@
 				797B13991987911A00C735DD /* WCAppDelegate.m in Sources */,
 				79A6BDF11992B061003A33F8 /* RBSplitView.m in Sources */,
 				797B13C51987917B00C735DD /* WCDocumentWindowController.m in Sources */,
-				797B13C41987917B00C735DD /* WCDocumentViewController.m in Sources */,
 				797B13C31987917B00C735DD /* WCDocument.m in Sources */,
 				79A4B87B1989425A00C7B2C1 /* MAKVONotificationCenter.m in Sources */,
 				796EA68319926C6600B9627C /* WCSplitViewController.m in Sources */,
@@ -657,14 +647,6 @@
 				79A4B8701989370000C7B2C1 /* Base */,
 			);
 			name = WCPreferencesTextEditingViewController.xib;
-			sourceTree = "<group>";
-		};
-		79A6BDE219926D9B003A33F8 /* WCDocumentViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79A6BDE319926D9B003A33F8 /* Base */,
-			);
-			name = WCDocumentViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

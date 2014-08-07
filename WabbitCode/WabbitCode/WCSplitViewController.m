@@ -42,35 +42,22 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
 
 @implementation WCSplitViewController
 
-- (BOOL)respondsToSelector:(SEL)aSelector {
-    if (aSelector == @selector(performClose:))
-        return (self.splitView != nil);
-    return [super respondsToSelector:aSelector];
-}
-
 - (void)loadView {
     [super loadView];
     
     [self _addViewController:[[WCPlainTextViewController alloc] initWithPlainTextFile:self.plainTextFile]];
     [[self.viewControllers.firstObject view] setFrame:self.view.bounds];
-    
-    [self _configurePlainTextViewController:self.viewControllers.firstObject];
+}
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+    if (menuItem.action == @selector(closeSplitAction:)) {
+        return (self.viewControllers.count > 1);
+    }
+    return YES;
 }
 
 - (BOOL)splitView:(RBSplitView *)sender canCollapse:(RBSplitSubview *)subview {
     return NO;
-}
-
-- (IBAction)performClose:(id)sender; {
-    NSParameterAssert(self.splitView);
-    
-    NSTextView *textView = [self.plainTextFile.textStorage WC_firstResponderTextView];
-    WCPlainTextViewController *viewController = [self.viewControllers bk_match:^BOOL(WCPlainTextViewController *obj) {
-        return [obj.textView isEqual:textView];
-    }];
-    
-    [self _removeViewController:viewController];
-    [self _destroySplitViewIfNecessary];
 }
 
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {
@@ -89,6 +76,15 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
 }
 - (IBAction)newHorizontalSplitAction:(id)sender; {
     [self _addSplitWithOrientation:WCSplitViewControllerOrientationHorizontal];
+}
+- (IBAction)closeSplitAction:(id)sender; {
+    NSTextView *textView = [self.plainTextFile.textStorage WC_firstResponderTextView];
+    WCPlainTextViewController *viewController = [self.viewControllers bk_match:^BOOL(WCPlainTextViewController *obj) {
+        return [obj.textView isEqual:textView];
+    }];
+    
+    [self _removeViewController:viewController];
+    [self _destroySplitViewIfNecessary];
 }
 
 - (void)_configurePlainTextViewController:(WCPlainTextViewController *)viewController; {
@@ -141,6 +137,9 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
     [self.splitView addSubview:[self.viewControllers.firstObject view]];
 }
 - (void)_destroySplitViewIfNecessary; {
+    if (self.splitView && self.viewControllers.count > 1)
+        return;
+    
     [self.splitView removeFromSuperview];
     [self setSplitView:nil];
     

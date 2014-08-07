@@ -13,6 +13,7 @@
 
 #import "WCBaseViewController.h"
 #import "WCFoundationDebugging.h"
+#import "NSView+JAExtensions.h"
 
 @interface WCBaseViewController ()
 
@@ -22,6 +23,8 @@
 
 - (void)dealloc {
     WCLogObject(self.class);
+    
+    [self.view setViewController:nil];
 }
 
 - (NSString *)nibName {

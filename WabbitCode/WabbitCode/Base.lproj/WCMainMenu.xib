@@ -113,6 +113,12 @@
                                     <action selector="performClose:" target="-1" id="HmO-Ls-i7Q"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Close Split" keyEquivalent="w" id="gn1-8h-0H6">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <connections>
+                                    <action selector="closeSplitAction:" target="-1" id="73C-og-u33"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Save…" keyEquivalent="s" id="pxx-59-PXV">
                                 <connections>
                                     <action selector="saveDocument:" target="-1" id="teZ-XB-qJY"/>

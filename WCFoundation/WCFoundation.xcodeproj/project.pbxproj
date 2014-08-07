@@ -51,6 +51,12 @@
 		79A4B87519893A1B00C7B2C1 /* NSArray+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4B87319893A1B00C7B2C1 /* NSArray+WCExtensions.m */; };
 		79A6BDE719927A80003A33F8 /* NSView+WCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A6BDE519927A80003A33F8 /* NSView+WCExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79A6BDE819927A80003A33F8 /* NSView+WCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6BDE619927A80003A33F8 /* NSView+WCExtensions.m */; };
+		79A6BDF919931D81003A33F8 /* JAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A6BDF319931D81003A33F8 /* JAViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79A6BDFA19931D81003A33F8 /* JAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6BDF419931D81003A33F8 /* JAViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		79A6BDFB19931D81003A33F8 /* NSObject+JAExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A6BDF519931D81003A33F8 /* NSObject+JAExtensions.h */; };
+		79A6BDFC19931D81003A33F8 /* NSObject+JAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6BDF619931D81003A33F8 /* NSObject+JAExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		79A6BDFD19931D81003A33F8 /* NSView+JAExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A6BDF719931D81003A33F8 /* NSView+JAExtensions.h */; };
+		79A6BDFE19931D81003A33F8 /* NSView+JAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6BDF819931D81003A33F8 /* NSView+JAExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +121,12 @@
 		79A4B87319893A1B00C7B2C1 /* NSArray+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WCExtensions.m"; sourceTree = "<group>"; };
 		79A6BDE519927A80003A33F8 /* NSView+WCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+WCExtensions.h"; sourceTree = "<group>"; };
 		79A6BDE619927A80003A33F8 /* NSView+WCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+WCExtensions.m"; sourceTree = "<group>"; };
+		79A6BDF319931D81003A33F8 /* JAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAViewController.h; path = ../JAViewController/JAViewController.h; sourceTree = "<group>"; };
+		79A6BDF419931D81003A33F8 /* JAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JAViewController.m; path = ../JAViewController/JAViewController.m; sourceTree = "<group>"; };
+		79A6BDF519931D81003A33F8 /* NSObject+JAExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+JAExtensions.h"; path = "../JAViewController/NSObject+JAExtensions.h"; sourceTree = "<group>"; };
+		79A6BDF619931D81003A33F8 /* NSObject+JAExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+JAExtensions.m"; path = "../JAViewController/NSObject+JAExtensions.m"; sourceTree = "<group>"; };
+		79A6BDF719931D81003A33F8 /* NSView+JAExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSView+JAExtensions.h"; path = "../JAViewController/NSView+JAExtensions.h"; sourceTree = "<group>"; };
+		79A6BDF819931D81003A33F8 /* NSView+JAExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSView+JAExtensions.m"; path = "../JAViewController/NSView+JAExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +157,7 @@
 		797B130319878F8900C735DD = {
 			isa = PBXGroup;
 			children = (
+				79A6BDF219931D6F003A33F8 /* JAViewController */,
 				797B131619878F8900C735DD /* WCFoundation */,
 				797B132B19878F8900C735DD /* WCFoundationTests */,
 				797B130F19878F8900C735DD /* Frameworks */,
@@ -337,6 +350,19 @@
 			path = en.lproj;
 			sourceTree = "<group>";
 		};
+		79A6BDF219931D6F003A33F8 /* JAViewController */ = {
+			isa = PBXGroup;
+			children = (
+				79A6BDF319931D81003A33F8 /* JAViewController.h */,
+				79A6BDF419931D81003A33F8 /* JAViewController.m */,
+				79A6BDF519931D81003A33F8 /* NSObject+JAExtensions.h */,
+				79A6BDF619931D81003A33F8 /* NSObject+JAExtensions.m */,
+				79A6BDF719931D81003A33F8 /* NSView+JAExtensions.h */,
+				79A6BDF819931D81003A33F8 /* NSView+JAExtensions.m */,
+			);
+			name = JAViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -347,15 +373,18 @@
 				7913F76B198D7E1400831863 /* WCExtendedAttributesManager.h in Headers */,
 				797B135A19878FD500C735DD /* WCBaseViewController.h in Headers */,
 				7913F791198EB3A200831863 /* NSManagedObjectContext+WCExtensions.h in Headers */,
+				79A6BDFB19931D81003A33F8 /* NSObject+JAExtensions.h in Headers */,
 				79A4B83D19888D5A00C7B2C1 /* NSBundle+WCExtensions.h in Headers */,
 				797B135F19878FD500C735DD /* WCFoundationDebugging.h in Headers */,
 				79A4B85B1988B82000C7B2C1 /* WCPreferencesViewController.h in Headers */,
 				797B135C19878FD500C735DD /* WCBaseWindowController.h in Headers */,
 				797B135819878FD500C735DD /* WCAboutWindowController.h in Headers */,
 				797B136019878FD500C735DD /* WCFile.h in Headers */,
+				79A6BDF919931D81003A33F8 /* JAViewController.h in Headers */,
 				797B136219878FD500C735DD /* WCFoundationFunctions.h in Headers */,
 				797B135619878FD500C735DD /* WCAboutBackgroundView.h in Headers */,
 				797B135E19878FD500C735DD /* WCFoundationConstants.h in Headers */,
+				79A6BDFD19931D81003A33F8 /* NSView+JAExtensions.h in Headers */,
 				79A6BDE719927A80003A33F8 /* NSView+WCExtensions.h in Headers */,
 				7913F6EB198B8BFF00831863 /* NSUndoManager+WCExtensions.h in Headers */,
 				797B135219878FD500C735DD /* NSParagraphStyle+WCExtensions.h in Headers */,
@@ -483,11 +512,14 @@
 			files = (
 				797B135B19878FD500C735DD /* WCBaseViewController.m in Sources */,
 				797B135719878FD500C735DD /* WCAboutBackgroundView.m in Sources */,
+				79A6BDFE19931D81003A33F8 /* NSView+JAExtensions.m in Sources */,
 				797B135D19878FD500C735DD /* WCBaseWindowController.m in Sources */,
 				797B135919878FD500C735DD /* WCAboutWindowController.m in Sources */,
 				797B136119878FD500C735DD /* WCFile.m in Sources */,
+				79A6BDFA19931D81003A33F8 /* JAViewController.m in Sources */,
 				79A6BDE819927A80003A33F8 /* NSView+WCExtensions.m in Sources */,
 				79A4B84E1988A67600C7B2C1 /* WCPreferencesWindowController.m in Sources */,
+				79A6BDFC19931D81003A33F8 /* NSObject+JAExtensions.m in Sources */,
 				79A4B87519893A1B00C7B2C1 /* NSArray+WCExtensions.m in Sources */,
 				797B135319878FD500C735DD /* NSParagraphStyle+WCExtensions.m in Sources */,
 				7913F6EC198B8BFF00831863 /* NSUndoManager+WCExtensions.m in Sources */,

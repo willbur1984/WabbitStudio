@@ -12,38 +12,28 @@
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "WCDocumentWindowController.h"
-#import "WCDocumentViewController.h"
 #import <WCFoundation/WCFile.h>
+#import "WCSplitViewController.h"
 
 @interface WCDocumentWindowController () <NSWindowDelegate>
-@property (strong,nonatomic) WCDocumentViewController *documentViewController;
+@property (strong,nonatomic) WCSplitViewController *splitViewController;
 
 @property (weak,nonatomic) WCFile *file;
 @end
 
 @implementation WCDocumentWindowController
 
-- (id)supplementalTargetForAction:(SEL)action sender:(id)sender {
-    if ([self.documentViewController respondsToSelector:action])
-        return self.documentViewController;
-    return [super supplementalTargetForAction:action sender:sender];
-}
-
 - (void)windowDidLoad {
     [super windowDidLoad];
     
     [self.window setDelegate:self];
     
-    [self setDocumentViewController:[[WCDocumentViewController alloc] initWithFile:self.file]];
-    [self.window setContentView:self.documentViewController.view];
+    [self setSplitViewController:[[WCSplitViewController alloc] initWithPlainTextFile:(WCPlainTextFile *)self.file]];
+    [self.window setContentView:self.splitViewController.view];
 }
 
-- (BOOL)windowShouldClose:(id)sender {
-    if ([self.documentViewController respondsToSelector:@selector(performClose:)]) {
-        [(id)self.documentViewController performClose:nil];
-        return NO;
-    }
-    return YES;
+- (void)windowWillClose:(NSNotification *)notification {
+    
 }
 
 - (instancetype)initWithFile:(WCFile *)file; {
