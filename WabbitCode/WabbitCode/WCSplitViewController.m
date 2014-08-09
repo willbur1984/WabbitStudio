@@ -134,7 +134,13 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
     [self.splitView setDelegate:self];
     [self.view addSubview:self.splitView];
     
-    [self.splitView addSubview:[self.viewControllers.firstObject view]];
+    WCPlainTextViewController *viewController = self.viewControllers.firstObject;
+    RBSplitSubview *subview = [[RBSplitSubview alloc] initWithFrame:viewController.view.frame];
+    
+    [subview setIdentifier:[NSString stringWithFormat:@"%p",viewController]];
+    [subview addSubview:viewController.view];
+    
+    [self.splitView addSubview:subview];
 }
 - (void)_destroySplitViewIfNecessary; {
     if (self.splitView && self.viewControllers.count > 1)
