@@ -15,6 +15,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
 #import <WCFoundation/WCFoundation.h>
+#import <WCFoundation/NSView+JAExtensions.h>
 #import "NSTextView+WCExtensions.h"
 
 @interface WCPlainTextView ()
@@ -68,13 +69,9 @@
         }
     }
 }
-#pragma mark NSView
-- (void)viewDidMoveToSuperview {
-    [super viewDidMoveToSuperview];
-    
-    if (self.enclosingScrollView) {
-        [self.enclosingScrollView setDrawsBackground:NO];
-    }
+
+- (void)performTextFinderAction:(NSMenuItem *)sender {
+    [(id)self.enclosingScrollView.viewController performTextFinderAction:sender];
 }
 #pragma mark NSTextView
 - (void)insertText:(id)insertString {
@@ -182,6 +179,19 @@
         [self.highlightCurrentLineColor setFill];
         NSRectFill(lineRect);
     }
+}
+#pragma mark NSMenuValidation
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+    if (menuItem.action == @selector(performTextFinderAction:))
+        return [(id)self.enclosingScrollView.viewController validateMenuItem:menuItem];
+    return [super validateMenuItem:menuItem];
+}
+#pragma mark WCTextFinderClient
+@dynamic string;
+@dynamic editable;
+
+- (NSRange)firstSelectedRange {
+    return self.selectedRange;
 }
 #pragma mark *** Private Methods ***
 - (void)_WCTextView_init; {

@@ -55,7 +55,7 @@
 		79A6BDFA19931D81003A33F8 /* JAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6BDF419931D81003A33F8 /* JAViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		79A6BDFB19931D81003A33F8 /* NSObject+JAExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A6BDF519931D81003A33F8 /* NSObject+JAExtensions.h */; };
 		79A6BDFC19931D81003A33F8 /* NSObject+JAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6BDF619931D81003A33F8 /* NSObject+JAExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		79A6BDFD19931D81003A33F8 /* NSView+JAExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A6BDF719931D81003A33F8 /* NSView+JAExtensions.h */; };
+		79A6BDFD19931D81003A33F8 /* NSView+JAExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A6BDF719931D81003A33F8 /* NSView+JAExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79A6BDFE19931D81003A33F8 /* NSView+JAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6BDF819931D81003A33F8 /* NSView+JAExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 

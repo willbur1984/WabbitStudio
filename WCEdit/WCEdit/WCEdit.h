@@ -28,7 +28,9 @@
 #import <WCEdit/WCPlainTextView.h>
 #import <WCEdit/WCLineNumbersRulerView.h>
 #import <WCEdit/WCBookmarksRulerView.h>
+#import <WCEdit/WCFindBarScrollView.h>
 
 #import <WCEdit/WCPlainTextViewController.h>
+#import <WCEdit/WCFindBarViewController.h>
 
 #endif

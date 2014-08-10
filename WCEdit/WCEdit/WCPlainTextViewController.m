@@ -13,14 +13,23 @@
 
 #import "WCPlainTextViewController.h"
 #import <WCFoundation/WCFoundation.h>
-#import <WCEdit/WCEdit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
+#import "WCPlainTextView.h"
+#import "WCFindBarScrollView.h"
+#import "WCTextFinder.h"
+#import "WCEditFunctions.h"
+#import "WCPlainTextFile.h"
+#import "WCBookmarksRulerView.h"
+#import "WCTextStorage.h"
 
 @interface WCPlainTextViewController () <NSTextViewDelegate>
+@property (weak,nonatomic) IBOutlet WCFindBarScrollView *scrollView;
 @property (readwrite,unsafe_unretained,nonatomic) IBOutlet WCPlainTextView *textView;
 
 @property (weak,nonatomic) WCPlainTextFile *plainTextFile;
+
+@property (strong,nonatomic) WCTextFinder *textFinder;
 
 - (void)_loadExtendedAttributes;
 @end
@@ -47,11 +56,24 @@
     
     [self.textView setDelegate:self];
     
+    [self setTextFinder:[[WCTextFinder alloc] init]];
+    [self.textFinder setClient:self.textView];
+    [self.textFinder setViewContainer:self.scrollView];
+    
     [self _loadExtendedAttributes];
 }
 
 - (NSUndoManager *)undoManagerForTextView:(NSTextView *)view {
     return self.plainTextFile.undoManager;
+}
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+    if (menuItem.action == @selector(performTextFinderAction:))
+        return [self.textFinder validateTextFinderAction:menuItem.tag];
+    return [super validateMenuItem:menuItem];
+}
+- (void)performTextFinderAction:(NSMenuItem *)sender {
+    [self.textFinder performTextFinderAction:sender.tag];
 }
 
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {
