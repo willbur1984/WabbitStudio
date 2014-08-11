@@ -16,26 +16,73 @@
 #import "WCEditFunctions.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
+#import "WCFindOptionsViewController.h"
+#import "WCFindBarFieldEditor.h"
+#import "WCTextFinder.h"
 
-@interface WCFindBarViewController ()
+@interface WCFindBarViewController () <NSTextFieldDelegate>
 @property (readwrite,weak,nonatomic) IBOutlet NSPopUpButton *modePopUpButton;
 @property (readwrite,weak,nonatomic) IBOutlet NSSearchField *searchField;
 @property (readwrite,weak,nonatomic) IBOutlet NSSegmentedControl *nextPreviousSegmentedControl;
 @property (weak,nonatomic) IBOutlet NSButton *doneButton;
 
+@property (readwrite,copy,nonatomic) NSString *searchString;
+
 @property (readwrite,strong,nonatomic) RACCommand *doneCommand;
+
+@property (weak,nonatomic) WCTextFinder *textFinder;
 
 @end
 
 @implementation WCFindBarViewController
-
+#pragma mark *** Subclass Overrides ***
 - (NSBundle *)nibBundle {
     return WCEditBundle();
 }
 
-- (id)init {
+- (void)loadView {
+    [super loadView];
+    
+    [(NSSearchFieldCell *)self.searchField.cell setPlaceholderString:NSLocalizedString(@"String Matching", @"find bar search field placeholder")];
+    [(NSSearchFieldCell *)self.searchField.cell setSearchMenuTemplate:({
+        NSMenu *retval = [[NSMenu alloc] initWithTitle:@""];
+        NSMenuItem *editFindOptionsItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Edit Find Options…", @"edit find options menu item title") action:@selector(_editFindOptionsAction:) keyEquivalent:@""];
+        
+        [editFindOptionsItem setTarget:self];
+        
+        [retval addItem:editFindOptionsItem];
+        
+        retval;
+    })];
+    
+    [self.searchField setDelegate:self];
+    
+    [self.doneButton setRac_command:self.doneCommand];
+    
+    RAC(self,searchString) = [self.searchField rac_textSignal];
+}
+#pragma mark NSControlTextEditingDelegate
+- (void)controlTextDidBeginEditing:(NSNotification *)note {
+    WCFindBarFieldEditor *fieldEditor = note.userInfo[@"NSFieldEditor"];
+    
+    [fieldEditor setTextFinder:self.textFinder];
+}
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector {
+    if (commandSelector == @selector(cancelOperation:)) {
+        [self.doneCommand execute:nil];
+        
+        return YES;
+    }
+    return NO;
+}
+#pragma mark *** Public Methods ***
+- (instancetype)initWithTextFinder:(WCTextFinder *)textFinder; {
     if (!(self = [super init]))
         return nil;
+    
+    NSParameterAssert(textFinder);
+    
+    [self setTextFinder:textFinder];
     
     [self setDoneCommand:[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
@@ -48,11 +95,16 @@
     
     return self;
 }
-
-- (void)loadView {
-    [super loadView];
+#pragma mark *** Private Methods ***
+#pragma mark Actions
+- (IBAction)_editFindOptionsAction:(id)sender {
+    NSPopover *popover = [[NSPopover alloc] init];
     
-    [self.doneButton setRac_command:self.doneCommand];
+    [popover setContentViewController:[[WCFindOptionsViewController alloc] initWithTextFinderOptions:self.textFinder.options]];
+    [popover setAppearance:NSPopoverAppearanceMinimal];
+    [popover setBehavior:NSPopoverBehaviorTransient];
+    
+    [popover showRelativeToRect:[(NSSearchFieldCell *)self.searchField.cell searchButtonRectForBounds:self.searchField.bounds] ofView:self.searchField preferredEdge:NSMaxYEdge];
 }
 
 @end

@@ -1,8 +1,8 @@
 //
-//  WCEdit.h
+//  WCTextFinderOptions.h
 //  WCEdit
 //
-//  Created by William Towe on 8/1/14.
+//  Created by William Towe on 8/10/14.
 //  Copyright (c) 2014 William Towe, LLC. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -11,25 +11,28 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#ifndef __WC_EDIT__
-#define __WC_EDIT__
+#import <Foundation/Foundation.h>
 
-#import <WCEdit/WCEditConstants.h>
-#import <WCEdit/WCEditFunctions.h>
+typedef NS_ENUM(NSInteger, WCTextFinderOptionsMatchingStyle) {
+    WCTextFinderOptionsMatchingStyleTextual,
+    WCTextFinderOptionsMatchingStyleRegularExpression
+};
 
-#import <WCEdit/NSTextView+WCExtensions.h>
-#import <WCEdit/NSTextStorage+WCExtensions.h>
+typedef NS_ENUM(NSInteger, WCTextFinderOptionsMatchingType) {
+    WCTextFinderOptionsMatchingTypeContains,
+    WCTextFinderOptionsMatchingTypeStartsWith,
+    WCTextFinderOptionsMatchingTypeFullWord,
+    WCTextFinderOptionsMatchingTypeEndsWith
+};
 
-#import <WCEdit/WCPlainTextFile.h>
-#import <WCEdit/WCTextStorage.h>
+@interface WCTextFinderOptions : NSObject
 
-#import <WCEdit/WCBookmarkViewModel.h>
+@property (assign,nonatomic) WCTextFinderOptionsMatchingStyle matchingStyle;
+@property (assign,nonatomic) WCTextFinderOptionsMatchingType matchingType;
+@property (assign,nonatomic) BOOL matchCase;
+@property (assign,nonatomic) BOOL wrap;
 
-#import <WCEdit/WCPlainTextView.h>
-#import <WCEdit/WCLineNumbersRulerView.h>
-#import <WCEdit/WCBookmarksRulerView.h>
-#import <WCEdit/WCFindBarScrollView.h>
++ (NSString *)localizedStringForMatchingStyle:(WCTextFinderOptionsMatchingStyle)matchingStyle;
++ (NSString *)localizedStringForMatchingType:(WCTextFinderOptionsMatchingType)matchingType;
 
-#import <WCEdit/WCPlainTextViewController.h>
-
-#endif
+@end

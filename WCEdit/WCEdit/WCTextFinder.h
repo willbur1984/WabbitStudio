@@ -15,12 +15,22 @@
 #import <WCEdit/WCTextFinderClient.h>
 #import <WCEdit/WCTextFinderViewContainer.h>
 
+@class WCTextFinderOptions;
+
 @interface WCTextFinder : NSObject
 
 @property (unsafe_unretained,nonatomic) id<WCTextFinderClient> client;
 @property (unsafe_unretained,nonatomic) id<WCTextFinderViewContainer> viewContainer;
 
-- (BOOL)validateTextFinderAction:(NSTextFinderAction)action;
-- (void)performTextFinderAction:(NSTextFinderAction)action;
+@property (readonly,strong,nonatomic) WCTextFinderOptions *options;
+
+@property (readonly,copy,nonatomic) NSIndexSet *matchRanges;
+
++ (NSDictionary *)textFinderAttributes;
+
+- (BOOL)validateAction:(NSTextFinderAction)action;
+- (void)performAction:(NSTextFinderAction)action;
+
+- (void)noteClientStringDidChange;
 
 @end

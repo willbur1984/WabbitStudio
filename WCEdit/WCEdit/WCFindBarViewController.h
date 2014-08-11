@@ -13,6 +13,7 @@
 
 #import <WCFoundation/WCBaseViewController.h>
 
+@class WCTextFinder;
 @class RACCommand;
 
 @interface WCFindBarViewController : WCBaseViewController
@@ -21,6 +22,10 @@
 @property (readonly,weak,nonatomic) IBOutlet NSSearchField *searchField;
 @property (readonly,weak,nonatomic) IBOutlet NSSegmentedControl *nextPreviousSegmentedControl;
 
+@property (readonly,copy,nonatomic) NSString *searchString;
+
 @property (readonly,strong,nonatomic) RACCommand *doneCommand;
+
+- (instancetype)initWithTextFinder:(WCTextFinder *)textFinder;
 
 @end

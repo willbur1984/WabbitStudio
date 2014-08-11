@@ -19,4 +19,7 @@
 @property (assign,nonatomic,getter = isTextFinderViewVisible) BOOL textFinderViewVisible;
 
 - (void)textFinderViewDidChangeHeight;
+
+@optional
+- (NSView *)contentView;
 @end

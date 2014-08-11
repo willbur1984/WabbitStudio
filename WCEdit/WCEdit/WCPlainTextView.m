@@ -71,7 +71,7 @@
 }
 
 - (void)performTextFinderAction:(NSMenuItem *)sender {
-    [(id)self.enclosingScrollView.viewController performTextFinderAction:sender];
+    [self.textFinder performAction:sender.tag];
 }
 #pragma mark NSTextView
 - (void)insertText:(id)insertString {
@@ -179,16 +179,39 @@
         [self.highlightCurrentLineColor setFill];
         NSRectFill(lineRect);
     }
+    
+    if (self.textFinder &&
+        [self.textFinder.viewContainer isTextFinderViewVisible]) {
+        
+        NSDictionary *attributes = [WCTextFinder textFinderAttributes];
+        
+        [self.textFinder.matchRanges enumerateRangesInRange:[self WC_visibleRange] options:0 usingBlock:^(NSRange range, BOOL *stop) {
+            NSUInteger rectCount;
+            NSRect *rects = [self.layoutManager rectArrayForCharacterRange:range withinSelectedCharacterRange:NSMakeRange(NSNotFound, 0) inTextContainer:self.textContainer rectCount:&rectCount];
+            
+            for (NSUInteger i=0; i<rectCount; i++) {
+                NSRect rect = rects[i];
+                
+                [attributes[NSBackgroundColorAttributeName] setFill];
+                NSRectFillUsingOperation(rect, NSCompositeSourceOver);
+                
+                [attributes[NSUnderlineColorAttributeName] setFill];
+                NSRectFillUsingOperation(NSMakeRect(NSMinX(rect), NSMaxY(rect) - 1.0, NSWidth(rect), 1.0), NSCompositeSourceOver);
+            }
+        }];
+    }
 }
 #pragma mark NSMenuValidation
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
     if (menuItem.action == @selector(performTextFinderAction:))
-        return [(id)self.enclosingScrollView.viewController validateMenuItem:menuItem];
+        return [self.textFinder validateAction:menuItem.tag];
     return [super validateMenuItem:menuItem];
 }
 #pragma mark WCTextFinderClient
 @dynamic string;
+@dynamic selectable;
 @dynamic editable;
+@dynamic selectedRanges;
 
 - (NSRange)firstSelectedRange {
     return self.selectedRange;
@@ -200,7 +223,8 @@
     @unsafeify(self);
     
     [[[RACSignal merge:@[[RACObserve(self, highlightCurrentLine) distinctUntilChanged],
-                         [RACObserve(self, highlightCurrentLineColor) distinctUntilChanged]]]
+                         [RACObserve(self, highlightCurrentLineColor) distinctUntilChanged],
+                         RACObserve(self, textFinder.matchRanges)]]
       deliverOn:[RACScheduler mainThreadScheduler]]
      subscribeNext:^(id x) {
          @strongify(self);

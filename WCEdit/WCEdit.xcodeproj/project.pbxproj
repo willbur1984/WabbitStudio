@@ -58,7 +58,6 @@
 		7913F7B7198F27B700831863 /* Archimedes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7913F7B6198F27B700831863 /* Archimedes.framework */; };
 		794C4210199615F700CC0D13 /* WCFindBarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 794C420E199615F700CC0D13 /* WCFindBarViewController.h */; };
 		794C4211199615F700CC0D13 /* WCFindBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794C420F199615F700CC0D13 /* WCFindBarViewController.m */; };
-		794C42151996162100CC0D13 /* WCFindBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 794C42141996162100CC0D13 /* WCFindBarViewController.xib */; };
 		794C42181996165D00CC0D13 /* WCFindBarBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 794C42161996165D00CC0D13 /* WCFindBarBackgroundView.h */; };
 		794C42191996165D00CC0D13 /* WCFindBarBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 794C42171996165D00CC0D13 /* WCFindBarBackgroundView.m */; };
 		794C421C19961E2E00CC0D13 /* WCFindBarScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 794C421A19961E2E00CC0D13 /* WCFindBarScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,6 +66,17 @@
 		794C42251997345700CC0D13 /* WCTextFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 794C42231997345700CC0D13 /* WCTextFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		794C42261997345700CC0D13 /* WCTextFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 794C42241997345700CC0D13 /* WCTextFinder.m */; };
 		7979FC2A1997365300576B7D /* WCTextFinderClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 7979FC291997365300576B7D /* WCTextFinderClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7979FC3119981BBB00576B7D /* WCFindOptionsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7979FC2F19981BBB00576B7D /* WCFindOptionsViewController.h */; };
+		7979FC3219981BBB00576B7D /* WCFindOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7979FC3019981BBB00576B7D /* WCFindOptionsViewController.m */; };
+		7979FC3A19981C1800576B7D /* WCFindBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7979FC3619981C1800576B7D /* WCFindBarViewController.xib */; };
+		7979FC3B19981C1800576B7D /* WCFindOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7979FC3819981C1800576B7D /* WCFindOptionsViewController.xib */; };
+		7979FC3E19981C3800576B7D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7979FC3C19981C3800576B7D /* Localizable.strings */; };
+		7979FC41199825CF00576B7D /* WCTextFinderOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7979FC3F199825CF00576B7D /* WCTextFinderOptions.h */; };
+		7979FC42199825CF00576B7D /* WCTextFinderOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7979FC40199825CF00576B7D /* WCTextFinderOptions.m */; };
+		7979FC451998447000576B7D /* WCFindBarSearchFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7979FC431998447000576B7D /* WCFindBarSearchFieldCell.h */; };
+		7979FC461998447000576B7D /* WCFindBarSearchFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7979FC441998447000576B7D /* WCFindBarSearchFieldCell.m */; };
+		7979FC49199844AB00576B7D /* WCFindBarFieldEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 7979FC47199844AB00576B7D /* WCFindBarFieldEditor.h */; };
+		7979FC4A199844AB00576B7D /* WCFindBarFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7979FC48199844AB00576B7D /* WCFindBarFieldEditor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,7 +147,6 @@
 		7913F7B6198F27B700831863 /* Archimedes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Archimedes.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WabbitStudio-hgpefmeikqxklybxxfgtnpygeqqp/Build/Products/Debug/Archimedes.framework"; sourceTree = "<group>"; };
 		794C420E199615F700CC0D13 /* WCFindBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFindBarViewController.h; sourceTree = "<group>"; };
 		794C420F199615F700CC0D13 /* WCFindBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCFindBarViewController.m; sourceTree = "<group>"; };
-		794C42141996162100CC0D13 /* WCFindBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCFindBarViewController.xib; sourceTree = "<group>"; };
 		794C42161996165D00CC0D13 /* WCFindBarBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFindBarBackgroundView.h; sourceTree = "<group>"; };
 		794C42171996165D00CC0D13 /* WCFindBarBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCFindBarBackgroundView.m; sourceTree = "<group>"; };
 		794C421A19961E2E00CC0D13 /* WCFindBarScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFindBarScrollView.h; sourceTree = "<group>"; };
@@ -146,6 +155,17 @@
 		794C42231997345700CC0D13 /* WCTextFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTextFinder.h; sourceTree = "<group>"; };
 		794C42241997345700CC0D13 /* WCTextFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCTextFinder.m; sourceTree = "<group>"; };
 		7979FC291997365300576B7D /* WCTextFinderClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTextFinderClient.h; sourceTree = "<group>"; };
+		7979FC2F19981BBB00576B7D /* WCFindOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFindOptionsViewController.h; sourceTree = "<group>"; };
+		7979FC3019981BBB00576B7D /* WCFindOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCFindOptionsViewController.m; sourceTree = "<group>"; };
+		7979FC3719981C1800576B7D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WCFindBarViewController.xib; sourceTree = "<group>"; };
+		7979FC3919981C1800576B7D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WCFindOptionsViewController.xib; sourceTree = "<group>"; };
+		7979FC3D19981C3800576B7D /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7979FC3F199825CF00576B7D /* WCTextFinderOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTextFinderOptions.h; sourceTree = "<group>"; };
+		7979FC40199825CF00576B7D /* WCTextFinderOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCTextFinderOptions.m; sourceTree = "<group>"; };
+		7979FC431998447000576B7D /* WCFindBarSearchFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFindBarSearchFieldCell.h; sourceTree = "<group>"; };
+		7979FC441998447000576B7D /* WCFindBarSearchFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCFindBarSearchFieldCell.m; sourceTree = "<group>"; };
+		7979FC47199844AB00576B7D /* WCFindBarFieldEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFindBarFieldEditor.h; sourceTree = "<group>"; };
+		7979FC48199844AB00576B7D /* WCFindBarFieldEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCFindBarFieldEditor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +257,7 @@
 				7913F7AF198F219100831863 /* Assets */,
 				7913F70D198C7BC800831863 /* WCEdit-Info.plist */,
 				7913F70E198C7BC800831863 /* InfoPlist.strings */,
+				7979FC3C19981C3800576B7D /* Localizable.strings */,
 				7913F711198C7BC800831863 /* WCEdit-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -420,10 +441,18 @@
 				794C42131996161400CC0D13 /* Xibs */,
 				794C420E199615F700CC0D13 /* WCFindBarViewController.h */,
 				794C420F199615F700CC0D13 /* WCFindBarViewController.m */,
+				7979FC431998447000576B7D /* WCFindBarSearchFieldCell.h */,
+				7979FC441998447000576B7D /* WCFindBarSearchFieldCell.m */,
+				7979FC47199844AB00576B7D /* WCFindBarFieldEditor.h */,
+				7979FC48199844AB00576B7D /* WCFindBarFieldEditor.m */,
+				7979FC2F19981BBB00576B7D /* WCFindOptionsViewController.h */,
+				7979FC3019981BBB00576B7D /* WCFindOptionsViewController.m */,
 				7979FC291997365300576B7D /* WCTextFinderClient.h */,
 				794C42211996AC8100CC0D13 /* WCTextFinderViewContainer.h */,
 				794C42231997345700CC0D13 /* WCTextFinder.h */,
 				794C42241997345700CC0D13 /* WCTextFinder.m */,
+				7979FC3F199825CF00576B7D /* WCTextFinderOptions.h */,
+				7979FC40199825CF00576B7D /* WCTextFinderOptions.m */,
 				794C42161996165D00CC0D13 /* WCFindBarBackgroundView.h */,
 				794C42171996165D00CC0D13 /* WCFindBarBackgroundView.m */,
 				794C421A19961E2E00CC0D13 /* WCFindBarScrollView.h */,
@@ -435,9 +464,11 @@
 		794C42131996161400CC0D13 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				794C42141996162100CC0D13 /* WCFindBarViewController.xib */,
+				7979FC3619981C1800576B7D /* WCFindBarViewController.xib */,
+				7979FC3819981C1800576B7D /* WCFindOptionsViewController.xib */,
 			);
 			name = Xibs;
+			path = en.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,17 +484,20 @@
 				794C42251997345700CC0D13 /* WCTextFinder.h in Headers */,
 				7913F754198C7F6800831863 /* NSPointerArray+WCExtensions.h in Headers */,
 				7913F7AE198F19B800831863 /* WCLineNumbersDataSource.h in Headers */,
+				7979FC451998447000576B7D /* WCFindBarSearchFieldCell.h in Headers */,
 				794C42181996165D00CC0D13 /* WCFindBarBackgroundView.h in Headers */,
 				7913F74B198C7EC600831863 /* WCPlainTextView.h in Headers */,
 				7913F765198CBDF400831863 /* WCTextStorage.h in Headers */,
 				7913F797198EC34200831863 /* WCBookmarkViewModel.h in Headers */,
 				794C42221996AC8100CC0D13 /* WCTextFinderViewContainer.h in Headers */,
 				794C421C19961E2E00CC0D13 /* WCFindBarScrollView.h in Headers */,
+				7979FC49199844AB00576B7D /* WCFindBarFieldEditor.h in Headers */,
 				7913F730198C7C4E00831863 /* WCEdit.h in Headers */,
 				7913F74F198C7EC600831863 /* WCRulerViewDefaultDataSource.h in Headers */,
 				7979FC2A1997365300576B7D /* WCTextFinderClient.h in Headers */,
 				794C4210199615F700CC0D13 /* WCFindBarViewController.h in Headers */,
 				7913F781198EAEF200831863 /* _Bookmark.h in Headers */,
+				7979FC3119981BBB00576B7D /* WCFindOptionsViewController.h in Headers */,
 				7913F785198EB03000831863 /* WCBookmarksDataSource.h in Headers */,
 				7913F739198C7DDB00831863 /* WCPlainTextFile.h in Headers */,
 				7913F7A9198F171800831863 /* WCBookmarksRulerView.h in Headers */,
@@ -472,6 +506,7 @@
 				7913F77F198EAEF200831863 /* Bookmark.h in Headers */,
 				7913F7A2198EC94A00831863 /* NSTextStorage+WCExtensions.h in Headers */,
 				7913F73F198C7E4C00831863 /* WCPlainTextViewController.h in Headers */,
+				7979FC41199825CF00576B7D /* WCTextFinderOptions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,9 +591,11 @@
 				7913F744198C7E8800831863 /* WCPlainTextViewController.xib in Resources */,
 				7913F7B4198F220F00831863 /* Bookmark Hover Remove.pdf in Resources */,
 				7913F710198C7BC800831863 /* InfoPlist.strings in Resources */,
+				7979FC3B19981C1800576B7D /* WCFindOptionsViewController.xib in Resources */,
 				7913F7B3198F220F00831863 /* Bookmark Hover Add.pdf in Resources */,
+				7979FC3E19981C3800576B7D /* Localizable.strings in Resources */,
 				7913F7B5198F220F00831863 /* Bookmark.pdf in Resources */,
-				794C42151996162100CC0D13 /* WCFindBarViewController.xib in Resources */,
+				7979FC3A19981C1800576B7D /* WCFindBarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,12 +655,16 @@
 				7913F788198EB05C00831863 /* Bookmarks.xcdatamodeld in Sources */,
 				7913F782198EAEF200831863 /* _Bookmark.m in Sources */,
 				7913F755198C7F6800831863 /* NSPointerArray+WCExtensions.m in Sources */,
+				7979FC461998447000576B7D /* WCFindBarSearchFieldCell.m in Sources */,
 				794C42261997345700CC0D13 /* WCTextFinder.m in Sources */,
+				7979FC42199825CF00576B7D /* WCTextFinderOptions.m in Sources */,
 				7913F798198EC34200831863 /* WCBookmarkViewModel.m in Sources */,
 				794C421D19961E2E00CC0D13 /* WCFindBarScrollView.m in Sources */,
 				7913F7A3198EC94A00831863 /* NSTextStorage+WCExtensions.m in Sources */,
 				7913F762198C9B3A00831863 /* NSTextView+WCExtensions.m in Sources */,
 				7913F766198CBDF400831863 /* WCTextStorage.m in Sources */,
+				7979FC4A199844AB00576B7D /* WCFindBarFieldEditor.m in Sources */,
+				7979FC3219981BBB00576B7D /* WCFindOptionsViewController.m in Sources */,
 				7913F750198C7EC600831863 /* WCRulerViewDefaultDataSource.m in Sources */,
 				794C42191996165D00CC0D13 /* WCFindBarBackgroundView.m in Sources */,
 			);
@@ -670,6 +711,30 @@
 				7913F743198C7E8800831863 /* en */,
 			);
 			name = WCPlainTextViewController.xib;
+			sourceTree = "<group>";
+		};
+		7979FC3619981C1800576B7D /* WCFindBarViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7979FC3719981C1800576B7D /* en */,
+			);
+			name = WCFindBarViewController.xib;
+			sourceTree = "<group>";
+		};
+		7979FC3819981C1800576B7D /* WCFindOptionsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7979FC3919981C1800576B7D /* en */,
+			);
+			name = WCFindOptionsViewController.xib;
+			sourceTree = "<group>";
+		};
+		7979FC3C19981C3800576B7D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7979FC3D19981C3800576B7D /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

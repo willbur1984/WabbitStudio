@@ -60,7 +60,25 @@
     [self.textFinder setClient:self.textView];
     [self.textFinder setViewContainer:self.scrollView];
     
+    [self.textView setTextFinder:self.textFinder];
+    
     [self _loadExtendedAttributes];
+    
+    @weakify(self);
+    
+    [[[[NSNotificationCenter defaultCenter]
+       rac_addObserverForName:NSTextStorageDidProcessEditingNotification object:self.plainTextFile.textStorage]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(NSNotification *value) {
+         @strongify(self);
+         
+         NSTextStorage *textStorage = value.object;
+         
+         if ((textStorage.editedMask & NSTextStorageEditedCharacters) == 0)
+             return;
+         
+         [self.textFinder noteClientStringDidChange];
+    }];
 }
 
 - (NSUndoManager *)undoManagerForTextView:(NSTextView *)view {
@@ -69,11 +87,11 @@
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
     if (menuItem.action == @selector(performTextFinderAction:))
-        return [self.textFinder validateTextFinderAction:menuItem.tag];
+        return [self.textFinder validateAction:menuItem.tag];
     return [super validateMenuItem:menuItem];
 }
 - (void)performTextFinderAction:(NSMenuItem *)sender {
-    [self.textFinder performTextFinderAction:sender.tag];
+    [self.textFinder performAction:sender.tag];
 }
 
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {

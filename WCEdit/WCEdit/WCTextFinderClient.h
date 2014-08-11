@@ -16,6 +16,13 @@
 @protocol WCTextFinderClient <NSObject>
 @required
 @property (readonly,nonatomic) NSString *string;
+@property (readonly,nonatomic,getter = isSelectable) BOOL selectable;
 @property (readonly,nonatomic,getter = isEditable) BOOL editable;
 @property (readonly,nonatomic) NSRange firstSelectedRange;
+@property (copy,nonatomic) NSArray *selectedRanges;
+
+- (void)scrollRangeToVisible:(NSRange)range;
+
+@optional
+- (void)showFindIndicatorForRange:(NSRange)charRange;
 @end
