@@ -14,6 +14,7 @@
 #import "WCBookmarksScroller.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
+#import <WCFoundation/WCFoundation.h>
 
 @interface WCBookmarksScroller ()
 @property (weak,nonatomic) RACDisposable *notificationDisposable;
@@ -54,13 +55,13 @@
         
         [self setNotificationDisposable:
          [[[[RACSignal merge:@[[[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidAddBookmark object:bookmarksDataSource],
-                               [[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidAddBookmark object:bookmarksDataSource]]]
+                               [[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidRemoveBookmark object:bookmarksDataSource]]]
             takeUntil:[self rac_willDeallocSignal]]
            deliverOn:[RACScheduler mainThreadScheduler]]
           subscribeNext:^(id _) {
               @strongify(self);
-              
-              [self setNeedsDisplayInRect:self.bounds];
+
+              [self setNeedsDisplay:YES];
         }]];
     }
 }

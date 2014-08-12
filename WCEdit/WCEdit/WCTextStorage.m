@@ -135,7 +135,7 @@
     
     [self.bookmarksManagedObjectContext save:NULL];
     
-    [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:WCBookmarksDataSourceNotificationDidAddBookmark object:self] postingStyle:NSPostWhenIdle];
+    [[NSNotificationCenter defaultCenter] postNotificationName:WCBookmarksDataSourceNotificationDidAddBookmark object:self userInfo:@{WCBookmarksDataSourceUserInfoKeyBookmark: retval}];
     
     return retval;
 }
@@ -144,7 +144,7 @@
         return [self addBookmarkWithRange:range.rangeValue];
     }];
     
-    [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:WCBookmarksDataSourceNotificationDidAddBookmarks object:self] postingStyle:NSPostWhenIdle];
+    [[NSNotificationCenter defaultCenter] postNotificationName:WCBookmarksDataSourceNotificationDidAddBookmarks object:self userInfo:@{WCBookmarksDataSourceUserInfoKeyBookmarks: retval}];
     
     return retval;
 }
@@ -157,15 +157,17 @@
     [self.bookmarksManagedObjectContext deleteObject:object];
     [self.bookmarksManagedObjectContext save:NULL];
     
-    [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:WCBookmarksDataSourceNotificationDidRemoveBookmark object:self] postingStyle:NSPostWhenIdle];
+    [[NSNotificationCenter defaultCenter] postNotificationName:WCBookmarksDataSourceNotificationDidRemoveBookmark object:self userInfo:@{WCBookmarksDataSourceUserInfoKeyBookmark: object}];
 }
 - (void)removeAllBookmarks {
-    for (Bookmark *object in [self bookmarks])
+    NSArray *bookmarks = [self bookmarks];
+    
+    for (Bookmark *object in bookmarks)
         [self.bookmarksManagedObjectContext deleteObject:object];
     
     [self.bookmarksManagedObjectContext save:NULL];
     
-    [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:WCBookmarksDataSourceNotificationDidRemoveBookmarks object:self] postingStyle:NSPostWhenIdle];
+    [[NSNotificationCenter defaultCenter] postNotificationName:WCBookmarksDataSourceNotificationDidRemoveBookmarks object:self userInfo:@{WCBookmarksDataSourceUserInfoKeyBookmarks: bookmarks}];
 }
 #pragma mark *** Private Methods ***
 - (void)_recalculateLineStartIndexesFromLineNumber:(NSUInteger)lineNumber; {
