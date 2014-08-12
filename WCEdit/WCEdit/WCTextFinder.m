@@ -48,64 +48,86 @@
          [self performAction:NSTextFinderActionHideFindInterface];
     }];
     
-    RAC(self,matchRanges) = [[RACSignal combineLatest:@[RACObserve(self.findBarViewController, searchString),RACObserve(self.options, matchingType),RACObserve(self.options, matchCase),[[[self rac_signalForSelector:@selector(noteClientStringDidChange)] startWith:nil] throttle:0.5]] reduce:^id(NSString *searchString, NSNumber *matchingType, NSNumber *matchCase){
-        NSMutableIndexSet *retval = [[NSMutableIndexSet alloc] init];
+    RAC(self,matchRanges) = [[[RACSignal combineLatest:@[RACObserve(self.findBarViewController, searchString),RACObserve(self.options, matchingType),RACObserve(self.options, matchCase),[[[self rac_signalForSelector:@selector(noteClientStringDidChange)] startWith:nil] throttle:0.5]]] map:^id(RACTuple *value) {
+        @strongify(self);
         
-        if (searchString.length > 0) {
-            NSString *string = [[self.client string] copy];
-            NSRange searchRange = NSMakeRange(0, string.length);
-            WCTextFinderOptionsMatchingType matchingTypeValue = matchingType.integerValue;
-            NSStringCompareOptions options = NSLiteralSearch;
+        RACTupleUnpack(NSString *searchString, NSNumber *matchingType, NSNumber *matchCase) = value;
+        
+        return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
             
-            if (!matchCase.boolValue)
-                options |= NSCaseInsensitiveSearch;
-            
-            CFLocaleRef localeRef = CFLocaleCopyCurrent();
-            CFStringTokenizerRef tokenizerRef = CFStringTokenizerCreate(kCFAllocatorDefault, (__bridge CFStringRef)string, CFRangeMake(0, string.length), kCFStringTokenizerUnitWordBoundary, localeRef);
-            CFRelease(localeRef);
-            
-            while (searchRange.location < string.length) {
-                NSRange range = [string rangeOfString:searchString options:options range:searchRange];
+            RACDisposable *disposable = [[RACDisposable alloc] init];
+            NSMutableIndexSet *retval = [[NSMutableIndexSet alloc] init];
+
+            if (searchString.length > 0) {
+                __block NSString *string;
                 
-                if (range.length == 0)
-                    break;
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    @strongify(self);
+                    
+                    string = [[self.client string] copy];
+                });
                 
-                CFStringTokenizerGoToTokenAtIndex(tokenizerRef, range.location);
-                CFRange tokenRange = CFStringTokenizerGetCurrentTokenRange(tokenizerRef);
+                NSRange searchRange = NSMakeRange(0, string.length);
+                WCTextFinderOptionsMatchingType matchingTypeValue = matchingType.integerValue;
+                NSStringCompareOptions options = NSLiteralSearch;
                 
-                switch (matchingTypeValue) {
-                    case WCTextFinderOptionsMatchingTypeContains:
-                        [retval addIndexesInRange:range];
+                if (!matchCase.boolValue)
+                    options |= NSCaseInsensitiveSearch;
+                
+                CFLocaleRef localeRef = CFLocaleCopyCurrent();
+                CFStringTokenizerRef tokenizerRef = CFStringTokenizerCreate(kCFAllocatorDefault, (__bridge CFStringRef)string, CFRangeMake(0, string.length), kCFStringTokenizerUnitWordBoundary, localeRef);
+                CFRelease(localeRef);
+                
+                while (searchRange.location < string.length) {
+                    if (disposable.isDisposed)
                         break;
-                    case WCTextFinderOptionsMatchingTypeStartsWith:
-                        if (range.location == tokenRange.location &&
-                            range.length < tokenRange.length) {
-                            
-                            [retval addIndexesInRange:range];
-                        }
+                    
+                    NSRange range = [string rangeOfString:searchString options:options range:searchRange];
+                    
+                    if (range.length == 0)
                         break;
-                    case WCTextFinderOptionsMatchingTypeEndsWith:
-                        if (NSMaxRange(range) == (tokenRange.location + tokenRange.length)) {
+                    
+                    CFStringTokenizerGoToTokenAtIndex(tokenizerRef, range.location);
+                    CFRange tokenRange = CFStringTokenizerGetCurrentTokenRange(tokenizerRef);
+                    
+                    switch (matchingTypeValue) {
+                        case WCTextFinderOptionsMatchingTypeContains:
                             [retval addIndexesInRange:range];
-                        }
-                    case WCTextFinderOptionsMatchingTypeFullWord:
-                        if (range.location == tokenRange.location &&
-                            range.length == tokenRange.length) {
-                            
-                            [retval addIndexesInRange:range];
-                        }
-                    default:
-                        break;
+                            break;
+                        case WCTextFinderOptionsMatchingTypeStartsWith:
+                            if (range.location == tokenRange.location &&
+                                range.length < tokenRange.length) {
+                                
+                                [retval addIndexesInRange:range];
+                            }
+                            break;
+                        case WCTextFinderOptionsMatchingTypeEndsWith:
+                            if (NSMaxRange(range) == (tokenRange.location + tokenRange.length)) {
+                                [retval addIndexesInRange:range];
+                            }
+                        case WCTextFinderOptionsMatchingTypeFullWord:
+                            if (range.location == tokenRange.location &&
+                                range.length == tokenRange.length) {
+                                
+                                [retval addIndexesInRange:range];
+                            }
+                        default:
+                            break;
+                    }
+                    
+                    searchRange = NSMakeRange(NSMaxRange(range), string.length - NSMaxRange(range));
                 }
                 
-                searchRange = NSMakeRange(NSMaxRange(range), string.length - NSMaxRange(range));
+                CFRelease(tokenizerRef);
             }
             
-            CFRelease(tokenizerRef);
-        }
-        
-        return retval;
-    }] deliverOn:[RACScheduler mainThreadScheduler]];
+            [subscriber sendNext:retval];
+            [subscriber sendCompleted];
+            
+            return disposable;
+        }] subscribeOn:[RACScheduler scheduler]];
+    }] switchToLatest];
     
     return self;
 }
