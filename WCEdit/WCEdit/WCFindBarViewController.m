@@ -22,7 +22,7 @@
 
 @interface WCFindBarViewController () <NSTextFieldDelegate>
 @property (weak,nonatomic) IBOutlet NSPopUpButton *modePopUpButton;
-@property (weak,nonatomic) IBOutlet NSSearchField *searchField;
+@property (readwrite,weak,nonatomic) IBOutlet NSSearchField *searchField;
 @property (weak,nonatomic) IBOutlet NSSegmentedControl *nextPreviousSegmentedControl;
 @property (weak,nonatomic) IBOutlet NSButton *doneButton;
 
