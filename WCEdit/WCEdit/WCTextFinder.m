@@ -40,15 +40,7 @@
     
     @weakify(self);
     
-    [[self.findBarViewController.doneCommand.executionSignals
-      concat]
-     subscribeNext:^(id _) {
-         @strongify(self);
-         
-         [self performAction:NSTextFinderActionHideFindInterface];
-    }];
-    
-    RAC(self,matchRanges) = [[[RACSignal combineLatest:@[RACObserve(self.findBarViewController, searchString),RACObserve(self.options, matchingType),RACObserve(self.options, matchCase),[[[self rac_signalForSelector:@selector(noteClientStringDidChange)] startWith:nil] throttle:0.5]]] map:^id(RACTuple *value) {
+    RAC(self,matchRanges) = [[[[RACSignal combineLatest:@[RACObserve(self.findBarViewController, searchString),RACObserve(self.options, matchingType),RACObserve(self.options, matchCase),[[[self rac_signalForSelector:@selector(noteClientStringDidChange)] startWith:nil] throttle:0.5]]] map:^id(RACTuple *value) {
         @strongify(self);
         
         RACTupleUnpack(NSString *searchString, NSNumber *matchingType, NSNumber *matchCase) = value;
@@ -127,7 +119,7 @@
             
             return disposable;
         }] subscribeOn:[RACScheduler scheduler]];
-    }] switchToLatest];
+    }] switchToLatest] deliverOn:[RACScheduler mainThreadScheduler]];
     
     return self;
 }

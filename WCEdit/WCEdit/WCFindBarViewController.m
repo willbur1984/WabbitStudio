@@ -28,7 +28,7 @@
 
 @property (readwrite,copy,nonatomic) NSString *searchString;
 
-@property (readwrite,strong,nonatomic) RACCommand *doneCommand;
+@property (strong,nonatomic) RACCommand *doneCommand;
 
 @property (weak,nonatomic) WCTextFinder *textFinder;
 
@@ -57,6 +57,25 @@
     
     [self.searchField setDelegate:self];
     
+    @weakify(self);
+    
+    [self setDoneCommand:[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            [subscriber sendNext:@YES];
+            [subscriber sendCompleted];
+            
+            return nil;
+        }];
+    }]];
+    
+    [[self.doneCommand.executionSignals
+      concat]
+     subscribeNext:^(id _) {
+         @strongify(self);
+         
+         [self.textFinder performAction:NSTextFinderActionHideFindInterface];
+    }];
+    
     [self.doneButton setRac_command:self.doneCommand];
     
     RAC(self,searchString) = [self.searchField rac_textSignal];
@@ -83,15 +102,6 @@
     NSParameterAssert(textFinder);
     
     [self setTextFinder:textFinder];
-    
-    [self setDoneCommand:[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            [subscriber sendNext:@YES];
-            [subscriber sendCompleted];
-            
-            return nil;
-        }];
-    }]];
     
     return self;
 }

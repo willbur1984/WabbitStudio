@@ -24,8 +24,6 @@
 
 @property (readonly,copy,nonatomic) NSString *searchString;
 
-@property (readonly,strong,nonatomic) RACCommand *doneCommand;
-
 - (instancetype)initWithTextFinder:(WCTextFinder *)textFinder;
 
 @end
