@@ -79,7 +79,7 @@
     [[[RACObserve(self, textFinderViewVisible)
        distinctUntilChanged]
       deliverOn:[RACScheduler mainThreadScheduler]]
-     subscribeNext:^(id _) {
+     subscribeNext:^(NSNumber *value) {
          @strongify(self);
          
          [self tile];
