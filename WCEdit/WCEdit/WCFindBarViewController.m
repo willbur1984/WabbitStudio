@@ -28,8 +28,6 @@
 
 @property (readwrite,copy,nonatomic) NSString *searchString;
 
-@property (strong,nonatomic) RACCommand *doneCommand;
-
 @property (weak,nonatomic) WCTextFinder *textFinder;
 
 @end
@@ -59,7 +57,9 @@
     
     @weakify(self);
     
-    [self setDoneCommand:[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+    RAC(self,searchString) = [self.searchField rac_textSignal];
+    
+    [self.doneButton setRac_command:[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             [subscriber sendNext:@YES];
             [subscriber sendCompleted];
@@ -68,17 +68,13 @@
         }];
     }]];
     
-    [[self.doneCommand.executionSignals
+    [[self.doneButton.rac_command.executionSignals
       concat]
      subscribeNext:^(id _) {
          @strongify(self);
          
          [self.textFinder performAction:NSTextFinderActionHideFindInterface];
     }];
-    
-    [self.doneButton setRac_command:self.doneCommand];
-    
-    RAC(self,searchString) = [self.searchField rac_textSignal];
 }
 #pragma mark NSControlTextEditingDelegate
 - (void)controlTextDidBeginEditing:(NSNotification *)note {
@@ -88,7 +84,7 @@
 }
 - (BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector {
     if (commandSelector == @selector(cancelOperation:)) {
-        [self.doneCommand execute:nil];
+        [self.doneButton.rac_command execute:nil];
         
         return YES;
     }
