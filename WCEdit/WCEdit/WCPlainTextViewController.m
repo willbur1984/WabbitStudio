@@ -22,8 +22,9 @@
 #import "WCPlainTextFile.h"
 #import "WCBookmarksRulerView.h"
 #import "WCTextStorage.h"
+#import "WCBookmarksScroller.h"
 
-@interface WCPlainTextViewController () <NSTextViewDelegate>
+@interface WCPlainTextViewController () <WCBookmarksScrollerDelegate,NSTextViewDelegate>
 @property (weak,nonatomic) IBOutlet WCFindBarScrollView *scrollView;
 @property (readwrite,unsafe_unretained,nonatomic) IBOutlet WCPlainTextView *textView;
 
@@ -56,6 +57,13 @@
     
     [self.textView setDelegate:self];
     
+    WCBookmarksScroller *verticalScroller = [[WCBookmarksScroller alloc] initWithFrame:NSZeroRect];
+    
+    [verticalScroller setBookmarksDataSource:self.plainTextFile.textStorage];
+    [verticalScroller setDelegate:self];
+    
+    [self.scrollView setVerticalScroller:verticalScroller];
+    
     [self setTextFinder:[[WCTextFinder alloc] init]];
     [self.textFinder setClient:self.textView];
     [self.textFinder setViewContainer:self.scrollView];
@@ -83,6 +91,10 @@
 
 - (NSUndoManager *)undoManagerForTextView:(NSTextView *)view {
     return self.plainTextFile.undoManager;
+}
+
+- (NSTextView *)textViewForBookmarksScroller:(WCBookmarksScroller *)bookmarksScroller {
+    return self.textView;
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {

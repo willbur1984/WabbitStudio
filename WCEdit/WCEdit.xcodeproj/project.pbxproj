@@ -77,6 +77,8 @@
 		7979FC461998447000576B7D /* WCFindBarSearchFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7979FC441998447000576B7D /* WCFindBarSearchFieldCell.m */; };
 		7979FC49199844AB00576B7D /* WCFindBarFieldEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 7979FC47199844AB00576B7D /* WCFindBarFieldEditor.h */; };
 		7979FC4A199844AB00576B7D /* WCFindBarFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7979FC48199844AB00576B7D /* WCFindBarFieldEditor.m */; };
+		7979FC681999CA5D00576B7D /* WCBookmarksScroller.h in Headers */ = {isa = PBXBuildFile; fileRef = 7979FC661999CA5D00576B7D /* WCBookmarksScroller.h */; };
+		7979FC691999CA5D00576B7D /* WCBookmarksScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 7979FC671999CA5D00576B7D /* WCBookmarksScroller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +168,8 @@
 		7979FC441998447000576B7D /* WCFindBarSearchFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCFindBarSearchFieldCell.m; sourceTree = "<group>"; };
 		7979FC47199844AB00576B7D /* WCFindBarFieldEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFindBarFieldEditor.h; sourceTree = "<group>"; };
 		7979FC48199844AB00576B7D /* WCFindBarFieldEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCFindBarFieldEditor.m; sourceTree = "<group>"; };
+		7979FC661999CA5D00576B7D /* WCBookmarksScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBookmarksScroller.h; sourceTree = "<group>"; };
+		7979FC671999CA5D00576B7D /* WCBookmarksScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBookmarksScroller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,7 +355,7 @@
 			children = (
 				7913F7A4198F16A900831863 /* Text View */,
 				7913F7A5198F16B200831863 /* Line Numbers Ruler View */,
-				7913F7A6198F16BB00831863 /* Bookmarks Ruler View */,
+				7913F7A6198F16BB00831863 /* Bookmarks */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -408,13 +412,15 @@
 			name = "Line Numbers Ruler View";
 			sourceTree = "<group>";
 		};
-		7913F7A6198F16BB00831863 /* Bookmarks Ruler View */ = {
+		7913F7A6198F16BB00831863 /* Bookmarks */ = {
 			isa = PBXGroup;
 			children = (
 				7913F7A7198F171800831863 /* WCBookmarksRulerView.h */,
 				7913F7A8198F171800831863 /* WCBookmarksRulerView.m */,
+				7979FC661999CA5D00576B7D /* WCBookmarksScroller.h */,
+				7979FC671999CA5D00576B7D /* WCBookmarksScroller.m */,
 			);
-			name = "Bookmarks Ruler View";
+			name = Bookmarks;
 			sourceTree = "<group>";
 		};
 		7913F7AF198F219100831863 /* Assets */ = {
@@ -478,6 +484,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7979FC681999CA5D00576B7D /* WCBookmarksScroller.h in Headers */,
 				7913F733198C7CA800831863 /* WCEditConstants.h in Headers */,
 				7913F761198C9B3A00831863 /* NSTextView+WCExtensions.h in Headers */,
 				7913F78E198EB15F00831863 /* WCBookmark.h in Headers */,
@@ -652,6 +659,7 @@
 				7913F780198EAEF200831863 /* Bookmark.m in Sources */,
 				794C4211199615F700CC0D13 /* WCFindBarViewController.m in Sources */,
 				7913F74E198C7EC600831863 /* WCLineNumbersRulerView.m in Sources */,
+				7979FC691999CA5D00576B7D /* WCBookmarksScroller.m in Sources */,
 				7913F788198EB05C00831863 /* Bookmarks.xcdatamodeld in Sources */,
 				7913F782198EAEF200831863 /* _Bookmark.m in Sources */,
 				7913F755198C7F6800831863 /* NSPointerArray+WCExtensions.m in Sources */,
