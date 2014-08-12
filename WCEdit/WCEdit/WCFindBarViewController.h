@@ -18,10 +18,6 @@
 
 @interface WCFindBarViewController : WCBaseViewController
 
-@property (readonly,weak,nonatomic) IBOutlet NSPopUpButton *modePopUpButton;
-@property (readonly,weak,nonatomic) IBOutlet NSSearchField *searchField;
-@property (readonly,weak,nonatomic) IBOutlet NSSegmentedControl *nextPreviousSegmentedControl;
-
 @property (readonly,copy,nonatomic) NSString *searchString;
 
 - (instancetype)initWithTextFinder:(WCTextFinder *)textFinder;

@@ -21,9 +21,9 @@
 #import "WCTextFinder.h"
 
 @interface WCFindBarViewController () <NSTextFieldDelegate>
-@property (readwrite,weak,nonatomic) IBOutlet NSPopUpButton *modePopUpButton;
-@property (readwrite,weak,nonatomic) IBOutlet NSSearchField *searchField;
-@property (readwrite,weak,nonatomic) IBOutlet NSSegmentedControl *nextPreviousSegmentedControl;
+@property (weak,nonatomic) IBOutlet NSPopUpButton *modePopUpButton;
+@property (weak,nonatomic) IBOutlet NSSearchField *searchField;
+@property (weak,nonatomic) IBOutlet NSSegmentedControl *nextPreviousSegmentedControl;
 @property (weak,nonatomic) IBOutlet NSButton *doneButton;
 
 @property (readwrite,copy,nonatomic) NSString *searchString;
