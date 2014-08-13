@@ -20,7 +20,7 @@
 
 @property (readonly,weak,nonatomic) IBOutlet NSSearchField *searchField;
 
-@property (readonly,copy,nonatomic) NSString *searchString;
+@property (copy,nonatomic) NSString *searchString;
 
 - (instancetype)initWithTextFinder:(WCTextFinder *)textFinder;
 

@@ -26,8 +26,6 @@
 @property (weak,nonatomic) IBOutlet NSSegmentedControl *nextPreviousSegmentedControl;
 @property (weak,nonatomic) IBOutlet NSButton *doneButton;
 
-@property (readwrite,copy,nonatomic) NSString *searchString;
-
 @property (weak,nonatomic) WCTextFinder *textFinder;
 
 @end
@@ -55,9 +53,9 @@
     
     [self.searchField setDelegate:self];
     
-    @weakify(self);
+    [self.searchField bind:NSValueBinding toObject:self withKeyPath:@keypath(self,searchString) options:@{NSContinuouslyUpdatesValueBindingOption: @YES}];
     
-    RAC(self,searchString) = [self.searchField rac_textSignal];
+    @weakify(self);
     
     [self.doneButton setRac_command:[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
