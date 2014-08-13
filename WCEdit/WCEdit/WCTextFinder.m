@@ -187,6 +187,9 @@
             }
         }
             break;
+        case NSTextFinderActionSetSearchString:
+            [self.findBarViewController setSearchString:[[self.client string] substringWithRange:[self.client firstSelectedRange]]];
+            break;
         default:
             break;
     }
