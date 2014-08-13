@@ -26,27 +26,29 @@
 @end
 
 @implementation WCAppDelegate
-
+#pragma mark NSApplicationDelegate
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
     return NO;
 }
-
-- (void)applicationDidFinishLaunching:(NSNotification *)note {
+- (void)applicationWillFinishLaunching:(NSNotification *)notification {
     [self _registerDefaultPreferences];
 }
-
-- (IBAction)_aboutAction:(id)sender; {
-    [[[WCAboutWindowController alloc] init] showWindow:nil];
+- (void)applicationDidFinishLaunching:(NSNotification *)note {
+    
 }
-- (IBAction)_preferencesAction:(id)sender; {
-    [[[WCPreferencesWindowController alloc] initWithViewControllerClasses:@[[WCPreferencesTextEditingViewController class]]] showWindow:nil];
-}
-
+#pragma mark *** Private Methods ***
 - (void)_registerDefaultPreferences; {
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"DefaultPreferences" withExtension:@"plist"];
     NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfURL:url];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:prefs];
+}
+#pragma mark Actions
+- (IBAction)_aboutAction:(id)sender; {
+    [[[WCAboutWindowController alloc] init] showWindow:nil];
+}
+- (IBAction)_preferencesAction:(id)sender; {
+    [[[WCPreferencesWindowController alloc] initWithViewControllerClasses:@[[WCPreferencesTextEditingViewController class]]] showWindow:nil];
 }
 
 @end

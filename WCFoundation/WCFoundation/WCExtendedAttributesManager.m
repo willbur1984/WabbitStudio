@@ -13,6 +13,7 @@
 
 #import "WCExtendedAttributesManager.h"
 #import "WCFoundationFunctions.h"
+
 #import <sys/xattr.h>
 #import <sys/errno.h>
 
@@ -23,7 +24,7 @@ NSString *const WCExtendedAttributesManagerExtendedAttributeAppleTextEncoding = 
 @end
 
 @implementation WCExtendedAttributesManager
-
+#pragma mark *** Public Methods ***
 + (NSArray *)attributesAtURL:(NSURL *)url error:(NSError **)error; {
     NSParameterAssert(url);
     

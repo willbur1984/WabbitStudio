@@ -34,7 +34,7 @@ static WCAboutWindowController *kCurrentAboutWindowController;
 @end
 
 @implementation WCAboutWindowController
-
+#pragma mark *** Subclass Overrides ***
 - (id)init {
     if (!(self = [super init]))
         return nil;
@@ -72,6 +72,32 @@ static WCAboutWindowController *kCurrentAboutWindowController;
         retval;
     })];
     
+    [self.acknowledgementsButton setRac_command:[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            NSURL *url = [[NSBundle mainBundle] URLForResource:@"Acknowledgements" withExtension:@"txt"];
+            
+            [[NSWorkspace sharedWorkspace] openURL:url];
+            
+            [subscriber sendCompleted];
+            
+            return nil;
+        }];
+    }]];
+    
+    [self.visitApplicationWebsiteButton setRac_command:[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            if ([NSBundle mainBundle].infoDictionary[WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString]) {
+                NSURL *url = [NSURL URLWithString:[NSBundle mainBundle].infoDictionary[WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString]];
+                
+                [[NSWorkspace sharedWorkspace] openURL:url];
+            }
+            
+            [subscriber sendCompleted];
+            
+            return nil;
+        }];
+    }]];
+    
     [[[[NSNotificationCenter defaultCenter]
        rac_addObserverForName:NSWindowWillCloseNotification object:self.window]
       take:1]
@@ -86,11 +112,6 @@ static WCAboutWindowController *kCurrentAboutWindowController;
     [super showWindow:sender];
 }
 
-- (IBAction)_acknowledgementsButtonAction:(id)sender; {
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Acknowledgements" withExtension:@"txt"];
-    
-    [[NSWorkspace sharedWorkspace] openURL:url];
-}
 - (IBAction)_visitApplicationWebsiteButtonAction:(id)sender; {
     if (![NSBundle mainBundle].infoDictionary[WCAboutWindowControllerInfoPlistKeyApplicationWebsiteURLString])
         return;

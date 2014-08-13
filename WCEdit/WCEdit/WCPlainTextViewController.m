@@ -36,7 +36,7 @@
 @end
 
 @implementation WCPlainTextViewController
-
+#pragma mark *** Subclass Overrides ***
 - (NSBundle *)nibBundle {
     return WCEditBundle();
 }
@@ -89,23 +89,25 @@
     }];
 }
 
-- (NSUndoManager *)undoManagerForTextView:(NSTextView *)view {
-    return self.plainTextFile.undoManager;
+- (void)performTextFinderAction:(NSMenuItem *)sender {
+    [self.textFinder performAction:sender.tag];
 }
 
-- (NSTextView *)textViewForBookmarksScroller:(WCBookmarksScroller *)bookmarksScroller {
-    return self.textView;
-}
-
+#pragma mark NSMenuValidation
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
     if (menuItem.action == @selector(performTextFinderAction:))
         return [self.textFinder validateAction:menuItem.tag];
     return [super validateMenuItem:menuItem];
 }
-- (void)performTextFinderAction:(NSMenuItem *)sender {
-    [self.textFinder performAction:sender.tag];
+#pragma mark NSTextViewDelegate
+- (NSUndoManager *)undoManagerForTextView:(NSTextView *)view {
+    return self.plainTextFile.undoManager;
 }
-
+#pragma mark WCBookmarksScrollerDelegate
+- (NSTextView *)textViewForBookmarksScroller:(WCBookmarksScroller *)bookmarksScroller {
+    return self.textView;
+}
+#pragma mark *** Public Methods ***
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {
     if (!(self = [super init]))
         return nil;
@@ -116,7 +118,7 @@
     
     return self;
 }
-
+#pragma mark *** Private Methods ***
 - (void)_loadExtendedAttributes; {
     NSString *selectedRangeString = [WCExtendedAttributesManager stringForAttribute:WCPlainTextFileExtendedAttributeSelectedRange atURL:self.plainTextFile.fileURL error:NULL];
     

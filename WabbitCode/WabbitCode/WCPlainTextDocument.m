@@ -19,13 +19,9 @@
 @end
 
 @implementation WCPlainTextDocument
-
+#pragma mark *** Subclass Overrides ***
 - (Class)fileClass {
     return [WCPlainTextFile class];
-}
-
-- (WCPlainTextFile *)plainTextFile {
-    return (WCPlainTextFile *)self.file;
 }
 
 @end

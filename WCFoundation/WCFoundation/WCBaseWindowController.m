@@ -19,7 +19,7 @@
 @end
 
 @implementation WCBaseWindowController
-
+#pragma mark *** Subclass Overrides ***
 - (void)dealloc {
     WCLogObject(self.class);
 }

@@ -30,7 +30,7 @@
 @end
 
 @implementation WCTextFinder
-
+#pragma mark *** Subclass Overrides ***
 - (id)init {
     if (!(self = [super init]))
         return nil;
@@ -123,7 +123,7 @@
     
     return self;
 }
-
+#pragma mark *** Public Methods ***
 + (NSDictionary *)textFinderAttributes; {
     return @{NSBackgroundColorAttributeName: [[NSColor yellowColor] colorWithAlphaComponent:0.5],
              NSUnderlineColorAttributeName: [[NSColor orangeColor] colorWithAlphaComponent:0.6],
@@ -195,7 +195,7 @@
 - (void)noteClientStringDidChange; {
     [self setMatchRanges:nil];
 }
-
+#pragma mark Properties
 - (void)setViewContainer:(id<WCTextFinderViewContainer>)viewContainer {
     if (self.viewContainer) {
         [self.viewContainer setTextFinderViewVisible:NO];
@@ -208,7 +208,7 @@
         [self.viewContainer setTextFinderView:self.findBarViewController.view];
     }
 }
-
+#pragma mark *** Private Methods ***
 - (NSRange)_nextRangeDidWrap:(BOOL *)didWrap; {
     NSRange searchRange = NSMakeRange(NSMaxRange([self.client firstSelectedRange]), [self.client string].length - NSMaxRange([self.client firstSelectedRange]));
     NSStringCompareOptions options = NSLiteralSearch;

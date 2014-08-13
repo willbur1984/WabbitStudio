@@ -21,7 +21,7 @@
 @end
 
 @implementation WCBookmarksScroller
-
+#pragma mark *** Subclass Overrides ***
 + (BOOL)isCompatibleWithOverlayScrollers {
     return (self == [WCBookmarksScroller class]);
 }
@@ -44,7 +44,8 @@
         NSRectFill(rect);
     }
 }
-
+#pragma mark *** Public Methods ***
+#pragma mark Properties
 - (void)setBookmarksDataSource:(id<WCBookmarksDataSource>)bookmarksDataSource {
     [self.notificationDisposable dispose];
     
@@ -55,7 +56,8 @@
         
         [self setNotificationDisposable:
          [[[[RACSignal merge:@[[[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidAddBookmark object:bookmarksDataSource],
-                               [[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidRemoveBookmark object:bookmarksDataSource]]]
+                               [[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidRemoveBookmark object:bookmarksDataSource],
+                               [[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidRemoveBookmarks object:bookmarksDataSource]]]
             takeUntil:[self rac_willDeallocSignal]]
            deliverOn:[RACScheduler mainThreadScheduler]]
           subscribeNext:^(id _) {

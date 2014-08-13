@@ -15,7 +15,7 @@
 #import <WCFoundation/WCFoundation.h>
 
 @implementation WCFindBarBackgroundView
-
+#pragma mark *** Subclass Overrides ***
 - (NSSize)intrinsicContentSize {
     return NSMakeSize(NSViewNoInstrinsicMetric, 22.0);
 }

@@ -165,7 +165,6 @@ static CGFloat const kBookmarkWidth = 15.0;
         [self setNotificationCenterDisposable:
          [[[RACSignal merge:@[[[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidAddBookmark object:self.bookmarksDataSource],
                               [[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidRemoveBookmark object:self.bookmarksDataSource],
-                              [[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidAddBookmarks object:self.bookmarksDataSource],
                               [[NSNotificationCenter defaultCenter] rac_addObserverForName:WCBookmarksDataSourceNotificationDidRemoveBookmarks object:self.bookmarksDataSource]]]
            takeUntil:[self rac_willDeallocSignal]]
           subscribeNext:^(id _) {

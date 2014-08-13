@@ -119,9 +119,6 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <connections>
-                            <action selector="_acknowledgementsButtonAction:" target="-2" id="XOu-74-vPP"/>
-                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tre-Yl-wEm">
                         <rect key="frame" x="211" y="13" width="195" height="32"/>
@@ -130,9 +127,6 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <connections>
-                            <action selector="_visitApplicationWebsiteButtonAction:" target="-2" id="Ekp-eu-Gce"/>
-                        </connections>
                     </button>
                 </subviews>
                 <constraints>

@@ -21,7 +21,7 @@
 @end
 
 @implementation WCFindBarScrollView
-
+#pragma mark *** Subclass Overrides ***
 - (id)initWithFrame:(NSRect)frameRect {
     if (!(self = [super initWithFrame:frameRect]))
         return nil;
@@ -54,7 +54,7 @@
         }
     }
 }
-
+#pragma mark WCTextFinderViewContainer
 @synthesize textFinderView=_textFinderView;
 - (void)setTextFinderView:(NSView *)textFinderView {
     if (_textFinderView == textFinderView)
@@ -72,7 +72,7 @@
 - (void)textFinderViewDidChangeHeight {
     [self tile];
 }
-
+#pragma mark *** Private Methods ***
 - (void)_WCFindBarScrollView_init; {
     @weakify(self);
     

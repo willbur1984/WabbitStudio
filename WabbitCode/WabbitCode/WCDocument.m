@@ -22,7 +22,7 @@
 @end
 
 @implementation WCDocument
-
+#pragma mark *** Subclass Overrides ***
 - (id)init {
     if (!(self = [super init]))
         return nil;
@@ -63,7 +63,8 @@
 + (BOOL)autosavesDrafts {
     return NO;
 }
-
+#pragma mark *** Public Methods ***
+#pragma mark Properties
 - (Class)fileClass; {
     return [WCFile class];
 }

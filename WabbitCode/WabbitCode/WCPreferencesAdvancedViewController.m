@@ -18,7 +18,7 @@
 @end
 
 @implementation WCPreferencesAdvancedViewController
-
+#pragma mark WCPreferencesViewController
 + (NSString *)preferencesIdentifier {
     return @"com.williamtowellc.wabbitcode.preferences.advanced";
 }

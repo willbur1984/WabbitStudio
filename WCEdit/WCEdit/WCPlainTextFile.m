@@ -32,7 +32,7 @@ NSString *const WCPlainTextFileExtendedAttributeBookmarks = @"com.williamtowellc
 @end
 
 @implementation WCPlainTextFile
-
+#pragma mark *** Subclass Overrides ***
 - (instancetype)initWithFileURL:(NSURL *)fileURL UTI:(NSString *)UTI error:(NSError *__autoreleasing *)error {
     if (!(self = [super initWithFileURL:fileURL UTI:UTI error:error]))
         return nil;
@@ -82,7 +82,7 @@ NSString *const WCPlainTextFileExtendedAttributeBookmarks = @"com.williamtowellc
     
     return [self _writeExtendedAttributesToURL:url error:error];
 }
-
+#pragma mark *** Private Methods ***
 - (BOOL)_writeExtendedAttributesToURL:(NSURL *)url error:(NSError **)error; {
     if (![WCExtendedAttributesManager setObject:@(self.encoding) forAttribute:WCExtendedAttributesManagerExtendedAttributeAppleTextEncoding atURL:url error:NULL])
         return NO;

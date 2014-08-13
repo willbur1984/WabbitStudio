@@ -18,7 +18,7 @@
 @end
 
 @implementation WCPreferencesGeneralViewController
-
+#pragma mark WCPreferencesViewController
 + (NSString *)preferencesIdentifier {
     return @"com.williamtowellc.wabbitcode.preferences.general";
 }

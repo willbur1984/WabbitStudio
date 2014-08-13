@@ -19,7 +19,7 @@
 @end
 
 @implementation WCBookmarkViewModel
-
+#pragma mark *** Public Methods ***
 - (instancetype)initWithBookmark:(id<WCBookmark>)bookmark; {
     if (!(self = [super init]))
         return nil;

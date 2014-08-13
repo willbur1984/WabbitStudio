@@ -14,7 +14,7 @@
 #import "WCTextFinderOptions.h"
 
 @implementation WCTextFinderOptions
-
+#pragma mark *** Subclass Overrides ***
 - (id)init {
     if (!(self = [super init]))
         return nil;
@@ -23,7 +23,7 @@
     
     return self;
 }
-
+#pragma mark *** Public Methods ***
 + (NSString *)localizedStringForMatchingStyle:(WCTextFinderOptionsMatchingStyle)matchingStyle; {
     switch (matchingStyle) {
         case WCTextFinderOptionsMatchingStyleRegularExpression:

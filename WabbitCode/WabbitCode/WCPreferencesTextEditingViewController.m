@@ -24,7 +24,7 @@ NSString *const WCPreferencesTextEditingViewControllerUserDefaultsKeyWrapSelecte
 @end
 
 @implementation WCPreferencesTextEditingViewController
-
+#pragma mark WCPreferencesViewController
 + (NSString *)preferencesIdentifier {
     return @"com.williamtowellc.wabbitcode.preferences.text-editing";
 }

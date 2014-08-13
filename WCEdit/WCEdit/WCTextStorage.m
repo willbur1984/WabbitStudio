@@ -144,7 +144,7 @@
         return [self addBookmarkWithRange:range.rangeValue];
     }];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:WCBookmarksDataSourceNotificationDidAddBookmarks object:self userInfo:@{WCBookmarksDataSourceUserInfoKeyBookmarks: retval}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:WCBookmarksDataSourceNotificationDidAddBookmarks object:self];
     
     return retval;
 }
@@ -167,7 +167,7 @@
     
     [self.bookmarksManagedObjectContext save:NULL];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:WCBookmarksDataSourceNotificationDidRemoveBookmarks object:self userInfo:@{WCBookmarksDataSourceUserInfoKeyBookmarks: bookmarks}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:WCBookmarksDataSourceNotificationDidRemoveBookmarks object:self];
 }
 #pragma mark *** Private Methods ***
 - (void)_recalculateLineStartIndexesFromLineNumber:(NSUInteger)lineNumber; {

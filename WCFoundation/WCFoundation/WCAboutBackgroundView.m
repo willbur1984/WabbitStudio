@@ -14,7 +14,7 @@
 #import "WCAboutBackgroundView.h"
 
 @implementation WCAboutBackgroundView
-
+#pragma mark *** Subclass Overrides ***
 - (void)drawRect:(NSRect)dirtyRect {
     [[NSColor whiteColor] setFill];
     NSRectFill(self.bounds);

@@ -29,7 +29,7 @@
 @end
 
 @implementation WCFindOptionsViewController
-
+#pragma mark *** Subclass Overrides ***
 - (NSBundle *)nibBundle {
     return WCEditBundle();
 }
@@ -76,7 +76,7 @@
     [self.matchCaseCheckboxButton bind:NSValueBinding toObject:self.textFinderOptions withKeyPath:@keypath(self.textFinderOptions,matchCase) options:nil];
     [self.wrapCheckboxButton bind:NSValueBinding toObject:self.textFinderOptions withKeyPath:@keypath(self.textFinderOptions,wrap) options:nil];
 }
-
+#pragma mark *** Public Methods ***
 - (instancetype)initWithTextFinderOptions:(WCTextFinderOptions *)textFinderOptions; {
     if (!(self = [super init]))
         return nil;

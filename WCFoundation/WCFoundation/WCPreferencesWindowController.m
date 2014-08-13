@@ -127,7 +127,12 @@ static WCPreferencesWindowController *kCurrentPreferencesWindowController;
             [oldViewController.view.animator setAlphaValue:0.0];
             [selectedViewController.view.animator setAlphaValue:1.0];
         } completionHandler:^{
+            @strongify(self);
+            
             [oldViewController.view removeFromSuperviewWithoutNeedingDisplay];
+            
+            if ([selectedViewController respondsToSelector:@selector(initialFirstResponder)])
+                [self.window makeFirstResponder:[selectedViewController initialFirstResponder]];
         }];
     }
     else {

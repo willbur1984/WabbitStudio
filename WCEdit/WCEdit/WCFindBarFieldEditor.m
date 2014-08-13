@@ -14,16 +14,7 @@
 #import "WCFindBarFieldEditor.h"
 
 @implementation WCFindBarFieldEditor
-
-- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
-    if (menuItem.action == @selector(performTextFinderAction:))
-        return [self.textFinder validateAction:menuItem.tag];
-    return [super validateMenuItem:menuItem];
-}
-- (void)performTextFinderAction:(NSMenuItem *)sender {
-    [self.textFinder performAction:sender.tag];
-}
-
+#pragma mark *** Subclass Overrides ***
 - (id)initWithFrame:(NSRect)frameRect {
     if (!(self = [super initWithFrame:frameRect]))
         return nil;
@@ -33,6 +24,17 @@
     return self;
 }
 
+- (void)performTextFinderAction:(NSMenuItem *)sender {
+    [self.textFinder performAction:sender.tag];
+}
+
+#pragma mark NSMenuValidation
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+    if (menuItem.action == @selector(performTextFinderAction:))
+        return [self.textFinder validateAction:menuItem.tag];
+    return [super validateMenuItem:menuItem];
+}
+#pragma mark *** Public Methods ***
 + (instancetype)sharedInstance; {
     static id retval;
     static dispatch_once_t onceToken;

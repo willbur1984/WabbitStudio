@@ -41,25 +41,25 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
 @end
 
 @implementation WCSplitViewController
-
+#pragma mark *** Subclass Overrides ***
 - (void)loadView {
     [super loadView];
     
     [self _addViewController:[[WCPlainTextViewController alloc] initWithPlainTextFile:self.plainTextFile]];
     [[self.viewControllers.firstObject view] setFrame:self.view.bounds];
 }
-
+#pragma mark NSMenuValidation
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
     if (menuItem.action == @selector(closeSplitAction:)) {
         return (self.viewControllers.count > 1);
     }
     return YES;
 }
-
+#pragma mark RBSplitViewDelegate
 - (BOOL)splitView:(RBSplitView *)sender canCollapse:(RBSplitSubview *)subview {
     return NO;
 }
-
+#pragma mark *** Public Methods ***
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {
     if (!(self = [super init]))
         return nil;
@@ -70,7 +70,7 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
     
     return self;
 }
-
+#pragma mark Actions
 - (IBAction)newVerticalSplitAction:(id)sender; {
     [self _addSplitWithOrientation:WCSplitViewControllerOrientationVertical];
 }
@@ -86,7 +86,7 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
     [self _removeViewController:viewController];
     [self _destroySplitViewIfNecessary];
 }
-
+#pragma mark *** Private Methods ***
 - (void)_configurePlainTextViewController:(WCPlainTextViewController *)viewController; {
     [viewController.textView setHighlightCurrentLineColor:[NSColor colorWithRed:1.0 green:1.0 blue:0.901960784 alpha:1.0]];
     

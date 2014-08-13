@@ -22,7 +22,7 @@
 @end
 
 @implementation WCDocumentWindowController
-
+#pragma mark *** Subclass Overrides ***
 - (void)windowDidLoad {
     [super windowDidLoad];
     
@@ -31,11 +31,11 @@
     [self setSplitViewController:[[WCSplitViewController alloc] initWithPlainTextFile:(WCPlainTextFile *)self.file]];
     [self.window setContentView:self.splitViewController.view];
 }
-
+#pragma mark NSWindowDelegate
 - (void)windowWillClose:(NSNotification *)notification {
     
 }
-
+#pragma mark *** Public Methods ***
 - (instancetype)initWithFile:(WCFile *)file; {
     if (!(self = [super init]))
         return nil;

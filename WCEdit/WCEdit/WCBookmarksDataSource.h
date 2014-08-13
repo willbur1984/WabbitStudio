@@ -21,7 +21,6 @@ static NSString *const WCBookmarksDataSourceNotificationDidAddBookmarks = @"WCBo
 static NSString *const WCBookmarksDataSourceNotificationDidRemoveBookmarks = @"WCBookmarksDataSourceNotificationDidRemoveBookmarks";
 
 static NSString *const WCBookmarksDataSourceUserInfoKeyBookmark = @"WCBookmarksDataSourceUserInfoKeyBookmark";
-static NSString *const WCBookmarksDataSourceUserInfoKeyBookmarks = @"WCBookmarksDataSourceUserInfoKeyBookmarks";
 
 @protocol WCBookmarksDataSource <NSObject>
 @required

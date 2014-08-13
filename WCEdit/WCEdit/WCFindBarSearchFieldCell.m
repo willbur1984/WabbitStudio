@@ -15,7 +15,7 @@
 #import "WCFindBarFieldEditor.h"
 
 @implementation WCFindBarSearchFieldCell
-
+#pragma mark *** Subclass Overrides ***
 - (NSTextView *)fieldEditorForView:(NSView *)aControlView {
     return [WCFindBarFieldEditor sharedInstance];
 }
