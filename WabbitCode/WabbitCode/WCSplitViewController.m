@@ -19,17 +19,16 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/EXTScope.h>
 #import <BlocksKit/BlocksKit.h>
-#import "RBSplitView.h"
 
 typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
     WCSplitViewControllerOrientationVertical,
     WCSplitViewControllerOrientationHorizontal
 };
 
-@interface WCSplitViewController () <RBSplitViewDelegate>
+@interface WCSplitViewController () <NSSplitViewDelegate>
 @property (weak,nonatomic) WCPlainTextFile *plainTextFile;
 
-@property (strong,nonatomic) RBSplitView *splitView;
+@property (strong,nonatomic) NSSplitView *splitView;
 @property (copy,nonatomic) NSArray *viewControllers;
 
 - (void)_configurePlainTextViewController:(WCPlainTextViewController *)plainTextViewController;
@@ -55,9 +54,21 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
     }
     return YES;
 }
-#pragma mark RBSplitViewDelegate
-- (BOOL)splitView:(RBSplitView *)sender canCollapse:(RBSplitSubview *)subview {
+#pragma mark NSSplitViewDelegate
+- (BOOL)splitView:(NSSplitView *)splitView canCollapseSubview:(NSView *)subview {
     return NO;
+}
+- (CGFloat)splitView:(NSSplitView *)splitView constrainMinCoordinate:(CGFloat)proposedMinimumPosition ofSubviewAt:(NSInteger)dividerIndex {
+    CGFloat totalAmount = (splitView.isVertical) ? NSWidth(splitView.frame) : NSHeight(splitView.frame);
+    CGFloat amount = floor((totalAmount - (splitView.dividerThickness * (splitView.subviews.count - 2))) / splitView.subviews.count);
+    
+    return proposedMinimumPosition + ceil(amount * 0.33);
+}
+- (CGFloat)splitView:(NSSplitView *)splitView constrainMaxCoordinate:(CGFloat)proposedMaximumPosition ofSubviewAt:(NSInteger)dividerIndex {
+    CGFloat totalAmount = (splitView.isVertical) ? NSWidth(splitView.frame) : NSHeight(splitView.frame);
+    CGFloat amount = floor((totalAmount - (splitView.dividerThickness * (splitView.subviews.count - 2))) / splitView.subviews.count);
+    
+    return proposedMaximumPosition - ceil(amount * 0.33);
 }
 #pragma mark *** Public Methods ***
 - (instancetype)initWithPlainTextFile:(WCPlainTextFile *)plainTextFile; {
@@ -116,31 +127,15 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
     if (self.splitView)
         return;
     
-    [self setSplitView:[[RBSplitView alloc] initWithFrame:self.view.bounds]];
+    [self setSplitView:[[NSSplitView alloc] initWithFrame:self.view.bounds]];
     [self.splitView setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
-    [self.splitView setBackground:[NSColor darkGrayColor]];
-    [self.splitView setDivider:({
-        NSImage *retval = [[NSImage alloc] initWithSize:NSMakeSize(10.0, 10.0)];
-        
-        [retval lockFocus];
-        
-        [[NSColor whiteColor] setFill];
-        [[NSBezierPath bezierPathWithOvalInRect:NSInsetRect(NSMakeRect(0, 0, retval.size.width, retval.size.height), 2.0, 2.0)] fill];
-        
-        [retval unlockFocus];
-        
-        retval;
-    })];
+    [self.splitView setDividerStyle:NSSplitViewDividerStylePaneSplitter];
     [self.splitView setDelegate:self];
     [self.view addSubview:self.splitView];
     
     WCPlainTextViewController *viewController = self.viewControllers.firstObject;
-    RBSplitSubview *subview = [[RBSplitSubview alloc] initWithFrame:viewController.view.frame];
     
-    [subview setIdentifier:[NSString stringWithFormat:@"%p",viewController]];
-    [subview addSubview:viewController.view];
-    
-    [self.splitView addSubview:subview];
+    [self.splitView addSubview:viewController.view];
 }
 - (void)_destroySplitViewIfNecessary; {
     if (self.splitView && self.viewControllers.count > 1)
@@ -165,25 +160,20 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
     [viewControllers addObject:viewController];
     
     if (self.splitView) {
-        RBSplitSubview *subview = [[RBSplitSubview alloc] initWithFrame:viewController.view.frame];
-        
-        [subview setIdentifier:[NSString stringWithFormat:@"%p",viewController]];
-        [subview addSubview:viewController.view];
-        
-        [self.splitView addSubview:subview];
+        [self.splitView addSubview:viewController.view];
+        [self.splitView adjustSubviews];
     }
     else
         [self.view addSubview:viewController.view];
     
     [self _configurePlainTextViewController:viewController];
     
-    CGFloat totalAmount = (self.splitView.isVertical) ? NSWidth(self.splitView.frame) : NSHeight(self.splitView.frame);
-    CGFloat amount = floor((totalAmount - (self.splitView.dividerThickness * (self.splitView.numberOfSubviews - 2))) / self.splitView.numberOfSubviews);
-    CGFloat minAmount = floor(amount * 0.33);
-    
-    for (RBSplitSubview *subview in self.splitView.subviews) {
-        [subview setMinDimension:minAmount andMaxDimension:0.0];
-        [subview setDimension:amount];
+    if (self.splitView) {
+        CGFloat totalAmount = (self.splitView.isVertical) ? NSWidth(self.splitView.frame) : NSHeight(self.splitView.frame);
+        CGFloat amount = floor((totalAmount - (self.splitView.dividerThickness * (self.splitView.subviews.count - 2))) / self.splitView.subviews.count);
+
+        for (NSUInteger i=0; i<self.splitView.subviews.count-1; i++)
+            [self.splitView setPosition:amount ofDividerAtIndex:i];
     }
     
     [viewController.textView WC_makeFirstResponder];
@@ -194,10 +184,7 @@ typedef NS_ENUM(NSInteger, WCSplitViewControllerOrientation) {
     NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:self.viewControllers];
     
     [viewControllers removeObject:viewController];
-    
-    RBSplitSubview *subview = [self.splitView subviewWithIdentifier:[NSString stringWithFormat:@"%p",viewController]];
-    
-    [subview removeFromSuperview];
+    [viewController.view removeFromSuperview];
     
     [viewController.textView.textStorage removeLayoutManager:viewController.textView.layoutManager];
     
