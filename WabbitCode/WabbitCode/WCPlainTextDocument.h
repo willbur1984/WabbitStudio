@@ -13,6 +13,10 @@
 
 #import "WCDocument.h"
 
+@class WCPlainTextFile;
+
 @interface WCPlainTextDocument : WCDocument
+
+@property (readonly,nonatomic) WCPlainTextFile *plainTextFile;
 
 @end

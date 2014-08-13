@@ -24,4 +24,8 @@
     return [WCPlainTextFile class];
 }
 
+- (WCPlainTextFile *)plainTextFile {
+    return (WCPlainTextFile *)self.file;
+}
+
 @end
